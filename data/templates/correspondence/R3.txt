@@ -1,0 +1,118 @@
+# source_id: R3
+# title: Enron email thread, UCC lien searches with outside counsel (4 messages)
+# url: https://www.cs.cmu.edu/~enron/
+# mirror: HPI Quagga copy of the corpus, exact file and commit in data/sources/correspondence/manifest.json
+# licence: Enron email corpus, research release of the FERC public record
+# kind: filled_real
+# subtype: email_thread
+# year_shifts: 0 6 17
+# static_hard_cases: company_with_person_name over_redaction_trap
+# notes: headers reduced to Date, From, To, Subject, Cc with display names from X-From/X-To; the Lotus Notes column table is flattened to plain lines; registered company addresses in the search list are public company data and stay unlabelled (trap); [[opt]] blocks are added variations
+# ---
+Date: {{DATE:2001-11-03T12:02:35|rfc}}
+From: {{PERSON:paralegal|last_comma_first}} <{{EMAIL:paralegal|<first>.<last>@enron.com}}>
+To: {{PERSON:sr_counsel|last_comma_first_mi}} <{{EMAIL:sr_counsel|<m>..<last>@enron.com}}>
+Subject: RE: UCC Lien Searches[[opt@ref=0.5: (Ref {{CUSTOM:cwt_matter|matter}})]]
+Cc: {{PERSON:legal_asst|last_comma_first}} <{{EMAIL:legal_asst|<first>.<last>@enron.com}}>
+
+
+Yes they are to prepare all the UCC filings.
+ -----Original Message-----
+From: 	{{PERSON:sr_counsel|last_comma_first_mi}}
+Sent:	{{DATE:2001-11-03T13:52:00|long}}
+To:	{{PERSON:paralegal|last_comma_first}}; {{PERSON:legal_asst|last_comma_first}}
+Subject:	FW: UCC Lien Searches[[opt@ref: (Ref {{CUSTOM:cwt_matter|matter}})]]
+
+I thought he knew this... they are to prepare the filings, correct?
+
+ -----Original Message-----
+From: 	"{{PERSON:outside_counsel|full}}" <{{EMAIL:outside_counsel|<First>.<Last>@cwt.com}}>@ENRON
+Sent:	{{DATE:2001-11-02T15:20:00|long}}
+To:	{{PERSON:credit_analyst|last_comma_first}}
+Cc:	{{PERSON:sr_counsel|last_comma_first_mi}}
+Subject:	Re: UCC Lien Searches[[opt@ref: (Ref {{CUSTOM:cwt_matter|matter}})]]
+
+
+Same question as in my prior message.  Specifically, should we also prepare
+filings?[[opt=0.5:  {{PERSON:sr_counsel|first_var}}'s note from last week did not say.]]
+
+{{PERSON:outside_counsel|full}}
+Cadwalader, Wickersham & Taft
+{{ADDRESS:cwt_office|any}}
+Tel.: {{PHONE:outside_counsel_tel|landline}}
+Fax: {{PHONE:cwt_fax|landline}}
+E-mail: {{EMAIL:outside_counsel|<first>.<last>@cwt.com}}
+[[opt@ref:Our ref: {{CUSTOM:cwt_matter|matter}}
+]]
+
+
+[[alt@quote:"{{PERSON:credit_analyst|last_comma_first}}" <{{EMAIL:credit_analyst|<First>.<Last>@ENRON.com}}> on {{DATE:2001-11-02T10:42:00|notes}}
+To: <{{EMAIL:outside_counsel|<first>.<last>@cwt.com}}>
+cc: "{{PERSON:sr_counsel|last_comma_first_mi}}" <{{EMAIL:sr_counsel|<First>.<M>.<Last>@ENRON.com}}>
+Subject: UCC Lien Searches||-----Original Message-----
+From: {{PERSON:credit_analyst|last_comma_first}} [mailto:{{EMAIL:credit_analyst|<First>.<Last>@ENRON.com}}]
+Sent: {{DATE:2001-11-02T10:42:00|long}}
+To: {{EMAIL:outside_counsel|<first>.<last>@cwt.com}}
+Cc: {{PERSON:sr_counsel|last_comma_first_mi}}
+Subject: UCC Lien Searches]]
+
+
+
+
+
+
+Here are a few more names for UCC Lien Searches:
+
+Incorporated in Virginia:     Dominion Resources, Inc., 100 Tredegar
+St., Richmond, VA  23219
+               Virginia Power Energy Marketing, Inc., 5000
+Dominion Blvd., Glen Allen, VA  23060
+
+Incorporated in Delaware:
+               Dominion Exploration & Production, Inc., CNG
+Tower, 1450 Poydras St., New Orleans, LA  70112
+               Dominion Field Services, Inc., 445 West Main
+Street, Clarksburg, WV  23601
+               Dominion Transmission, Inc., 445 West Main
+Street, Clarksburg, WV  23601
+[[opt=0.6:
+Our counterparty ID for all five entities is {{CUSTOM:enron_cp|client_code}}; please quote it on the
+search requests.
+]]
+Thanks for your assistance.
+
+{{PERSON:credit_analyst|first_var_last}}
+Enron North America Corp.
+{{ADDRESS:enron_office|lines}}
+Phone:  {{PHONE:credit_analyst_tel|any}}
+Fax:  {{PHONE:credit_analyst_fax|landline}}
+
+
+
+
+
+**********************************************************************
+This e-mail is the property of Enron Corp. and/or its relevant affiliate
+and may contain confidential and privileged material for the sole use of
+the intended recipient (s). Any review, use, distribution or disclosure by
+others is strictly prohibited. If you are not the intended recipient (or
+authorized to receive for the recipient), please contact the sender or
+reply to Enron Corp. at {{EMAIL:msgadmin|<role>@enron.com}} and delete
+all copies of the message. This e-mail (and any attachments hereto) are not
+intended to be an offer (or an acceptance) and do not create or evidence a
+binding and enforceable contract between Enron Corp. (or any of its
+affiliates) and the intended recipient or any other party, and may not be
+relied on by anyone as the basis of a contract by estoppel or otherwise.
+Thank you.
+**********************************************************************
+
+
+
+
+==============================================================================
+NOTE:  The information in this email is confidential and may be legally privileged.  If you are not the intended recipient, you must not read, use or disseminate the information.  Although this email and any attachments are believed to be free of any virus or other defect
+that might affect any computer system into which it is received and opened, it is the responsibility of the recipient to ensure that it is virus free and no responsibility is accepted by Cadwalader, Wickersham
+& Taft for any loss or damage arising in any way from its use.
+
+
+==============================================================================

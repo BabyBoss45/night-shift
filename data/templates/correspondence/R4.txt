@@ -1,0 +1,112 @@
+# source_id: R4
+# title: Enron email thread, forwarded travel agency itinerary (2 messages)
+# url: https://www.cs.cmu.edu/~enron/
+# mirror: HPI Quagga copy of the corpus, exact file and commit in data/sources/correspondence/manifest.json
+# licence: Enron email corpus, research release of the FERC public record
+# kind: filled_real
+# subtype: email_thread
+# year_shifts: 0 6 17
+# static_hard_cases: over_redaction_trap
+# notes: headers reduced to Date, From, To, Subject, Cc with display names from X-From/X-To; the hotel's own listing address stays unlabelled (public business, trap); [[opt]] blocks are added variations
+# ---
+Date: {{DATE:2001-07-30T11:54:57|rfc}}
+From: {{PERSON:traveller|last_comma_first}} <{{EMAIL:traveller|<first>.<last>@enron.com}}>
+To: {{PERSON:colleague|last_comma_first}} <{{EMAIL:colleague|<first>.<last>@enron.com}}>
+Subject: FW: {{PERSON:traveller|upper_last}}-ITIN ONLY/$414.00 NON REF OR $1048.00 REFUNDABLE
+
+FYI.  This is the flight and hotel I booked for SEPA.  I did NOT book your reservation, but did get the non-refundable ticket.[[opt=0.5:  Ask {{PERSON:assistant|first_var}} for the
+booking ref if you want to change yours.]]
+
+{{PERSON:traveller|initials}}
+
+-----Original Message-----
+From: {{PERSON:agent|upper_full}} [mailto:{{EMAIL:agent|<f><last>_vitoltvl@yahoo.com}}]
+Sent: {{DATE:2001-07-30T13:35:00|long}}
+To: {{PERSON:traveller|last_comma_first}}
+Cc: {{EMAIL:assistant|<F><LAST><N>@ENRON.COM}}
+Subject: {{PERSON:traveller|upper_last}}-ITIN ONLY/$414.00 NON REF OR $1048.00 REFUNDABLE
+
+
+                                          AGENT {{PERSON:agent|initials}}/{{PERSON:agent|initials}} BOOKING REF
+{{CUSTOM:booking_ref|pnr}}
+
+                                          {{PERSON:traveller|upper_last_slash_first}}
+
+
+  ENRON
+  {{ADDRESS:enron_billing|lines,upper,indent=2}}
+  ATTN-{{PERSON:assistant|upper_full}} X{{PHONE:assistant_ext|ext5}}
+
+
+  DATE:  {{DATE:2001-07-30T00:00:00|airlong}}
+
+SERVICE               DATE  FROM           TO             DEPART
+ARRIVE
+
+CONTINENTAL AIRLINES  {{DATE:2001-08-09T00:00:00|air}} HOUSTON TX     ATLANTA GA     235P    538P
+CO 1582    V          {{DATE:2001-08-09T00:00:00|dow3}}   G.BUSH INTERCO W B HARTSFIELD
+                            TERMINAL C     TERMINAL N
+                                                          NON STOP
+                            RESERVATION CONFIRMED         2:03 DURATION
+                  AIRCRAFT: BOEING 737-300
+                            SEAT 07C NO SMOKING CONFIRMED
+{{PERSON:traveller|upper_last_slash_first}}
+[[opt@apis=0.7:                            APIS: PASSPORT {{ID_DOC:traveller_passport|passport}} DOB {{DOB:traveller_dob|air}}
+]]
+CAR                   {{DATE:2001-08-09T00:00:00|air}} NATIONAL               ATLANTA GA
+                      {{DATE:2001-08-10T00:00:00|air}} CONFIRMATION: {{CUSTOM:car_conf|conf_9d_alpha}}
+                            TELEPHONE: {{PHONE:car_desk|landline}}
+                            FAX: {{PHONE:car_fax|landline}}
+                            FULL 4-DOOR CAR AUTOMATIC AIR
+                            RATE: USD41.00DY-UNL MI
+                            RATE QUOTED
+                            BASE RATE: *ZL*USD41.00 BR-1DY
+                            PICK-UP: ATLANTA INTERNATIONAL AIRPORT,
+                            ATLANTA
+                            DROP-OFF: ATLANTA INTERNATIONAL AIRPORT,
+                            ATLANTA
+
+HOTEL                 {{DATE:2001-08-09T00:00:00|air}} DAYS INN ELBERTON - 1984
+                      {{DATE:2001-08-10T00:00:00|air}} 302 ELBERT STREET, HWY 72
+                            ELBERTON, GA 30635
+                            UNITED STATES OF AMERICA
+                            TELEPHONE: {{PHONE:hotel_tel|landline}}
+                            FAX: {{PHONE:hotel_fax|landline}}
+                            TELEX: NONE
+                            CONFIRMATION: {{CUSTOM:hotel_conf|hotel_conf}}
+                            REFERENCE: {{CUSTOM:hotel_ref|pnr}}
+                            SINGLE ROOM
+                            RATE: *** USD 58.50 PER NIGHT
+                            GUARANTEE GIVEN[[opt@card=0.7: - CARD ENDING {{CARD:traveller_card|last4}}]]
+                            CMFD NS KING
+        *4PM* DAY OF ARRIVAL XCL POLICY AT THE DAYS INN ELBERTON
+
+CONTINENTAL AIRLINES  {{DATE:2001-08-10T00:00:00|air}} ATLANTA GA     HOUSTON TX     1220P   129P
+CO 1587    K          {{DATE:2001-08-10T00:00:00|dow3}}   W B HARTSFIELD G.BUSH INTERCO
+                            TERMINAL N     TERMINAL C
+                            SNACK                         NON STOP
+                            RESERVATION CONFIRMED         2:09 DURATION
+                  AIRCRAFT: MCDONNELL DOUGLAS MD-80 ALL SERIES
+
+RESERVATION NUMBER(S)  CO/{{CUSTOM:airline_pnr|pnr}}
+
+CO  FREQUENT FLYER {{CUSTOM:ff_number|loyalty}}
+[[opt@card:FORM OF PAYMENT: CC {{CARD:traveller_card|full}}
+]]NON-REFUNDABLE TKT MINIMUM $100.00 CHANGE FEE
+***********************************************
+THIS IS A TICKETLESS RESERVATION. PLEASE HAVE A
+PICTURE ID AVAILABLE AT THE AIRPORT. THANK YOU
+                  THANK YOU FOR CALLING VITOL TRAVEL
+
+
+=====
+VITOL TRAVEL
+{{ADDRESS:vitol_office|lines,upper}}
+{{PHONE:vitol_tel|landline}} - PHONE
+{{PHONE:vitol_fax|landline}} - FAX
+[[opt=0.6:CORPORATE ACCT {{CUSTOM:vitol_acct|client_code}}
+]]
+__________________________________________________
+Do You Yahoo!?
+Make international calls for as low as $.04/minute with Yahoo! Messenger
+http://phonecard.yahoo.com/

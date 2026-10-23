@@ -1,0 +1,112 @@
+[
+  {
+    "source_id": "R1",
+    "url": "https://www.cs.cmu.edu/~enron/",
+    "licence": "Enron email corpus, research release of the FERC public record",
+    "kind": "filled_real",
+    "fetched": true,
+    "fetched_at": "2026-10-23T23:06:17+00:00",
+    "sha256": "0766c1df19fba61426f6471f4e68efdaa8952b20b76f1cec89c30a480924def2",
+    "notes": "Enron message from the copy in https://github.com/HPI-Information-Systems/Quagga at commit 4ba5be0fd4a0a5954527ea93cf6592f54f4fc3f0, file Datasets/Enron/annotated_all/train/shackleton-s_inbox_343.txt; sha256 is of the message text with CR removed"
+  },
+  {
+    "source_id": "R2",
+    "url": "https://www.cs.cmu.edu/~enron/",
+    "licence": "Enron email corpus, research release of the FERC public record",
+    "kind": "filled_real",
+    "fetched": true,
+    "fetched_at": "2026-10-23T23:06:17+00:00",
+    "sha256": "26cb71197d5f53770add6c605cf4b26ca8e3521ceb63b56266c1f4d66495fa54",
+    "notes": "Enron message from the copy in https://github.com/HPI-Information-Systems/Quagga at commit 4ba5be0fd4a0a5954527ea93cf6592f54f4fc3f0, file Datasets/Enron/annotated_all/train/dasovich-j_interconnection_12.txt; sha256 is of the message text with CR removed"
+  },
+  {
+    "source_id": "R3",
+    "url": "https://www.cs.cmu.edu/~enron/",
+    "licence": "Enron email corpus, research release of the FERC public record",
+    "kind": "filled_real",
+    "fetched": true,
+    "fetched_at": "2026-10-23T23:06:17+00:00",
+    "sha256": "b578925fe152f64418133a5f7c15dc913234c4df6c0a203f819bb919e2637dfe",
+    "notes": "Enron message from the copy in https://github.com/HPI-Information-Systems/Quagga at commit 4ba5be0fd4a0a5954527ea93cf6592f54f4fc3f0, file Datasets/Enron/annotated_all/eval/heard-m_inbox_master_netting_185.txt; sha256 is of the message text with CR removed"
+  },
+  {
+    "source_id": "R4",
+    "url": "https://www.cs.cmu.edu/~enron/",
+    "licence": "Enron email corpus, research release of the FERC public record",
+    "kind": "filled_real",
+    "fetched": true,
+    "fetched_at": "2026-10-23T23:06:17+00:00",
+    "sha256": "1b82837fcab56b9d4a507d4389e244eb3caa79b216547cf33b8ae220392de983",
+    "notes": "Enron message from the copy in https://github.com/HPI-Information-Systems/Quagga at commit 4ba5be0fd4a0a5954527ea93cf6592f54f4fc3f0, file Datasets/Enron/annotated_all/train/hernandez-j_inbox_297.txt; sha256 is of the message text with CR removed"
+  },
+  {
+    "source_id": "R5",
+    "url": "https://www.cs.cmu.edu/~enron/",
+    "licence": "Enron email corpus, research release of the FERC public record",
+    "kind": "filled_real",
+    "fetched": true,
+    "fetched_at": "2026-10-23T23:06:17+00:00",
+    "sha256": "8a5c3e23808a414860637a6b988b04bcb78950df4e1b198fe97a3887cdbde1c7",
+    "notes": "Enron message from the copy in https://github.com/HPI-Information-Systems/Quagga at commit 4ba5be0fd4a0a5954527ea93cf6592f54f4fc3f0, file Datasets/Enron/annotated_all/test/kaminski-v_all_documents_1882.txt; sha256 is of the message text with CR removed"
+  },
+  {
+    "source_id": "R6",
+    "url": "https://www.justice.gov.uk/courts/procedure-rules/civil/protocol/prot_hou",
+    "licence": "Crown copyright, Open Government Licence",
+    "kind": "template",
+    "fetched": false,
+    "fetched_at": "2026-10-23T23:06:17+00:00",
+    "sha256": null,
+    "notes": "Housing disrepair pre-action protocol, annex letter templates; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source_id": "R7",
+    "url": "https://ico.org.uk/media2/migrated/4028636/sar-complaint-letter-or-email-template-v10.docx",
+    "licence": "Open Government Licence",
+    "kind": "template",
+    "fetched": false,
+    "fetched_at": "2026-10-23T23:06:17+00:00",
+    "sha256": null,
+    "notes": "ICO subject access request complaint template; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source_id": "R8",
+    "url": "https://www.acas.org.uk/job-offer-templates/job-offer-letter-template-with-written-statement",
+    "licence": "Open Government Licence",
+    "kind": "template",
+    "fetched": false,
+    "fetched_at": "2026-10-23T23:06:18+00:00",
+    "sha256": null,
+    "notes": "Acas job offer letter template; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source_id": "R9",
+    "url": "https://www.acas.org.uk/disciplinary-outcome-letter-templates/notice-of-disciplinary-outcome-letter-template-dismissal-disciplinary-action-or-no-action",
+    "licence": "Open Government Licence",
+    "kind": "template",
+    "fetched": false,
+    "fetched_at": "2026-10-23T23:06:18+00:00",
+    "sha256": null,
+    "notes": "Acas disciplinary outcome letter template; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source_id": "R10",
+    "url": "https://www.sec.gov/Archives/edgar/data/858446/000095010309002490/filename1.htm",
+    "licence": "Public filing, SEC EDGAR",
+    "kind": "filled_real",
+    "fetched": false,
+    "fetched_at": "2026-10-23T23:06:18+00:00",
+    "sha256": null,
+    "notes": "IHG letter to the SEC; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source_id": "R11",
+    "url": "https://api.parliament.uk/committees/publications/7750",
+    "licence": "Open Parliament Licence",
+    "kind": "filled_real",
+    "fetched": false,
+    "fetched_at": "2026-10-23T23:06:18+00:00",
+    "sha256": null,
+    "notes": "Parliament committee correspondence listing; letters to pick by hand; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]

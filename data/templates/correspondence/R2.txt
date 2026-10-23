@@ -1,0 +1,64 @@
+# source_id: R2
+# title: Enron email thread, utility drawing request for a new power line (3 messages, quoted reply)
+# url: https://www.cs.cmu.edu/~enron/
+# mirror: HPI Quagga copy of the corpus, exact file and commit in data/sources/correspondence/manifest.json
+# licence: Enron email corpus, research release of the FERC public record
+# kind: filled_real
+# subtype: email_thread
+# year_shifts: 0 11 22
+# static_hard_cases:
+# notes: headers reduced to Date, From, To, Subject, Cc with display names from X-From/X-To; [[opt]] blocks are added variations
+# ---
+Date: {{DATE:1999-11-30T08:47:00|rfc}}
+From: {{PERSON:ees_manager|full}} <{{EMAIL:ees_manager|<first>.<last>@enron.com}}>
+To: {{PERSON:pm|full}} <{{EMAIL:pm|<first>.<last>@enron.com}}>
+Subject: FW: PG&E drawing request[[opt@case=0.6: - case {{CUSTOM:pge_case|case_triplet}}]]
+Cc: {{PERSON:govaff|full}} <{{EMAIL:govaff|<first>.<last>@enron.com}}>
+
+Dah? Is he kidding us? {{PERSON:ees_manager|first_var}}
+
+-----Original Message-----
+From: "{{PERSON:pge_engineer|last_comma_first}}" <{{EMAIL:pge_engineer|<F><M><L><N>@pge.com}}>@ENRON@EES
+Sent: {{DATE:1999-11-30T20:39:00|long}}
+To: {{PERSON:pm|last_comma_first}}
+Cc: "'{{PERSON:csuf_contact|first_var_last}}'" <{{EMAIL:csuf_contact|<first>_<last>@csufresno.edu}}>@ENRON@EES; {{PERSON:ees_manager|last_comma_first}};
+"{{PERSON:pge_lead|last_comma_first_m}}" <{{EMAIL:pge_lead|<F><M><L><N>@pge.com}}>@ENRON@EES; "{{PERSON:pge_planner2|last_comma_first}}"
+<{{EMAIL:pge_planner2|<F><M><L><N>@pge.com}}>@ENRON@EES
+Subject: RE: PG&E drawing request[[opt@case: - case {{CUSTOM:pge_case|case_triplet}}]]
+
+ {{PERSON:pm|first_var}},
+After discussion with one of our folks, who has experience with the CEQA
+process, we feel that the narrative should provide what you need for our
+part in the CEQA process.  If you need additional information regarding
+this, please contact {{PERSON:pge_planner|title_full}} at {{PHONE:pge_planner_tel|any}}.[[opt@case:  Please quote
+case {{CUSTOM:pge_case|case_triplet}} so it reaches the right team.]]
+By the way, do we have a tentative date to meet again for around
+mid-December? I will not be available on Fridays in Dec.
+{{PERSON:pge_engineer|first_var_last}}
+> ----------
+> From:  {{PERSON:pm|last_comma_first}}[SMTP:{{EMAIL:pm|<First>_<Last>@enron.com}}]
+> Sent:  {{DATE:1999-11-30T10:32:00|long}}
+> To:  {{PERSON:pge_engineer|last_comma_first}}
+> Cc:  '{{PERSON:csuf_contact|first_var_last}}'; {{PERSON:ees_manager|last_comma_first}}
+> Subject:  PG&E drawing request
+>
+> {{PERSON:pge_engineer|first_var}}
+>
+> Thank you again for the narrative of the proposed PG&E work on
+> overbuilding the existing overhead line for the new 115kV circuit.  Can I
+> still expect the drawing indicating the routing of the existing line
+> sometime this week?  I need to have this info. to discuss your proposed
+> work with our CEQA consultant.[[opt=0.6:  The route past {{TRAP:place}}
+> is the part they will ask about.]]
+>
+> Thanks
+>
+> {{PERSON:pm|full}}
+>
+> Project Manager
+> Enron Energy Services
+> {{ADDRESS:ees_office|lines,quote}}
+> Ph:{{PHONE:pm_tel|landline}}, Fax:{{PHONE:pm_fax|landline}}
+> [[alt:Pager:||Mobile:||Cell:]]{{PHONE:pm_pager|mobile}}
+>
+>
