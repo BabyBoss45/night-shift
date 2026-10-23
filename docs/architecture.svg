@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 408" width="760" height="408" role="img" aria-label="Every clause call goes through Mubit; reviewer fixes feed the next adapter" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8c8c8c"/></marker></defs>
+<rect width="760" height="408" fill="#ffffff"/>
+<text x="24" y="34" font-size="15" font-weight="600" fill="#1a1a1a">Every clause call goes through Mubit; reviewer fixes feed the next adapter</text>
+<g fill="none" stroke="#8c8c8c" stroke-width="1.25"><path d="M160 110H213" marker-end="url(#arrow)"/><path d="M349 102H403" marker-end="url(#arrow)"/><path d="M403 118H349" marker-end="url(#arrow)"/><path d="M539 110H592" marker-start="url(#arrow)" marker-end="url(#arrow)"/><path d="M471 138V222" marker-end="url(#arrow)"/><path d="M660 138V222" marker-end="url(#arrow)"/><path d="M281 138V180H92V222" marker-end="url(#arrow)"/><path d="M160 250H213" marker-end="url(#arrow)"/><path d="M349 250H403" marker-end="url(#arrow)" stroke-dasharray="4 4"/><path d="M539 250H592" marker-end="url(#arrow)"/><path d="M660 278V336" marker-end="url(#arrow)"/></g>
+<rect x="24" y="82" width="136" height="56" rx="8" fill="none" stroke="#8c8c8c" stroke-width="1.25"/><text x="92" y="108" text-anchor="middle" fill="#1a1a1a"><tspan x="92" font-weight="600">Upload</tspan><tspan x="92" dy="17" font-size="11.5" fill="#5f5f5f">agreement</tspan></text>
+<rect x="213" y="82" width="136" height="56" rx="8" fill="none" stroke="#8c8c8c" stroke-width="1.25"/><text x="281" y="108" text-anchor="middle" fill="#1a1a1a"><tspan x="281" font-weight="600">App backend</tspan><tspan x="281" dy="17" font-size="11.5" fill="#5f5f5f">splits clauses</tspan></text>
+<rect x="403" y="82" width="136" height="56" rx="8" fill="none" stroke="#8c8c8c" stroke-width="1.25"/><text x="471" y="108" text-anchor="middle" fill="#1a1a1a"><tspan x="471" font-weight="600">Mubit gateway</tspan><tspan x="471" dy="17" font-size="11.5" fill="#5f5f5f">records every call</tspan></text>
+<rect x="592" y="82" width="136" height="56" rx="8" fill="none" stroke="#8c8c8c" stroke-width="1.25"/><text x="660" y="108" text-anchor="middle" fill="#1a1a1a"><tspan x="660" font-weight="600">Closed model</tspan><tspan x="660" dy="17" font-size="11.5" fill="#5f5f5f">GPT or Claude</tspan></text>
+<rect x="24" y="222" width="136" height="56" rx="8" fill="none" stroke="#8c8c8c" stroke-width="1.25"/><text x="92" y="248" text-anchor="middle" fill="#1a1a1a"><tspan x="92" font-weight="600">Review UI</tspan><tspan x="92" dy="17" font-size="11.5" fill="#5f5f5f">flags and fixes</tspan></text>
+<rect x="213" y="222" width="136" height="56" rx="8" fill="#2f6fde" fill-opacity="0.12" stroke="#2f6fde" stroke-width="2"/><text x="281" y="248" text-anchor="middle" fill="#1a1a1a"><tspan x="281" font-weight="600">Corrections</tspan><tspan x="281" dy="17" font-size="11.5" fill="#1a1a1a">SQLite store</tspan></text>
+<rect x="403" y="222" width="136" height="56" rx="8" fill="none" stroke="#8c8c8c" stroke-width="1.25"/><text x="471" y="248" text-anchor="middle" fill="#1a1a1a"><tspan x="471" font-weight="600">Mubit tasks</tspan><tspan x="471" dy="17" font-size="11.5" fill="#5f5f5f">kept examples</tspan></text>
+<rect x="592" y="222" width="136" height="56" rx="8" fill="none" stroke="#8c8c8c" stroke-width="1.25"/><text x="660" y="248" text-anchor="middle" fill="#1a1a1a"><tspan x="660" font-weight="600">Adapter vN</tspan><tspan x="660" dy="17" font-size="11.5" fill="#5f5f5f">open base model</tspan></text>
+<rect x="405" y="336" width="320" height="48" rx="8" fill="none" stroke="#8c8c8c" stroke-width="1.25"/>
+<text x="565" y="364" text-anchor="middle" font-weight="600" fill="#1a1a1a">Eval harness: accuracy, cost, latency</text>
+<text x="376" y="96" text-anchor="middle" font-size="11.5" fill="#5f5f5f">call</text>
+<text x="376" y="134" text-anchor="middle" font-size="11.5" fill="#5f5f5f">reply</text>
+<text x="565.5" y="102" text-anchor="middle" font-size="11.5" fill="#5f5f5f">proxy</text>
+<text x="479" y="184" text-anchor="start" font-size="11.5" fill="#5f5f5f">records</text>
+<text x="668" y="184" text-anchor="start" font-size="11.5" fill="#5f5f5f">teacher</text>
+<text x="186.5" y="172" text-anchor="middle" font-size="11.5" fill="#5f5f5f">results</text>
+<text x="186.5" y="242" text-anchor="middle" font-size="11.5" fill="#5f5f5f">fixes</text>
+<text x="376" y="242" text-anchor="middle" font-size="11.5" fill="#5f5f5f">feedback</text>
+<text x="565.5" y="242" text-anchor="middle" font-size="11.5" fill="#5f5f5f">trains</text>
+<text x="668" y="310" text-anchor="start" font-size="11.5" fill="#5f5f5f">graded</text>
+</svg>
