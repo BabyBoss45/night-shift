@@ -4,3 +4,12 @@
 /GEMINI.md
 /COLLABORATION.md
 /collaboration/
+
+# Secrets, raw source downloads, Python tooling
+.env
+.env.*
+data/raw/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
