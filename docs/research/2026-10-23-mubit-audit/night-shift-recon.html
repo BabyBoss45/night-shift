@@ -1,0 +1,505 @@
+<title>Night Shift Recon</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~72ch) under a sticky tab bar; tables scroll inside their own boxes. Night-shift palette: ink blue + sodium-lamp amber. */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --ink: #141a2e;
+  --muted: #555e78;
+  --line: #dde1ec;
+  --accent: #9a5000;
+  --accent-soft: #fff1de;
+  --good: #1d7a4a;
+  --warn: #9a5000;
+  --bad: #b3261e;
+  --bar: #d9dff0;
+  --f-display: "Unbounded", "Golos Text", system-ui, sans-serif;
+  --f-body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1222; --surface: #141b30; --ink: #e8ebf5; --muted: #9aa3bd; --line: #26304a;
+    --accent: #ffb35c; --accent-soft: #2a2316; --good: #5fd39a; --warn: #ffb35c; --bad: #ff8a80; --bar: #26304a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1222; --surface: #141b30; --ink: #e8ebf5; --muted: #9aa3bd; --line: #26304a;
+  --accent: #ffb35c; --accent-soft: #2a2316; --good: #5fd39a; --warn: #ffb35c; --bad: #ff8a80; --bar: #26304a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 820px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { padding-block: 40px 20px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(28px, 5vw, 42px); line-height: 1.1; margin: 8px 0 10px; text-wrap: balance; }
+.lede { color: var(--muted); max-width: 62ch; margin: 0; }
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+nav.tabs .wrap { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+nav.tabs button { font: 500 14px var(--f-body); color: var(--muted); background: none; border: 0; border-bottom: 2px solid transparent; padding: 12px 10px; cursor: pointer; white-space: nowrap; }
+nav.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+nav.tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+main { padding-block: 28px 64px; }
+section[role="tabpanel"] > * + * { margin-top: 16px; }
+h2 { font-family: var(--f-display); font-weight: 500; font-size: 22px; line-height: 1.25; margin: 36px 0 0; text-wrap: balance; }
+h2:first-child { margin-top: 0; }
+h3 { font-size: 17px; font-weight: 600; margin: 24px 0 0; }
+p, li { max-width: 70ch; }
+ul, ol { padding-left: 22px; margin-block: 8px; }
+li + li { margin-top: 6px; }
+a { color: var(--accent); text-underline-offset: 2px; word-break: break-word; }
+code { font-family: var(--f-mono); font-size: .88em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px; word-break: break-word; }
+.tag { font-family: var(--f-mono); font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px; margin-left: 4px; vertical-align: 1px; }
+.verdict { background: var(--accent-soft); padding: 16px 18px; border-radius: 6px; }
+.verdict p { margin: 0; }
+.verdict p + p { margin-top: 8px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; min-width: 0; }
+.fact b { display: block; font-family: var(--f-display); font-weight: 500; font-size: 22px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 13px; color: var(--muted); }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.score { display: flex; align-items: center; gap: 8px; min-width: 130px; }
+.score i { display: block; height: 8px; border-radius: 4px; background: var(--bar); flex: 1; position: relative; overflow: hidden; }
+.score i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--accent); border-radius: 4px; }
+.score.low i::after { background: var(--muted); }
+.pill { display: inline-block; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.pill.good { color: var(--good); } .pill.warn { color: var(--warn); } .pill.bad { color: var(--bad); }
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; counter-reset: step; }
+.flow div { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px; font-size: 14px; min-width: 0; }
+.flow div b { display: block; font-size: 13px; font-family: var(--f-mono); color: var(--accent); margin-bottom: 4px; }
+.lanes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.lane { border: 1px solid var(--line); border-radius: 6px; padding: 14px; background: var(--surface); min-width: 0; }
+.lane h3 { margin: 0 0 6px; }
+.lane p { margin: 0; font-size: 14px; }
+.check li { list-style: none; position: relative; }
+.check { padding-left: 4px; }
+.check li::before { content: ""; display: inline-block; width: 12px; height: 12px; border: 1.5px solid var(--muted); border-radius: 3px; margin-right: 10px; vertical-align: -1px; }
+.small { font-size: 13px; color: var(--muted); }
+footer { border-top: 1px solid var(--line); padding-block: 20px 40px; }
+@media (max-width: 560px) { .lanes { grid-template-columns: 1fr; } th, td { padding: 8px 9px; } }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">Night Shift · Mubit hackathon · 23 Oct 2026, 17:00 BST</div>
+    <h1>Night Shift Recon</h1>
+    <p class="lede">Audit of Mubit, its market and its judges, plus a scored shortlist of what to build. Research only, written before kickoff. Facts are marked <span class="tag">F</span>, estimates <span class="tag">E</span>, inference <span class="tag">I</span>.</p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap" role="tablist">
+    <button role="tab" id="t-uk" aria-controls="uk" aria-selected="true">Коротко</button>
+    <button role="tab" id="t-mubit" aria-controls="mubit" aria-selected="false">Mubit</button>
+    <button role="tab" id="t-market" aria-controls="market" aria-selected="false">Market</button>
+    <button role="tab" id="t-ideas" aria-controls="ideas" aria-selected="false">Ideas</button>
+    <button role="tab" id="t-plan" aria-controls="plan" aria-selected="false">Build plan</button>
+    <button role="tab" id="t-past" aria-controls="past" aria-selected="false">Past events</button>
+    <button role="tab" id="t-kickoff" aria-controls="kickoff" aria-selected="false">Kickoff</button>
+    <button role="tab" id="t-sources" aria-controls="sources" aria-selected="false">Sources</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ UK SUMMARY ============ -->
+<section role="tabpanel" id="uk" aria-labelledby="t-uk" lang="uk">
+  <div class="verdict">
+    <p><b>Вердикт.</b> Tenancy-чекер краще не брати: ринок зайнятий, дедлайн минув, а «виправлення» в демо вийде штучним.</p>
+    <p>Беремо <b>Threshold</b>: розбір adverse media для фінкомплаєнсу (вирішити, чи стаття справді про клієнта і чи треба ескалювати). Запасний варіант: розбір скарг для FCA-фірм.</p>
+  </div>
+
+  <h2>Що ми дізналися</h2>
+  <ol>
+    <li><b>Mubit оцінює адаптер за схожістю з GPT, а не за правильністю.</b> Людські виправлення в публічних docs у навчання не потрапляють, є лише кнопка Good/Bad. Без окремого механізму головний критерій суддів не закрити. Це питання №1 на kickoff.</li>
+    <li><b>Справжній продукт хакатону — Middleware.</b> Виправлення і правила лягають у «пам'ять застосунку». Детектор змін за нею запускає оновлення моделі. Їхній власний приклад: змінилась політика ескалації, і модель оновилась.</li>
+    <li><b>Головна теза засновників — «It has been reminded, not improved».</b> Нотатка в промпті модель не покращує, а оновлення ваг покращує. Демо будуємо саме на цьому контрасті.</li>
+    <li><b>Конкуренти вмирають.</b> OpenPipe закрився 30.07.2026, TensorZero теж згорнувся. OpenAI закриває fine-tuning, нові jobs можна запускати лише до 6.01.2027. Звідси сильний аргумент «own your model».</li>
+    <li><b>Mubit — маленька компанія:</b> близько 7 людей, близько $2.1M інвестицій, жодного публічного клієнта. Їм потрібні живі приклади використання, тому вертикальний продукт їм цінніший за ще одне демо дистиляції.</li>
+  </ol>
+
+  <h2>Порівняння ідей</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Ідея</th><th>Бал /35</th><th>Коротко</th></tr></thead>
+    <tbody>
+      <tr><td><b>Threshold: adverse media</b></td><td class="num">34</td><td>Аналітик і так виправляє кожен хіт. GPT перефлаговує (69% хибних спрацювань). Сильна приватність</td></tr>
+      <tr><td>Скарги FCA (DISP)</td><td class="num">32</td><td>3,5 млн скарг на рік, є реальні дані CC0, але більше конкуренції</td></tr>
+      <tr><td>APP scam claims</td><td class="num">30</td><td>248 тис. кейсів на рік, є датасет, але фрод — популярна тема</td></tr>
+      <tr><td>Tenancy (поточний бриф)</td><td class="num">17</td><td>7+ готових сервісів, дедлайн минув, слабка приватність</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Як має виглядати демо</h2>
+  <ol>
+    <li>Аналітик виправляє хіт: клієнт у статті не шахрай, а жертва.</li>
+    <li><b>Reminded:</b> наступний схожий хіт одразу правильний, бо виправлення лягло в пам'ять.</li>
+    <li><b>Improved:</b> адаптер v2 після виправлень проходить відкладений тестовий набір. Показуємо цифри: GPT, v1, v2.</li>
+    <li><b>Fast refresh:</b> MLRO змінює політику наживо, і gate не перемикає модель, поки нова версія не пройде тест.</li>
+    <li>Ціна правильного рішення, затримка, частка трафіку на власній моделі.</li>
+  </ol>
+
+  <h2>Що змінити в плані</h2>
+  <ul>
+    <li>Механіку виправлень проєктуємо після відповіді Mubit на kickoff. Запасний шлях працює завжди: виправлення як прецедент у user message плюс дистиляція.</li>
+    <li>Залишаємо з брифу: заморожений промпт, одна сесія на документ, синтетичні дані з мітками з коду, v1 до 01:00.</li>
+    <li>Дані генеруємо про вигаданих людей: жодних реальних імен у записах Mubit.</li>
+  </ul>
+
+  <h2>Три найдешевші наступні кроки</h2>
+  <ol>
+    <li>На kickoff поставити питання 1–3 з вкладки Kickoff (виправлення, виклик адаптера, memory SDK).</li>
+    <li>За 10 хвилин з Nick обрати A чи B.</li>
+    <li>До 19:30 на папері: політика, приховані правила, коди причин, 15 edge cases.</li>
+  </ol>
+</section>
+
+<!-- ============ MUBIT ============ -->
+<section role="tabpanel" id="mubit" aria-labelledby="t-mubit" hidden>
+  <div class="facts">
+    <div class="fact"><b>~7</b><span>people on the team</span></div>
+    <div class="fact"><b>~$2.1M</b><span>raised (company-reported, Forbes Apr 2026)</span></div>
+    <div class="fact"><b>0</b><span>named customers or case studies</span></div>
+    <div class="fact"><b>~1,500</b><span>engineers on waitlist (Apr 2026)</span></div>
+  </div>
+
+  <h2>Company</h2>
+  <div class="tbl"><table>
+    <tbody>
+      <tr><th>Entity</th><td>Reliable AI, Inc. Investors list HQ as Aberdeen; job ad says Canary Wharf WeWork <span class="tag">F</span></td></tr>
+      <tr><th>Founders</th><td>Anil Peri (CEO) and Shankha Dutta (CTO). Building companies together since 2020: SwiftSkill (esports analytics), Rice (org memory), Mubit from Nov 2025. Both on Forbes 30 Under 30 Europe 2026 <span class="tag">F</span></td></tr>
+      <tr><th>Investors</th><td>Hoxton Ventures (fund IV, Hussein Kanji on board), Heavybit, Techstars, angels from Cloudflare, AWS and Mistral <span class="tag">F</span></td></tr>
+      <tr><th>Hiring</th><td>One open role (Founding Engineer, on site). A host was hired straight from their first hackathon <span class="tag">F</span></td></tr>
+      <tr><th>Public output</th><td>2 field notes; Latte Bench (retained notes helped 7 of 11 models, hurt 4); Banyan Sapling (policy/evidence/claim verifier on Qwen3-30B-A3B, uploaded 22 Oct); Minima (advice-only model recommender) <span class="tag">F</span></td></tr>
+      <tr><th>Launch</th><td>Night Shift doubles as the launch. "Launch week" 26 to 30 Oct: five features in five days <span class="tag">F</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Positioning over time</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>When</th><th>Headline</th></tr></thead>
+    <tbody>
+      <tr><td class="num">Feb 2026</td><td>"Memory + State Infra for AI Agents"</td></tr>
+      <tr><td class="num">Apr 2026</td><td>"Operational Memory for Agent Systems", with a table <i>against</i> fine-tuning ("No GPU costs")</td></tr>
+      <tr><td class="num">Jun 2026</td><td>"It has been reminded, not improved": memory notes are not enough</td></tr>
+      <tr><td class="num">Sep 2026</td><td>Middleware: "task-adapted open models from your model calls"</td></tr>
+      <tr><td class="num">Oct 2026</td><td>"Agentic runtime calibration. Build reliable agents with a model for every task"</td></tr>
+    </tbody>
+  </table></div>
+  <p>A full reversal on weights in six months <span class="tag">I</span>. Memory is now the source of training signal. A project that joins memory and weights tells their own story back to them.</p>
+  <p><b>Phrases they repeat:</b> "agents have no experience", "systems of experience for agents", "a set of corrections that keeps coming back", "own your intelligence layer". Shankha cares about an inspectable request path and reversible edits. Their benchmarks list what they do <i>not</i> prove, so measured honesty will land better than hype <span class="tag">I</span>.</p>
+
+  <h2>How the product really works</h2>
+  <ul>
+    <li><b>Task</b> = same system prompt + tools + tool choice + output format + model. Changing words in the prompt split the task; numbers, dates and IDs don't.</li>
+    <li><b>Session</b> from <code>metadata.session_id</code> and similar. Test cases are held out <b>by session</b>.</li>
+    <li><b>First training at 25 kept examples.</b> Not every call is kept.</li>
+    <li><b>Grading:</b> "Matched {a}% of your provider model's answers · needs {need}%". Verdicts: Passed, Below target, Malformed tool calls, <b>Prompt only</b>, Not tested.</li>
+    <li><b>Limits:</b> daily training limit (resets 01:00 London), a pause between trainings, no retry button, 3 adapter starts per org per day in Try models.</li>
+    <li><b>Serving:</b> "There is no Mubit model ID". Yet Requests has a "Served by" column.</li>
+    <li><b>Feedback:</b> only Good / Bad in the console. Import of past calls stops at the first live call.</li>
+  </ul>
+
+  <h3>Found outside the docs</h3>
+  <ul>
+    <li><code>mubit.ai/agents.md</code> promises outcome attribution and prompt optimization and links to four docs pages that now 404 <span class="tag">F</span>.</li>
+    <li>The memory SDK still ships: <code>mubit-sdk</code> 0.13.2 with <code>remember</code>, <code>recall</code>, <code>record_outcome</code>, <code>feedback</code>, <code>optimize_prompt</code> <span class="tag">F</span>.</li>
+    <li><a href="https://middleware.now/">Middleware</a>: memory is "the source of record"; a generator makes a small update; a change detector triggers a refresh, e.g. when an escalation policy changes <span class="tag">F</span>. Related research: Text-to-LoRA, Internalizer.</li>
+  </ul>
+
+  <div class="verdict">
+    <p><b>Implication <span class="tag">I</span>.</b> If our reviewer corrects GPT, the adapter is still graded on matching GPT. Without an event-specific path, corrections do nothing or lower the pass rate.</p>
+    <p>A path that works regardless: store each correction as a precedent and put it in the <i>user</i> message of the next similar call. GPT then answers the corrected way ("reminded"), and Mubit distils those answers into the next adapter ("improved").</p>
+  </div>
+</section>
+
+<!-- ============ MARKET ============ -->
+<section role="tabpanel" id="market" aria-labelledby="t-market" hidden>
+  <h2>The category in 2026</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Player</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>OpenPipe</td><td><span class="pill bad">shut</span> Bought by CoreWeave (Sep 2025); training and inference stopped 30 Jul 2026</td></tr>
+      <tr><td>TensorZero</td><td><span class="pill bad">wound down</span> Jun 2026, returning capital. Closest open-source twin</td></tr>
+      <tr><td>Predibase · Adaptive ML</td><td><span class="pill warn">acquired</span> Rubrik (Jun 2025) · Datadog (Jun 2026)</td></tr>
+      <tr><td>OpenAI fine-tuning</td><td><span class="pill bad">closing</span> New orgs blocked 7 May 2026; all new jobs end 6 Jan 2027</td></tr>
+      <tr><td>Portkey · Helicone · Langfuse</td><td><span class="pill warn">acquired</span> Palo Alto Networks · Mintlify (frozen) · ClickHouse</td></tr>
+      <tr><td>Martian · Not Diamond</td><td><span class="pill warn">pivoted</span> research · coding agents only</td></tr>
+      <tr><td>Experiential Labs</td><td><span class="pill good">active</span> YC S26, 2 people. OSS zero-markup gateway, owned model on Tinker, "at least 50% lower cost" SLA. Most direct rival</td></tr>
+      <tr><td>Inference.net</td><td><span class="pill good">active</span> Closest product loop; a human approves each switch</td></tr>
+      <tr><td>Applied Compute</td><td><span class="pill good">active</span> ~$50M annualised revenue, consulting-heavy post-training</td></tr>
+      <tr><td>Trajectory · RELAI · Datawizz</td><td><span class="pill good">active</span> New continual-learning startups</td></tr>
+    </tbody>
+  </table></div>
+  <p>A thin loop on someone else's traffic and GPUs gets bought or squeezed unless it owns a decision layer people trust <span class="tag">I</span>.</p>
+
+  <h2>Mubit vs the field</h2>
+  <div class="lanes">
+    <div class="lane"><h3>Strong (documented)</h3><p>Automatic task discovery by fingerprint. Honest gate with a "Prompt only" verdict. First training at 25 examples. Memory and adapters in one loop.</p></div>
+    <div class="lane"><h3>Weak or unproven</h3><p>No measured results in public. Pass = imitation, while the site promises "does better". Serving, export and privacy undocumented. Tiny team. Crowded "stop renting intelligence" slogan.</p></div>
+  </div>
+
+  <h2>Gaps nobody fills well</h2>
+  <ol>
+    <li>Proof before switching, graded on <b>outcomes</b>, with rollback on drift.</li>
+    <li>Deciding <b>which layer</b> to fix: memory, prompt, route or weights.</li>
+    <li><b>Cost per successful task</b>, not cost per token.</li>
+    <li>Self-serve post-training for teams with no ML staff.</li>
+    <li><b>Refugees from OpenAI fine-tuning</b> before 6 Jan 2027.</li>
+    <li>Portability: exportable adapters, data and eval history.</li>
+  </ol>
+
+  <h2>Where Mubit fits best</h2>
+  <p>It pays off when five things hold together: the same narrow decision repeats thousands of times, inputs are long, answers are fixed labels, a human already reviews outputs, and the data is regulated <span class="tag">I</span>.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Sector</th><th>Recurring decision</th><th>Why it fits</th></tr></thead>
+    <tbody>
+      <tr><td>Financial crime ops</td><td>Adverse-media and screening hit disposition</td><td>85 to 95% false positives (vendor-reported); every hit gets a human decision; strict privacy</td></tr>
+      <tr><td>Complaints (FCA firms)</td><td>Classification, vulnerability, deadlines</td><td>1.74m complaints in H2 2025; regulator-defined categories</td></tr>
+      <tr><td>Fraud reimbursement</td><td>APP scam claim triage</td><td>248,070 cases in 2025</td></tr>
+      <tr><td>Social housing</td><td>Awaab's Law hazard triage</td><td>Hard clocks; new hazards from 30 Nov 2026</td></tr>
+      <tr><td>Contact centres, BPOs</td><td>QA scoring against scorecards</td><td>89% run calibration sessions (COPC 2022)</td></tr>
+      <tr><td>Employment law, HR</td><td>Claim and grievance coding</td><td>Employment Rights Act phases Oct 2026 to Jan 2027</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ IDEAS ============ -->
+<section role="tabpanel" id="ideas" aria-labelledby="t-ideas" hidden>
+  <h2>Scored shortlist</h2>
+  <p class="small">Seven criteria, 1 to 5 each: Mubit fit, usefulness and volume, data in 36h, privacy case, demo moment, low crowding, team fit. A second, independent scoring by the idea-scan agent also ranked complaints high and tenancy last.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Idea</th><th>Score /35</th><th>Main reason</th></tr></thead>
+    <tbody>
+      <tr><td><b>A. Threshold: adverse-media triage</b></td><td><div class="score"><i style="--w:97%"></i><span class="num">34</span></div></td><td>Corrections are the daily job; GPT over-flags; strong privacy; low crowding</td></tr>
+      <tr><td><b>B. Complaint triage (DISP)</b></td><td><div class="score"><i style="--w:91%"></i><span class="num">32</span></div></td><td>Real CC0 data, huge volume, more crowded</td></tr>
+      <tr><td>C. APP scam reimbursement</td><td><div class="score"><i style="--w:86%"></i><span class="num">30</span></div></td><td>Big volume, Apache-2.0 dialogues; fraud is a common theme</td></tr>
+      <tr><td>E. Motor finance redress</td><td><div class="score"><i style="--w:83%"></i><span class="num">29</span></div></td><td>Scheme paused until Feb 2027; "why not a rules engine?"</td></tr>
+      <tr><td>D. Awaab's Law triage</td><td><div class="score"><i style="--w:74%"></i><span class="num">26</span></div></td><td>Best live rule change, but synthetic-only and short inputs</td></tr>
+      <tr><td>F. Tenancy checker (current)</td><td><div class="score low"><i style="--w:49%"></i><span class="num">17</span></div></td><td>7+ live tools, deadline passed, weak privacy</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>A. Threshold, the recommendation</h2>
+  <p><b>The task.</b> Screening matches a customer to a news article. An analyst decides: same person? Subject, victim or witness? Allegation, charge or conviction? In scope? Recent enough? Then <b>discount or escalate</b>, with a rationale for the audit file.</p>
+  <div class="facts">
+    <div class="fact"><b>£38.3bn</b><span>UK financial crime compliance spend, 2023; 66% on due diligence <span class="tag">F</span></span></div>
+    <div class="fact"><b>85–95%</b><span>screening false positives (vendor-reported) <span class="tag">F</span></span></div>
+    <div class="fact"><b>69%</b><span>of AI false positives were over-flagging marginal evidence (KYBench) <span class="tag">F</span></span></div>
+    <div class="fact"><b>1.5%</b><span>were entity confusion. Hallucination: 0% <span class="tag">F</span></span></div>
+  </div>
+  <ul>
+    <li><b>Why corrections matter:</b> the frontier error is calibration to a firm's risk appetite. Taktile's advice is to build the queue around "threshold adjudication". Analyst corrections teach exactly that <span class="tag">I</span>.</li>
+    <li><b>Written vs tacit policy:</b> the system prompt holds the vague written policy. Ground truth follows the analysts' tacit rules (victims discounted, civil disputes out, events over 6 years discounted unless sanctions). GPT over-flags; corrections fix it.</li>
+    <li><b>Data:</b> synthetic customers and articles about fictional people, generated through Mubit as a separate task. Labels come from a deterministic policy in code. No real people in Mubit's recorder.</li>
+    <li><b>Edge cases:</b> namesakes with wrong age or city, customer as victim, acquittals, civil disputes, traffic offences, 10-year-old events, company vs director, transliterated names, several people in one article.</li>
+    <li><b>Track 3:</b> MLRO changes risk appetite live ("allegation-stage PEP articles now escalate"). Their own Middleware example is an escalation-policy change.</li>
+    <li><b>Track 2:</b> frontier vs adapter on held-out cases, with escalation recall first, since a missed true hit is the one error that cannot be tolerated.</li>
+    <li><b>Risks:</b> synthetic data too clean; a human must stay accountable; incumbents (LexisNexis, Moody's, ComplyAdvantage, Silent Eight, Quantexa, Taktile).</li>
+  </ul>
+
+  <h2>B. Complaint triage, the runner-up</h2>
+  <ul>
+    <li><b>Task:</b> DISP complaint or not, FCA product and cause, vulnerability drivers, 3-day vs 8-week clock, ombudsman-uphold risk.</li>
+    <li><b>Volume:</b> 1.74m complaints at FCA firms in H2 2025; 305,726 new ombudsman complaints in 2024/25 <span class="tag">F</span>.</li>
+    <li><b>Data:</b> <code>CFPB/consumer-finance-complaints</code> on Hugging Face, CC0, real narratives with product and issue labels (US, noisy).</li>
+    <li><b>Do not scrape ombudsman decisions:</b> its terms forbid storing site material in any retrieval system without permission <span class="tag">F</span>.</li>
+  </ul>
+
+  <h2>F. Why tenancy is weak</h2>
+  <ol>
+    <li>The correction loop conflicts with imitation grading.</li>
+    <li>Not really recurring: the spike was the 31 May 2026 information-sheet deadline.</li>
+    <li>The correction moment is staged: with the rules in the prompt, GPT likely catches the planted fee.</li>
+    <li>Already served: Landlord HQ £9.99/mo, Contract Icks £49/scan, RightTo.Rent £99/property, LeaseScan, HomeLet, PAM, HomeThink.</li>
+    <li>Weak privacy case; judges already rewarded a renting agent ("Rentry", May 2026).</li>
+  </ol>
+  <p class="small">Keep from the brief: frozen prompt and schema, one session per document, synthetic labels from code, a record-off eval set, v1 before 01:00, warm adapter, backup video.</p>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section role="tabpanel" id="plan" aria-labelledby="t-plan" hidden>
+  <div class="verdict"><p><b>Threshold.</b> Every "discount or escalate" decision your analysts make becomes your own model. It clears adverse-media hits the way your team would, learns from each correction, and keeps customer data off third-party APIs.</p></div>
+
+  <h2>Pipeline, all calls through Mubit</h2>
+  <div class="flow">
+    <div><b>Task 1 · hero</b>Hit disposition: profile + article → same person, role, stage, category, year, escalate / discount / needs_review, reason code</div>
+    <div><b>Task 2</b>File note: audit rationale. Likely passes fast or returns "Prompt only", which shows the gate</div>
+    <div><b>Task 3 · data</b>Article generator, separate prompt, only to build the dataset</div>
+  </div>
+
+  <h2>Two-speed learning loop</h2>
+  <div class="lanes">
+    <div class="lane"><h3>Reminded · seconds</h3><p>Analyst corrects. The correction is stored as a precedent (Mubit memory or our DB). The next similar hit gets it in the user message, so the frontier answer is already right.</p></div>
+    <div class="lane"><h3>Improved · next refresh</h3><p>Mubit trains the next adapter on the corrected traffic. On held-out cases, without precedents, v2 handles the pattern. This is the weight update the judges asked for.</p></div>
+  </div>
+  <p class="small">If Mubit confirms a direct corrections API at kickoff, use it for the slow lane and keep precedents as the fast lane.</p>
+
+  <h2>Demo, about 3 minutes</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Time</th><th>Beat</th></tr></thead>
+    <tbody>
+      <tr><td class="num">0:00</td><td>Problem: an analyst clears dozens of hits a day, 85 to 95% are noise, and customer data can't go to a US API.</td></tr>
+      <tr><td class="num">0:20</td><td>Open a hit: the customer is the <i>victim</i> in the article. GPT says escalate. Analyst corrects to discount, reason "victim".</td></tr>
+      <tr><td class="num">1:00</td><td>Reminded: the next victim-type hit is already right.</td></tr>
+      <tr><td class="num">1:20</td><td>Improved: Mubit console, adapter history v1 → v2, held-out chart for GPT, v1, v2, and v2 without precedents.</td></tr>
+      <tr><td class="num">2:00</td><td>Fast refresh: MLRO changes the PEP rule; the gate shows "Below target" until corrections arrive; rollback kept.</td></tr>
+      <tr><td class="num">2:30</td><td>Numbers: cost per correct disposition, p50 latency, adapter traffic share. Close: "OpenAI fine-tuning closes on 6 Jan 2027. This is the owned path."</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Metrics to report</h2>
+  <p>Escalation recall · false-escalation rate · accuracy · cost per correct disposition · p50 latency · time from correction to fix (memory vs adapter) · analyst minutes per 100 hits <span class="tag">E</span>.</p>
+
+  <h2>Business model</h2>
+  <div class="lanes">
+    <div class="lane"><h3>Mubit's</h3><p>Usage through the gateway plus adapter training and hosting; it keeps part of the gap between frontier and open-model cost. Risks: imitation ceiling, frontier price cuts, undocumented serving and export, a 7-person team against funded rivals. Openings: OpenAI refugees, regulated sectors, "which layer to fix".</p></div>
+    <div class="lane"><h3>Threshold's</h3><p>Buyer: MLRO or head of fin-crime ops at UK fintechs, EMIs and challenger banks. Price per hit or per screened customer, plus hosting of the client's own model. ROI = hits × minutes saved × analyst cost − fees. Moat: each client's adapters, calibration history and audit trail, never pooled. Next: sanctions hits, transaction alerts, complaints.</p></div>
+  </div>
+</section>
+
+<!-- ============ PAST EVENTS ============ -->
+<section role="tabpanel" id="past" aria-labelledby="t-past" hidden>
+  <div class="verdict"><p><b>What Mubit rewards.</b> A learning loop you can see on stage, for a real person or small business, with a small stack and numbers. That has not changed since April. What is new tonight: the loop must be a model update, not memory.</p></div>
+
+  <h2>Events, all in London</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Event</th><th>Mubit prize</th><th>Mubit winner</th></tr></thead>
+    <tbody>
+      <tr><td>Unicorn Mafia, 25–26 Apr (their first)</td><td>"Best use of Mubit": £500 + $8k credits (participant copy)</td><td>Not found</td></tr>
+      <tr><td>Vercel Zero to Agent, 2 May</td><td>$100k credits for "the best build on the Mubit platform"</td><td><b>Rentry</b>, also 2nd overall</td></tr>
+      <tr><td>Pop the Bubble, 5–7 Jun</td><td>Bonus: "+4 for bolted-on use", "+10 when the core product genuinely relies on Mubit"</td><td>joanie, 2nd overall</td></tr>
+      <tr><td>{Tech: Europe}, 27 Jun</td><td>Credits for top 3 overall; Minima on offer</td><td>No Mubit track</td></tr>
+      <tr><td>Night Shift, 23–25 Oct</td><td>$15k / $10k / $5k + credits</td><td>Tonight</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Projects that placed with Mubit</h2>
+  <ul>
+    <li><b>Rentry:</b> London rental agent that remembered your preferences. Demo line: "it still knows you". Its pitch notes: one verb per sponsor, a badge on every remembered item, a log strip of real API calls, a pre-seeded returning user.</li>
+    <li><b>joanie:</b> AI phone receptionist that remembers callers. Claimed a paying customer and an LOI during the event.</li>
+    <li><b>CafeTwin:</b> cafe CCTV to layout changes, remembered operator accept/reject. "seen 3× before" chip.</li>
+    <li><b>Frame Mog</b> (no placement): pose coach that "by session three" had adapted to the user, shown live.</li>
+  </ul>
+  <p class="small">13 more projects used Mubit with no placement on record; most used it as invisible plumbing.</p>
+
+  <h2>The flow tonight, in the organisers' words</h2>
+  <p>A public sample project, PagerPal (account e1daru, likely the host; our inference), routes every Claude call through Mubit and shows each answer's request id. "The engineer corrects that answer in the Mubit console, and Mubit turns the correction into a model update"; "later suggestions come from the updated model". A history page shows right vs wrong over time. <span class="tag">F</span></p>
+
+  <h2>Openings nobody has used yet</h2>
+  <ol>
+    <li>A correction turning into a model update, shown on stage.</li>
+    <li>Adapter vs frontier side by side: quality, cost, latency.</li>
+    <li>Fast refresh under drift: a new client, rule or document type.</li>
+    <li>Correcting inside the product's own UI, not the Mubit console.</li>
+  </ol>
+  <p class="small">Crowded or too close to Mubit's own examples: on-call triage, invoice and accounts readers, claim verification with Sapling, AI phone receptionists.</p>
+</section>
+
+<!-- ============ KICKOFF ============ -->
+<section role="tabpanel" id="kickoff" aria-labelledby="t-kickoff" hidden>
+  <h2>Ask the Mubit team, in this order</h2>
+  <ol>
+    <li>Adapters are graded on matching the provider. <b>How do human corrections enter training?</b> Reply-replacement API, Good/Bad dropping examples, or Middleware memory, and through which API?</li>
+    <li><b>Can our app call a passing adapter</b> (header, routing rule, "Served by"), or only Try models?</li>
+    <li>Is the memory SDK (<code>mubit-sdk</code>, <code>/v2/control/*</code>) live for hackers, and does it feed refreshes?</li>
+    <li>Can the 25-example threshold or the pause between trainings be changed in Settings for the event?</li>
+    <li>Daily training limit; Try models calls per day; are the 3 adapter starts per day raised?</li>
+    <li>Base model and time per training.</li>
+    <li>Starter credit amount and models; is <code>gpt-6-luna</code> the right teacher?</li>
+    <li>Is eval traffic with <code>x-middleware-record: off</code> acceptable?</li>
+    <li>Does a policy change in the system prompt create a new task, or can a task be versioned?</li>
+    <li>Is Banyan Sapling hosted for hackers (about 46 GB on an H200)?</li>
+    <li>Code freeze 05:00 or 10:00 Sunday, demo length, finals format.</li>
+  </ol>
+
+  <h2>Before 19:30, no code</h2>
+  <ul class="check">
+    <li>Pick A or B in 10 minutes.</li>
+    <li>Write down Mubit's answers verbatim.</li>
+    <li>On paper: written policy, tacit rules, reason codes R1 to R8, output schema, 15 edge cases.</li>
+    <li>Storyboard the demo with one owner per beat.</li>
+    <li>Roles: data and eval · backend and Mubit client · review UI and metrics · pitch, video and deck.</li>
+  </ul>
+
+  <h2>Training windows</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Window (London)</th><th>Goal</th></tr></thead>
+    <tbody>
+      <tr><td class="num">Fri 19:30 → 01:00</td><td>Freeze prompt by ~21:30, 300+ diverse calls by 23:30, v1 training before the reset</td></tr>
+      <tr><td class="num">Sat 01:00 → Sun 01:00</td><td>Corrections and fresh batch, v2</td></tr>
+      <tr><td class="num">Sun 01:00 → 05:00</td><td>Optional v3 before the freeze</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section role="tabpanel" id="sources" aria-labelledby="t-sources" hidden>
+  <h2>Mubit</h2>
+  <ul>
+    <li><a href="https://docs.mubit.ai/llms-full.txt">docs.mubit.ai full text</a></li>
+    <li><a href="https://mubit.ai/agents.md">mubit.ai/agents.md</a> · <a href="https://middleware.now/">middleware.now</a></li>
+    <li><a href="https://pypi.org/project/mubit-sdk/">mubit-sdk on PyPI</a></li>
+    <li><a href="https://huggingface.co/MubitLabs/banyan-sapling">Banyan Sapling model card</a> · <a href="https://mubit.ai/bench">latte/bench</a> · <a href="https://github.com/MubitLabs/minima">Minima</a></li>
+  </ul>
+  <h2>Competitors</h2>
+  <ul>
+    <li><a href="https://openpipe.ai/blog/openpipe-training-inference-migrating-to-wandb">OpenPipe migration notice</a></li>
+    <li><a href="https://www.tensorzero.com/">TensorZero</a> · <a href="https://news.ycombinator.com/item?id=48516504">HN wind-down thread</a></li>
+    <li><a href="https://developers.openai.com/api/docs/deprecations">OpenAI deprecations</a></li>
+  </ul>
+  <h2>Ideas and market</h2>
+  <ul>
+    <li><a href="https://labs.taktile.com/benchmarks/kybench">Taktile KYBench</a></li>
+    <li><a href="https://risk.lexisnexis.co.uk/about-us/press-room/press-release/20240718-fighting-financial-crime-and-fraud">LexisNexis: UK compliance cost</a></li>
+    <li><a href="https://www.fca.org.uk/data/aggregate-complaints-data-2025-h2">FCA complaints data H2 2025</a></li>
+    <li><a href="https://www.financial-ombudsman.org.uk/legal-policy">Ombudsman legal policy</a></li>
+    <li><a href="https://www.ukfinance.org.uk/news-and-insight/press-release/fraud-report-2026-press-release">UK Finance fraud report 2026</a></li>
+    <li><a href="https://huggingface.co/datasets/CFPB/consumer-finance-complaints">CFPB complaints dataset (CC0)</a></li>
+    <li><a href="https://cx.copc.com/hubfs/Global%20Benchmarking%20Series%202022_Contact%20Center%20Quality%20Assurance.pdf">COPC contact-centre QA benchmark</a></li>
+    <li><a href="https://arxiv.org/abs/2506.06105">Text-to-LoRA</a> · <a href="https://arxiv.org/abs/2610.11715">Internalizer</a></li>
+  </ul>
+  <p class="small">Full evidence (180 rows, quotes checked against saved pages) is in the repo at <code>docs/research/2026-10-23-mubit-audit/evidence/</code>.</p>
+</section>
+
+</main>
+
+<footer><div class="wrap small">Prepared for the Night Shift team. Not legal or financial advice. Numbers marked as vendor-reported come from companies that sell a fix for the problem they measure.</div></footer>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function show(id, push) {
+    var found = false;
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('aria-controls') === id;
+      if (on) found = true;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (!found) return show('uk', false);
+    if (push) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t.getAttribute('aria-controls'), true); window.scrollTo({ top: 0 }); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      n.focus(); show(n.getAttribute('aria-controls'), true);
+    });
+  });
+  var h = (location.hash || '').replace('#', '');
+  show(h || 'uk', false);
+})();
+</script>
