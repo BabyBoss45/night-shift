@@ -1,0 +1,163 @@
+{
+  "sources": [
+    {
+      "source_id": "C1",
+      "title": "Model agreement for an assured shorthold tenancy (England)",
+      "url": "https://webarchive.nationalarchives.gov.uk/ukgwa/20260105195424mp_/https://www.gov.uk/government/publications/model-agreement-for-a-shorthold-assured-tenancy",
+      "licence": "Open Government Licence v3.0",
+      "kind": "template",
+      "subtype": "tenancy",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to webarchive.nationalarchives.gov.uk (403)"
+    },
+    {
+      "source_id": "C2",
+      "title": "Model written statement, periodic standard contract (Wales)",
+      "url": "https://www.gov.wales/model-written-statement-periodic-standard-contracts",
+      "licence": "Open Government Licence v3.0",
+      "kind": "template",
+      "subtype": "tenancy",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.gov.wales (403)"
+    },
+    {
+      "source_id": "C3",
+      "title": "Acas written statement of employment particulars, employee",
+      "url": "https://www.acas.org.uk/templates-for-written-statements/written-statement-employee-template",
+      "licence": "Open Government Licence v3.0",
+      "kind": "template",
+      "subtype": "employment",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.acas.org.uk (403)"
+    },
+    {
+      "source_id": "C4",
+      "title": "JELD-WEN UK service agreement",
+      "url": "https://www.sec.gov/Archives/edgar/data/1674335/000167433519000023/exhibit1039_pxmaxwellxeea.htm",
+      "licence": "Public filing, SEC EDGAR",
+      "kind": "filled_real",
+      "subtype": "employment",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.sec.gov (403)"
+    },
+    {
+      "source_id": "C5",
+      "title": "National Grid UK service agreement",
+      "url": "https://www.sec.gov/Archives/edgar/data/1004315/000100431519000071/ex4c5-serviceagreement_and.htm",
+      "licence": "Public filing, SEC EDGAR",
+      "kind": "filled_real",
+      "subtype": "employment",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.sec.gov (403)"
+    },
+    {
+      "source_id": "C6",
+      "title": "IPO example non-disclosure agreement, one-way",
+      "url": "https://www.gov.uk/government/publications/non-disclosure-agreements",
+      "licence": "Open Government Licence v3.0",
+      "kind": "template",
+      "subtype": "nda",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.gov.uk (403)"
+    },
+    {
+      "source_id": "C7",
+      "title": "IPO example non-disclosure agreement, mutual",
+      "url": "https://www.gov.uk/government/publications/non-disclosure-agreements",
+      "licence": "Open Government Licence v3.0",
+      "kind": "template",
+      "subtype": "nda",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.gov.uk (403)"
+    },
+    {
+      "source_id": "C8",
+      "title": "Common Paper Mutual NDA, version 1.0 (cover page and standard terms)",
+      "url": "https://commonpaper.com/standards/mutual-nda/",
+      "licence": "CC BY 4.0",
+      "kind": "template",
+      "subtype": "nda",
+      "fetched": true,
+      "fetched_at": "2026-10-23T23:02:39+00:00",
+      "fetched_from": [
+        "https://raw.githubusercontent.com/CommonPaper/Mutual-NDA/2a3068b6c0ab6015c440f541d5b215bc3ac2f4cb/Mutual-NDA-coverpage.md",
+        "https://raw.githubusercontent.com/CommonPaper/Mutual-NDA/2a3068b6c0ab6015c440f541d5b215bc3ac2f4cb/Mutual-NDA.md"
+      ],
+      "sha256": "ec4d7b36e4e654796e40d8f411c82ce42e472f3c4c410f632220c97038ba6116",
+      "notes": "Version 1.0 text from the publisher's own GitHub repository, because commonpaper.com is blocked from the build sandbox. The approved page may now show a later version; the template follows version 1.0, which Common Paper keeps unchanged at the provenance URL."
+    },
+    {
+      "source_id": "C9",
+      "title": "Proxicom / Dimension Data confidentiality agreement",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001070052/000095013001501801/dex99d2.txt",
+      "licence": "Public filing, SEC EDGAR",
+      "kind": "filled_real",
+      "subtype": "nda",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.sec.gov (403)"
+    },
+    {
+      "source_id": "C10",
+      "title": "SafeNet / Vector confidentiality agreement",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000850313/000095014907000090/f28028toexv99wxdyx2y.htm",
+      "licence": "Public filing, SEC EDGAR",
+      "kind": "filled_real",
+      "subtype": "nda",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.sec.gov (403)"
+    },
+    {
+      "source_id": "C11",
+      "title": "CoStar / Nokia London agreement for lease",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001057352/000105735208000004/london_lease-areement.htm",
+      "licence": "Public filing, SEC EDGAR",
+      "kind": "filled_real",
+      "subtype": "lease",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.sec.gov (403)"
+    },
+    {
+      "source_id": "C12",
+      "title": "Silver Hill Mines engagement letter",
+      "url": "https://sec.gov/Archives/edgar/data/1434994/000105291810000281/ex10.htm",
+      "licence": "Public filing, SEC EDGAR",
+      "kind": "filled_real",
+      "subtype": "engagement_letter",
+      "fetched": false,
+      "fetched_at": null,
+      "fetched_from": null,
+      "sha256": null,
+      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to sec.gov (403)"
+    }
+  ]
+}
