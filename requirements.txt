@@ -1,3 +1,13 @@
 # Python 3.11+. Dataset pipeline (scripts/dataset) and tests (tests/dataset).
 anthropic==2.2.0
 pytest==9.1.1
+
+# Document ingestion (backend/app/ingest): PDF text layers, and Apple Vision OCR on macOS.
+pyobjc-framework-Vision==12.2.2; sys_platform == "darwin"
+pypdfium2==5.14.0
+pillow==13.0.0
+pillow-heif==1.8.1
+
+# Ingestion tests (tests/ingest) and the OCR evaluation (scripts/ocr).
+reportlab==5.1.0
+numpy==2.5.4
