@@ -1,0 +1,1065 @@
+{
+ "doc_id": "pdf-017",
+ "doc_type": "bank_statement",
+ "pdf": "17_bank_statement.pdf",
+ "text": "Nationwide\nCurrent account statement\n\nNISHA CHAUHAN\n160 Granby Place\nSTOCKPORT\nSK1 8AA\n\nAccount name: Nisha Chauhan\nSort code: 07-44-14\nAccount number: 83907706\nStatement period: 8 May 2026 to 6 Jun 2026\n\nYour account summary\nOpening balance: £131.23\nMoney in: £11,578.23\nMoney out: £2,968.41\nClosing balance: £8,741.05\n\nDate        Description                                   Money out  Paid in     Balance\n----------------------------------------------------------------------------------------\n08/05/2026  CARD PAYMENT TO Uber HUDDERSFIELD                 49.89                81.34\n08/05/2026  REFUND FROM PAYPAL                                         13.00       94.34\n08/05/2026  CASH WITHDRAWAL CHESTER                           30.00                64.34\n10/05/2026  Card purchase SCREWFIX 2141                       79.01              14.67OD\n10/05/2026  DIRECT DEBIT DIRECT LINE                          24.32              38.99OD\n12/05/2026  Card purchase WAITROSE MANCHESTER                131.30             170.29OD\n15/05/2026  FROM IRIS HILTON REF LOAN                                  36.45    133.84OD\n15/05/2026  ATM NOTEMACHINE PETERBOROUGH                      50.00             183.84OD\n16/05/2026  TRANSFER TO 072998 45625672                      752.82             936.66OD\n16/05/2026  FASTER PAYMENT TO JENNIFER WINTER REF THANKS     282.79           1,219.45OD\n17/05/2026  Card purchase BOOTS WORCESTER                    139.50           1,358.95OD\n19/05/2026  POS NATIONAL RAIL                                 67.21           1,426.16OD\n22/05/2026  CARD PAYMENT TO Evri 8792                         17.76           1,443.92OD\n23/05/2026  FROM JR WINTER REF BIRTHDAY                               134.79  1,309.13OD\n23/05/2026  CARD REFUND GREGGS                                         94.11  1,215.02OD\n24/05/2026  DEB IKEA                                          27.25           1,242.27OD\n26/05/2026  Card purchase COSTA COFFEE ON 26 MAY              29.58           1,271.85OD\n\n- 1 of 2\n\nNationwide | Nisha Chauhan | Sort code 07-44-14 | Account 83907706\n\nDate        Description                                 Money out   Paid in     Balance\n---------------------------------------------------------------------------------------\n26/05/2026  DD EE                                           74.95            1,346.80OD\n27/05/2026  TFR TO 20-04-31 16132981                       992.57            2,339.37OD\n28/05/2026  REFUND FROM MICROSOFT                                     57.14  2,282.23OD\n28/05/2026  CARD PAYMENT TO Deliveroo 4551                 120.27            2,402.50OD\n31/05/2026  POS AVANTI WEST COAST ON 31 MAY                 71.47            2,473.97OD\n01/06/2026  DEB ASDA 2986 CARD 4341                         27.72            2,501.69OD\n02/06/2026  CARD REFUND ASDA                                           4.56  2,497.13OD\n03/06/2026  Salary JUNIPER LOGISTICS LIMITED                       2,267.23    229.90OD\n03/06/2026  BANK GIRO CREDIT JUNIPER LOGISTICS LIMITED             4,377.31    4,147.41\n03/06/2026  Salary JUNIPER LOGISTICS LIMITED PAYROLL               4,515.84    8,663.25\n05/06/2026  REFUND FROM ALDI                                          20.88    8,684.13\n06/06/2026  REFUND FROM ALDI                                          43.68    8,727.81\n06/06/2026  CARD REFUND DROPBOX                                       13.24    8,741.05\n\n",
+ "entities": [
+  {
+   "start": 38,
+   "end": 51,
+   "text": "NISHA CHAUHAN",
+   "type": "PERSON"
+  },
+  {
+   "start": 52,
+   "end": 78,
+   "text": "160 Granby Place\nSTOCKPORT",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 79,
+   "end": 86,
+   "text": "SK1 8AA",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 102,
+   "end": 115,
+   "text": "Nisha Chauhan",
+   "type": "PERSON"
+  },
+  {
+   "start": 127,
+   "end": 135,
+   "text": "07-44-14",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 152,
+   "end": 160,
+   "text": "83907706",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 1050,
+   "end": 1061,
+   "text": "IRIS HILTON",
+   "type": "PERSON"
+  },
+  {
+   "start": 1235,
+   "end": 1241,
+   "text": "072998",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 1242,
+   "end": 1250,
+   "text": "45625672",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 1330,
+   "end": 1345,
+   "text": "JENNIFER WINTER",
+   "type": "PERSON"
+  },
+  {
+   "start": 1673,
+   "end": 1682,
+   "text": "JR WINTER",
+   "type": "PERSON"
+  },
+  {
+   "start": 2036,
+   "end": 2049,
+   "text": "Nisha Chauhan",
+   "type": "PERSON"
+  },
+  {
+   "start": 2062,
+   "end": 2070,
+   "text": "07-44-14",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 2081,
+   "end": 2089,
+   "text": "83907706",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 2374,
+   "end": 2382,
+   "text": "20-04-31",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 2383,
+   "end": 2391,
+   "text": "16132981",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 2738,
+   "end": 2742,
+   "text": "4341",
+   "type": "CARD"
+  }
+ ],
+ "meta": {
+  "template_id": "bank_statement/v1",
+  "variant_id": "bank_statement/v1|pages",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 38,
+    "end": 51
+   },
+   {
+    "kind": "multiline_address",
+    "start": 52,
+    "end": 86
+   },
+   {
+    "kind": "non_english_name",
+    "start": 102,
+    "end": 115
+   },
+   {
+    "kind": "table_layout",
+    "start": 321,
+    "end": 2012
+   },
+   {
+    "kind": "common_word_name",
+    "start": 1050,
+    "end": 1061
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 1050,
+    "end": 1061
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 1235,
+    "end": 1241
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 1242,
+    "end": 1250
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 1330,
+    "end": 1345
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 1673,
+    "end": 1682
+   },
+   {
+    "kind": "pdf_header_footer",
+    "start": 2013,
+    "end": 2090
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2036,
+    "end": 2049
+   },
+   {
+    "kind": "table_layout",
+    "start": 2091,
+    "end": 3411
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 2374,
+    "end": 2382
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 2383,
+    "end": 2391
+   },
+   {
+    "kind": "partial_number",
+    "start": 2738,
+    "end": 2742
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 0,
+    "end": 10,
+    "text": "Nationwide"
+   },
+   {
+    "kind": "date",
+    "start": 179,
+    "end": 189,
+    "text": "8 May 2026"
+   },
+   {
+    "kind": "date",
+    "start": 193,
+    "end": 203,
+    "text": "6 Jun 2026"
+   },
+   {
+    "kind": "amount",
+    "start": 243,
+    "end": 250,
+    "text": "£131.23"
+   },
+   {
+    "kind": "amount",
+    "start": 261,
+    "end": 271,
+    "text": "£11,578.23"
+   },
+   {
+    "kind": "amount",
+    "start": 283,
+    "end": 292,
+    "text": "£2,968.41"
+   },
+   {
+    "kind": "amount",
+    "start": 310,
+    "end": 319,
+    "text": "£8,741.05"
+   },
+   {
+    "kind": "date",
+    "start": 499,
+    "end": 509,
+    "text": "08/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 527,
+    "end": 531,
+    "text": "Uber"
+   },
+   {
+    "kind": "amount",
+    "start": 561,
+    "end": 566,
+    "text": "49.89"
+   },
+   {
+    "kind": "amount",
+    "start": 582,
+    "end": 587,
+    "text": "81.34"
+   },
+   {
+    "kind": "date",
+    "start": 588,
+    "end": 598,
+    "text": "08/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 612,
+    "end": 618,
+    "text": "PAYPAL"
+   },
+   {
+    "kind": "amount",
+    "start": 659,
+    "end": 664,
+    "text": "13.00"
+   },
+   {
+    "kind": "amount",
+    "start": 671,
+    "end": 676,
+    "text": "94.34"
+   },
+   {
+    "kind": "date",
+    "start": 677,
+    "end": 687,
+    "text": "08/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 739,
+    "end": 744,
+    "text": "30.00"
+   },
+   {
+    "kind": "amount",
+    "start": 760,
+    "end": 765,
+    "text": "64.34"
+   },
+   {
+    "kind": "date",
+    "start": 766,
+    "end": 776,
+    "text": "10/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 792,
+    "end": 800,
+    "text": "SCREWFIX"
+   },
+   {
+    "kind": "amount",
+    "start": 828,
+    "end": 833,
+    "text": "79.01"
+   },
+   {
+    "kind": "amount",
+    "start": 847,
+    "end": 854,
+    "text": "14.67OD"
+   },
+   {
+    "kind": "date",
+    "start": 855,
+    "end": 865,
+    "text": "10/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 880,
+    "end": 891,
+    "text": "DIRECT LINE"
+   },
+   {
+    "kind": "amount",
+    "start": 917,
+    "end": 922,
+    "text": "24.32"
+   },
+   {
+    "kind": "amount",
+    "start": 936,
+    "end": 943,
+    "text": "38.99OD"
+   },
+   {
+    "kind": "date",
+    "start": 944,
+    "end": 954,
+    "text": "12/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 970,
+    "end": 978,
+    "text": "WAITROSE"
+   },
+   {
+    "kind": "amount",
+    "start": 1005,
+    "end": 1011,
+    "text": "131.30"
+   },
+   {
+    "kind": "amount",
+    "start": 1024,
+    "end": 1032,
+    "text": "170.29OD"
+   },
+   {
+    "kind": "date",
+    "start": 1033,
+    "end": 1043,
+    "text": "15/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1104,
+    "end": 1109,
+    "text": "36.45"
+   },
+   {
+    "kind": "amount",
+    "start": 1113,
+    "end": 1121,
+    "text": "133.84OD"
+   },
+   {
+    "kind": "date",
+    "start": 1122,
+    "end": 1132,
+    "text": "15/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1184,
+    "end": 1189,
+    "text": "50.00"
+   },
+   {
+    "kind": "amount",
+    "start": 1202,
+    "end": 1210,
+    "text": "183.84OD"
+   },
+   {
+    "kind": "date",
+    "start": 1211,
+    "end": 1221,
+    "text": "16/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1272,
+    "end": 1278,
+    "text": "752.82"
+   },
+   {
+    "kind": "amount",
+    "start": 1291,
+    "end": 1299,
+    "text": "936.66OD"
+   },
+   {
+    "kind": "date",
+    "start": 1300,
+    "end": 1310,
+    "text": "16/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1361,
+    "end": 1367,
+    "text": "282.79"
+   },
+   {
+    "kind": "amount",
+    "start": 1378,
+    "end": 1388,
+    "text": "1,219.45OD"
+   },
+   {
+    "kind": "date",
+    "start": 1389,
+    "end": 1399,
+    "text": "17/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1415,
+    "end": 1420,
+    "text": "BOOTS"
+   },
+   {
+    "kind": "amount",
+    "start": 1450,
+    "end": 1456,
+    "text": "139.50"
+   },
+   {
+    "kind": "amount",
+    "start": 1467,
+    "end": 1477,
+    "text": "1,358.95OD"
+   },
+   {
+    "kind": "date",
+    "start": 1478,
+    "end": 1488,
+    "text": "19/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1494,
+    "end": 1507,
+    "text": "NATIONAL RAIL"
+   },
+   {
+    "kind": "amount",
+    "start": 1540,
+    "end": 1545,
+    "text": "67.21"
+   },
+   {
+    "kind": "amount",
+    "start": 1556,
+    "end": 1566,
+    "text": "1,426.16OD"
+   },
+   {
+    "kind": "date",
+    "start": 1567,
+    "end": 1577,
+    "text": "22/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1595,
+    "end": 1599,
+    "text": "Evri"
+   },
+   {
+    "kind": "amount",
+    "start": 1629,
+    "end": 1634,
+    "text": "17.76"
+   },
+   {
+    "kind": "amount",
+    "start": 1645,
+    "end": 1655,
+    "text": "1,443.92OD"
+   },
+   {
+    "kind": "date",
+    "start": 1656,
+    "end": 1666,
+    "text": "23/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1726,
+    "end": 1732,
+    "text": "134.79"
+   },
+   {
+    "kind": "amount",
+    "start": 1734,
+    "end": 1744,
+    "text": "1,309.13OD"
+   },
+   {
+    "kind": "date",
+    "start": 1745,
+    "end": 1755,
+    "text": "23/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1769,
+    "end": 1775,
+    "text": "GREGGS"
+   },
+   {
+    "kind": "amount",
+    "start": 1816,
+    "end": 1821,
+    "text": "94.11"
+   },
+   {
+    "kind": "amount",
+    "start": 1823,
+    "end": 1833,
+    "text": "1,215.02OD"
+   },
+   {
+    "kind": "date",
+    "start": 1834,
+    "end": 1844,
+    "text": "24/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1850,
+    "end": 1854,
+    "text": "IKEA"
+   },
+   {
+    "kind": "amount",
+    "start": 1896,
+    "end": 1901,
+    "text": "27.25"
+   },
+   {
+    "kind": "amount",
+    "start": 1912,
+    "end": 1922,
+    "text": "1,242.27OD"
+   },
+   {
+    "kind": "date",
+    "start": 1923,
+    "end": 1933,
+    "text": "26/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1949,
+    "end": 1961,
+    "text": "COSTA COFFEE"
+   },
+   {
+    "kind": "amount",
+    "start": 1985,
+    "end": 1990,
+    "text": "29.58"
+   },
+   {
+    "kind": "amount",
+    "start": 2001,
+    "end": 2011,
+    "text": "1,271.85OD"
+   },
+   {
+    "kind": "public_company",
+    "start": 2023,
+    "end": 2033,
+    "text": "Nationwide"
+   },
+   {
+    "kind": "date",
+    "start": 2267,
+    "end": 2277,
+    "text": "26/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2282,
+    "end": 2284,
+    "text": "EE"
+   },
+   {
+    "kind": "amount",
+    "start": 2327,
+    "end": 2332,
+    "text": "74.95"
+   },
+   {
+    "kind": "amount",
+    "start": 2344,
+    "end": 2354,
+    "text": "1,346.80OD"
+   },
+   {
+    "kind": "date",
+    "start": 2355,
+    "end": 2365,
+    "text": "27/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 2414,
+    "end": 2420,
+    "text": "992.57"
+   },
+   {
+    "kind": "amount",
+    "start": 2432,
+    "end": 2442,
+    "text": "2,339.37OD"
+   },
+   {
+    "kind": "date",
+    "start": 2443,
+    "end": 2453,
+    "text": "28/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2467,
+    "end": 2476,
+    "text": "MICROSOFT"
+   },
+   {
+    "kind": "amount",
+    "start": 2513,
+    "end": 2518,
+    "text": "57.14"
+   },
+   {
+    "kind": "amount",
+    "start": 2520,
+    "end": 2530,
+    "text": "2,282.23OD"
+   },
+   {
+    "kind": "date",
+    "start": 2531,
+    "end": 2541,
+    "text": "28/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2559,
+    "end": 2568,
+    "text": "Deliveroo"
+   },
+   {
+    "kind": "amount",
+    "start": 2590,
+    "end": 2596,
+    "text": "120.27"
+   },
+   {
+    "kind": "amount",
+    "start": 2608,
+    "end": 2618,
+    "text": "2,402.50OD"
+   },
+   {
+    "kind": "date",
+    "start": 2619,
+    "end": 2629,
+    "text": "31/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2635,
+    "end": 2652,
+    "text": "AVANTI WEST COAST"
+   },
+   {
+    "kind": "amount",
+    "start": 2679,
+    "end": 2684,
+    "text": "71.47"
+   },
+   {
+    "kind": "amount",
+    "start": 2696,
+    "end": 2706,
+    "text": "2,473.97OD"
+   },
+   {
+    "kind": "date",
+    "start": 2707,
+    "end": 2717,
+    "text": "01/06/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2723,
+    "end": 2727,
+    "text": "ASDA"
+   },
+   {
+    "kind": "amount",
+    "start": 2767,
+    "end": 2772,
+    "text": "27.72"
+   },
+   {
+    "kind": "amount",
+    "start": 2784,
+    "end": 2794,
+    "text": "2,501.69OD"
+   },
+   {
+    "kind": "date",
+    "start": 2795,
+    "end": 2805,
+    "text": "02/06/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2819,
+    "end": 2823,
+    "text": "ASDA"
+   },
+   {
+    "kind": "amount",
+    "start": 2866,
+    "end": 2870,
+    "text": "4.56"
+   },
+   {
+    "kind": "amount",
+    "start": 2872,
+    "end": 2882,
+    "text": "2,497.13OD"
+   },
+   {
+    "kind": "date",
+    "start": 2883,
+    "end": 2893,
+    "text": "03/06/2026"
+   },
+   {
+    "kind": "company_name",
+    "start": 2902,
+    "end": 2927,
+    "text": "JUNIPER LOGISTICS LIMITED"
+   },
+   {
+    "kind": "amount",
+    "start": 2950,
+    "end": 2958,
+    "text": "2,267.23"
+   },
+   {
+    "kind": "amount",
+    "start": 2962,
+    "end": 2970,
+    "text": "229.90OD"
+   },
+   {
+    "kind": "date",
+    "start": 2971,
+    "end": 2981,
+    "text": "03/06/2026"
+   },
+   {
+    "kind": "company_name",
+    "start": 3000,
+    "end": 3025,
+    "text": "JUNIPER LOGISTICS LIMITED"
+   },
+   {
+    "kind": "amount",
+    "start": 3038,
+    "end": 3046,
+    "text": "4,377.31"
+   },
+   {
+    "kind": "amount",
+    "start": 3050,
+    "end": 3058,
+    "text": "4,147.41"
+   },
+   {
+    "kind": "date",
+    "start": 3059,
+    "end": 3069,
+    "text": "03/06/2026"
+   },
+   {
+    "kind": "company_name",
+    "start": 3078,
+    "end": 3103,
+    "text": "JUNIPER LOGISTICS LIMITED"
+   },
+   {
+    "kind": "amount",
+    "start": 3126,
+    "end": 3134,
+    "text": "4,515.84"
+   },
+   {
+    "kind": "amount",
+    "start": 3138,
+    "end": 3146,
+    "text": "8,663.25"
+   },
+   {
+    "kind": "date",
+    "start": 3147,
+    "end": 3157,
+    "text": "05/06/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 3171,
+    "end": 3175,
+    "text": "ALDI"
+   },
+   {
+    "kind": "amount",
+    "start": 3217,
+    "end": 3222,
+    "text": "20.88"
+   },
+   {
+    "kind": "amount",
+    "start": 3226,
+    "end": 3234,
+    "text": "8,684.13"
+   },
+   {
+    "kind": "date",
+    "start": 3235,
+    "end": 3245,
+    "text": "06/06/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 3259,
+    "end": 3263,
+    "text": "ALDI"
+   },
+   {
+    "kind": "amount",
+    "start": 3305,
+    "end": 3310,
+    "text": "43.68"
+   },
+   {
+    "kind": "amount",
+    "start": 3314,
+    "end": 3322,
+    "text": "8,727.81"
+   },
+   {
+    "kind": "date",
+    "start": 3323,
+    "end": 3333,
+    "text": "06/06/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 3347,
+    "end": 3354,
+    "text": "DROPBOX"
+   },
+   {
+    "kind": "amount",
+    "start": 3393,
+    "end": 3398,
+    "text": "13.24"
+   },
+   {
+    "kind": "amount",
+    "start": 3402,
+    "end": 3410,
+    "text": "8,741.05"
+   }
+  ]
+ },
+ "extracted_text": "Nationwide\nCurrent account statement\nNISHA CHAUHAN\n160 Granby Place\nSTOCKPORT\nSK1 8AA\nAccount name: Nisha Chauhan\nSort code: 07-44-14\nAccount number: 83907706\nStatement period: 8 May 2026 to 6 Jun 2026\nYour account summary\nOpening balance: £131.23\nMoney in: £11,578.23\nMoney out: £2,968.41\nClosing balance: £8,741.05\nDate Description Money out Paid in Balance\n----------------------------------------------------------------------------------------\n08/05/2026 CARD PAYMENT TO Uber HUDDERSFIELD 49.89 81.34\n08/05/2026 REFUND FROM PAYPAL 13.00 94.34\n08/05/2026 CASH WITHDRAWAL CHESTER 30.00 64.34\n10/05/2026 Card purchase SCREWFIX 2141 79.01 14.67OD\n10/05/2026 DIRECT DEBIT DIRECT LINE 24.32 38.99OD\n12/05/2026 Card purchase WAITROSE MANCHESTER 131.30 170.29OD\n15/05/2026 FROM IRIS HILTON REF LOAN 36.45 133.84OD\n15/05/2026 ATM NOTEMACHINE PETERBOROUGH 50.00 183.84OD\n16/05/2026 TRANSFER TO 072998 45625672 752.82 936.66OD\n16/05/2026 FASTER PAYMENT TO JENNIFER WINTER REF THANKS 282.79 1,219.45OD\n17/05/2026 Card purchase BOOTS WORCESTER 139.50 1,358.95OD\n19/05/2026 POS NATIONAL RAIL 67.21 1,426.16OD\n22/05/2026 CARD PAYMENT TO Evri 8792 17.76 1,443.92OD\n23/05/2026 FROM JR WINTER REF BIRTHDAY 134.79 1,309.13OD\n23/05/2026 CARD REFUND GREGGS 94.11 1,215.02OD\n24/05/2026 DEB IKEA 27.25 1,242.27OD\n26/05/2026 Card purchase COSTA COFFEE ON 26 MAY 29.58 1,271.85OD\n- 1 of 2\nNationwide | Nisha Chauhan | Sort code 07-44-14 | Account 83907706\nDate Description Money out Paid in Balance\n---------------------------------------------------------------------------------------\n26/05/2026 DD EE 74.95 1,346.80OD\n27/05/2026 TFR TO 20-04-31 16132981 992.57 2,339.37OD\n28/05/2026 REFUND FROM MICROSOFT 57.14 2,282.23OD\n28/05/2026 CARD PAYMENT TO Deliveroo 4551 120.27 2,402.50OD\n31/05/2026 POS AVANTI WEST COAST ON 31 MAY 71.47 2,473.97OD\n01/06/2026 DEB ASDA 2986 CARD 4341 27.72 2,501.69OD\n02/06/2026 CARD REFUND ASDA 4.56 2,497.13OD\n03/06/2026 Salary JUNIPER LOGISTICS LIMITED 2,267.23 229.90OD\n03/06/2026 BANK GIRO CREDIT JUNIPER LOGISTICS LIMITED 4,377.31 4,147.41\n03/06/2026 Salary JUNIPER LOGISTICS LIMITED PAYROLL 4,515.84 8,663.25\n05/06/2026 REFUND FROM ALDI 20.88 8,684.13\n06/06/2026 REFUND FROM ALDI 43.68 8,727.81\n06/06/2026 CARD REFUND DROPBOX 13.24 8,741.05\nBank Statement Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 37,
+   "end": 50,
+   "text": "NISHA CHAUHAN",
+   "type": "PERSON",
+   "gold_text": "NISHA CHAUHAN",
+   "exact": true
+  },
+  {
+   "start": 51,
+   "end": 77,
+   "text": "160 Granby Place\nSTOCKPORT",
+   "type": "ADDRESS",
+   "gold_text": "160 Granby Place\nSTOCKPORT",
+   "exact": true
+  },
+  {
+   "start": 78,
+   "end": 85,
+   "text": "SK1 8AA",
+   "type": "POSTCODE",
+   "gold_text": "SK1 8AA",
+   "exact": true
+  },
+  {
+   "start": 100,
+   "end": 113,
+   "text": "Nisha Chauhan",
+   "type": "PERSON",
+   "gold_text": "Nisha Chauhan",
+   "exact": true
+  },
+  {
+   "start": 125,
+   "end": 133,
+   "text": "07-44-14",
+   "type": "SORT_CODE",
+   "gold_text": "07-44-14",
+   "exact": true
+  },
+  {
+   "start": 150,
+   "end": 158,
+   "text": "83907706",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "83907706",
+   "exact": true
+  },
+  {
+   "start": 775,
+   "end": 786,
+   "text": "IRIS HILTON",
+   "type": "PERSON",
+   "gold_text": "IRIS HILTON",
+   "exact": true
+  },
+  {
+   "start": 889,
+   "end": 895,
+   "text": "072998",
+   "type": "SORT_CODE",
+   "gold_text": "072998",
+   "exact": true
+  },
+  {
+   "start": 896,
+   "end": 904,
+   "text": "45625672",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "45625672",
+   "exact": true
+  },
+  {
+   "start": 950,
+   "end": 965,
+   "text": "JENNIFER WINTER",
+   "type": "PERSON",
+   "gold_text": "JENNIFER WINTER",
+   "exact": true
+  },
+  {
+   "start": 1170,
+   "end": 1179,
+   "text": "JR WINTER",
+   "type": "PERSON",
+   "gold_text": "JR WINTER",
+   "exact": true
+  },
+  {
+   "start": 1382,
+   "end": 1395,
+   "text": "Nisha Chauhan",
+   "type": "PERSON",
+   "gold_text": "Nisha Chauhan",
+   "exact": true
+  },
+  {
+   "start": 1408,
+   "end": 1416,
+   "text": "07-44-14",
+   "type": "SORT_CODE",
+   "gold_text": "07-44-14",
+   "exact": true
+  },
+  {
+   "start": 1427,
+   "end": 1435,
+   "text": "83907706",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "83907706",
+   "exact": true
+  },
+  {
+   "start": 1619,
+   "end": 1627,
+   "text": "20-04-31",
+   "type": "SORT_CODE",
+   "gold_text": "20-04-31",
+   "exact": true
+  },
+  {
+   "start": 1628,
+   "end": 1636,
+   "text": "16132981",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "16132981",
+   "exact": true
+  },
+  {
+   "start": 1855,
+   "end": 1859,
+   "text": "4341",
+   "type": "CARD",
+   "gold_text": "4341",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9941
+}

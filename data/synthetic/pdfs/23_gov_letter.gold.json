@@ -1,0 +1,168 @@
+{
+ "doc_id": "pdf-023",
+ "doc_type": "gov_letter",
+ "pdf": "23_gov_letter.pdf",
+ "text": "HMRC\nPay As You Earn and Self Assessment\n\nMiss Maryam Butt\n137 Riverside Way\nSwindon\nSN2 6DE\n\nDATE OF THIS LETTER: 21 October 2026\nREFERENCE: 2846485537\n\nDear Maryam,\n\nYour tax return for 6 April 2024 to 5 April 2025\n\nThis notice requires you to complete a tax return. Send it online by 31 January 2026, or on paper  by 31 October 2025.\n\nYou will be charged a £100.00 penalty if your return is late,  even if you have no tax to pay. Your UTR is shown at the top of this letter.\n\nSomeone else can contact us for you if you give them permission. We can send letters in Braille, large print or audio if you need them.\n\nThe HMRC app lets you check your tax code and see your  National Insurance record. You can check your details at any time in your personal tax account.\n\nOur phone lines are busiest in January and July. Using the app is usually quicker.\n\n\nHMRC\n",
+ "entities": [
+  {
+   "start": 47,
+   "end": 58,
+   "text": "Maryam Butt",
+   "type": "PERSON"
+  },
+  {
+   "start": 59,
+   "end": 84,
+   "text": "137 Riverside Way\nSwindon",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 85,
+   "end": 92,
+   "text": "SN2 6DE",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 142,
+   "end": 152,
+   "text": "2846485537",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 159,
+   "end": 165,
+   "text": "Maryam",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "gov_letter/v2",
+  "variant_id": "gov_letter/v2|hmrc-sa,dsp",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 47,
+    "end": 58
+   },
+   {
+    "kind": "multiline_address",
+    "start": 59,
+    "end": 92
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 142,
+    "end": 152
+   },
+   {
+    "kind": "greeting_name",
+    "start": 159,
+    "end": 165
+   },
+   {
+    "kind": "non_english_name",
+    "start": 159,
+    "end": 165
+   },
+   {
+    "kind": "pdf_double_space",
+    "start": 302,
+    "end": 320
+   },
+   {
+    "kind": "pdf_double_space",
+    "start": 367,
+    "end": 859
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 0,
+    "end": 4,
+    "text": "HMRC"
+   },
+   {
+    "kind": "date",
+    "start": 115,
+    "end": 130,
+    "text": "21 October 2026"
+   },
+   {
+    "kind": "date",
+    "start": 188,
+    "end": 200,
+    "text": "6 April 2024"
+   },
+   {
+    "kind": "date",
+    "start": 204,
+    "end": 216,
+    "text": "5 April 2025"
+   },
+   {
+    "kind": "date",
+    "start": 287,
+    "end": 302,
+    "text": "31 January 2026"
+   },
+   {
+    "kind": "date",
+    "start": 320,
+    "end": 335,
+    "text": "31 October 2025"
+   },
+   {
+    "kind": "amount",
+    "start": 360,
+    "end": 367,
+    "text": "£100.00"
+   }
+  ]
+ },
+ "extracted_text": "HMRC\nPay As You Earn and Self Assessment\nMiss Maryam Butt\n137 Riverside Way\nSwindon\nSN2 6DE\nDATE OF THIS LETTER: 21 October 2026\nREFERENCE: 2846485537\nDear Maryam,\nYour tax return for 6 April 2024 to 5 April 2025\nThis notice requires you to complete a tax return. Send it online by 31 January 2026, or on paper by 31 October 2025.\nYou will be charged a £100.00 penalty if your return is late, even if you have no tax to pay. Your UTR is shown at the top\nof this letter.\nSomeone else can contact us for you if you give them permission. We can send letters in Braille, large print or\naudio if you need them.\nThe HMRC app lets you check your tax code and see your National Insurance record. You can check your details at any time in\nyour personal tax account.\nOur phone lines are busiest in January and July. Using the app is usually quicker.\nHMRC\nGov Letter Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 46,
+   "end": 57,
+   "text": "Maryam Butt",
+   "type": "PERSON",
+   "gold_text": "Maryam Butt",
+   "exact": true
+  },
+  {
+   "start": 58,
+   "end": 83,
+   "text": "137 Riverside Way\nSwindon",
+   "type": "ADDRESS",
+   "gold_text": "137 Riverside Way\nSwindon",
+   "exact": true
+  },
+  {
+   "start": 84,
+   "end": 91,
+   "text": "SN2 6DE",
+   "type": "POSTCODE",
+   "gold_text": "SN2 6DE",
+   "exact": true
+  },
+  {
+   "start": 140,
+   "end": 150,
+   "text": "2846485537",
+   "type": "CUSTOM",
+   "gold_text": "2846485537",
+   "exact": true
+  },
+  {
+   "start": 156,
+   "end": 162,
+   "text": "Maryam",
+   "type": "PERSON",
+   "gold_text": "Maryam",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9866
+}

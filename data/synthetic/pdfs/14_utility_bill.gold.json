@@ -1,0 +1,321 @@
+{
+ "doc_id": "pdf-014",
+ "doc_type": "utility_bill",
+ "pdf": "14_utility_bill.pdf",
+ "text": "Octopus Energy\nStatement of account\n\nMs Deepa Pillai\nFlat 22, 101C Railway Way\nPeterborough\nPE6 0JP\n\nBilling period: 10/04/2025 to 10/07/2025\nCustomer name: Deepa Pillai\nBill date: 16/07/2025\nAccount number: 6997 6487 7759\nBill number: 260255\n\n## Summary\nPrevious balance: £88.30\nPayments received: £119.38 - thank you\nNew charges: £940.18\nAmount due: £909.10\n\nWhat you're paying for\nTariff: Cosy Octopus\nItem                                                 Amount\nElectricity (1,886 kWh x 31.97p/kWh)                £602.95\nElectricity standing charge (92 days x 31.88p/day)   £29.33\nGas (2,076 kWh x 10.81p/kWh)                        £224.42\nGas standing charge (92 days x 42.08p/day)           £38.71\nVAT at 5%: £44.77\nTotal new charges: £940.18\n\nPage 1 of 2\n\nOctopus Energy | Deepa Pillai | Account number 6997 6487 7759\n\nYou paid by card ending 4482 on 10/07/2025. Thank you.\n\nQuestions about your bill? Visit octopusenergy.co.uk.\nIf you are worried about paying, talk to us. You can also get free advice from CCW.\n",
+ "entities": [
+  {
+   "start": 40,
+   "end": 52,
+   "text": "Deepa Pillai",
+   "type": "PERSON"
+  },
+  {
+   "start": 53,
+   "end": 91,
+   "text": "Flat 22, 101C Railway Way\nPeterborough",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 92,
+   "end": 99,
+   "text": "PE6 0JP",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 157,
+   "end": 169,
+   "text": "Deepa Pillai",
+   "type": "PERSON"
+  },
+  {
+   "start": 208,
+   "end": 222,
+   "text": "6997 6487 7759",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 781,
+   "end": 793,
+   "text": "Deepa Pillai",
+   "type": "PERSON"
+  },
+  {
+   "start": 811,
+   "end": 825,
+   "text": "6997 6487 7759",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 851,
+   "end": 855,
+   "text": "4482",
+   "type": "CARD"
+  }
+ ],
+ "meta": {
+  "template_id": "utility_bill/v1",
+  "variant_id": "utility_bill/v1|pub-energy,pages",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 40,
+    "end": 52
+   },
+   {
+    "kind": "flat_number",
+    "start": 53,
+    "end": 91
+   },
+   {
+    "kind": "multiline_address",
+    "start": 53,
+    "end": 99
+   },
+   {
+    "kind": "non_english_name",
+    "start": 157,
+    "end": 169
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 208,
+    "end": 222
+   },
+   {
+    "kind": "table_layout",
+    "start": 405,
+    "end": 705
+   },
+   {
+    "kind": "pdf_header_footer",
+    "start": 751,
+    "end": 825
+   },
+   {
+    "kind": "non_english_name",
+    "start": 781,
+    "end": 793
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 811,
+    "end": 825
+   },
+   {
+    "kind": "partial_number",
+    "start": 851,
+    "end": 855
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 0,
+    "end": 14,
+    "text": "Octopus Energy"
+   },
+   {
+    "kind": "date",
+    "start": 117,
+    "end": 127,
+    "text": "10/04/2025"
+   },
+   {
+    "kind": "date",
+    "start": 131,
+    "end": 141,
+    "text": "10/07/2025"
+   },
+   {
+    "kind": "date",
+    "start": 181,
+    "end": 191,
+    "text": "16/07/2025"
+   },
+   {
+    "kind": "doc_reference",
+    "start": 236,
+    "end": 242,
+    "text": "260255"
+   },
+   {
+    "kind": "amount",
+    "start": 273,
+    "end": 279,
+    "text": "£88.30"
+   },
+   {
+    "kind": "amount",
+    "start": 299,
+    "end": 306,
+    "text": "£119.38"
+   },
+   {
+    "kind": "amount",
+    "start": 332,
+    "end": 339,
+    "text": "£940.18"
+   },
+   {
+    "kind": "amount",
+    "start": 352,
+    "end": 359,
+    "text": "£909.10"
+   },
+   {
+    "kind": "product",
+    "start": 392,
+    "end": 404,
+    "text": "Cosy Octopus"
+   },
+   {
+    "kind": "amount",
+    "start": 490,
+    "end": 496,
+    "text": "31.97p"
+   },
+   {
+    "kind": "amount",
+    "start": 517,
+    "end": 524,
+    "text": "£602.95"
+   },
+   {
+    "kind": "amount",
+    "start": 564,
+    "end": 570,
+    "text": "31.88p"
+   },
+   {
+    "kind": "amount",
+    "start": 578,
+    "end": 584,
+    "text": "£29.33"
+   },
+   {
+    "kind": "amount",
+    "start": 602,
+    "end": 608,
+    "text": "10.81p"
+   },
+   {
+    "kind": "amount",
+    "start": 637,
+    "end": 644,
+    "text": "£224.42"
+   },
+   {
+    "kind": "amount",
+    "start": 676,
+    "end": 682,
+    "text": "42.08p"
+   },
+   {
+    "kind": "amount",
+    "start": 698,
+    "end": 704,
+    "text": "£38.71"
+   },
+   {
+    "kind": "amount",
+    "start": 716,
+    "end": 722,
+    "text": "£44.77"
+   },
+   {
+    "kind": "amount",
+    "start": 742,
+    "end": 749,
+    "text": "£940.18"
+   },
+   {
+    "kind": "public_company",
+    "start": 764,
+    "end": 778,
+    "text": "Octopus Energy"
+   },
+   {
+    "kind": "date",
+    "start": 859,
+    "end": 869,
+    "text": "10/07/2025"
+   },
+   {
+    "kind": "public_company",
+    "start": 1016,
+    "end": 1019,
+    "text": "CCW"
+   }
+  ]
+ },
+ "extracted_text": "Octopus Energy\nStatement of account\nMs Deepa Pillai\nFlat 22, 101C Railway Way\nPeterborough\nPE6 0JP\nBilling period: 10/04/2025 to 10/07/2025\nCustomer name: Deepa Pillai\nBill date: 16/07/2025\nAccount number: 6997 6487 7759\nBill number: 260255\nSummary\nPrevious balance: £88.30\nPayments received: £119.38 - thank you\nNew charges: £940.18\nAmount due: £909.10\nWhat you're paying for\nTariff: Cosy Octopus\nItem Amount\nElectricity (1,886 kWh x 31.97p/kWh) £602.95\nElectricity standing charge (92 days x 31.88p/day) £29.33\nGas (2,076 kWh x 10.81p/kWh) £224.42\nGas standing charge (92 days x 42.08p/day) £38.71\nVAT at 5%: £44.77\nTotal new charges: £940.18\nPage 1 of 2\nOctopus Energy | Deepa Pillai | Account number 6997 6487 7759\nYou paid by card ending 4482 on 10/07/2025. Thank you.\nQuestions about your bill? Visit octopusenergy.co.uk.\nIf you are worried about paying, talk to us. You can also get free advice from CCW.\nUtility Bill Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 39,
+   "end": 51,
+   "text": "Deepa Pillai",
+   "type": "PERSON",
+   "gold_text": "Deepa Pillai",
+   "exact": true
+  },
+  {
+   "start": 52,
+   "end": 90,
+   "text": "Flat 22, 101C Railway Way\nPeterborough",
+   "type": "ADDRESS",
+   "gold_text": "Flat 22, 101C Railway Way\nPeterborough",
+   "exact": true
+  },
+  {
+   "start": 91,
+   "end": 98,
+   "text": "PE6 0JP",
+   "type": "POSTCODE",
+   "gold_text": "PE6 0JP",
+   "exact": true
+  },
+  {
+   "start": 155,
+   "end": 167,
+   "text": "Deepa Pillai",
+   "type": "PERSON",
+   "gold_text": "Deepa Pillai",
+   "exact": true
+  },
+  {
+   "start": 206,
+   "end": 220,
+   "text": "6997 6487 7759",
+   "type": "CUSTOM",
+   "gold_text": "6997 6487 7759",
+   "exact": true
+  },
+  {
+   "start": 674,
+   "end": 686,
+   "text": "Deepa Pillai",
+   "type": "PERSON",
+   "gold_text": "Deepa Pillai",
+   "exact": true
+  },
+  {
+   "start": 704,
+   "end": 718,
+   "text": "6997 6487 7759",
+   "type": "CUSTOM",
+   "gold_text": "6997 6487 7759",
+   "exact": true
+  },
+  {
+   "start": 743,
+   "end": 747,
+   "text": "4482",
+   "type": "CARD",
+   "gold_text": "4482",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9849
+}

@@ -1,0 +1,431 @@
+{
+ "doc_id": "pdf-029",
+ "doc_type": "hr_form",
+ "pdf": "29_hr_form.pdf",
+ "text": "# Saltmarsh Foods plc\nStarter Checklist and Personal Details\nPlease complete all sections in BLOCK CAPITALS and return to HR before your first day.\n\n### Personal details\n| Field | Details |\n|---|---|\n| Title | Dr |\n| Surname | Hussain |\n| Forename(s) | Eleanor Fiona |\n| Preferred name | Eleanor |\n| Date of birth | 1996-01-06 |\n| National Insurance number | NE 83 83 34 D |\n| Home address | 47 Heathfield Hill, Portsmouth |\n| Postcode | PO6 4HA |\n| Mobile | +44 7700 900761 |\n| Home phone | 028 8912 5889 |\n| Personal email | hussaineleanor@hotmail.co.uk |\n\n### Emergency contact\n| Field | Details |\n|---|---|\n| Name | Deborah Doyle |\n| Relationship | Wife |\n| Phone | 07700900153 |\n| Alternative phone | 0131 496 0958 |\n\n### 3. Payment details\n| Field | Details |\n|---|---|\n| Account holder name | Eleanor Hussain |\n| Bank / building society | Bank of Scotland |\n| Sort code | 80-89-46 |\n| Account number | 33927020 |\n\n### Section 4: Right to work\n| Field | Details |\n|---|---|\n| Document seen | UK photocard driving licence |\n| Licence number | HUSSA951066EF9ZD |\n| Valid to | 11 Mar 2027 |\n\n### Section 5: Employment details (office use only)\n| Field | Details |\n|---|---|\n| Employee no. | SF184821 |\n| Job title | Teaching Assistant |\n| Department | Learning Support |\n| Line manager | Ms Saunders |\n| Start date | 27th October 2026 |\n| Salary | £39,750 pro rata |\n| Contracted hours | 37.5 per week |\n\n### Starter checklist\n[ ] Statement A: This is my first job since 6 April and I have not had taxable benefits\n[X] Statement B: This is now my only job\n☐ Statement C: I have another job or receive a pension\n[x] P45 provided\n[x] Student loan (Postgraduate)\n\nEmployee signature: [signed]   ELEANOR HUSSAIN   Date: 27/10/2026\nAuthorised by: Valerie Saunders (Manager)   Date: 14 November 2026\n",
+ "entities": [
+  {
+   "start": 227,
+   "end": 234,
+   "text": "Hussain",
+   "type": "PERSON"
+  },
+  {
+   "start": 253,
+   "end": 266,
+   "text": "Eleanor Fiona",
+   "type": "PERSON"
+  },
+  {
+   "start": 288,
+   "end": 295,
+   "text": "Eleanor",
+   "type": "PERSON"
+  },
+  {
+   "start": 316,
+   "end": 326,
+   "text": "1996-01-06",
+   "type": "DOB"
+  },
+  {
+   "start": 359,
+   "end": 372,
+   "text": "NE 83 83 34 D",
+   "type": "NI_NUMBER"
+  },
+  {
+   "start": 392,
+   "end": 422,
+   "text": "47 Heathfield Hill, Portsmouth",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 438,
+   "end": 445,
+   "text": "PO6 4HA",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 459,
+   "end": 474,
+   "text": "+44 7700 900761",
+   "type": "PHONE"
+  },
+  {
+   "start": 492,
+   "end": 505,
+   "text": "028 8912 5889",
+   "type": "PHONE"
+  },
+  {
+   "start": 527,
+   "end": 555,
+   "text": "hussaineleanor@hotmail.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 620,
+   "end": 633,
+   "text": "Deborah Doyle",
+   "type": "PERSON"
+  },
+  {
+   "start": 670,
+   "end": 681,
+   "text": "07700900153",
+   "type": "PHONE"
+  },
+  {
+   "start": 706,
+   "end": 719,
+   "text": "0131 496 0958",
+   "type": "PHONE"
+  },
+  {
+   "start": 800,
+   "end": 815,
+   "text": "Eleanor Hussain",
+   "type": "PERSON"
+  },
+  {
+   "start": 879,
+   "end": 887,
+   "text": "80-89-46",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 909,
+   "end": 917,
+   "text": "33927020",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 1048,
+   "end": 1064,
+   "text": "HUSSA951066EF9ZD",
+   "type": "ID_DOC"
+  },
+  {
+   "start": 1194,
+   "end": 1202,
+   "text": "SF184821",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 1294,
+   "end": 1302,
+   "text": "Saunders",
+   "type": "PERSON"
+  },
+  {
+   "start": 1695,
+   "end": 1710,
+   "text": "ELEANOR HUSSAIN",
+   "type": "PERSON"
+  },
+  {
+   "start": 1745,
+   "end": 1761,
+   "text": "Valerie Saunders",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "hr_form/v1",
+  "variant_id": "hr_form/v1|s1",
+  "hard_cases": [
+   {
+    "kind": "table_layout",
+    "start": 170,
+    "end": 558
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 227,
+    "end": 234
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 253,
+    "end": 266
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 288,
+    "end": 295
+   },
+   {
+    "kind": "dob_near_dates",
+    "start": 316,
+    "end": 326
+   },
+   {
+    "kind": "spaced_identifier",
+    "start": 359,
+    "end": 372
+   },
+   {
+    "kind": "address_in_table",
+    "start": 392,
+    "end": 422
+   },
+   {
+    "kind": "name_in_email",
+    "start": 527,
+    "end": 555
+   },
+   {
+    "kind": "table_layout",
+    "start": 581,
+    "end": 722
+   },
+   {
+    "kind": "table_layout",
+    "start": 746,
+    "end": 920
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 800,
+    "end": 815
+   },
+   {
+    "kind": "table_layout",
+    "start": 950,
+    "end": 1094
+   },
+   {
+    "kind": "table_layout",
+    "start": 1147,
+    "end": 1407
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 1194,
+    "end": 1202
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 1695,
+    "end": 1710
+   },
+   {
+    "kind": "signature_name",
+    "start": 1745,
+    "end": 1761
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 846,
+    "end": 862,
+    "text": "Bank of Scotland"
+   },
+   {
+    "kind": "date",
+    "start": 1080,
+    "end": 1091,
+    "text": "11 Mar 2027"
+   },
+   {
+    "kind": "date",
+    "start": 1320,
+    "end": 1337,
+    "text": "27th October 2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1351,
+    "end": 1358,
+    "text": "£39,750"
+   },
+   {
+    "kind": "date",
+    "start": 1719,
+    "end": 1729,
+    "text": "27/10/2026"
+   },
+   {
+    "kind": "date",
+    "start": 1780,
+    "end": 1796,
+    "text": "14 November 2026"
+   }
+  ]
+ },
+ "extracted_text": "Saltmarsh Foods plc\nStarter Checklist and Personal Details\nPlease complete all sections in BLOCK CAPITALS and return to HR before your first day.\nPersonal details\nField Details\nTitle Dr\nSurname Hussain\nForename(s) Eleanor Fiona\nPreferred name Eleanor\nDate of birth 1996-01-06\nNational Insurance number NE 83 83 34 D\nHome address 47 Heathfield Hill, Portsmouth\nPostcode PO6 4HA\nMobile +44 7700 900761\nHome phone 028 8912 5889\nPersonal email hussaineleanor@hotmail.co.uk\nEmergency contact\nField Details\nName Deborah Doyle\nRelationship Wife\nPhone 07700900153\nAlternative phone 0131 496 0958\n3. Payment details\nField Details\nAccount holder name Eleanor Hussain\nBank / building society Bank of Scotland\nSort code 80-89-46\nAccount number 33927020\nSection 4: Right to work\nField Details\nDocument seen UK photocard driving licence\nLicence number HUSSA951066EF9ZD\nValid to 11 Mar 2027\nSection 5: Employment details (office use only)\nField Details\nEmployee no. SF184821\nJob title Teaching Assistant\nDepartment Learning Support\nLine manager Ms Saunders\nStart date 27th October 2026\nSalary £39,750 pro rata\nContracted hours 37.5 per week\nStarter checklist\n[ ] Statement A: This is my first job since 6 April and I have not had taxable benefits\n[X] Statement B: This is now my only job\n☐ Statement C: I have another job or receive a pension\n[x] P45 provided\n[x] Student loan (Postgraduate)\nHr Form Page 1 of 2\nEmployee signature: [signed] ELEANOR HUSSAIN Date: 27/10/2026\nAuthorised by: Valerie Saunders (Manager) Date: 14 November 2026\nHr Form Page 2 of 2",
+ "extracted_entities": [
+  {
+   "start": 194,
+   "end": 201,
+   "text": "Hussain",
+   "type": "PERSON",
+   "gold_text": "Hussain",
+   "exact": true
+  },
+  {
+   "start": 214,
+   "end": 227,
+   "text": "Eleanor Fiona",
+   "type": "PERSON",
+   "gold_text": "Eleanor Fiona",
+   "exact": true
+  },
+  {
+   "start": 243,
+   "end": 250,
+   "text": "Eleanor",
+   "type": "PERSON",
+   "gold_text": "Eleanor",
+   "exact": true
+  },
+  {
+   "start": 265,
+   "end": 275,
+   "text": "1996-01-06",
+   "type": "DOB",
+   "gold_text": "1996-01-06",
+   "exact": true
+  },
+  {
+   "start": 302,
+   "end": 315,
+   "text": "NE 83 83 34 D",
+   "type": "NI_NUMBER",
+   "gold_text": "NE 83 83 34 D",
+   "exact": true
+  },
+  {
+   "start": 329,
+   "end": 359,
+   "text": "47 Heathfield Hill, Portsmouth",
+   "type": "ADDRESS",
+   "gold_text": "47 Heathfield Hill, Portsmouth",
+   "exact": true
+  },
+  {
+   "start": 369,
+   "end": 376,
+   "text": "PO6 4HA",
+   "type": "POSTCODE",
+   "gold_text": "PO6 4HA",
+   "exact": true
+  },
+  {
+   "start": 384,
+   "end": 399,
+   "text": "+44 7700 900761",
+   "type": "PHONE",
+   "gold_text": "+44 7700 900761",
+   "exact": true
+  },
+  {
+   "start": 411,
+   "end": 424,
+   "text": "028 8912 5889",
+   "type": "PHONE",
+   "gold_text": "028 8912 5889",
+   "exact": true
+  },
+  {
+   "start": 440,
+   "end": 468,
+   "text": "hussaineleanor@hotmail.co.uk",
+   "type": "EMAIL",
+   "gold_text": "hussaineleanor@hotmail.co.uk",
+   "exact": true
+  },
+  {
+   "start": 506,
+   "end": 519,
+   "text": "Deborah Doyle",
+   "type": "PERSON",
+   "gold_text": "Deborah Doyle",
+   "exact": true
+  },
+  {
+   "start": 544,
+   "end": 555,
+   "text": "07700900153",
+   "type": "PHONE",
+   "gold_text": "07700900153",
+   "exact": true
+  },
+  {
+   "start": 574,
+   "end": 587,
+   "text": "0131 496 0958",
+   "type": "PHONE",
+   "gold_text": "0131 496 0958",
+   "exact": true
+  },
+  {
+   "start": 641,
+   "end": 656,
+   "text": "Eleanor Hussain",
+   "type": "PERSON",
+   "gold_text": "Eleanor Hussain",
+   "exact": true
+  },
+  {
+   "start": 708,
+   "end": 716,
+   "text": "80-89-46",
+   "type": "SORT_CODE",
+   "gold_text": "80-89-46",
+   "exact": true
+  },
+  {
+   "start": 732,
+   "end": 740,
+   "text": "33927020",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "33927020",
+   "exact": true
+  },
+  {
+   "start": 838,
+   "end": 854,
+   "text": "HUSSA951066EF9ZD",
+   "type": "ID_DOC",
+   "gold_text": "HUSSA951066EF9ZD",
+   "exact": true
+  },
+  {
+   "start": 951,
+   "end": 959,
+   "text": "SF184821",
+   "type": "CUSTOM",
+   "gold_text": "SF184821",
+   "exact": true
+  },
+  {
+   "start": 1033,
+   "end": 1041,
+   "text": "Saunders",
+   "type": "PERSON",
+   "gold_text": "Saunders",
+   "exact": true
+  },
+  {
+   "start": 1426,
+   "end": 1441,
+   "text": "ELEANOR HUSSAIN",
+   "type": "PERSON",
+   "gold_text": "ELEANOR HUSSAIN",
+   "exact": true
+  },
+  {
+   "start": 1474,
+   "end": 1490,
+   "text": "Valerie Saunders",
+   "type": "PERSON",
+   "gold_text": "Valerie Saunders",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9038
+}

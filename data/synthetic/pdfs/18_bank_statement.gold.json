@@ -1,0 +1,1449 @@
+{
+ "doc_id": "pdf-018",
+ "doc_type": "bank_statement",
+ "pdf": "18_bank_statement.pdf",
+ "text": "TSB plc - Statement\n\nYULIIA LEVCHENKO\nApartment 3, 54 Station Gardens\nIpswich  IP3 8HZ\n\nAccount name: YULIIA LEVCHENKO\nSort code: 77-70-14\nAccount number: 10573601\nStatement period: 16 April 2026 to 13 May 2026\n\nYour account summary\nOpening balance: £2,733.84\nMoney in: £4,755.22\nMoney out: £6,189.57\nClosing balance: £1,299.49\n\nDate        Transaction                               Paid out  Credit   Balance\n--------------------------------------------------------------------------------\n16/04/2026  DEB SAINSBURY'S CARD 8171                    44.32          2,689.52\n17/04/2026  Payment to OLEH BONDARENKO REF CAR SHARE    105.21          2,584.31\n17/04/2026  STANDING ORDER J BRYANT-MCCARTHY RENT     1,549.95          1,034.36\n17/04/2026  ATM LINK ATM LONDON                          30.00          1,004.36\n17/04/2026  CASH WITHDRAWAL YORK                         10.00            994.36\n18/04/2026  Payment to OLEH BONDARENKO                  426.09            568.27\n18/04/2026  FROM JOSH BRYANT-MCCARTHY REF RENT SHARE            508.59  1,076.86\n20/04/2026  Direct Debit to VODAFONE                    111.52            965.34\n21/04/2026  Card purchase PRIMARK 7457                   83.94            881.40\n23/04/2026  Card purchase Royal Mail 5936               109.67            771.73\n24/04/2026  ATM CHELMSFORD                               50.00            721.73\n26/04/2026  POS MARKS & SPENCER ON 26 APR                65.08            656.65\n27/04/2026  CASH WITHDRAWAL LINK ATM SWINDON             10.00            646.65\n28/04/2026  REFUND FROM IKEA                                    112.71    759.36\n28/04/2026  Direct Debit to ADMIRAL                     104.38            654.98\n\nPage 1 of 3\n\nTSB | Yuliia Levchenko | Sort code 777014 | Account 10573601\n\nDate        Transaction                                Paid out  Credit   Balance\n29/04/2026  TRANSFER TO 773207 91091539                1,004.66          349.68OD\n30/04/2026  DEB AMAZON                                   101.02          450.70OD\n30/04/2026  Card purchase BRITISH AIRWAYS 6585            84.68          535.38OD\n30/04/2026  POS TRAINLINE 4688                           128.43          663.81OD\n01/05/2026  CARD REFUND SAINSBURY'S                               79.82  583.99OD\n02/05/2026  CASH SWANSEA                                  10.00          593.99OD\n03/05/2026  FROM J BRYANT-MCCARTHY REF RENT SHARE                479.15  114.84OD\n03/05/2026  POS easyJet EDINBURGH CARD 8171               29.08          143.92OD\n03/05/2026  Payment from OLEH BONDARENKO REF BIRTHDAY            546.98    403.06\n03/05/2026  TFR TO 773207 91091539                     1,021.84          618.78OD\n04/05/2026  DEB DUNELM NORTHAMPTON                       125.54          744.32OD\n04/05/2026  DEB Royal Mail                                65.10          809.42OD\n04/05/2026  TRANSFER TO 608850 83795320                   53.93          863.35OD\n04/05/2026  Payment from O BONDARENKO REF BIRTHDAY               536.31  327.04OD\n05/05/2026  CASH NOTEMACHINE HARROGATE                   100.00          427.04OD\n\n- 2 of 3\n\nTSB | Yuliia Levchenko | Sort code 777014 | Account 10573601\n\nDate        Transaction                               Paid out    Credit     Balance\n05/05/2026  POS ROYAL MAIL ON 05 MAY                     71.33              498.37OD\n08/05/2026  Payment to O BONDARENKO REF BILLS           330.00              828.37OD\n10/05/2026  DD Thames Water                             100.71              929.08OD\n10/05/2026  Payment to O BONDARENKO REF FLAT DEPOSIT    102.06            1,031.14OD\n10/05/2026  ATM LINK ATM PETERBOROUGH                   100.00            1,131.14OD\n11/05/2026  BGC ANCHOR LANDSCAPING LTD SALARY                   2,426.95    1,295.81\n13/05/2026  CARD REFUND MICROSOFT                                  64.71    1,360.52\n13/05/2026  DIRECT DEBIT TalkTalk                        61.03              1,299.49\n\n",
+ "entities": [
+  {
+   "start": 21,
+   "end": 37,
+   "text": "YULIIA LEVCHENKO",
+   "type": "PERSON"
+  },
+  {
+   "start": 38,
+   "end": 77,
+   "text": "Apartment 3, 54 Station Gardens\nIpswich",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 79,
+   "end": 86,
+   "text": "IP3 8HZ",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 102,
+   "end": 118,
+   "text": "YULIIA LEVCHENKO",
+   "type": "PERSON"
+  },
+  {
+   "start": 130,
+   "end": 138,
+   "text": "77-70-14",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 155,
+   "end": 163,
+   "text": "10573601",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 524,
+   "end": 528,
+   "text": "8171",
+   "type": "CARD"
+  },
+  {
+   "start": 595,
+   "end": 610,
+   "text": "OLEH BONDARENKO",
+   "type": "PERSON"
+  },
+  {
+   "start": 680,
+   "end": 697,
+   "text": "J BRYANT-MCCARTHY",
+   "type": "PERSON"
+  },
+  {
+   "start": 919,
+   "end": 934,
+   "text": "OLEH BONDARENKO",
+   "type": "PERSON"
+  },
+  {
+   "start": 994,
+   "end": 1014,
+   "text": "JOSH BRYANT-MCCARTHY",
+   "type": "PERSON"
+  },
+  {
+   "start": 1726,
+   "end": 1742,
+   "text": "Yuliia Levchenko",
+   "type": "PERSON"
+  },
+  {
+   "start": 1755,
+   "end": 1761,
+   "text": "777014",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 1772,
+   "end": 1780,
+   "text": "10573601",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 1888,
+   "end": 1894,
+   "text": "773207",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 1895,
+   "end": 1903,
+   "text": "91091539",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 2373,
+   "end": 2390,
+   "text": "J BRYANT-MCCARTHY",
+   "type": "PERSON"
+  },
+  {
+   "start": 2477,
+   "end": 2481,
+   "text": "8171",
+   "type": "CARD"
+  },
+  {
+   "start": 2545,
+   "end": 2560,
+   "text": "OLEH BONDARENKO",
+   "type": "PERSON"
+  },
+  {
+   "start": 2621,
+   "end": 2627,
+   "text": "773207",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 2628,
+   "end": 2636,
+   "text": "91091539",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 2872,
+   "end": 2878,
+   "text": "608850",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 2879,
+   "end": 2887,
+   "text": "83795320",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 2955,
+   "end": 2967,
+   "text": "O BONDARENKO",
+   "type": "PERSON"
+  },
+  {
+   "start": 3111,
+   "end": 3127,
+   "text": "Yuliia Levchenko",
+   "type": "PERSON"
+  },
+  {
+   "start": 3140,
+   "end": 3146,
+   "text": "777014",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 3157,
+   "end": 3165,
+   "text": "10573601",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 3360,
+   "end": 3372,
+   "text": "O BONDARENKO",
+   "type": "PERSON"
+  },
+  {
+   "start": 3530,
+   "end": 3542,
+   "text": "O BONDARENKO",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "bank_statement/v1",
+  "variant_id": "bank_statement/v1|pages,pages",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 21,
+    "end": 37
+   },
+   {
+    "kind": "flat_number",
+    "start": 38,
+    "end": 77
+   },
+   {
+    "kind": "multiline_address",
+    "start": 38,
+    "end": 86
+   },
+   {
+    "kind": "non_english_name",
+    "start": 102,
+    "end": 118
+   },
+   {
+    "kind": "table_layout",
+    "start": 329,
+    "end": 1706
+   },
+   {
+    "kind": "partial_number",
+    "start": 524,
+    "end": 528
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 595,
+    "end": 610
+   },
+   {
+    "kind": "non_english_name",
+    "start": 595,
+    "end": 610
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 680,
+    "end": 697
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 919,
+    "end": 934
+   },
+   {
+    "kind": "non_english_name",
+    "start": 919,
+    "end": 934
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 994,
+    "end": 1014
+   },
+   {
+    "kind": "pdf_header_footer",
+    "start": 1707,
+    "end": 1781
+   },
+   {
+    "kind": "non_english_name",
+    "start": 1726,
+    "end": 1742
+   },
+   {
+    "kind": "table_layout",
+    "start": 1782,
+    "end": 3094
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 1888,
+    "end": 1894
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 1895,
+    "end": 1903
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 2373,
+    "end": 2390
+   },
+   {
+    "kind": "partial_number",
+    "start": 2477,
+    "end": 2481
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 2545,
+    "end": 2560
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2545,
+    "end": 2560
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 2621,
+    "end": 2627
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 2628,
+    "end": 2636
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 2872,
+    "end": 2878
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 2879,
+    "end": 2887
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 2955,
+    "end": 2967
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2955,
+    "end": 2967
+   },
+   {
+    "kind": "pdf_header_footer",
+    "start": 3095,
+    "end": 3166
+   },
+   {
+    "kind": "non_english_name",
+    "start": 3111,
+    "end": 3127
+   },
+   {
+    "kind": "table_layout",
+    "start": 3167,
+    "end": 3932
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 3360,
+    "end": 3372
+   },
+   {
+    "kind": "non_english_name",
+    "start": 3360,
+    "end": 3372
+   },
+   {
+    "kind": "name_in_transaction",
+    "start": 3530,
+    "end": 3542
+   },
+   {
+    "kind": "non_english_name",
+    "start": 3530,
+    "end": 3542
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 0,
+    "end": 3,
+    "text": "TSB"
+   },
+   {
+    "kind": "date",
+    "start": 182,
+    "end": 195,
+    "text": "16 April 2026"
+   },
+   {
+    "kind": "date",
+    "start": 199,
+    "end": 210,
+    "text": "13 May 2026"
+   },
+   {
+    "kind": "amount",
+    "start": 250,
+    "end": 259,
+    "text": "£2,733.84"
+   },
+   {
+    "kind": "amount",
+    "start": 270,
+    "end": 279,
+    "text": "£4,755.22"
+   },
+   {
+    "kind": "amount",
+    "start": 291,
+    "end": 300,
+    "text": "£6,189.57"
+   },
+   {
+    "kind": "amount",
+    "start": 318,
+    "end": 327,
+    "text": "£1,299.49"
+   },
+   {
+    "kind": "date",
+    "start": 491,
+    "end": 501,
+    "text": "16/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 507,
+    "end": 518,
+    "text": "SAINSBURY'S"
+   },
+   {
+    "kind": "amount",
+    "start": 548,
+    "end": 553,
+    "text": "44.32"
+   },
+   {
+    "kind": "amount",
+    "start": 563,
+    "end": 571,
+    "text": "2,689.52"
+   },
+   {
+    "kind": "date",
+    "start": 572,
+    "end": 582,
+    "text": "17/04/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 628,
+    "end": 634,
+    "text": "105.21"
+   },
+   {
+    "kind": "amount",
+    "start": 644,
+    "end": 652,
+    "text": "2,584.31"
+   },
+   {
+    "kind": "date",
+    "start": 653,
+    "end": 663,
+    "text": "17/04/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 707,
+    "end": 715,
+    "text": "1,549.95"
+   },
+   {
+    "kind": "amount",
+    "start": 725,
+    "end": 733,
+    "text": "1,034.36"
+   },
+   {
+    "kind": "date",
+    "start": 734,
+    "end": 744,
+    "text": "17/04/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 791,
+    "end": 796,
+    "text": "30.00"
+   },
+   {
+    "kind": "amount",
+    "start": 806,
+    "end": 814,
+    "text": "1,004.36"
+   },
+   {
+    "kind": "date",
+    "start": 815,
+    "end": 825,
+    "text": "17/04/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 872,
+    "end": 877,
+    "text": "10.00"
+   },
+   {
+    "kind": "amount",
+    "start": 889,
+    "end": 895,
+    "text": "994.36"
+   },
+   {
+    "kind": "date",
+    "start": 896,
+    "end": 906,
+    "text": "18/04/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 952,
+    "end": 958,
+    "text": "426.09"
+   },
+   {
+    "kind": "amount",
+    "start": 970,
+    "end": 976,
+    "text": "568.27"
+   },
+   {
+    "kind": "date",
+    "start": 977,
+    "end": 987,
+    "text": "18/04/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1041,
+    "end": 1047,
+    "text": "508.59"
+   },
+   {
+    "kind": "amount",
+    "start": 1049,
+    "end": 1057,
+    "text": "1,076.86"
+   },
+   {
+    "kind": "date",
+    "start": 1058,
+    "end": 1068,
+    "text": "20/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1086,
+    "end": 1094,
+    "text": "VODAFONE"
+   },
+   {
+    "kind": "amount",
+    "start": 1114,
+    "end": 1120,
+    "text": "111.52"
+   },
+   {
+    "kind": "amount",
+    "start": 1132,
+    "end": 1138,
+    "text": "965.34"
+   },
+   {
+    "kind": "date",
+    "start": 1139,
+    "end": 1149,
+    "text": "21/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1165,
+    "end": 1172,
+    "text": "PRIMARK"
+   },
+   {
+    "kind": "amount",
+    "start": 1196,
+    "end": 1201,
+    "text": "83.94"
+   },
+   {
+    "kind": "amount",
+    "start": 1213,
+    "end": 1219,
+    "text": "881.40"
+   },
+   {
+    "kind": "date",
+    "start": 1220,
+    "end": 1230,
+    "text": "23/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1246,
+    "end": 1256,
+    "text": "Royal Mail"
+   },
+   {
+    "kind": "amount",
+    "start": 1276,
+    "end": 1282,
+    "text": "109.67"
+   },
+   {
+    "kind": "amount",
+    "start": 1294,
+    "end": 1300,
+    "text": "771.73"
+   },
+   {
+    "kind": "date",
+    "start": 1301,
+    "end": 1311,
+    "text": "24/04/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1358,
+    "end": 1363,
+    "text": "50.00"
+   },
+   {
+    "kind": "amount",
+    "start": 1375,
+    "end": 1381,
+    "text": "721.73"
+   },
+   {
+    "kind": "date",
+    "start": 1382,
+    "end": 1392,
+    "text": "26/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1398,
+    "end": 1413,
+    "text": "MARKS & SPENCER"
+   },
+   {
+    "kind": "amount",
+    "start": 1439,
+    "end": 1444,
+    "text": "65.08"
+   },
+   {
+    "kind": "amount",
+    "start": 1456,
+    "end": 1462,
+    "text": "656.65"
+   },
+   {
+    "kind": "date",
+    "start": 1463,
+    "end": 1473,
+    "text": "27/04/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1520,
+    "end": 1525,
+    "text": "10.00"
+   },
+   {
+    "kind": "amount",
+    "start": 1537,
+    "end": 1543,
+    "text": "646.65"
+   },
+   {
+    "kind": "date",
+    "start": 1544,
+    "end": 1554,
+    "text": "28/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1568,
+    "end": 1572,
+    "text": "IKEA"
+   },
+   {
+    "kind": "amount",
+    "start": 1608,
+    "end": 1614,
+    "text": "112.71"
+   },
+   {
+    "kind": "amount",
+    "start": 1618,
+    "end": 1624,
+    "text": "759.36"
+   },
+   {
+    "kind": "date",
+    "start": 1625,
+    "end": 1635,
+    "text": "28/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1653,
+    "end": 1660,
+    "text": "ADMIRAL"
+   },
+   {
+    "kind": "amount",
+    "start": 1681,
+    "end": 1687,
+    "text": "104.38"
+   },
+   {
+    "kind": "amount",
+    "start": 1699,
+    "end": 1705,
+    "text": "654.98"
+   },
+   {
+    "kind": "public_company",
+    "start": 1720,
+    "end": 1723,
+    "text": "TSB"
+   },
+   {
+    "kind": "date",
+    "start": 1864,
+    "end": 1874,
+    "text": "29/04/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 1919,
+    "end": 1927,
+    "text": "1,004.66"
+   },
+   {
+    "kind": "amount",
+    "start": 1937,
+    "end": 1945,
+    "text": "349.68OD"
+   },
+   {
+    "kind": "date",
+    "start": 1946,
+    "end": 1956,
+    "text": "30/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 1962,
+    "end": 1968,
+    "text": "AMAZON"
+   },
+   {
+    "kind": "amount",
+    "start": 2003,
+    "end": 2009,
+    "text": "101.02"
+   },
+   {
+    "kind": "amount",
+    "start": 2019,
+    "end": 2027,
+    "text": "450.70OD"
+   },
+   {
+    "kind": "date",
+    "start": 2028,
+    "end": 2038,
+    "text": "30/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2054,
+    "end": 2069,
+    "text": "BRITISH AIRWAYS"
+   },
+   {
+    "kind": "amount",
+    "start": 2086,
+    "end": 2091,
+    "text": "84.68"
+   },
+   {
+    "kind": "amount",
+    "start": 2101,
+    "end": 2109,
+    "text": "535.38OD"
+   },
+   {
+    "kind": "date",
+    "start": 2110,
+    "end": 2120,
+    "text": "30/04/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2126,
+    "end": 2135,
+    "text": "TRAINLINE"
+   },
+   {
+    "kind": "amount",
+    "start": 2167,
+    "end": 2173,
+    "text": "128.43"
+   },
+   {
+    "kind": "amount",
+    "start": 2183,
+    "end": 2191,
+    "text": "663.81OD"
+   },
+   {
+    "kind": "date",
+    "start": 2192,
+    "end": 2202,
+    "text": "01/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2216,
+    "end": 2227,
+    "text": "SAINSBURY'S"
+   },
+   {
+    "kind": "amount",
+    "start": 2258,
+    "end": 2263,
+    "text": "79.82"
+   },
+   {
+    "kind": "amount",
+    "start": 2265,
+    "end": 2273,
+    "text": "583.99OD"
+   },
+   {
+    "kind": "date",
+    "start": 2274,
+    "end": 2284,
+    "text": "02/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 2332,
+    "end": 2337,
+    "text": "10.00"
+   },
+   {
+    "kind": "amount",
+    "start": 2347,
+    "end": 2355,
+    "text": "593.99OD"
+   },
+   {
+    "kind": "date",
+    "start": 2356,
+    "end": 2366,
+    "text": "03/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 2421,
+    "end": 2427,
+    "text": "479.15"
+   },
+   {
+    "kind": "amount",
+    "start": 2429,
+    "end": 2437,
+    "text": "114.84OD"
+   },
+   {
+    "kind": "date",
+    "start": 2438,
+    "end": 2448,
+    "text": "03/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2454,
+    "end": 2461,
+    "text": "easyJet"
+   },
+   {
+    "kind": "amount",
+    "start": 2496,
+    "end": 2501,
+    "text": "29.08"
+   },
+   {
+    "kind": "amount",
+    "start": 2511,
+    "end": 2519,
+    "text": "143.92OD"
+   },
+   {
+    "kind": "date",
+    "start": 2520,
+    "end": 2530,
+    "text": "03/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 2585,
+    "end": 2591,
+    "text": "546.98"
+   },
+   {
+    "kind": "amount",
+    "start": 2595,
+    "end": 2601,
+    "text": "403.06"
+   },
+   {
+    "kind": "date",
+    "start": 2602,
+    "end": 2612,
+    "text": "03/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 2657,
+    "end": 2665,
+    "text": "1,021.84"
+   },
+   {
+    "kind": "amount",
+    "start": 2675,
+    "end": 2683,
+    "text": "618.78OD"
+   },
+   {
+    "kind": "date",
+    "start": 2684,
+    "end": 2694,
+    "text": "04/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2700,
+    "end": 2706,
+    "text": "DUNELM"
+   },
+   {
+    "kind": "amount",
+    "start": 2741,
+    "end": 2747,
+    "text": "125.54"
+   },
+   {
+    "kind": "amount",
+    "start": 2757,
+    "end": 2765,
+    "text": "744.32OD"
+   },
+   {
+    "kind": "date",
+    "start": 2766,
+    "end": 2776,
+    "text": "04/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 2782,
+    "end": 2792,
+    "text": "Royal Mail"
+   },
+   {
+    "kind": "amount",
+    "start": 2824,
+    "end": 2829,
+    "text": "65.10"
+   },
+   {
+    "kind": "amount",
+    "start": 2839,
+    "end": 2847,
+    "text": "809.42OD"
+   },
+   {
+    "kind": "date",
+    "start": 2848,
+    "end": 2858,
+    "text": "04/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 2906,
+    "end": 2911,
+    "text": "53.93"
+   },
+   {
+    "kind": "amount",
+    "start": 2921,
+    "end": 2929,
+    "text": "863.35OD"
+   },
+   {
+    "kind": "date",
+    "start": 2930,
+    "end": 2940,
+    "text": "04/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 2995,
+    "end": 3001,
+    "text": "536.31"
+   },
+   {
+    "kind": "amount",
+    "start": 3003,
+    "end": 3011,
+    "text": "327.04OD"
+   },
+   {
+    "kind": "date",
+    "start": 3012,
+    "end": 3022,
+    "text": "05/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 3069,
+    "end": 3075,
+    "text": "100.00"
+   },
+   {
+    "kind": "amount",
+    "start": 3085,
+    "end": 3093,
+    "text": "427.04OD"
+   },
+   {
+    "kind": "public_company",
+    "start": 3105,
+    "end": 3108,
+    "text": "TSB"
+   },
+   {
+    "kind": "date",
+    "start": 3252,
+    "end": 3262,
+    "text": "05/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 3268,
+    "end": 3278,
+    "text": "ROYAL MAIL"
+   },
+   {
+    "kind": "amount",
+    "start": 3309,
+    "end": 3314,
+    "text": "71.33"
+   },
+   {
+    "kind": "amount",
+    "start": 3328,
+    "end": 3336,
+    "text": "498.37OD"
+   },
+   {
+    "kind": "date",
+    "start": 3337,
+    "end": 3347,
+    "text": "08/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 3393,
+    "end": 3399,
+    "text": "330.00"
+   },
+   {
+    "kind": "amount",
+    "start": 3413,
+    "end": 3421,
+    "text": "828.37OD"
+   },
+   {
+    "kind": "date",
+    "start": 3422,
+    "end": 3432,
+    "text": "10/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 3437,
+    "end": 3449,
+    "text": "Thames Water"
+   },
+   {
+    "kind": "amount",
+    "start": 3478,
+    "end": 3484,
+    "text": "100.71"
+   },
+   {
+    "kind": "amount",
+    "start": 3498,
+    "end": 3506,
+    "text": "929.08OD"
+   },
+   {
+    "kind": "date",
+    "start": 3507,
+    "end": 3517,
+    "text": "10/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 3563,
+    "end": 3569,
+    "text": "102.06"
+   },
+   {
+    "kind": "amount",
+    "start": 3581,
+    "end": 3591,
+    "text": "1,031.14OD"
+   },
+   {
+    "kind": "date",
+    "start": 3592,
+    "end": 3602,
+    "text": "10/05/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 3648,
+    "end": 3654,
+    "text": "100.00"
+   },
+   {
+    "kind": "amount",
+    "start": 3666,
+    "end": 3676,
+    "text": "1,131.14OD"
+   },
+   {
+    "kind": "date",
+    "start": 3677,
+    "end": 3687,
+    "text": "11/05/2026"
+   },
+   {
+    "kind": "company_name",
+    "start": 3693,
+    "end": 3715,
+    "text": "ANCHOR LANDSCAPING LTD"
+   },
+   {
+    "kind": "amount",
+    "start": 3741,
+    "end": 3749,
+    "text": "2,426.95"
+   },
+   {
+    "kind": "amount",
+    "start": 3753,
+    "end": 3761,
+    "text": "1,295.81"
+   },
+   {
+    "kind": "date",
+    "start": 3762,
+    "end": 3772,
+    "text": "13/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 3786,
+    "end": 3795,
+    "text": "MICROSOFT"
+   },
+   {
+    "kind": "amount",
+    "start": 3829,
+    "end": 3834,
+    "text": "64.71"
+   },
+   {
+    "kind": "amount",
+    "start": 3838,
+    "end": 3846,
+    "text": "1,360.52"
+   },
+   {
+    "kind": "date",
+    "start": 3847,
+    "end": 3857,
+    "text": "13/05/2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 3872,
+    "end": 3880,
+    "text": "TalkTalk"
+   },
+   {
+    "kind": "amount",
+    "start": 3904,
+    "end": 3909,
+    "text": "61.03"
+   },
+   {
+    "kind": "amount",
+    "start": 3923,
+    "end": 3931,
+    "text": "1,299.49"
+   }
+  ]
+ },
+ "extracted_text": "TSB plc - Statement\nYULIIA LEVCHENKO\nApartment 3, 54 Station Gardens\nIpswich IP3 8HZ\nAccount name: YULIIA LEVCHENKO\nSort code: 77-70-14\nAccount number: 10573601\nStatement period: 16 April 2026 to 13 May 2026\nYour account summary\nOpening balance: £2,733.84\nMoney in: £4,755.22\nMoney out: £6,189.57\nClosing balance: £1,299.49\nDate Transaction Paid out Credit Balance\n--------------------------------------------------------------------------------\n16/04/2026 DEB SAINSBURY'S CARD 8171 44.32 2,689.52\n17/04/2026 Payment to OLEH BONDARENKO REF CAR SHARE 105.21 2,584.31\n17/04/2026 STANDING ORDER J BRYANT-MCCARTHY RENT 1,549.95 1,034.36\n17/04/2026 ATM LINK ATM LONDON 30.00 1,004.36\n17/04/2026 CASH WITHDRAWAL YORK 10.00 994.36\n18/04/2026 Payment to OLEH BONDARENKO 426.09 568.27\n18/04/2026 FROM JOSH BRYANT-MCCARTHY REF RENT SHARE 508.59 1,076.86\n20/04/2026 Direct Debit to VODAFONE 111.52 965.34\n21/04/2026 Card purchase PRIMARK 7457 83.94 881.40\n23/04/2026 Card purchase Royal Mail 5936 109.67 771.73\n24/04/2026 ATM CHELMSFORD 50.00 721.73\n26/04/2026 POS MARKS & SPENCER ON 26 APR 65.08 656.65\n27/04/2026 CASH WITHDRAWAL LINK ATM SWINDON 10.00 646.65\n28/04/2026 REFUND FROM IKEA 112.71 759.36\n28/04/2026 Direct Debit to ADMIRAL 104.38 654.98\nPage 1 of 3\nTSB | Yuliia Levchenko | Sort code 777014 | Account 10573601\nDate Transaction Paid out Credit Balance\n29/04/2026 TRANSFER TO 773207 91091539 1,004.66 349.68OD\n30/04/2026 DEB AMAZON 101.02 450.70OD\n30/04/2026 Card purchase BRITISH AIRWAYS 6585 84.68 535.38OD\n30/04/2026 POS TRAINLINE 4688 128.43 663.81OD\n01/05/2026 CARD REFUND SAINSBURY'S 79.82 583.99OD\n02/05/2026 CASH SWANSEA 10.00 593.99OD\n03/05/2026 FROM J BRYANT-MCCARTHY REF RENT SHARE 479.15 114.84OD\n03/05/2026 POS easyJet EDINBURGH CARD 8171 29.08 143.92OD\n03/05/2026 Payment from OLEH BONDARENKO REF BIRTHDAY 546.98 403.06\n03/05/2026 TFR TO 773207 91091539 1,021.84 618.78OD\n04/05/2026 DEB DUNELM NORTHAMPTON 125.54 744.32OD\n04/05/2026 DEB Royal Mail 65.10 809.42OD\n04/05/2026 TRANSFER TO 608850 83795320 53.93 863.35OD\n04/05/2026 Payment from O BONDARENKO REF BIRTHDAY 536.31 327.04OD\n05/05/2026 CASH NOTEMACHINE HARROGATE 100.00 427.04OD\n- 2 of 3\nTSB | Yuliia Levchenko | Sort code 777014 | Account 10573601\nDate Transaction Paid out Credit Balance\n05/05/2026 POS ROYAL MAIL ON 05 MAY 71.33 498.37OD\n08/05/2026 Payment to O BONDARENKO REF BILLS 330.00 828.37OD\n10/05/2026 DD Thames Water 100.71 929.08OD\nBank Statement Page 1 of 2\n10/05/2026 Payment to O BONDARENKO REF FLAT DEPOSIT 102.06 1,031.14OD\n10/05/2026 ATM LINK ATM PETERBOROUGH 100.00 1,131.14OD\n11/05/2026 BGC ANCHOR LANDSCAPING LTD SALARY 2,426.95 1,295.81\n13/05/2026 CARD REFUND MICROSOFT 64.71 1,360.52\n13/05/2026 DIRECT DEBIT TalkTalk 61.03 1,299.49\nBank Statement Page 2 of 2",
+ "extracted_entities": [
+  {
+   "start": 20,
+   "end": 36,
+   "text": "YULIIA LEVCHENKO",
+   "type": "PERSON",
+   "gold_text": "YULIIA LEVCHENKO",
+   "exact": true
+  },
+  {
+   "start": 37,
+   "end": 76,
+   "text": "Apartment 3, 54 Station Gardens\nIpswich",
+   "type": "ADDRESS",
+   "gold_text": "Apartment 3, 54 Station Gardens\nIpswich",
+   "exact": true
+  },
+  {
+   "start": 77,
+   "end": 84,
+   "text": "IP3 8HZ",
+   "type": "POSTCODE",
+   "gold_text": "IP3 8HZ",
+   "exact": true
+  },
+  {
+   "start": 99,
+   "end": 115,
+   "text": "YULIIA LEVCHENKO",
+   "type": "PERSON",
+   "gold_text": "YULIIA LEVCHENKO",
+   "exact": true
+  },
+  {
+   "start": 127,
+   "end": 135,
+   "text": "77-70-14",
+   "type": "SORT_CODE",
+   "gold_text": "77-70-14",
+   "exact": true
+  },
+  {
+   "start": 152,
+   "end": 160,
+   "text": "10573601",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "10573601",
+   "exact": true
+  },
+  {
+   "start": 478,
+   "end": 482,
+   "text": "8171",
+   "type": "CARD",
+   "gold_text": "8171",
+   "exact": true
+  },
+  {
+   "start": 520,
+   "end": 535,
+   "text": "OLEH BONDARENKO",
+   "type": "PERSON",
+   "gold_text": "OLEH BONDARENKO",
+   "exact": true
+  },
+  {
+   "start": 592,
+   "end": 609,
+   "text": "J BRYANT-MCCARTHY",
+   "type": "PERSON",
+   "gold_text": "J BRYANT-MCCARTHY",
+   "exact": true
+  },
+  {
+   "start": 746,
+   "end": 761,
+   "text": "OLEH BONDARENKO",
+   "type": "PERSON",
+   "gold_text": "OLEH BONDARENKO",
+   "exact": true
+  },
+  {
+   "start": 792,
+   "end": 812,
+   "text": "JOSH BRYANT-MCCARTHY",
+   "type": "PERSON",
+   "gold_text": "JOSH BRYANT-MCCARTHY",
+   "exact": true
+  },
+  {
+   "start": 1259,
+   "end": 1275,
+   "text": "Yuliia Levchenko",
+   "type": "PERSON",
+   "gold_text": "Yuliia Levchenko",
+   "exact": true
+  },
+  {
+   "start": 1288,
+   "end": 1294,
+   "text": "777014",
+   "type": "SORT_CODE",
+   "gold_text": "777014",
+   "exact": true
+  },
+  {
+   "start": 1305,
+   "end": 1313,
+   "text": "10573601",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "10573601",
+   "exact": true
+  },
+  {
+   "start": 1378,
+   "end": 1384,
+   "text": "773207",
+   "type": "SORT_CODE",
+   "gold_text": "773207",
+   "exact": true
+  },
+  {
+   "start": 1385,
+   "end": 1393,
+   "text": "91091539",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "91091539",
+   "exact": true
+  },
+  {
+   "start": 1662,
+   "end": 1679,
+   "text": "J BRYANT-MCCARTHY",
+   "type": "PERSON",
+   "gold_text": "J BRYANT-MCCARTHY",
+   "exact": true
+  },
+  {
+   "start": 1749,
+   "end": 1753,
+   "text": "8171",
+   "type": "CARD",
+   "gold_text": "8171",
+   "exact": true
+  },
+  {
+   "start": 1793,
+   "end": 1808,
+   "text": "OLEH BONDARENKO",
+   "type": "PERSON",
+   "gold_text": "OLEH BONDARENKO",
+   "exact": true
+  },
+  {
+   "start": 1854,
+   "end": 1860,
+   "text": "773207",
+   "type": "SORT_CODE",
+   "gold_text": "773207",
+   "exact": true
+  },
+  {
+   "start": 1861,
+   "end": 1869,
+   "text": "91091539",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "91091539",
+   "exact": true
+  },
+  {
+   "start": 2002,
+   "end": 2008,
+   "text": "608850",
+   "type": "SORT_CODE",
+   "gold_text": "608850",
+   "exact": true
+  },
+  {
+   "start": 2009,
+   "end": 2017,
+   "text": "83795320",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "83795320",
+   "exact": true
+  },
+  {
+   "start": 2057,
+   "end": 2069,
+   "text": "O BONDARENKO",
+   "type": "PERSON",
+   "gold_text": "O BONDARENKO",
+   "exact": true
+  },
+  {
+   "start": 2168,
+   "end": 2184,
+   "text": "Yuliia Levchenko",
+   "type": "PERSON",
+   "gold_text": "Yuliia Levchenko",
+   "exact": true
+  },
+  {
+   "start": 2197,
+   "end": 2203,
+   "text": "777014",
+   "type": "SORT_CODE",
+   "gold_text": "777014",
+   "exact": true
+  },
+  {
+   "start": 2214,
+   "end": 2222,
+   "text": "10573601",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "10573601",
+   "exact": true
+  },
+  {
+   "start": 2337,
+   "end": 2349,
+   "text": "O BONDARENKO",
+   "type": "PERSON",
+   "gold_text": "O BONDARENKO",
+   "exact": true
+  },
+  {
+   "start": 2468,
+   "end": 2480,
+   "text": "O BONDARENKO",
+   "type": "PERSON",
+   "gold_text": "O BONDARENKO",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9901
+}

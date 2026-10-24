@@ -1,0 +1,423 @@
+{
+ "doc_id": "pdf-010",
+ "doc_type": "engagement_letter",
+ "pdf": "10_engagement_letter.pdf",
+ "text": "Penrose Hale Chartered Accountants\n165 Grosvenor Court\nCheltenham\nGloucestershire\nGL52 5GY\nTelephone: 0113 496 0164\npenrosehale.co.uk\n\nJob ref: PH/25/3514\n25 Jun 2025\n\nStrictly private and confidential\nMr Bill Peters\n52 Belmont Parade\nTooting\nLondon\nE7 5LB\n\nDear Mr Peters,\n\nRe: Providing bookkeeping and VAT return services each quarter\n\nWe are pleased to confirm our engagement. This letter sets out the basis on which we will be providing bookkeeping and VAT return services each quarter.\n\nDominic Stevenson, Director, will have overall responsibility for your matter. Day-to-day work will be carried out by John Stewart, Associate, who you can contact on (01923) 498062 or john.stewart@penrosehale.co.uk. If John is unavailable, please ask for Mr. Stevenson.\n\nOur fees\nOur charges are based on the time spent. The current hourly rates are £220.00 for a partner and £205.00 for other fee earners, plus VAT. We estimate the total cost at £2,300 to £4,250 plus VAT and disbursements.\nPlease pay £700.00 on account to our client account: sort code 77-24-63, account 02577787, quoting reference PH/25/3514. We will never change our bank details by email.\n\nProof of identity\nUnder the Money Laundering Regulations 2017 we must verify your identity. Please bring your passport or photocard driving licence and a utility bill dated within the last three months.\n\nIf you are unhappy\nIf you are unhappy with our service, please contact Dominic Stevenson. You may also complain to the Chartered Institute of Taxation.\n\nLimitation of liability\nOur liability to you for any loss arising from this engagement is limited to £1,750,000, unless the law does not allow such a limit. \n\nStorage of documents\nWe will keep your file for at least 15 years after the matter ends, after which it may be destroyed without further notice. We store documents electronically and may not keep paper originals. \n\nProfessional indemnity insurance\nOur insurer is Travelers and the cover applies throughout the UK. We hold professional indemnity insurance with Travelers. Details of the cover are available on request. \n\nData protection\nOur privacy notice explains how we use and protect your information. We will use your personal data only to provide our services and to meet our legal obligations under the Data Protection Act 2018. \n\nOur terms of business are enclosed and form part of this letter. Please sign and return the enclosed copy so that we can start work.\n\nYours faithfully,\nDominic Stevenson\nPartner\nPenrose Hale Chartered Accountants\n\n------------------------------\nI confirm that I have read and agree to the terms set out in this letter.\nSigned: [signature]\nName: BILL PETERS\nDate: ________\n",
+ "entities": [
+  {
+   "start": 35,
+   "end": 81,
+   "text": "165 Grosvenor Court\nCheltenham\nGloucestershire",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 82,
+   "end": 90,
+   "text": "GL52 5GY",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 102,
+   "end": 115,
+   "text": "0113 496 0164",
+   "type": "PHONE"
+  },
+  {
+   "start": 144,
+   "end": 154,
+   "text": "PH/25/3514",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 205,
+   "end": 216,
+   "text": "Bill Peters",
+   "type": "PERSON"
+  },
+  {
+   "start": 217,
+   "end": 249,
+   "text": "52 Belmont Parade\nTooting\nLondon",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 250,
+   "end": 256,
+   "text": "E7 5LB",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 266,
+   "end": 272,
+   "text": "Peters",
+   "type": "PERSON"
+  },
+  {
+   "start": 493,
+   "end": 510,
+   "text": "Dominic Stevenson",
+   "type": "PERSON"
+  },
+  {
+   "start": 611,
+   "end": 623,
+   "text": "John Stewart",
+   "type": "PERSON"
+  },
+  {
+   "start": 659,
+   "end": 673,
+   "text": "(01923) 498062",
+   "type": "PHONE"
+  },
+  {
+   "start": 677,
+   "end": 707,
+   "text": "john.stewart@penrosehale.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 712,
+   "end": 716,
+   "text": "John",
+   "type": "PERSON"
+  },
+  {
+   "start": 752,
+   "end": 761,
+   "text": "Stevenson",
+   "type": "PERSON"
+  },
+  {
+   "start": 1048,
+   "end": 1056,
+   "text": "77-24-63",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 1066,
+   "end": 1074,
+   "text": "02577787",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 1094,
+   "end": 1104,
+   "text": "PH/25/3514",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 1430,
+   "end": 1447,
+   "text": "Dominic Stevenson",
+   "type": "PERSON"
+  },
+  {
+   "start": 2460,
+   "end": 2477,
+   "text": "Dominic Stevenson",
+   "type": "PERSON"
+  },
+  {
+   "start": 2653,
+   "end": 2664,
+   "text": "BILL PETERS",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "engagement_letter/accountant",
+  "variant_id": "engagement_letter/accountant|accountant",
+  "hard_cases": [
+   {
+    "kind": "multiline_address",
+    "start": 35,
+    "end": 90
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 144,
+    "end": 154
+   },
+   {
+    "kind": "common_word_name",
+    "start": 205,
+    "end": 216
+   },
+   {
+    "kind": "multiline_address",
+    "start": 217,
+    "end": 256
+   },
+   {
+    "kind": "common_word_name",
+    "start": 266,
+    "end": 272
+   },
+   {
+    "kind": "greeting_name",
+    "start": 266,
+    "end": 272
+   },
+   {
+    "kind": "name_in_email",
+    "start": 677,
+    "end": 707
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 1094,
+    "end": 1104
+   },
+   {
+    "kind": "signature_name",
+    "start": 2460,
+    "end": 2477
+   },
+   {
+    "kind": "common_word_name",
+    "start": 2653,
+    "end": 2664
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "date",
+    "start": 155,
+    "end": 166,
+    "text": "25 Jun 2025"
+   },
+   {
+    "kind": "amount",
+    "start": 843,
+    "end": 850,
+    "text": "£220.00"
+   },
+   {
+    "kind": "amount",
+    "start": 869,
+    "end": 876,
+    "text": "£205.00"
+   },
+   {
+    "kind": "amount",
+    "start": 940,
+    "end": 946,
+    "text": "£2,300"
+   },
+   {
+    "kind": "amount",
+    "start": 950,
+    "end": 956,
+    "text": "£4,250"
+   },
+   {
+    "kind": "amount",
+    "start": 996,
+    "end": 1003,
+    "text": "£700.00"
+   },
+   {
+    "kind": "statute",
+    "start": 1183,
+    "end": 1216,
+    "text": "Money Laundering Regulations 2017"
+   },
+   {
+    "kind": "public_company",
+    "start": 1474,
+    "end": 1509,
+    "text": "the Chartered Institute of Taxation"
+   },
+   {
+    "kind": "amount",
+    "start": 1613,
+    "end": 1623,
+    "text": "£1,750,000"
+   },
+   {
+    "kind": "public_company",
+    "start": 1934,
+    "end": 1943,
+    "text": "Travelers"
+   },
+   {
+    "kind": "public_company",
+    "start": 2031,
+    "end": 2040,
+    "text": "Travelers"
+   },
+   {
+    "kind": "statute",
+    "start": 2280,
+    "end": 2304,
+    "text": "Data Protection Act 2018"
+   }
+  ]
+ },
+ "extracted_text": "Penrose Hale Chartered Accountants\n165 Grosvenor Court\nCheltenham\nGloucestershire\nGL52 5GY\nTelephone: 0113 496 0164\npenrosehale.co.uk\nJob ref: PH/25/3514\n25 Jun 2025\nStrictly private and confidential\nMr Bill Peters\n52 Belmont Parade\nTooting\nLondon\nE7 5LB\nDear Mr Peters,\nRe: Providing bookkeeping and VAT return services each quarter\nWe are pleased to confirm our engagement. This letter sets out the basis on which we will be providing\nbookkeeping and VAT return services each quarter.\nDominic Stevenson, Director, will have overall responsibility for your matter. Day-to-day work will be carried\nout by John Stewart, Associate, who you can contact on (01923) 498062 or john.stewart@penrosehale.co.uk.\nIf John is unavailable, please ask for Mr. Stevenson.\nOur fees\nOur charges are based on the time spent. The current hourly rates are £220.00 for a partner and £205.00 for\nother fee earners, plus VAT. We estimate the total cost at £2,300 to £4,250 plus VAT and disbursements.\nPlease pay £700.00 on account to our client account: sort code 77-24-63, account 02577787, quoting reference\nPH/25/3514. We will never change our bank details by email.\nProof of identity\nUnder the Money Laundering Regulations 2017 we must verify your identity. Please bring your passport or\nphotocard driving licence and a utility bill dated within the last three months.\nIf you are unhappy\nIf you are unhappy with our service, please contact Dominic Stevenson. You may also complain to the\nChartered Institute of Taxation.\nLimitation of liability\nOur liability to you for any loss arising from this engagement is limited to £1,750,000, unless the law does not\nallow such a limit.\nStorage of documents\nWe will keep your file for at least 15 years after the matter ends, after which it may be destroyed without\nfurther notice. We store documents electronically and may not keep paper originals.\nProfessional indemnity insurance\nOur insurer is Travelers and the cover applies throughout the UK. We hold professional indemnity insurance\nwith Travelers. Details of the cover are available on request.\nData protection\nOur privacy notice explains how we use and protect your information. We will use your personal data only to\nprovide our services and to meet our legal obligations under the Data Protection Act 2018.\nOur terms of business are enclosed and form part of this letter. Please sign and return the enclosed copy so\nthat we can start work.\nEngagement Letter Page 1 of 2\nYours faithfully,\nDominic Stevenson\nPartner\nPenrose Hale Chartered Accountants\n------------------------------\nI confirm that I have read and agree to the terms set out in this letter.\nSigned: [signature]\nName: BILL PETERS\nDate: ________\nEngagement Letter Page 2 of 2",
+ "extracted_entities": [
+  {
+   "start": 35,
+   "end": 81,
+   "text": "165 Grosvenor Court\nCheltenham\nGloucestershire",
+   "type": "ADDRESS",
+   "gold_text": "165 Grosvenor Court\nCheltenham\nGloucestershire",
+   "exact": true
+  },
+  {
+   "start": 82,
+   "end": 90,
+   "text": "GL52 5GY",
+   "type": "POSTCODE",
+   "gold_text": "GL52 5GY",
+   "exact": true
+  },
+  {
+   "start": 102,
+   "end": 115,
+   "text": "0113 496 0164",
+   "type": "PHONE",
+   "gold_text": "0113 496 0164",
+   "exact": true
+  },
+  {
+   "start": 143,
+   "end": 153,
+   "text": "PH/25/3514",
+   "type": "CUSTOM",
+   "gold_text": "PH/25/3514",
+   "exact": true
+  },
+  {
+   "start": 203,
+   "end": 214,
+   "text": "Bill Peters",
+   "type": "PERSON",
+   "gold_text": "Bill Peters",
+   "exact": true
+  },
+  {
+   "start": 215,
+   "end": 247,
+   "text": "52 Belmont Parade\nTooting\nLondon",
+   "type": "ADDRESS",
+   "gold_text": "52 Belmont Parade\nTooting\nLondon",
+   "exact": true
+  },
+  {
+   "start": 248,
+   "end": 254,
+   "text": "E7 5LB",
+   "type": "POSTCODE",
+   "gold_text": "E7 5LB",
+   "exact": true
+  },
+  {
+   "start": 263,
+   "end": 269,
+   "text": "Peters",
+   "type": "PERSON",
+   "gold_text": "Peters",
+   "exact": true
+  },
+  {
+   "start": 487,
+   "end": 504,
+   "text": "Dominic Stevenson",
+   "type": "PERSON",
+   "gold_text": "Dominic Stevenson",
+   "exact": true
+  },
+  {
+   "start": 605,
+   "end": 617,
+   "text": "John Stewart",
+   "type": "PERSON",
+   "gold_text": "John Stewart",
+   "exact": true
+  },
+  {
+   "start": 653,
+   "end": 667,
+   "text": "(01923) 498062",
+   "type": "PHONE",
+   "gold_text": "(01923) 498062",
+   "exact": true
+  },
+  {
+   "start": 671,
+   "end": 701,
+   "text": "john.stewart@penrosehale.co.uk",
+   "type": "EMAIL",
+   "gold_text": "john.stewart@penrosehale.co.uk",
+   "exact": true
+  },
+  {
+   "start": 706,
+   "end": 710,
+   "text": "John",
+   "type": "PERSON",
+   "gold_text": "John",
+   "exact": true
+  },
+  {
+   "start": 746,
+   "end": 755,
+   "text": "Stevenson",
+   "type": "PERSON",
+   "gold_text": "Stevenson",
+   "exact": true
+  },
+  {
+   "start": 1041,
+   "end": 1049,
+   "text": "77-24-63",
+   "type": "SORT_CODE",
+   "gold_text": "77-24-63",
+   "exact": true
+  },
+  {
+   "start": 1059,
+   "end": 1067,
+   "text": "02577787",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "02577787",
+   "exact": true
+  },
+  {
+   "start": 1087,
+   "end": 1097,
+   "text": "PH/25/3514",
+   "type": "CUSTOM",
+   "gold_text": "PH/25/3514",
+   "exact": true
+  },
+  {
+   "start": 1421,
+   "end": 1438,
+   "text": "Dominic Stevenson",
+   "type": "PERSON",
+   "gold_text": "Dominic Stevenson",
+   "exact": true
+  },
+  {
+   "start": 2471,
+   "end": 2488,
+   "text": "Dominic Stevenson",
+   "type": "PERSON",
+   "gold_text": "Dominic Stevenson",
+   "exact": true
+  },
+  {
+   "start": 2663,
+   "end": 2674,
+   "text": "BILL PETERS",
+   "type": "PERSON",
+   "gold_text": "BILL PETERS",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9888
+}

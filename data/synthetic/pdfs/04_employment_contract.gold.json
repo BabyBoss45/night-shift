@@ -1,0 +1,477 @@
+{
+ "doc_id": "pdf-004",
+ "doc_type": "employment_contract",
+ "pdf": "04_employment_contract.pdf",
+ "text": "CONTRACT OF EMPLOYMENT\n\nBETWEEN:\n(1) Kingfisher Whitecross Ltd (company number 01762155) whose registered office is at 34 Sycamore Crescent, London, SW1P 4ST (\"the Company\"); and\n(2) Xin Liu of 16 Alexandra Street, Hull, HU4 7ZA (\"you\" or \"the Employee\").\n\nEmployee details\nStaff ID: E170033\nPersonal email: liu.x@icloud.com\nMobile: 07573 445778\nStart date: 3 November 2026\n\nSECTION 1 - COMMENCEMENT AND PROBATION\n1.1  You will be on probation for 3 months. We may extend this period if we need more time to assess your performance.\n\n1.2  Your employment starts on November 3, 2026, and your period of continuous employment begins on that date.\n\nSECTION 2 - JOB TITLE AND DUTIES\n2.1  Your job title is Nurse. A job description has been given to you but it does not form part of this contract.\n\nSECTION 3 - HOURS OF WORK\n3.1 Your normal hours are 16 hours per week, Monday to Friday, between 9am and 5.30pm with an unpaid lunch break of 30 minutes.\n\n3.2\tYou agree to opt out of the 48-hour average weekly limit under the Working Time Regulations 1998. You may withdraw this agreement by giving three months' written notice.\n\nSECTION 4 - PAY\n4.1\tYour salary is £58,000.00 per year, paid monthly in arrears on or around the 25th of each month by credit transfer.\n\n4.2  Your salary will be reviewed each April. There is no obligation to increase it.\n\nSECTION 5 - HOLIDAYS\n5.1  Your holiday entitlement is 28 days per year including bank holidays, pro rata for part-time staff.\n\n5.2  Holiday not taken by the end of the year will be lost unless the law requires it to be carried forward.\n\nSECTION 6 - SICKNESS ABSENCE\n6.1\tStatutory Sick Pay is payable in line with current rules. Company sick pay of 8 weeks at full pay applies after probation.\n\nSECTION 7 - PENSION\n7.1  You will be enrolled into the The People's Pension pension scheme. You may opt out within one month of enrolment.\n\nSECTION 8 - NOTICE\n8.1 During any notice period we may place you on garden leave and you must not contact clients.\n\n8.2\tThe notice period is four weeks' on either side, increasing in line with the Employment Rights Act 1996 where that is longer.\n\nSECTION 9 - EXPENSES\n9.1 Business mileage in your own car is paid at 45p per mile for the first 10,000 miles in a tax year.\n\nSECTION 10 - RESTRICTIONS AFTER EMPLOYMENT\n10.1\tYou must not, for 9 months after leaving, try to entice away any employee of the Company with whom you worked closely.\n\nSECTION 11 - FAMILY LEAVE\n11.1  Details of family-friendly leave, including time off for dependants, are set out in the Staff Handbook.\n\nSECTION 12 - CONFIDENTIALITY AND DATA\n12.1\tYour data will be held securely and only for as long as necessary, as set out in our staff privacy notice.\n\nSECTION 13 - DISCIPLINE AND GRIEVANCE\n13.1  Our disciplinary and grievance procedures are in the Staff Handbook and do not form part of your contract. They follow the ACAS Code of Practice.\n\nSECTION 14 - RIGHT TO WORK\nThis offer is conditional on you proving your right to work in the UK. We have seen your passport, number 186163092).\n\nFor the Company\n..............................\nName: Gail Butcher\nPosition: Managing Director\nDate: 9 October 2026\n\nEMPLOYEE ACCEPTANCE\n\nName: Xin Liu\nDate: ________\n\nInitials: XL  \n",
+ "entities": [
+  {
+   "start": 119,
+   "end": 147,
+   "text": "34 Sycamore Crescent, London",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 149,
+   "end": 157,
+   "text": "SW1P 4ST",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 183,
+   "end": 190,
+   "text": "Xin Liu",
+   "type": "PERSON"
+  },
+  {
+   "start": 194,
+   "end": 219,
+   "text": "16 Alexandra Street, Hull",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 221,
+   "end": 228,
+   "text": "HU4 7ZA",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 284,
+   "end": 291,
+   "text": "E170033",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 308,
+   "end": 324,
+   "text": "liu.x@icloud.com",
+   "type": "EMAIL"
+  },
+  {
+   "start": 333,
+   "end": 345,
+   "text": "07573 445778",
+   "type": "PHONE"
+  },
+  {
+   "start": 3033,
+   "end": 3042,
+   "text": "186163092",
+   "type": "ID_DOC"
+  },
+  {
+   "start": 3099,
+   "end": 3111,
+   "text": "Gail Butcher",
+   "type": "PERSON"
+  },
+  {
+   "start": 3189,
+   "end": 3196,
+   "text": "Xin Liu",
+   "type": "PERSON"
+  },
+  {
+   "start": 3223,
+   "end": 3225,
+   "text": "XL",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "employment_contract/contract",
+  "variant_id": "employment_contract/contract|contract,right_to_work",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 183,
+    "end": 190
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 284,
+    "end": 291
+   },
+   {
+    "kind": "name_in_email",
+    "start": 308,
+    "end": 324
+   },
+   {
+    "kind": "non_english_name",
+    "start": 3189,
+    "end": 3196
+   },
+   {
+    "kind": "initials",
+    "start": 3223,
+    "end": 3225
+   },
+   {
+    "kind": "non_english_name",
+    "start": 3223,
+    "end": 3225
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "company_name",
+    "start": 37,
+    "end": 62,
+    "text": "Kingfisher Whitecross Ltd"
+   },
+   {
+    "kind": "company_number",
+    "start": 79,
+    "end": 87,
+    "text": "01762155"
+   },
+   {
+    "kind": "date",
+    "start": 358,
+    "end": 373,
+    "text": "3 November 2026"
+   },
+   {
+    "kind": "clause_number",
+    "start": 383,
+    "end": 384,
+    "text": "1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 414,
+    "end": 417,
+    "text": "1.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 534,
+    "end": 537,
+    "text": "1.2"
+   },
+   {
+    "kind": "date",
+    "start": 565,
+    "end": 581,
+    "text": "November 3, 2026"
+   },
+   {
+    "kind": "clause_number",
+    "start": 654,
+    "end": 655,
+    "text": "2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 679,
+    "end": 682,
+    "text": "2.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 802,
+    "end": 803,
+    "text": "3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 820,
+    "end": 823,
+    "text": "3.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 949,
+    "end": 952,
+    "text": "3.2"
+   },
+   {
+    "kind": "statute",
+    "start": 1020,
+    "end": 1049,
+    "text": "Working Time Regulations 1998"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1132,
+    "end": 1133,
+    "text": "4"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1140,
+    "end": 1143,
+    "text": "4.1"
+   },
+   {
+    "kind": "amount",
+    "start": 1159,
+    "end": 1169,
+    "text": "£58,000.00"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1261,
+    "end": 1264,
+    "text": "4.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1355,
+    "end": 1356,
+    "text": "5"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1368,
+    "end": 1371,
+    "text": "5.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1474,
+    "end": 1477,
+    "text": "5.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1592,
+    "end": 1593,
+    "text": "6"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1613,
+    "end": 1616,
+    "text": "6.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1749,
+    "end": 1750,
+    "text": "7"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1761,
+    "end": 1764,
+    "text": "7.1"
+   },
+   {
+    "kind": "public_company",
+    "start": 1796,
+    "end": 1816,
+    "text": "The People's Pension"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1889,
+    "end": 1890,
+    "text": "8"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1900,
+    "end": 1903,
+    "text": "8.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1997,
+    "end": 2000,
+    "text": "8.2"
+   },
+   {
+    "kind": "statute",
+    "start": 2078,
+    "end": 2104,
+    "text": "Employment Rights Act 1996"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2136,
+    "end": 2137,
+    "text": "9"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2149,
+    "end": 2152,
+    "text": "9.1"
+   },
+   {
+    "kind": "amount",
+    "start": 2197,
+    "end": 2200,
+    "text": "45p"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2261,
+    "end": 2263,
+    "text": "10"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2296,
+    "end": 2300,
+    "text": "10.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2429,
+    "end": 2431,
+    "text": "11"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2447,
+    "end": 2451,
+    "text": "11.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2566,
+    "end": 2568,
+    "text": "12"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2596,
+    "end": 2600,
+    "text": "12.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2717,
+    "end": 2719,
+    "text": "13"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2747,
+    "end": 2751,
+    "text": "13.1"
+   },
+   {
+    "kind": "public_company",
+    "start": 2876,
+    "end": 2880,
+    "text": "ACAS"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2908,
+    "end": 2910,
+    "text": "14"
+   },
+   {
+    "kind": "date",
+    "start": 3146,
+    "end": 3160,
+    "text": "9 October 2026"
+   }
+  ]
+ },
+ "extracted_text": "CONTRACT OF EMPLOYMENT\nBETWEEN:\n(1) Kingfisher Whitecross Ltd (company number 01762155) whose registered office is at 34 Sycamore\nCrescent, London, SW1P 4ST (\"the Company\"); and\n(2) Xin Liu of 16 Alexandra Street, Hull, HU4 7ZA (\"you\" or \"the Employee\").\nEmployee details\nStaff ID: E170033\nPersonal email: liu.x@icloud.com\nMobile: 07573 445778\nStart date: 3 November 2026\nSECTION 1 - COMMENCEMENT AND PROBATION\n1.1 You will be on probation for 3 months. We may extend this period if we need more time to assess your performance.\n1.2 Your employment starts on November 3, 2026, and your period of continuous employment begins on that date.\nSECTION 2 - JOB TITLE AND DUTIES\n2.1 Your job title is Nurse. A job description has been given to you but it does not form part of this contract.\nSECTION 3 - HOURS OF WORK\n3.1 Your normal hours are 16 hours per week, Monday to Friday, between 9am and 5.30pm with an unpaid\nlunch break of 30 minutes.\n3.2 You agree to opt out of the 48-hour average weekly limit under the Working Time Regulations 1998. You\nmay withdraw this agreement by giving three months' written notice.\nSECTION 4 - PAY\n4.1 Your salary is £58,000.00 per year, paid monthly in arrears on or around the 25th of each month by credit\ntransfer.\n4.2 Your salary will be reviewed each April. There is no obligation to increase it.\nSECTION 5 - HOLIDAYS\n5.1 Your holiday entitlement is 28 days per year including bank holidays, pro rata for part-time staff.\n5.2 Holiday not taken by the end of the year will be lost unless the law requires it to be carried forward.\nSECTION 6 - SICKNESS ABSENCE\n6.1 Statutory Sick Pay is payable in line with current rules. Company sick pay of 8 weeks at full pay applies\nafter probation.\nSECTION 7 - PENSION\n7.1 You will be enrolled into the The People's Pension pension scheme. You may opt out within one month of enrolment.\nSECTION 8 - NOTICE\n8.1 During any notice period we may place you on garden leave and you must not contact clients.\n8.2 The notice period is four weeks' on either side, increasing in line with the Employment Rights Act 1996\nwhere that is longer.\nSECTION 9 - EXPENSES\n9.1 Business mileage in your own car is paid at 45p per mile for the first 10,000 miles in a tax year.\nSECTION 10 - RESTRICTIONS AFTER EMPLOYMENT\n10.1 You must not, for 9 months after leaving, try to entice away any employee of the Company with whom you worked\nclosely.\nSECTION 11 - FAMILY LEAVE\n11.1 Details of family-friendly leave, including time off for dependants, are set out in the Staff Handbook.\nSECTION 12 - CONFIDENTIALITY AND DATA\n12.1 Your data will be held securely and only for as long as necessary, as set out in our staff privacy notice.\nSECTION 13 - DISCIPLINE AND GRIEVANCE\nEmployment Contract Page 1 of 2\n13.1 Our disciplinary and grievance procedures are in the Staff Handbook and do not form part of your contract. They follow\nthe ACAS Code of Practice.\nSECTION 14 - RIGHT TO WORK\nThis offer is conditional on you proving your right to work in the UK. We have seen your passport, number\n186163092).\nFor the Company\n..............................\nName: Gail Butcher\nPosition: Managing Director\nDate: 9 October 2026\nEMPLOYEE ACCEPTANCE\nName: Xin Liu\nDate: ________\nInitials: XL\nEmployment Contract Page 2 of 2",
+ "extracted_entities": [
+  {
+   "start": 118,
+   "end": 146,
+   "text": "34 Sycamore\nCrescent, London",
+   "type": "ADDRESS",
+   "gold_text": "34 Sycamore Crescent, London",
+   "exact": false
+  },
+  {
+   "start": 148,
+   "end": 156,
+   "text": "SW1P 4ST",
+   "type": "POSTCODE",
+   "gold_text": "SW1P 4ST",
+   "exact": true
+  },
+  {
+   "start": 182,
+   "end": 189,
+   "text": "Xin Liu",
+   "type": "PERSON",
+   "gold_text": "Xin Liu",
+   "exact": true
+  },
+  {
+   "start": 193,
+   "end": 218,
+   "text": "16 Alexandra Street, Hull",
+   "type": "ADDRESS",
+   "gold_text": "16 Alexandra Street, Hull",
+   "exact": true
+  },
+  {
+   "start": 220,
+   "end": 227,
+   "text": "HU4 7ZA",
+   "type": "POSTCODE",
+   "gold_text": "HU4 7ZA",
+   "exact": true
+  },
+  {
+   "start": 282,
+   "end": 289,
+   "text": "E170033",
+   "type": "CUSTOM",
+   "gold_text": "E170033",
+   "exact": true
+  },
+  {
+   "start": 306,
+   "end": 322,
+   "text": "liu.x@icloud.com",
+   "type": "EMAIL",
+   "gold_text": "liu.x@icloud.com",
+   "exact": true
+  },
+  {
+   "start": 331,
+   "end": 343,
+   "text": "07573 445778",
+   "type": "PHONE",
+   "gold_text": "07573 445778",
+   "exact": true
+  },
+  {
+   "start": 3035,
+   "end": 3044,
+   "text": "186163092",
+   "type": "ID_DOC",
+   "gold_text": "186163092",
+   "exact": true
+  },
+  {
+   "start": 3100,
+   "end": 3112,
+   "text": "Gail Butcher",
+   "type": "PERSON",
+   "gold_text": "Gail Butcher",
+   "exact": true
+  },
+  {
+   "start": 3188,
+   "end": 3195,
+   "text": "Xin Liu",
+   "type": "PERSON",
+   "gold_text": "Xin Liu",
+   "exact": true
+  },
+  {
+   "start": 3221,
+   "end": 3223,
+   "text": "XL",
+   "type": "PERSON",
+   "gold_text": "XL",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9901
+}

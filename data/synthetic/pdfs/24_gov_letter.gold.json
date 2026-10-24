@@ -1,0 +1,225 @@
+{
+ "doc_id": "pdf-024",
+ "doc_type": "gov_letter",
+ "pdf": "24_gov_letter.pdf",
+ "text": "Coventry City Council\nRevenues and Benefits\n158 Evans Court\nTruro TR1 5TR\nWeb: www.gov.uk\n\nCouncil Tax: you have moved \n\nMr L. O'Connor\nThe Maltings\n163 Sandringham Terrace\nCOVENTRY, CV1 2UG\n\nDate of issue 18 Aug 2026\nCouncil Tax account number 80982970\n\nDear Mr O'Connor,\n\nWe have updated our records to show that you left The Maltings, 163 Sandringham Terrace, Coventry CV1 2UG on 21 Jul 2026. We have ended your liability at your previous address.\n\nA final bill of £198.89 for your old address is enclosed. A new bill for your new address, account 34790138, will follow.\n\nIf you think your band is wrong you can ask the Valuation Office Agency to review it.\n\nWe are required by law to protect the public funds we administer and may share information with other bodies to prevent and detect fraud. Giving false information to obtain a discount is a criminal offence.\n\nYou can manage your account, sign up for e-billing and report a change online. Our phone lines are open Monday to Friday, 9am to 5pm.\n\nYou must tell us within 21 days about any change that could affect your bill. Tell us straight away if anyone moves in or out of the property.\n\nIf you pay by bank transfer, use your account reference as the payment reference so we can match your payment.\n\nIf you need this information in another format, please let us know.\n\nThank you,\nHead of Revenues\n",
+ "entities": [
+  {
+   "start": 44,
+   "end": 65,
+   "text": "158 Evans Court\nTruro",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 66,
+   "end": 73,
+   "text": "TR1 5TR",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 124,
+   "end": 135,
+   "text": "L. O'Connor",
+   "type": "PERSON"
+  },
+  {
+   "start": 136,
+   "end": 181,
+   "text": "The Maltings\n163 Sandringham Terrace\nCOVENTRY",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 183,
+   "end": 190,
+   "text": "CV1 2UG",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 245,
+   "end": 253,
+   "text": "80982970",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 263,
+   "end": 271,
+   "text": "O'Connor",
+   "type": "PERSON"
+  },
+  {
+   "start": 324,
+   "end": 371,
+   "text": "The Maltings, 163 Sandringham Terrace, Coventry",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 372,
+   "end": 379,
+   "text": "CV1 2UG",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 551,
+   "end": 559,
+   "text": "34790138",
+   "type": "CUSTOM"
+  }
+ ],
+ "meta": {
+  "template_id": "gov_letter/v2",
+  "variant_id": "gov_letter/v2|ctax-moved",
+  "hard_cases": [
+   {
+    "kind": "multiline_address",
+    "start": 44,
+    "end": 73
+   },
+   {
+    "kind": "initials",
+    "start": 124,
+    "end": 135
+   },
+   {
+    "kind": "non_english_name",
+    "start": 124,
+    "end": 135
+   },
+   {
+    "kind": "multiline_address",
+    "start": 136,
+    "end": 190
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 245,
+    "end": 253
+   },
+   {
+    "kind": "greeting_name",
+    "start": 263,
+    "end": 271
+   },
+   {
+    "kind": "non_english_name",
+    "start": 263,
+    "end": 271
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 551,
+    "end": 559
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 0,
+    "end": 21,
+    "text": "Coventry City Council"
+   },
+   {
+    "kind": "date",
+    "start": 206,
+    "end": 217,
+    "text": "18 Aug 2026"
+   },
+   {
+    "kind": "date",
+    "start": 383,
+    "end": 394,
+    "text": "21 Jul 2026"
+   },
+   {
+    "kind": "amount",
+    "start": 468,
+    "end": 475,
+    "text": "£198.89"
+   }
+  ]
+ },
+ "extracted_text": "Coventry City Council\nRevenues and Benefits\n158 Evans Court\nTruro TR1 5TR\nWeb: www.gov.uk\nCouncil Tax: you have moved\nMr L. O'Connor\nThe Maltings\n163 Sandringham Terrace\nCOVENTRY, CV1 2UG\nDate of issue 18 Aug 2026\nCouncil Tax account number 80982970\nDear Mr O'Connor,\nWe have updated our records to show that you left The Maltings, 163 Sandringham Terrace, Coventry CV1\n2UG on 21 Jul 2026. We have ended your liability at your previous address.\nA final bill of £198.89 for your old address is enclosed. A new bill for your new address, account 34790138,\nwill follow.\nIf you think your band is wrong you can ask the Valuation Office Agency to review it.\nWe are required by law to protect the public funds we administer and may share information with other bodies\nto prevent and detect fraud. Giving false information to obtain a discount is a criminal offence.\nYou can manage your account, sign up for e-billing and report a change online. Our phone lines are open\nMonday to Friday, 9am to 5pm.\nYou must tell us within 21 days about any change that could affect your bill. Tell us straight away if anyone\nmoves in or out of the property.\nIf you pay by bank transfer, use your account reference as the payment reference so we can match your\npayment.\nIf you need this information in another format, please let us know.\nThank you,\nHead of Revenues\nGov Letter Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 44,
+   "end": 65,
+   "text": "158 Evans Court\nTruro",
+   "type": "ADDRESS",
+   "gold_text": "158 Evans Court\nTruro",
+   "exact": true
+  },
+  {
+   "start": 66,
+   "end": 73,
+   "text": "TR1 5TR",
+   "type": "POSTCODE",
+   "gold_text": "TR1 5TR",
+   "exact": true
+  },
+  {
+   "start": 121,
+   "end": 132,
+   "text": "L. O'Connor",
+   "type": "PERSON",
+   "gold_text": "L. O'Connor",
+   "exact": true
+  },
+  {
+   "start": 133,
+   "end": 178,
+   "text": "The Maltings\n163 Sandringham Terrace\nCOVENTRY",
+   "type": "ADDRESS",
+   "gold_text": "The Maltings\n163 Sandringham Terrace\nCOVENTRY",
+   "exact": true
+  },
+  {
+   "start": 180,
+   "end": 187,
+   "text": "CV1 2UG",
+   "type": "POSTCODE",
+   "gold_text": "CV1 2UG",
+   "exact": true
+  },
+  {
+   "start": 241,
+   "end": 249,
+   "text": "80982970",
+   "type": "CUSTOM",
+   "gold_text": "80982970",
+   "exact": true
+  },
+  {
+   "start": 258,
+   "end": 266,
+   "text": "O'Connor",
+   "type": "PERSON",
+   "gold_text": "O'Connor",
+   "exact": true
+  },
+  {
+   "start": 318,
+   "end": 365,
+   "text": "The Maltings, 163 Sandringham Terrace, Coventry",
+   "type": "ADDRESS",
+   "gold_text": "The Maltings, 163 Sandringham Terrace, Coventry",
+   "exact": true
+  },
+  {
+   "start": 366,
+   "end": 373,
+   "text": "CV1\n2UG",
+   "type": "POSTCODE",
+   "gold_text": "CV1 2UG",
+   "exact": false
+  },
+  {
+   "start": 544,
+   "end": 552,
+   "text": "34790138",
+   "type": "CUSTOM",
+   "gold_text": "34790138",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9915
+}

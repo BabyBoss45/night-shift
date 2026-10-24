@@ -1,0 +1,234 @@
+{
+ "n_pdfs": 30,
+ "spans": 406,
+ "missing": 0,
+ "mismatch_rate": 0.0,
+ "whitespace_changed_rate": 0.009852216748768473,
+ "mean_text_similarity": 0.9759,
+ "missing_by_type": {
+  "ADDRESS": "0/51",
+  "BANK_ACCOUNT": "0/20",
+  "CARD": "0/5",
+  "CUSTOM": "0/28",
+  "DOB": "0/6",
+  "EMAIL": "0/21",
+  "ID_DOC": "0/5",
+  "NI_NUMBER": "0/3",
+  "PERSON": "0/133",
+  "PHONE": "0/67",
+  "POSTCODE": "0/50",
+  "SORT_CODE": "0/17"
+ },
+ "documents": [
+  {
+   "pdf": "01_tenancy_agreement.pdf",
+   "spans": 36,
+   "missing": 0,
+   "similarity": 0.9914,
+   "missing_examples": []
+  },
+  {
+   "pdf": "02_tenancy_agreement.pdf",
+   "spans": 17,
+   "missing": 0,
+   "similarity": 0.9881,
+   "missing_examples": []
+  },
+  {
+   "pdf": "03_employment_contract.pdf",
+   "spans": 13,
+   "missing": 0,
+   "similarity": 0.9908,
+   "missing_examples": []
+  },
+  {
+   "pdf": "04_employment_contract.pdf",
+   "spans": 12,
+   "missing": 0,
+   "similarity": 0.9901,
+   "missing_examples": []
+  },
+  {
+   "pdf": "05_nda.pdf",
+   "spans": 13,
+   "missing": 0,
+   "similarity": 0.9904,
+   "missing_examples": []
+  },
+  {
+   "pdf": "06_nda.pdf",
+   "spans": 10,
+   "missing": 0,
+   "similarity": 0.9969,
+   "missing_examples": []
+  },
+  {
+   "pdf": "07_service_agreement.pdf",
+   "spans": 16,
+   "missing": 0,
+   "similarity": 0.967,
+   "missing_examples": []
+  },
+  {
+   "pdf": "08_service_agreement.pdf",
+   "spans": 15,
+   "missing": 0,
+   "similarity": 0.967,
+   "missing_examples": []
+  },
+  {
+   "pdf": "09_engagement_letter.pdf",
+   "spans": 21,
+   "missing": 0,
+   "similarity": 0.9885,
+   "missing_examples": []
+  },
+  {
+   "pdf": "10_engagement_letter.pdf",
+   "spans": 20,
+   "missing": 0,
+   "similarity": 0.9888,
+   "missing_examples": []
+  },
+  {
+   "pdf": "11_invoice.pdf",
+   "spans": 11,
+   "missing": 0,
+   "similarity": 0.9908,
+   "missing_examples": []
+  },
+  {
+   "pdf": "12_invoice.pdf",
+   "spans": 9,
+   "missing": 0,
+   "similarity": 0.988,
+   "missing_examples": []
+  },
+  {
+   "pdf": "13_utility_bill.pdf",
+   "spans": 5,
+   "missing": 0,
+   "similarity": 0.9617,
+   "missing_examples": []
+  },
+  {
+   "pdf": "14_utility_bill.pdf",
+   "spans": 8,
+   "missing": 0,
+   "similarity": 0.9849,
+   "missing_examples": []
+  },
+  {
+   "pdf": "15_phone_bill.pdf",
+   "spans": 20,
+   "missing": 0,
+   "similarity": 0.9899,
+   "missing_examples": []
+  },
+  {
+   "pdf": "16_phone_bill.pdf",
+   "spans": 26,
+   "missing": 0,
+   "similarity": 0.8867,
+   "missing_examples": []
+  },
+  {
+   "pdf": "17_bank_statement.pdf",
+   "spans": 17,
+   "missing": 0,
+   "similarity": 0.9941,
+   "missing_examples": []
+  },
+  {
+   "pdf": "18_bank_statement.pdf",
+   "spans": 29,
+   "missing": 0,
+   "similarity": 0.9901,
+   "missing_examples": []
+  },
+  {
+   "pdf": "19_payslip.pdf",
+   "spans": 3,
+   "missing": 0,
+   "similarity": 0.9711,
+   "missing_examples": []
+  },
+  {
+   "pdf": "20_payslip.pdf",
+   "spans": 4,
+   "missing": 0,
+   "similarity": 0.922,
+   "missing_examples": []
+  },
+  {
+   "pdf": "21_insurance_claim_letter.pdf",
+   "spans": 13,
+   "missing": 0,
+   "similarity": 0.9765,
+   "missing_examples": []
+  },
+  {
+   "pdf": "22_insurance_claim_letter.pdf",
+   "spans": 10,
+   "missing": 0,
+   "similarity": 0.9653,
+   "missing_examples": []
+  },
+  {
+   "pdf": "23_gov_letter.pdf",
+   "spans": 5,
+   "missing": 0,
+   "similarity": 0.9866,
+   "missing_examples": []
+  },
+  {
+   "pdf": "24_gov_letter.pdf",
+   "spans": 10,
+   "missing": 0,
+   "similarity": 0.9915,
+   "missing_examples": []
+  },
+  {
+   "pdf": "25_medical_letter.pdf",
+   "spans": 12,
+   "missing": 0,
+   "similarity": 0.9855,
+   "missing_examples": []
+  },
+  {
+   "pdf": "26_medical_letter.pdf",
+   "spans": 11,
+   "missing": 0,
+   "similarity": 0.9876,
+   "missing_examples": []
+  },
+  {
+   "pdf": "27_cv.pdf",
+   "spans": 6,
+   "missing": 0,
+   "similarity": 0.9814,
+   "missing_examples": []
+  },
+  {
+   "pdf": "28_cv.pdf",
+   "spans": 5,
+   "missing": 0,
+   "similarity": 0.9851,
+   "missing_examples": []
+  },
+  {
+   "pdf": "29_hr_form.pdf",
+   "spans": 21,
+   "missing": 0,
+   "similarity": 0.9038,
+   "missing_examples": []
+  },
+  {
+   "pdf": "30_email_thread.pdf",
+   "spans": 8,
+   "missing": 0,
+   "similarity": 0.9749,
+   "missing_examples": []
+  }
+ ]
+}

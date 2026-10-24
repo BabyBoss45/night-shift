@@ -1,0 +1,475 @@
+{
+ "doc_id": "pdf-007",
+ "doc_type": "service_agreement",
+ "pdf": "07_service_agreement.pdf",
+ "text": "SERVICES AGREEMENT\n\nThis Agreement is made on August 30, 2026\n\n(1) Pauline Whitehead Removals, 142 Gladstone Way, Camden, London SE1 7QT (\"the Supplier\")\n(2) Lighthouse Bookkeeping Ltd, Rosewood House, Cedar Close, Worcester WR3 4XE (\"the Customer\")\n\nContacts\nSupplier: Pauline, 07584 353396, pauline.whitehead@gmail.com\nCustomer: Amelia Marsh-Iqbal (Finance Director), +44 (0)28 9018 4530, amelia.marsh@lighthousebookkeepingl.co.uk\n\nSECTION 1 - SERVICES\n1.1 The Supplier will carry out the Services set out in Schedule 1 using appropriately qualified staff.\n\n1.2\tThe Customer shall provide the Supplier with access, information and instructions reasonably required to perform the Services.\n\nSECTION 2 - FEES AND PAYMENT\n2.1  Invoices are payable within 30 days. Payment is to be made by bank transfer to the account below.\n\n2.2 Interest on late payments may be charged under the Late Payment of Commercial Debts (Interest) Act 1998.\n\nSECTION 3 - TERM AND TERMINATION\n3.1 The Agreement runs for an initial period of 12 months from 08/09/2026 and then continues month to month.\n\n3.2 Termination does not affect any rights that have accrued before the date of termination.\n\nSECTION 4 - LIABILITY\n4.1 The Supplier's total liability under this Agreement shall not exceed the fees paid in the 12 months before the claim.\n\nSECTION 5 - INTELLECTUAL PROPERTY\n5.1  On payment in full, the Supplier assigns to the Customer all intellectual property rights in the deliverables.\n\nSECTION 6 - DATA PROTECTION AND CONFIDENTIALITY\n6.1  Each party shall comply with the Data Protection Act 2018 in relation to any personal data processed under this Agreement.\n\n6.2  This clause survives termination for two years.\n\nSECTION 7 - GENERAL\n7.1\tNeither party may assign this Agreement without the other's consent.\n\n7.2 Any dispute will first be referred to the parties' named contacts, who will meet in good faith to resolve it.\n\nSchedule: Fees\n\n| Service | Rate | Quantity | Total |\n|---|---|---|---|\n| Photography (half day) | £524.64 | 2 | £1,049.28 |\n| Window cleaning | £46.40 | 7 | £324.80 |\n| Consultancy day rate | £596.46 | 15 | £8,946.90 |\n| Boiler service | £97.31 | 2 | £194.62 |\n| Annual software licence | £3,425.88 | 1 | £3,425.88 |\n\nPlease pay to:\nAccount name: Pauline Whitehead Removals\nSort code: 40-69-61\nAccount number: 67894341\n\nSigned for the Supplier ______________________\nName: Pauline Whitehead\n\nSigned for the Customer [signature]\nName: Bryan Jarvis\n",
+ "entities": [
+  {
+   "start": 67,
+   "end": 84,
+   "text": "Pauline Whitehead",
+   "type": "PERSON"
+  },
+  {
+   "start": 95,
+   "end": 128,
+   "text": "142 Gladstone Way, Camden, London",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 129,
+   "end": 136,
+   "text": "SE1 7QT",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 186,
+   "end": 224,
+   "text": "Rosewood House, Cedar Close, Worcester",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 225,
+   "end": 232,
+   "text": "WR3 4XE",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 270,
+   "end": 277,
+   "text": "Pauline",
+   "type": "PERSON"
+  },
+  {
+   "start": 279,
+   "end": 291,
+   "text": "07584 353396",
+   "type": "PHONE"
+  },
+  {
+   "start": 293,
+   "end": 320,
+   "text": "pauline.whitehead@gmail.com",
+   "type": "EMAIL"
+  },
+  {
+   "start": 331,
+   "end": 349,
+   "text": "Amelia Marsh-Iqbal",
+   "type": "PERSON"
+  },
+  {
+   "start": 370,
+   "end": 389,
+   "text": "+44 (0)28 9018 4530",
+   "type": "PHONE"
+  },
+  {
+   "start": 391,
+   "end": 432,
+   "text": "amelia.marsh@lighthousebookkeepingl.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 2256,
+   "end": 2273,
+   "text": "Pauline Whitehead",
+   "type": "PERSON"
+  },
+  {
+   "start": 2294,
+   "end": 2302,
+   "text": "40-69-61",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 2319,
+   "end": 2327,
+   "text": "67894341",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 2382,
+   "end": 2399,
+   "text": "Pauline Whitehead",
+   "type": "PERSON"
+  },
+  {
+   "start": 2443,
+   "end": 2455,
+   "text": "Bryan Jarvis",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "service_agreement/v1",
+  "variant_id": "service_agreement/v1|sole_trader",
+  "hard_cases": [
+   {
+    "kind": "sole_trader_name",
+    "start": 67,
+    "end": 84
+   },
+   {
+    "kind": "name_in_email",
+    "start": 293,
+    "end": 320
+   },
+   {
+    "kind": "name_in_email",
+    "start": 391,
+    "end": 432
+   },
+   {
+    "kind": "sole_trader_name",
+    "start": 2256,
+    "end": 2273
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "date",
+    "start": 46,
+    "end": 61,
+    "text": "August 30, 2026"
+   },
+   {
+    "kind": "company_name",
+    "start": 158,
+    "end": 184,
+    "text": "Lighthouse Bookkeeping Ltd"
+   },
+   {
+    "kind": "clause_number",
+    "start": 442,
+    "end": 443,
+    "text": "1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 455,
+    "end": 458,
+    "text": "1.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 560,
+    "end": 563,
+    "text": "1.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 700,
+    "end": 701,
+    "text": "2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 721,
+    "end": 724,
+    "text": "2.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 825,
+    "end": 828,
+    "text": "2.2"
+   },
+   {
+    "kind": "statute",
+    "start": 880,
+    "end": 932,
+    "text": "Late Payment of Commercial Debts (Interest) Act 1998"
+   },
+   {
+    "kind": "clause_number",
+    "start": 943,
+    "end": 944,
+    "text": "3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 968,
+    "end": 971,
+    "text": "3.1"
+   },
+   {
+    "kind": "date",
+    "start": 1031,
+    "end": 1041,
+    "text": "08/09/2026"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1078,
+    "end": 1081,
+    "text": "3.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1180,
+    "end": 1181,
+    "text": "4"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1194,
+    "end": 1197,
+    "text": "4.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1325,
+    "end": 1326,
+    "text": "5"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1351,
+    "end": 1354,
+    "text": "5.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1476,
+    "end": 1477,
+    "text": "6"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1516,
+    "end": 1519,
+    "text": "6.1"
+   },
+   {
+    "kind": "statute",
+    "start": 1554,
+    "end": 1578,
+    "text": "Data Protection Act 2018"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1645,
+    "end": 1648,
+    "text": "6.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1707,
+    "end": 1708,
+    "text": "7"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1719,
+    "end": 1722,
+    "text": "7.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1793,
+    "end": 1796,
+    "text": "7.2"
+   },
+   {
+    "kind": "common_word",
+    "start": 1886,
+    "end": 1891,
+    "text": "faith"
+   },
+   {
+    "kind": "amount",
+    "start": 2007,
+    "end": 2014,
+    "text": "£524.64"
+   },
+   {
+    "kind": "amount",
+    "start": 2021,
+    "end": 2030,
+    "text": "£1,049.28"
+   },
+   {
+    "kind": "amount",
+    "start": 2053,
+    "end": 2059,
+    "text": "£46.40"
+   },
+   {
+    "kind": "amount",
+    "start": 2066,
+    "end": 2073,
+    "text": "£324.80"
+   },
+   {
+    "kind": "amount",
+    "start": 2101,
+    "end": 2108,
+    "text": "£596.46"
+   },
+   {
+    "kind": "amount",
+    "start": 2116,
+    "end": 2125,
+    "text": "£8,946.90"
+   },
+   {
+    "kind": "amount",
+    "start": 2147,
+    "end": 2153,
+    "text": "£97.31"
+   },
+   {
+    "kind": "amount",
+    "start": 2160,
+    "end": 2167,
+    "text": "£194.62"
+   },
+   {
+    "kind": "amount",
+    "start": 2198,
+    "end": 2207,
+    "text": "£3,425.88"
+   },
+   {
+    "kind": "amount",
+    "start": 2214,
+    "end": 2223,
+    "text": "£3,425.88"
+   }
+  ]
+ },
+ "extracted_text": "SERVICES AGREEMENT\nThis Agreement is made on August 30, 2026\n(1) Pauline Whitehead Removals, 142 Gladstone Way, Camden, London SE1 7QT (\"the Supplier\")\n(2) Lighthouse Bookkeeping Ltd, Rosewood House, Cedar Close, Worcester WR3 4XE (\"the Customer\")\nContacts\nSupplier: Pauline, 07584 353396, pauline.whitehead@gmail.com\nCustomer: Amelia Marsh-Iqbal (Finance Director), +44 (0)28 9018 4530,\namelia.marsh@lighthousebookkeepingl.co.uk\nSECTION 1 - SERVICES\n1.1 The Supplier will carry out the Services set out in Schedule 1 using appropriately qualified staff.\n1.2 The Customer shall provide the Supplier with access, information and instructions reasonably required to\nperform the Services.\nSECTION 2 - FEES AND PAYMENT\n2.1 Invoices are payable within 30 days. Payment is to be made by bank transfer to the account below.\n2.2 Interest on late payments may be charged under the Late Payment of Commercial Debts (Interest) Act\n1998.\nSECTION 3 - TERM AND TERMINATION\n3.1 The Agreement runs for an initial period of 12 months from 08/09/2026 and then continues month to\nmonth.\n3.2 Termination does not affect any rights that have accrued before the date of termination.\nSECTION 4 - LIABILITY\n4.1 The Supplier's total liability under this Agreement shall not exceed the fees paid in the 12 months before\nthe claim.\nSECTION 5 - INTELLECTUAL PROPERTY\n5.1 On payment in full, the Supplier assigns to the Customer all intellectual property rights in the deliverables.\nSECTION 6 - DATA PROTECTION AND CONFIDENTIALITY\n6.1 Each party shall comply with the Data Protection Act 2018 in relation to any personal data processed under this\nAgreement.\n6.2 This clause survives termination for two years.\nSECTION 7 - GENERAL\n7.1 Neither party may assign this Agreement without the other's consent.\n7.2 Any dispute will first be referred to the parties' named contacts, who will meet in good faith to resolve it.\nSchedule: Fees\nService Rate Quantity Total\nPhotography (half day) £524.64 2 £1,049.28\nWindow cleaning £46.40 7 £324.80\nConsultancy day rate £596.46 15 £8,946.90\nBoiler service £97.31 2 £194.62\nAnnual software licence £3,425.88 1 £3,425.88\nPlease pay to:\nAccount name: Pauline Whitehead Removals\nSort code: 40-69-61\nAccount number: 67894341\nSigned for the Supplier ______________________\nName: Pauline Whitehead\nService Agreement Page 1 of 2\nSigned for the Customer [signature]\nName: Bryan Jarvis\nService Agreement Page 2 of 2",
+ "extracted_entities": [
+  {
+   "start": 65,
+   "end": 82,
+   "text": "Pauline Whitehead",
+   "type": "PERSON",
+   "gold_text": "Pauline Whitehead",
+   "exact": true
+  },
+  {
+   "start": 93,
+   "end": 126,
+   "text": "142 Gladstone Way, Camden, London",
+   "type": "ADDRESS",
+   "gold_text": "142 Gladstone Way, Camden, London",
+   "exact": true
+  },
+  {
+   "start": 127,
+   "end": 134,
+   "text": "SE1 7QT",
+   "type": "POSTCODE",
+   "gold_text": "SE1 7QT",
+   "exact": true
+  },
+  {
+   "start": 184,
+   "end": 222,
+   "text": "Rosewood House, Cedar Close, Worcester",
+   "type": "ADDRESS",
+   "gold_text": "Rosewood House, Cedar Close, Worcester",
+   "exact": true
+  },
+  {
+   "start": 223,
+   "end": 230,
+   "text": "WR3 4XE",
+   "type": "POSTCODE",
+   "gold_text": "WR3 4XE",
+   "exact": true
+  },
+  {
+   "start": 267,
+   "end": 274,
+   "text": "Pauline",
+   "type": "PERSON",
+   "gold_text": "Pauline",
+   "exact": true
+  },
+  {
+   "start": 276,
+   "end": 288,
+   "text": "07584 353396",
+   "type": "PHONE",
+   "gold_text": "07584 353396",
+   "exact": true
+  },
+  {
+   "start": 290,
+   "end": 317,
+   "text": "pauline.whitehead@gmail.com",
+   "type": "EMAIL",
+   "gold_text": "pauline.whitehead@gmail.com",
+   "exact": true
+  },
+  {
+   "start": 328,
+   "end": 346,
+   "text": "Amelia Marsh-Iqbal",
+   "type": "PERSON",
+   "gold_text": "Amelia Marsh-Iqbal",
+   "exact": true
+  },
+  {
+   "start": 367,
+   "end": 386,
+   "text": "+44 (0)28 9018 4530",
+   "type": "PHONE",
+   "gold_text": "+44 (0)28 9018 4530",
+   "exact": true
+  },
+  {
+   "start": 388,
+   "end": 429,
+   "text": "amelia.marsh@lighthousebookkeepingl.co.uk",
+   "type": "EMAIL",
+   "gold_text": "amelia.marsh@lighthousebookkeepingl.co.uk",
+   "exact": true
+  },
+  {
+   "start": 2156,
+   "end": 2173,
+   "text": "Pauline Whitehead",
+   "type": "PERSON",
+   "gold_text": "Pauline Whitehead",
+   "exact": true
+  },
+  {
+   "start": 2194,
+   "end": 2202,
+   "text": "40-69-61",
+   "type": "SORT_CODE",
+   "gold_text": "40-69-61",
+   "exact": true
+  },
+  {
+   "start": 2219,
+   "end": 2227,
+   "text": "67894341",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "67894341",
+   "exact": true
+  },
+  {
+   "start": 2281,
+   "end": 2298,
+   "text": "Pauline Whitehead",
+   "type": "PERSON",
+   "gold_text": "Pauline Whitehead",
+   "exact": true
+  },
+  {
+   "start": 2371,
+   "end": 2383,
+   "text": "Bryan Jarvis",
+   "type": "PERSON",
+   "gold_text": "Bryan Jarvis",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.967
+}

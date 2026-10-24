@@ -1,0 +1,204 @@
+{
+ "doc_id": "pdf-022",
+ "doc_type": "insurance_claim_letter",
+ "pdf": "22_insurance_claim_letter.pdf",
+ "text": "Thistle Cover Ltd\nHome Claims Team\n134 London Road\nNEWPORT\nNP20 8ET\nClaims line: 024 7338 7187\nthistlecover.co.uk\n\nCLAIM SUMMARY\n\nPolicyholder: Ashley Riley\nPolicy number: TC8593500J\nClaim number: TCC-2021-06015\nDate of incident: 23rd July 2026\nType of loss: Theft\nAddress: 203 Beechwood Rise, York YO30 2YZ\nContact number: +44 29 3673 6022\nEstimated value: £11,369.19\nHandler: María Papadopoulos\n\nDescription: On 23rd July 2026 a bicycle was stolen from the locked shed in the rear garden.\n",
+ "entities": [
+  {
+   "start": 35,
+   "end": 58,
+   "text": "134 London Road\nNEWPORT",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 59,
+   "end": 67,
+   "text": "NP20 8ET",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 81,
+   "end": 94,
+   "text": "024 7338 7187",
+   "type": "PHONE"
+  },
+  {
+   "start": 144,
+   "end": 156,
+   "text": "Ashley Riley",
+   "type": "PERSON"
+  },
+  {
+   "start": 172,
+   "end": 182,
+   "text": "TC8593500J",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 197,
+   "end": 211,
+   "text": "TCC-2021-06015",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 274,
+   "end": 298,
+   "text": "203 Beechwood Rise, York",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 299,
+   "end": 307,
+   "text": "YO30 2YZ",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 324,
+   "end": 340,
+   "text": "+44 29 3673 6022",
+   "type": "PHONE"
+  },
+  {
+   "start": 378,
+   "end": 396,
+   "text": "María Papadopoulos",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "insurance_claim_letter/v1",
+  "variant_id": "insurance_claim_letter/v1|summary-syn",
+  "hard_cases": [
+   {
+    "kind": "multiline_address",
+    "start": 35,
+    "end": 67
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 172,
+    "end": 182
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 197,
+    "end": 211
+   },
+   {
+    "kind": "address_in_table",
+    "start": 274,
+    "end": 307
+   },
+   {
+    "kind": "non_english_name",
+    "start": 378,
+    "end": 396
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "date",
+    "start": 230,
+    "end": 244,
+    "text": "23rd July 2026"
+   },
+   {
+    "kind": "amount",
+    "start": 358,
+    "end": 368,
+    "text": "£11,369.19"
+   },
+   {
+    "kind": "date",
+    "start": 414,
+    "end": 428,
+    "text": "23rd July 2026"
+   }
+  ]
+ },
+ "extracted_text": "Thistle Cover Ltd\nHome Claims Team\n134 London Road\nNEWPORT\nNP20 8ET\nClaims line: 024 7338 7187\nthistlecover.co.uk\nCLAIM SUMMARY\nPolicyholder: Ashley Riley\nPolicy number: TC8593500J\nClaim number: TCC-2021-06015\nDate of incident: 23rd July 2026\nType of loss: Theft\nAddress: 203 Beechwood Rise, York YO30 2YZ\nContact number: +44 29 3673 6022\nEstimated value: £11,369.19\nHandler: María Papadopoulos\nDescription: On 23rd July 2026 a bicycle was stolen from the locked shed in the rear garden.\nInsurance Claim Letter Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 35,
+   "end": 58,
+   "text": "134 London Road\nNEWPORT",
+   "type": "ADDRESS",
+   "gold_text": "134 London Road\nNEWPORT",
+   "exact": true
+  },
+  {
+   "start": 59,
+   "end": 67,
+   "text": "NP20 8ET",
+   "type": "POSTCODE",
+   "gold_text": "NP20 8ET",
+   "exact": true
+  },
+  {
+   "start": 81,
+   "end": 94,
+   "text": "024 7338 7187",
+   "type": "PHONE",
+   "gold_text": "024 7338 7187",
+   "exact": true
+  },
+  {
+   "start": 142,
+   "end": 154,
+   "text": "Ashley Riley",
+   "type": "PERSON",
+   "gold_text": "Ashley Riley",
+   "exact": true
+  },
+  {
+   "start": 170,
+   "end": 180,
+   "text": "TC8593500J",
+   "type": "CUSTOM",
+   "gold_text": "TC8593500J",
+   "exact": true
+  },
+  {
+   "start": 195,
+   "end": 209,
+   "text": "TCC-2021-06015",
+   "type": "CUSTOM",
+   "gold_text": "TCC-2021-06015",
+   "exact": true
+  },
+  {
+   "start": 272,
+   "end": 296,
+   "text": "203 Beechwood Rise, York",
+   "type": "ADDRESS",
+   "gold_text": "203 Beechwood Rise, York",
+   "exact": true
+  },
+  {
+   "start": 297,
+   "end": 305,
+   "text": "YO30 2YZ",
+   "type": "POSTCODE",
+   "gold_text": "YO30 2YZ",
+   "exact": true
+  },
+  {
+   "start": 322,
+   "end": 338,
+   "text": "+44 29 3673 6022",
+   "type": "PHONE",
+   "gold_text": "+44 29 3673 6022",
+   "exact": true
+  },
+  {
+   "start": 376,
+   "end": 394,
+   "text": "María Papadopoulos",
+   "type": "PERSON",
+   "gold_text": "María Papadopoulos",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9653
+}

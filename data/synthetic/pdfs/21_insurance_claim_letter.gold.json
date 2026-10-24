@@ -1,0 +1,288 @@
+{
+ "doc_id": "pdf-021",
+ "doc_type": "insurance_claim_letter",
+ "pdf": "21_insurance_claim_letter.pdf",
+ "text": "Aviva\nClaims line: 029 9518 8685\n\n17 Nov 2026\n\nT Herbert and Y. Ostapchuk\n209 Canal Road\nExeter\nEX4 6LW\n\nOur ref: C-8549702\nPolicy number: 239-0728815-83\n\nDear Tina Herbert,\n\nClaim C-8549702 (storm damage)\n\nWe are sorry to hear about your loss. We understand that on 4 Oct 2026 roof tiles were dislodged and the fence panels blown down during Storm Darragh.\n\nYour claim has been registered under policy 239-0728815-83 and Judith Fuller will be handling it.\n\nTo help us progress your claim, please send us:\n- receipts or proof of ownership for any items claimed\n- the police crime reference number\n- photographs of the damage\n- a copy of any repair estimate\n\nYours sincerely,\n\nJudith Fuller\nClaims Handler\njudith.fuller@aviva.co.uk\nAviva\n",
+ "entities": [
+  {
+   "start": 19,
+   "end": 32,
+   "text": "029 9518 8685",
+   "type": "PHONE"
+  },
+  {
+   "start": 47,
+   "end": 56,
+   "text": "T Herbert",
+   "type": "PERSON"
+  },
+  {
+   "start": 61,
+   "end": 73,
+   "text": "Y. Ostapchuk",
+   "type": "PERSON"
+  },
+  {
+   "start": 74,
+   "end": 95,
+   "text": "209 Canal Road\nExeter",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 96,
+   "end": 103,
+   "text": "EX4 6LW",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 114,
+   "end": 123,
+   "text": "C-8549702",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 139,
+   "end": 153,
+   "text": "239-0728815-83",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 160,
+   "end": 172,
+   "text": "Tina Herbert",
+   "type": "PERSON"
+  },
+  {
+   "start": 181,
+   "end": 190,
+   "text": "C-8549702",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 403,
+   "end": 417,
+   "text": "239-0728815-83",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 422,
+   "end": 435,
+   "text": "Judith Fuller",
+   "type": "PERSON"
+  },
+  {
+   "start": 676,
+   "end": 689,
+   "text": "Judith Fuller",
+   "type": "PERSON"
+  },
+  {
+   "start": 705,
+   "end": 730,
+   "text": "judith.fuller@aviva.co.uk",
+   "type": "EMAIL"
+  }
+ ],
+ "meta": {
+  "template_id": "insurance_claim_letter/v1",
+  "variant_id": "insurance_claim_letter/v1|ack-pub,dsp",
+  "hard_cases": [
+   {
+    "kind": "initials",
+    "start": 47,
+    "end": 56
+   },
+   {
+    "kind": "initials",
+    "start": 61,
+    "end": 73
+   },
+   {
+    "kind": "non_english_name",
+    "start": 61,
+    "end": 73
+   },
+   {
+    "kind": "multiline_address",
+    "start": 74,
+    "end": 103
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 114,
+    "end": 123
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 139,
+    "end": 153
+   },
+   {
+    "kind": "greeting_name",
+    "start": 160,
+    "end": 172
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 181,
+    "end": 190
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 403,
+    "end": 417
+   },
+   {
+    "kind": "signature_name",
+    "start": 676,
+    "end": 689
+   },
+   {
+    "kind": "name_in_email",
+    "start": 705,
+    "end": 730
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 0,
+    "end": 5,
+    "text": "Aviva"
+   },
+   {
+    "kind": "date",
+    "start": 34,
+    "end": 45,
+    "text": "17 Nov 2026"
+   },
+   {
+    "kind": "date",
+    "start": 267,
+    "end": 277,
+    "text": "4 Oct 2026"
+   },
+   {
+    "kind": "named_storm",
+    "start": 343,
+    "end": 356,
+    "text": "Storm Darragh"
+   },
+   {
+    "kind": "public_company",
+    "start": 731,
+    "end": 736,
+    "text": "Aviva"
+   }
+  ]
+ },
+ "extracted_text": "Aviva\nClaims line: 029 9518 8685\n17 Nov 2026\nT Herbert and Y. Ostapchuk\n209 Canal Road\nExeter\nEX4 6LW\nOur ref: C-8549702\nPolicy number: 239-0728815-83\nDear Tina Herbert,\nClaim C-8549702 (storm damage)\nWe are sorry to hear about your loss. We understand that on 4 Oct 2026 roof tiles were dislodged and the\nfence panels blown down during Storm Darragh.\nYour claim has been registered under policy 239-0728815-83 and Judith Fuller will be handling it.\nTo help us progress your claim, please send us:\n- receipts or proof of ownership for any items claimed\n- the police crime reference number\n- photographs of the damage\n- a copy of any repair estimate\nYours sincerely,\nJudith Fuller\nClaims Handler\njudith.fuller@aviva.co.uk\nAviva\nInsurance Claim Letter Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 19,
+   "end": 32,
+   "text": "029 9518 8685",
+   "type": "PHONE",
+   "gold_text": "029 9518 8685",
+   "exact": true
+  },
+  {
+   "start": 45,
+   "end": 54,
+   "text": "T Herbert",
+   "type": "PERSON",
+   "gold_text": "T Herbert",
+   "exact": true
+  },
+  {
+   "start": 59,
+   "end": 71,
+   "text": "Y. Ostapchuk",
+   "type": "PERSON",
+   "gold_text": "Y. Ostapchuk",
+   "exact": true
+  },
+  {
+   "start": 72,
+   "end": 93,
+   "text": "209 Canal Road\nExeter",
+   "type": "ADDRESS",
+   "gold_text": "209 Canal Road\nExeter",
+   "exact": true
+  },
+  {
+   "start": 94,
+   "end": 101,
+   "text": "EX4 6LW",
+   "type": "POSTCODE",
+   "gold_text": "EX4 6LW",
+   "exact": true
+  },
+  {
+   "start": 111,
+   "end": 120,
+   "text": "C-8549702",
+   "type": "CUSTOM",
+   "gold_text": "C-8549702",
+   "exact": true
+  },
+  {
+   "start": 136,
+   "end": 150,
+   "text": "239-0728815-83",
+   "type": "CUSTOM",
+   "gold_text": "239-0728815-83",
+   "exact": true
+  },
+  {
+   "start": 156,
+   "end": 168,
+   "text": "Tina Herbert",
+   "type": "PERSON",
+   "gold_text": "Tina Herbert",
+   "exact": true
+  },
+  {
+   "start": 176,
+   "end": 185,
+   "text": "C-8549702",
+   "type": "CUSTOM",
+   "gold_text": "C-8549702",
+   "exact": true
+  },
+  {
+   "start": 396,
+   "end": 410,
+   "text": "239-0728815-83",
+   "type": "CUSTOM",
+   "gold_text": "239-0728815-83",
+   "exact": true
+  },
+  {
+   "start": 415,
+   "end": 428,
+   "text": "Judith Fuller",
+   "type": "PERSON",
+   "gold_text": "Judith Fuller",
+   "exact": true
+  },
+  {
+   "start": 666,
+   "end": 679,
+   "text": "Judith Fuller",
+   "type": "PERSON",
+   "gold_text": "Judith Fuller",
+   "exact": true
+  },
+  {
+   "start": 695,
+   "end": 720,
+   "text": "judith.fuller@aviva.co.uk",
+   "type": "EMAIL",
+   "gold_text": "judith.fuller@aviva.co.uk",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9765
+}

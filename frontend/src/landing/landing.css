@@ -1,0 +1,199 @@
+/* Landing page: one scroll story. Movement is eased and scroll-linked; only sprite frames step. */
+
+@layer components {
+
+.landing {
+  overflow-x: clip;
+}
+
+.topbar {
+  background: color-mix(in srgb, var(--color-bone) 92%, transparent);
+  border-bottom: 4px solid transparent;
+  transition:
+    border-color 0.25s ease-out,
+    background-color 0.25s ease-out;
+}
+.topbar.is-solid {
+  background: var(--color-bone);
+  border-bottom-color: var(--color-ink);
+}
+.topbar-link {
+  font: 400 11px/1 var(--font-label);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 2px;
+  background-image: linear-gradient(var(--color-signal), var(--color-signal));
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s var(--ease-out-soft);
+}
+.topbar-link:hover,
+.topbar-link:focus-visible {
+  background-size: 100% 3px;
+}
+
+.cloud {
+  animation: drift 50s ease-in-out infinite alternate;
+}
+.cloud-slow {
+  animation-duration: 80s;
+}
+@keyframes drift {
+  to {
+    transform: translateX(160px);
+  }
+}
+.scroll-cue {
+  animation: cue 2.2s ease-in-out infinite;
+}
+@keyframes cue {
+  50% {
+    transform: translate(-50%, 6px);
+  }
+}
+
+.journey-stage {
+  background: linear-gradient(var(--color-bone), var(--color-bone));
+}
+.stage-label {
+  font: 400 10px/1 var(--font-label);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-quiet);
+  white-space: nowrap;
+  background: var(--color-bone);
+  padding: 3px 5px;
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 6px 6px;
+  border: 2px solid transparent;
+  border-image: var(--px-stone) 1 / 2px stretch;
+  background-clip: padding-box;
+  color: var(--color-quiet);
+  transition:
+    background-color 0.3s ease-out,
+    color 0.3s ease-out;
+}
+.step.is-on {
+  border-image-source: var(--px-ink);
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+}
+.step.is-done {
+  border-image-source: var(--px-ink);
+  color: var(--color-ink);
+}
+.step-dot {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  font: 400 11px/1 var(--font-label);
+  background: var(--color-mist);
+  color: var(--color-ink);
+}
+.step.is-on .step-dot,
+.step-dot.is-on {
+  background: var(--color-signal);
+  color: #fff;
+}
+
+.caption {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.45s var(--ease-out-expo);
+  pointer-events: none;
+}
+.caption.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+.learn-val {
+  position: relative;
+  display: inline-block;
+  min-width: 96px;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+.learn-val::after {
+  content: "";
+  position: absolute;
+  inset: -3px -2px;
+  background: var(--color-ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease-out-soft) 0.1s;
+}
+.learn-val::before {
+  content: attr(data-p);
+  position: absolute;
+  z-index: 1;
+  left: 6px;
+  top: 50%;
+  translate: 0 -50%;
+  font: 400 11px/1 var(--font-label);
+  color: var(--color-signal-soft);
+  opacity: 0;
+  transition: opacity 0.2s 0.45s;
+}
+.learn-val.is-hidden::after {
+  transform: scaleX(1);
+}
+.learn-val.is-hidden::before {
+  opacity: 1;
+}
+.learn-count {
+  transition: transform 0.3s var(--ease-out-soft);
+}
+.learn-count.is-up {
+  animation: bump 0.5s var(--ease-out-soft);
+}
+.learn-count.is-up .font-label {
+  color: var(--color-signal-deep);
+}
+@keyframes bump {
+  40% {
+    transform: translateY(-6px);
+  }
+}
+
+.wall-bg {
+  background-color: var(--color-stone);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' shape-rendering='crispEdges'%3E%3Crect width='64' height='64' fill='%238b8a85'/%3E%3Cg fill='%2355534d'%3E%3Crect y='28' width='64' height='4'/%3E%3Crect y='60' width='64' height='4'/%3E%3Crect width='4' height='28'/%3E%3Crect x='32' y='32' width='4' height='28'/%3E%3C/g%3E%3Cg fill='%239c9b95'%3E%3Crect x='4' width='28' height='4'/%3E%3Crect x='36' y='32' width='24' height='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 64px 64px;
+}
+.notice {
+  filter: drop-shadow(0 8px 0 rgb(13 13 13 / 0.35));
+}
+.nail {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--color-ink);
+  box-shadow: inset -2px -2px 0 var(--color-quiet);
+}
+
+.final .px-btn-secondary {
+  --shadow: #45443f;
+}
+.final-gate {
+  align-self: end;
+}
+
+@media (min-width: 640px) {
+  .sm\:px-btn-xl {
+    font-size: 26px;
+    padding: 18px 30px;
+    gap: 14px;
+  }
+}
+}

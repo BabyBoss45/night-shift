@@ -1,0 +1,205 @@
+{
+ "doc_id": "pdf-027",
+ "doc_type": "cv",
+ "pdf": "27_cv.pdf",
+ "text": "# JAMES DIXON\n181 Robinson Gardens, Cheltenham, GL50 8WX\nTel: 07700900665\nE-mail: james_dixon@aol.com\n\n**Personal details**\nDate of birth: 19 October 1976\nNationality: Ukrainian\n\n## Personal statement\nQualified ACCA accountant with a strong record in month-end close and reporting. Happy to relocate.\n\n## Experience\n### Accounts Payable Clerk - Tesco Mobile, Plymouth\n*Jun 2022 – Present*\n- Managed a budget of £3,665,000 across three cost centres.\n- Ran weekly and monthly payroll for 6 staff.\n- Prepared VAT returns and supported the year-end audit.\n### Management Accountant - Jaguar Land Rover, London\n*Jan 2016 to May 2022*\n- Prepared VAT returns and supported the year-end audit.\n- Prepared monthly management accounts for a business turning over £1,514,000.\n### Accounts Payable Clerk - Crown LLP, Norwich\n*May 2013 - Dec 2015*\n- Prepared monthly management accounts for a business turning over £120,000.\n- Managed a budget of £3,475,000 across three cost centres.\n- Ran weekly and monthly payroll for 59 staff.\n\n## Education\nBA (Hons) Business Management, Taras Shevchenko National University of Kyiv, 2015 - 2018\nA Levels - BTEC Business (Distinction*)\n\n## Skills\nForklift licence, Fluent Ukrainian, CSCS card, Safeguarding Level 2, Yoruba (fluent)\n\n## References\nReferences available on request.\n",
+ "entities": [
+  {
+   "start": 2,
+   "end": 13,
+   "text": "JAMES DIXON",
+   "type": "PERSON"
+  },
+  {
+   "start": 14,
+   "end": 46,
+   "text": "181 Robinson Gardens, Cheltenham",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 48,
+   "end": 56,
+   "text": "GL50 8WX",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 62,
+   "end": 73,
+   "text": "07700900665",
+   "type": "PHONE"
+  },
+  {
+   "start": 82,
+   "end": 101,
+   "text": "james_dixon@aol.com",
+   "type": "EMAIL"
+  },
+  {
+   "start": 139,
+   "end": 154,
+   "text": "19 October 1976",
+   "type": "DOB"
+  }
+ ],
+ "meta": {
+  "template_id": "cv/v1",
+  "variant_id": "cv/v1|md,finance,personal",
+  "hard_cases": [
+   {
+    "kind": "name_in_email",
+    "start": 82,
+    "end": 101
+   },
+   {
+    "kind": "dob_near_dates",
+    "start": 139,
+    "end": 154
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 345,
+    "end": 357,
+    "text": "Tesco Mobile"
+   },
+   {
+    "kind": "date",
+    "start": 369,
+    "end": 377,
+    "text": "Jun 2022"
+   },
+   {
+    "kind": "date",
+    "start": 380,
+    "end": 387,
+    "text": "Present"
+   },
+   {
+    "kind": "amount",
+    "start": 411,
+    "end": 421,
+    "text": "£3,665,000"
+   },
+   {
+    "kind": "public_company",
+    "start": 580,
+    "end": 597,
+    "text": "Jaguar Land Rover"
+   },
+   {
+    "kind": "date",
+    "start": 607,
+    "end": 615,
+    "text": "Jan 2016"
+   },
+   {
+    "kind": "date",
+    "start": 619,
+    "end": 627,
+    "text": "May 2022"
+   },
+   {
+    "kind": "amount",
+    "start": 753,
+    "end": 763,
+    "text": "£1,514,000"
+   },
+   {
+    "kind": "company_name",
+    "start": 794,
+    "end": 803,
+    "text": "Crown LLP"
+   },
+   {
+    "kind": "date",
+    "start": 814,
+    "end": 822,
+    "text": "May 2013"
+   },
+   {
+    "kind": "date",
+    "start": 825,
+    "end": 833,
+    "text": "Dec 2015"
+   },
+   {
+    "kind": "amount",
+    "start": 902,
+    "end": 910,
+    "text": "£120,000"
+   },
+   {
+    "kind": "amount",
+    "start": 934,
+    "end": 944,
+    "text": "£3,475,000"
+   },
+   {
+    "kind": "date",
+    "start": 1110,
+    "end": 1114,
+    "text": "2015"
+   },
+   {
+    "kind": "date",
+    "start": 1117,
+    "end": 1121,
+    "text": "2018"
+   }
+  ]
+ },
+ "extracted_text": "JAMES DIXON\n181 Robinson Gardens, Cheltenham, GL50 8WX\nTel: 07700900665\nE-mail: james_dixon@aol.com\nPersonal details\nDate of birth: 19 October 1976\nNationality: Ukrainian\nPersonal statement\nQualified ACCA accountant with a strong record in month-end close and reporting. Happy to relocate.\nExperience\nAccounts Payable Clerk - Tesco Mobile, Plymouth\n*Jun 2022 – Present*\n- Managed a budget of £3,665,000 across three cost centres.\n- Ran weekly and monthly payroll for 6 staff.\n- Prepared VAT returns and supported the year-end audit.\nManagement Accountant - Jaguar Land Rover, London\n*Jan 2016 to May 2022*\n- Prepared VAT returns and supported the year-end audit.\n- Prepared monthly management accounts for a business turning over £1,514,000.\nAccounts Payable Clerk - Crown LLP, Norwich\n*May 2013 - Dec 2015*\n- Prepared monthly management accounts for a business turning over £120,000.\n- Managed a budget of £3,475,000 across three cost centres.\n- Ran weekly and monthly payroll for 59 staff.\nEducation\nBA (Hons) Business Management, Taras Shevchenko National University of Kyiv, 2015 - 2018\nA Levels - BTEC Business (Distinction*)\nSkills\nForklift licence, Fluent Ukrainian, CSCS card, Safeguarding Level 2, Yoruba (fluent)\nReferences\nReferences available on request.\nCv Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 0,
+   "end": 11,
+   "text": "JAMES DIXON",
+   "type": "PERSON",
+   "gold_text": "JAMES DIXON",
+   "exact": true
+  },
+  {
+   "start": 12,
+   "end": 44,
+   "text": "181 Robinson Gardens, Cheltenham",
+   "type": "ADDRESS",
+   "gold_text": "181 Robinson Gardens, Cheltenham",
+   "exact": true
+  },
+  {
+   "start": 46,
+   "end": 54,
+   "text": "GL50 8WX",
+   "type": "POSTCODE",
+   "gold_text": "GL50 8WX",
+   "exact": true
+  },
+  {
+   "start": 60,
+   "end": 71,
+   "text": "07700900665",
+   "type": "PHONE",
+   "gold_text": "07700900665",
+   "exact": true
+  },
+  {
+   "start": 80,
+   "end": 99,
+   "text": "james_dixon@aol.com",
+   "type": "EMAIL",
+   "gold_text": "james_dixon@aol.com",
+   "exact": true
+  },
+  {
+   "start": 132,
+   "end": 147,
+   "text": "19 October 1976",
+   "type": "DOB",
+   "gold_text": "19 October 1976",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9814
+}

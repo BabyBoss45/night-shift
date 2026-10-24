@@ -1,0 +1,266 @@
+{
+ "doc_id": "pdf-025",
+ "doc_type": "medical_letter",
+ "pdf": "25_medical_letter.pdf",
+ "text": "Newcastle upon Tyne Hospitals NHS Foundation Trust\nDepartment of Neurology\nthe Queen's Medical Centre\nPatient Access Centre: 0300 728 3141\n\n04/10/2026\n\nTo be opened by the addressee only\nRavi Kapoor\nFlat 38\n46B Heron Avenue\nIpswich\nIP3 4GZ\n\nHospital no: 4778327G\nNHS No: 423 174 2049\nBorn: 09-05-1934\nReferred by: Dr Richard Holloway\n\nDear Ravi Kapoor,\n\nWe have booked a blood test for you with Dr Davies's team in Neurology.\n\nDate: Saturday 17 October 2026\nAppointment time: 2.30pm\nLocation: Clinic 4, Ground Floor, the Queen's Medical Centre\n\nPlease arrive 15 minutes early. A reminder will be sent to 07164 203749.\n\nText CANCEL to the number on your reminder if you cannot attend.\n\nBring any medicines, inhalers or sprays you use with you.\n\nWe share information about your care with your GP.\n\nClinics can run late. We are sorry for any wait.\n\nYours sincerely,\nNeurology Secretaries\ncc: Dr Richard Holloway, Riverbank Surgery\n",
+ "entities": [
+  {
+   "start": 125,
+   "end": 138,
+   "text": "0300 728 3141",
+   "type": "PHONE"
+  },
+  {
+   "start": 187,
+   "end": 198,
+   "text": "Ravi Kapoor",
+   "type": "PERSON"
+  },
+  {
+   "start": 199,
+   "end": 231,
+   "text": "Flat 38\n46B Heron Avenue\nIpswich",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 232,
+   "end": 239,
+   "text": "IP3 4GZ",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 254,
+   "end": 262,
+   "text": "4778327G",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 271,
+   "end": 283,
+   "text": "423 174 2049",
+   "type": "ID_DOC"
+  },
+  {
+   "start": 290,
+   "end": 300,
+   "text": "09-05-1934",
+   "type": "DOB"
+  },
+  {
+   "start": 317,
+   "end": 333,
+   "text": "Richard Holloway",
+   "type": "PERSON"
+  },
+  {
+   "start": 340,
+   "end": 351,
+   "text": "Ravi Kapoor",
+   "type": "PERSON"
+  },
+  {
+   "start": 398,
+   "end": 404,
+   "text": "Davies",
+   "type": "PERSON"
+  },
+  {
+   "start": 604,
+   "end": 616,
+   "text": "07164 203749",
+   "type": "PHONE"
+  },
+  {
+   "start": 892,
+   "end": 908,
+   "text": "Richard Holloway",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "medical_letter/v2",
+  "variant_id": "medical_letter/v2|appointment-trust",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 187,
+    "end": 198
+   },
+   {
+    "kind": "flat_number",
+    "start": 199,
+    "end": 231
+   },
+   {
+    "kind": "multiline_address",
+    "start": 199,
+    "end": 239
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 254,
+    "end": 262
+   },
+   {
+    "kind": "dob_near_dates",
+    "start": 290,
+    "end": 300
+   },
+   {
+    "kind": "greeting_name",
+    "start": 340,
+    "end": 351
+   },
+   {
+    "kind": "non_english_name",
+    "start": 340,
+    "end": 351
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 0,
+    "end": 50,
+    "text": "Newcastle upon Tyne Hospitals NHS Foundation Trust"
+   },
+   {
+    "kind": "place_name",
+    "start": 75,
+    "end": 101,
+    "text": "the Queen's Medical Centre"
+   },
+   {
+    "kind": "date",
+    "start": 140,
+    "end": 150,
+    "text": "04/10/2026"
+   },
+   {
+    "kind": "date",
+    "start": 433,
+    "end": 457,
+    "text": "Saturday 17 October 2026"
+   },
+   {
+    "kind": "place_name",
+    "start": 493,
+    "end": 515,
+    "text": "Clinic 4, Ground Floor"
+   },
+   {
+    "kind": "place_name",
+    "start": 517,
+    "end": 543,
+    "text": "the Queen's Medical Centre"
+   },
+   {
+    "kind": "org_name",
+    "start": 910,
+    "end": 927,
+    "text": "Riverbank Surgery"
+   }
+  ]
+ },
+ "extracted_text": "Newcastle upon Tyne Hospitals NHS Foundation Trust\nDepartment of Neurology\nthe Queen's Medical Centre\nPatient Access Centre: 0300 728 3141\n04/10/2026\nTo be opened by the addressee only\nRavi Kapoor\nFlat 38\n46B Heron Avenue\nIpswich\nIP3 4GZ\nHospital no: 4778327G\nNHS No: 423 174 2049\nBorn: 09-05-1934\nReferred by: Dr Richard Holloway\nDear Ravi Kapoor,\nWe have booked a blood test for you with Dr Davies's team in Neurology.\nDate: Saturday 17 October 2026\nAppointment time: 2.30pm\nLocation: Clinic 4, Ground Floor, the Queen's Medical Centre\nPlease arrive 15 minutes early. A reminder will be sent to 07164 203749.\nText CANCEL to the number on your reminder if you cannot attend.\nBring any medicines, inhalers or sprays you use with you.\nWe share information about your care with your GP.\nClinics can run late. We are sorry for any wait.\nYours sincerely,\nNeurology Secretaries\ncc: Dr Richard Holloway, Riverbank Surgery\nMedical Letter Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 125,
+   "end": 138,
+   "text": "0300 728 3141",
+   "type": "PHONE",
+   "gold_text": "0300 728 3141",
+   "exact": true
+  },
+  {
+   "start": 185,
+   "end": 196,
+   "text": "Ravi Kapoor",
+   "type": "PERSON",
+   "gold_text": "Ravi Kapoor",
+   "exact": true
+  },
+  {
+   "start": 197,
+   "end": 229,
+   "text": "Flat 38\n46B Heron Avenue\nIpswich",
+   "type": "ADDRESS",
+   "gold_text": "Flat 38\n46B Heron Avenue\nIpswich",
+   "exact": true
+  },
+  {
+   "start": 230,
+   "end": 237,
+   "text": "IP3 4GZ",
+   "type": "POSTCODE",
+   "gold_text": "IP3 4GZ",
+   "exact": true
+  },
+  {
+   "start": 251,
+   "end": 259,
+   "text": "4778327G",
+   "type": "CUSTOM",
+   "gold_text": "4778327G",
+   "exact": true
+  },
+  {
+   "start": 268,
+   "end": 280,
+   "text": "423 174 2049",
+   "type": "ID_DOC",
+   "gold_text": "423 174 2049",
+   "exact": true
+  },
+  {
+   "start": 287,
+   "end": 297,
+   "text": "09-05-1934",
+   "type": "DOB",
+   "gold_text": "09-05-1934",
+   "exact": true
+  },
+  {
+   "start": 314,
+   "end": 330,
+   "text": "Richard Holloway",
+   "type": "PERSON",
+   "gold_text": "Richard Holloway",
+   "exact": true
+  },
+  {
+   "start": 336,
+   "end": 347,
+   "text": "Ravi Kapoor",
+   "type": "PERSON",
+   "gold_text": "Ravi Kapoor",
+   "exact": true
+  },
+  {
+   "start": 393,
+   "end": 399,
+   "text": "Davies",
+   "type": "PERSON",
+   "gold_text": "Davies",
+   "exact": true
+  },
+  {
+   "start": 597,
+   "end": 609,
+   "text": "07164 203749",
+   "type": "PHONE",
+   "gold_text": "07164 203749",
+   "exact": true
+  },
+  {
+   "start": 880,
+   "end": 896,
+   "text": "Richard Holloway",
+   "type": "PERSON",
+   "gold_text": "Richard Holloway",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9855
+}

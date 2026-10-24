@@ -1,0 +1,335 @@
+{
+ "doc_id": "pdf-006",
+ "doc_type": "nda",
+ "pdf": "06_nda.pdf",
+ "text": "CONFIDENTIALITY AGREEMENT\n\nThis Agreement is dated 10/05/2026\n\nPARTIES\n(1) Whitecross Ltd (company no. 04979120) whose registered office is Victoria Quays, 187 St John's Way, Bournemouth BH85JL (\"Party A\"); and\n(2) Elaine Wilkinson of The Maltings, 175 Heron Place, Durham, DH1 1HR (\"Party B\").\n\nRecitals\n(A) The parties wish to exchange information for the purpose of discussions about a consultancy engagement.\n(B) Each party has agreed to keep that information confidential on the terms of this Agreement.\n\nContact for notices: Yusuf Hussain, yusuf@whitecrossltd.co.uk, 01202 474953\n\nSECTION 1 - DEFINITIONS\n1.1 \"Confidential Information\" means all information of a confidential nature disclosed by either party to the other party, whether in writing, orally or by any other means, including business plans, customer lists, pricing, software, designs and know-how.\n\n1.2  \"Representatives\" means a party's employees, officers, professional advisers and subcontractors who need to know the Confidential Information for the Purpose.\n\nSECTION 2 - OBLIGATIONS\n2.1 Each party shall not disclose the Confidential Information to any third party except to its Representatives who are bound by obligations no less strict than those in this Agreement.\n\n2.2\tEach party shall keep the Confidential Inform-\nation secret and shall not use it for any purpose other than the Purpose.\n\nSECTION 3 - EXCEPTIONS\n3.1\tThe obligations in clause 3 do not apply to information that is or becomes public other than through a breach of this Agreement, was lawfully in the Recipient's possession before disclosure, or is independently developed.\n\nSECTION 4 - RETURN OF INFORMATION\n4.1\tOn request, the other party shall return or destroy all documents containing Confidential Information and confirm in writing that it has done so.\n\nPage 1 of 2\n\nWhitecross Ltd / Confidentiality Agreement\n\nSECTION 5 - TERM\n5.1\tThis Agreement starts on the Effective Date and the obligations of confidentiality continue for 5 years from the date of the last disclosure.\n\nSECTION 6 - GENERAL\n6.1  No licence or other right is granted in respect of any intellectual property.\n\n6.2 Nothing in this Agreement obliges either party to enter into any further agre-\nement.\n\n6.3  Damages alone may not be an adequate remedy for breach and the Discloser is entitled to seek injunctive relief.\n\n6.4  This Agreement may only be varied in writing signed by both parties.\n\nAGREED\n\nSigned by Yusuf Hussain, Chief Executive Officer, for and on behalf of Party A ____________________________\nDate: 10 May 2026\n\nSigned by Elaine Wilkinson ____________________________\nDate: 2026-05-10\n\n",
+ "entities": [
+  {
+   "start": 140,
+   "end": 186,
+   "text": "Victoria Quays, 187 St John's Way, Bournemouth",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 187,
+   "end": 193,
+   "text": "BH85JL",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 215,
+   "end": 231,
+   "text": "Elaine Wilkinson",
+   "type": "PERSON"
+  },
+  {
+   "start": 235,
+   "end": 272,
+   "text": "The Maltings, 175 Heron Place, Durham",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 274,
+   "end": 281,
+   "text": "DH1 1HR",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 531,
+   "end": 544,
+   "text": "Yusuf Hussain",
+   "type": "PERSON"
+  },
+  {
+   "start": 546,
+   "end": 571,
+   "text": "yusuf@whitecrossltd.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 573,
+   "end": 585,
+   "text": "01202 474953",
+   "type": "PHONE"
+  },
+  {
+   "start": 2433,
+   "end": 2446,
+   "text": "Yusuf Hussain",
+   "type": "PERSON"
+  },
+  {
+   "start": 2560,
+   "end": 2576,
+   "text": "Elaine Wilkinson",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "nda/mutual",
+  "variant_id": "nda/mutual|mutual,individual,pdf",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 531,
+    "end": 544
+   },
+   {
+    "kind": "name_in_email",
+    "start": 546,
+    "end": 571
+   },
+   {
+    "kind": "pdf_hyphenation",
+    "start": 1289,
+    "end": 1301
+   },
+   {
+    "kind": "pdf_header_footer",
+    "start": 1806,
+    "end": 1861
+   },
+   {
+    "kind": "pdf_hyphenation",
+    "start": 2208,
+    "end": 2219
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2433,
+    "end": 2446
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "date",
+    "start": 51,
+    "end": 61,
+    "text": "10/05/2026"
+   },
+   {
+    "kind": "company_name",
+    "start": 75,
+    "end": 89,
+    "text": "Whitecross Ltd"
+   },
+   {
+    "kind": "company_number",
+    "start": 103,
+    "end": 111,
+    "text": "04979120"
+   },
+   {
+    "kind": "clause_number",
+    "start": 595,
+    "end": 596,
+    "text": "1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 611,
+    "end": 614,
+    "text": "1.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 869,
+    "end": 872,
+    "text": "1.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1042,
+    "end": 1043,
+    "text": "2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1058,
+    "end": 1061,
+    "text": "2.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1245,
+    "end": 1248,
+    "text": "2.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1379,
+    "end": 1380,
+    "text": "3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1394,
+    "end": 1397,
+    "text": "3.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1424,
+    "end": 1425,
+    "text": "3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1629,
+    "end": 1630,
+    "text": "4"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1655,
+    "end": 1658,
+    "text": "4.1"
+   },
+   {
+    "kind": "company_name",
+    "start": 1819,
+    "end": 1833,
+    "text": "Whitecross Ltd"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1871,
+    "end": 1872,
+    "text": "5"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1880,
+    "end": 1883,
+    "text": "5.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2035,
+    "end": 2036,
+    "text": "6"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2047,
+    "end": 2050,
+    "text": "6.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2131,
+    "end": 2134,
+    "text": "6.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2222,
+    "end": 2225,
+    "text": "6.3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2340,
+    "end": 2343,
+    "text": "6.4"
+   },
+   {
+    "kind": "date",
+    "start": 2537,
+    "end": 2548,
+    "text": "10 May 2026"
+   },
+   {
+    "kind": "date",
+    "start": 2612,
+    "end": 2622,
+    "text": "2026-05-10"
+   }
+  ]
+ },
+ "extracted_text": "CONFIDENTIALITY AGREEMENT\nThis Agreement is dated 10/05/2026\nPARTIES\n(1) Whitecross Ltd (company no. 04979120) whose registered office is Victoria Quays, 187 St John's Way,\nBournemouth BH85JL (\"Party A\"); and\n(2) Elaine Wilkinson of The Maltings, 175 Heron Place, Durham, DH1 1HR (\"Party B\").\nRecitals\n(A) The parties wish to exchange information for the purpose of discussions about a consultancy engagement.\n(B) Each party has agreed to keep that information confidential on the terms of this Agreement.\nContact for notices: Yusuf Hussain, yusuf@whitecrossltd.co.uk, 01202 474953\nSECTION 1 - DEFINITIONS\n1.1 \"Confidential Information\" means all information of a confidential nature disclosed by either party to the\nother party, whether in writing, orally or by any other means, including business plans, customer lists, pricing,\nsoftware, designs and know-how.\n1.2 \"Representatives\" means a party's employees, officers, professional advisers and subcontractors who need to know the\nConfidential Information for the Purpose.\nSECTION 2 - OBLIGATIONS\n2.1 Each party shall not disclose the Confidential Information to any third party except to its Representatives\nwho are bound by obligations no less strict than those in this Agreement.\n2.2 Each party shall keep the Confidential Inform-\nation secret and shall not use it for any purpose other than the Purpose.\nSECTION 3 - EXCEPTIONS\n3.1 The obligations in clause 3 do not apply to information that is or becomes public other than through a\nbreach of this Agreement, was lawfully in the Recipient's possession before disclosure, or is independently\ndeveloped.\nSECTION 4 - RETURN OF INFORMATION\n4.1 On request, the other party shall return or destroy all documents containing Confidential Information and\nconfirm in writing that it has done so.\nPage 1 of 2\nWhitecross Ltd / Confidentiality Agreement\nSECTION 5 - TERM\n5.1 This Agreement starts on the Effective Date and the obligations of confidentiality continue for 5 years from\nthe date of the last disclosure.\nSECTION 6 - GENERAL\n6.1 No licence or other right is granted in respect of any intellectual property.\n6.2 Nothing in this Agreement obliges either party to enter into any further agre-\nement.\n6.3 Damages alone may not be an adequate remedy for breach and the Discloser is entitled to seek injunctive relief.\n6.4 This Agreement may only be varied in writing signed by both parties.\nAGREED\nSigned by Yusuf Hussain, Chief Executive Officer, for and on behalf of Party A\n____________________________\nDate: 10 May 2026\nSigned by Elaine Wilkinson ____________________________\nDate: 2026-05-10\nNda Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 138,
+   "end": 184,
+   "text": "Victoria Quays, 187 St John's Way,\nBournemouth",
+   "type": "ADDRESS",
+   "gold_text": "Victoria Quays, 187 St John's Way, Bournemouth",
+   "exact": false
+  },
+  {
+   "start": 185,
+   "end": 191,
+   "text": "BH85JL",
+   "type": "POSTCODE",
+   "gold_text": "BH85JL",
+   "exact": true
+  },
+  {
+   "start": 213,
+   "end": 229,
+   "text": "Elaine Wilkinson",
+   "type": "PERSON",
+   "gold_text": "Elaine Wilkinson",
+   "exact": true
+  },
+  {
+   "start": 233,
+   "end": 270,
+   "text": "The Maltings, 175 Heron Place, Durham",
+   "type": "ADDRESS",
+   "gold_text": "The Maltings, 175 Heron Place, Durham",
+   "exact": true
+  },
+  {
+   "start": 272,
+   "end": 279,
+   "text": "DH1 1HR",
+   "type": "POSTCODE",
+   "gold_text": "DH1 1HR",
+   "exact": true
+  },
+  {
+   "start": 527,
+   "end": 540,
+   "text": "Yusuf Hussain",
+   "type": "PERSON",
+   "gold_text": "Yusuf Hussain",
+   "exact": true
+  },
+  {
+   "start": 542,
+   "end": 567,
+   "text": "yusuf@whitecrossltd.co.uk",
+   "type": "EMAIL",
+   "gold_text": "yusuf@whitecrossltd.co.uk",
+   "exact": true
+  },
+  {
+   "start": 569,
+   "end": 581,
+   "text": "01202 474953",
+   "type": "PHONE",
+   "gold_text": "01202 474953",
+   "exact": true
+  },
+  {
+   "start": 2410,
+   "end": 2423,
+   "text": "Yusuf Hussain",
+   "type": "PERSON",
+   "gold_text": "Yusuf Hussain",
+   "exact": true
+  },
+  {
+   "start": 2536,
+   "end": 2552,
+   "text": "Elaine Wilkinson",
+   "type": "PERSON",
+   "gold_text": "Elaine Wilkinson",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9969
+}

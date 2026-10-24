@@ -1,0 +1,436 @@
+{
+ "doc_id": "pdf-009",
+ "doc_type": "engagement_letter",
+ "pdf": "09_engagement_letter.pdf",
+ "text": "Penrose Hale Chartered Accountants\nCopper Works, Dunn Crescent, Ecclesall, Sheffield, S35 3GY\nTelephone: +44 1244 444542  |  penrosehale.co.uk\n\nClient no.: PH73421\n03.05.2026\n\nPrivate & Confidential\nMr Richard Barlow\n93 Stanley Road\nCarlisle\nCumbria\nCA3 8JG\n\nDear Mr Barlow,\n\nRe: Preparing rental income schedules for your property at Flat 3B, 74 The Crescent, Huddersfield HD9 9LN\n\nThank you for instructing us. This letter sets out the basis on which we will be preparing rental income schedules for your property at Flat 3B, 74 The Crescent, Huddersfield HD9 9LN.\n\nWhat we will do\n- submit the return to HMRC after you have approved it\n- advise you of payments on account and deadlines\n- deal with routine correspondence from HMRC\n- prepare quarterly VAT returns and file them through Making Tax Digital software\n\nTetiana Hrytsenko, Director, will have overall responsibility for your matter. Day-to-day work will be carried out by Antony Steele, Trainee Solicitor, who you can contact on 023 3478 2946 or antony.steele@penrosehale.co.uk. If Antony is unavailable, please ask for Mrs Hrytsenko.\n\nFees and expenses\nOur charges are based on the time spent. The current hourly rates are £400.00 for a partner and £195.00 for other fee earners, plus VAT. We estimate the total cost at £2,350 to £3,950 plus VAT and disbursements.\n\nAnti-money laundering checks\nUnder the Money Laundering Regulations 2017 we must verify your identity. Please bring your passport or photocard driving licence and a utility bill dated within the last three months.\n\nComplaints\nIf you are unhappy with our service, please contact Tetiana Hrytsenko. You may also complain to the Chartered Institute of Taxation.\n\nData protection\nOur privacy notice explains how we use and protect your information. We will use your personal data only to provide our services and to meet our legal obligations under the Data Protection Act 2018. \n\nTimescales\nWe will keep you informed of progress and let you know if anything is likely to cause a delay. \n\nCancellation\nIf you ask us to start work during the cancellation period you will pay for the work done up to the date you cancel. \n\nLimitation of liability\nOur liability to you for any loss arising from this engagement is limited to £1,500,000, unless the law does not allow such a limit. \n\nOur terms of business are enclosed and form part of this letter. Please sign and return the enclosed copy.\n\nRegards,\nTetiana Hrytsenko\nPartner\nPenrose Hale Chartered Accountants\n\n--------------\nACCEPTANCE: I agree to the terms of engagement.\nSigned: \nName: RICHARD BARLOW\nDate: ________\n",
+ "entities": [
+  {
+   "start": 35,
+   "end": 84,
+   "text": "Copper Works, Dunn Crescent, Ecclesall, Sheffield",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 86,
+   "end": 93,
+   "text": "S35 3GY",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 105,
+   "end": 120,
+   "text": "+44 1244 444542",
+   "type": "PHONE"
+  },
+  {
+   "start": 156,
+   "end": 163,
+   "text": "PH73421",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 202,
+   "end": 216,
+   "text": "Richard Barlow",
+   "type": "PERSON"
+  },
+  {
+   "start": 217,
+   "end": 249,
+   "text": "93 Stanley Road\nCarlisle\nCumbria",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 250,
+   "end": 257,
+   "text": "CA3 8JG",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 267,
+   "end": 273,
+   "text": "Barlow",
+   "type": "PERSON"
+  },
+  {
+   "start": 335,
+   "end": 373,
+   "text": "Flat 3B, 74 The Crescent, Huddersfield",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 374,
+   "end": 381,
+   "text": "HD9 9LN",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 519,
+   "end": 557,
+   "text": "Flat 3B, 74 The Crescent, Huddersfield",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 558,
+   "end": 565,
+   "text": "HD9 9LN",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 817,
+   "end": 834,
+   "text": "Tetiana Hrytsenko",
+   "type": "PERSON"
+  },
+  {
+   "start": 935,
+   "end": 948,
+   "text": "Antony Steele",
+   "type": "PERSON"
+  },
+  {
+   "start": 992,
+   "end": 1005,
+   "text": "023 3478 2946",
+   "type": "PHONE"
+  },
+  {
+   "start": 1009,
+   "end": 1040,
+   "text": "antony.steele@penrosehale.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 1045,
+   "end": 1051,
+   "text": "Antony",
+   "type": "PERSON"
+  },
+  {
+   "start": 1087,
+   "end": 1096,
+   "text": "Hrytsenko",
+   "type": "PERSON"
+  },
+  {
+   "start": 1608,
+   "end": 1625,
+   "text": "Tetiana Hrytsenko",
+   "type": "PERSON"
+  },
+  {
+   "start": 2423,
+   "end": 2440,
+   "text": "Tetiana Hrytsenko",
+   "type": "PERSON"
+  },
+  {
+   "start": 2563,
+   "end": 2577,
+   "text": "RICHARD BARLOW",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "engagement_letter/accountant",
+  "variant_id": "engagement_letter/accountant|accountant",
+  "hard_cases": [
+   {
+    "kind": "custom_org_id",
+    "start": 156,
+    "end": 163
+   },
+   {
+    "kind": "multiline_address",
+    "start": 217,
+    "end": 257
+   },
+   {
+    "kind": "greeting_name",
+    "start": 267,
+    "end": 273
+   },
+   {
+    "kind": "flat_number",
+    "start": 335,
+    "end": 373
+   },
+   {
+    "kind": "flat_number",
+    "start": 519,
+    "end": 557
+   },
+   {
+    "kind": "non_english_name",
+    "start": 817,
+    "end": 834
+   },
+   {
+    "kind": "name_in_email",
+    "start": 1009,
+    "end": 1040
+   },
+   {
+    "kind": "non_english_name",
+    "start": 1087,
+    "end": 1096
+   },
+   {
+    "kind": "non_english_name",
+    "start": 1608,
+    "end": 1625
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2423,
+    "end": 2440
+   },
+   {
+    "kind": "signature_name",
+    "start": 2423,
+    "end": 2440
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "date",
+    "start": 164,
+    "end": 174,
+    "text": "03.05.2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 607,
+    "end": 611,
+    "text": "HMRC"
+   },
+   {
+    "kind": "public_company",
+    "start": 729,
+    "end": 733,
+    "text": "HMRC"
+   },
+   {
+    "kind": "amount",
+    "start": 1187,
+    "end": 1194,
+    "text": "£400.00"
+   },
+   {
+    "kind": "amount",
+    "start": 1213,
+    "end": 1220,
+    "text": "£195.00"
+   },
+   {
+    "kind": "amount",
+    "start": 1284,
+    "end": 1290,
+    "text": "£2,350"
+   },
+   {
+    "kind": "amount",
+    "start": 1294,
+    "end": 1300,
+    "text": "£3,950"
+   },
+   {
+    "kind": "statute",
+    "start": 1369,
+    "end": 1402,
+    "text": "Money Laundering Regulations 2017"
+   },
+   {
+    "kind": "public_company",
+    "start": 1652,
+    "end": 1687,
+    "text": "the Chartered Institute of Taxation"
+   },
+   {
+    "kind": "statute",
+    "start": 1879,
+    "end": 1903,
+    "text": "Data Protection Act 2018"
+   },
+   {
+    "kind": "amount",
+    "start": 2248,
+    "end": 2258,
+    "text": "£1,500,000"
+   }
+  ]
+ },
+ "extracted_text": "Penrose Hale Chartered Accountants\nCopper Works, Dunn Crescent, Ecclesall, Sheffield, S35 3GY\nTelephone: +44 1244 444542 | penrosehale.co.uk\nClient no.: PH73421\n03.05.2026\nPrivate & Confidential\nMr Richard Barlow\n93 Stanley Road\nCarlisle\nCumbria\nCA3 8JG\nDear Mr Barlow,\nRe: Preparing rental income schedules for your property at Flat 3B, 74 The Crescent, Huddersfield HD9 9LN\nThank you for instructing us. This letter sets out the basis on which we will be preparing rental income\nschedules for your property at Flat 3B, 74 The Crescent, Huddersfield HD9 9LN.\nWhat we will do\n- submit the return to HMRC after you have approved it\n- advise you of payments on account and deadlines\n- deal with routine correspondence from HMRC\n- prepare quarterly VAT returns and file them through Making Tax Digital software\nTetiana Hrytsenko, Director, will have overall responsibility for your matter. Day-to-day work will be carried\nout by Antony Steele, Trainee Solicitor, who you can contact on 023 3478 2946 or\nantony.steele@penrosehale.co.uk. If Antony is unavailable, please ask for Mrs Hrytsenko.\nFees and expenses\nOur charges are based on the time spent. The current hourly rates are £400.00 for a partner and £195.00 for\nother fee earners, plus VAT. We estimate the total cost at £2,350 to £3,950 plus VAT and disbursements.\nAnti-money laundering checks\nUnder the Money Laundering Regulations 2017 we must verify your identity. Please bring your passport or\nphotocard driving licence and a utility bill dated within the last three months.\nComplaints\nIf you are unhappy with our service, please contact Tetiana Hrytsenko. You may also complain to the\nChartered Institute of Taxation.\nData protection\nOur privacy notice explains how we use and protect your information. We will use your personal data only to\nprovide our services and to meet our legal obligations under the Data Protection Act 2018.\nTimescales\nWe will keep you informed of progress and let you know if anything is likely to cause a delay.\nCancellation\nIf you ask us to start work during the cancellation period you will pay for the work done up to the date you\ncancel.\nLimitation of liability\nOur liability to you for any loss arising from this engagement is limited to £1,500,000, unless the law does not\nallow such a limit.\nOur terms of business are enclosed and form part of this letter. Please sign and return the enclosed copy.\nRegards,\nTetiana Hrytsenko\nEngagement Letter Page 1 of 2\nPartner\nPenrose Hale Chartered Accountants\n--------------\nACCEPTANCE: I agree to the terms of engagement.\nSigned:\nName: RICHARD BARLOW\nDate: ________\nEngagement Letter Page 2 of 2",
+ "extracted_entities": [
+  {
+   "start": 35,
+   "end": 84,
+   "text": "Copper Works, Dunn Crescent, Ecclesall, Sheffield",
+   "type": "ADDRESS",
+   "gold_text": "Copper Works, Dunn Crescent, Ecclesall, Sheffield",
+   "exact": true
+  },
+  {
+   "start": 86,
+   "end": 93,
+   "text": "S35 3GY",
+   "type": "POSTCODE",
+   "gold_text": "S35 3GY",
+   "exact": true
+  },
+  {
+   "start": 105,
+   "end": 120,
+   "text": "+44 1244 444542",
+   "type": "PHONE",
+   "gold_text": "+44 1244 444542",
+   "exact": true
+  },
+  {
+   "start": 153,
+   "end": 160,
+   "text": "PH73421",
+   "type": "CUSTOM",
+   "gold_text": "PH73421",
+   "exact": true
+  },
+  {
+   "start": 198,
+   "end": 212,
+   "text": "Richard Barlow",
+   "type": "PERSON",
+   "gold_text": "Richard Barlow",
+   "exact": true
+  },
+  {
+   "start": 213,
+   "end": 245,
+   "text": "93 Stanley Road\nCarlisle\nCumbria",
+   "type": "ADDRESS",
+   "gold_text": "93 Stanley Road\nCarlisle\nCumbria",
+   "exact": true
+  },
+  {
+   "start": 246,
+   "end": 253,
+   "text": "CA3 8JG",
+   "type": "POSTCODE",
+   "gold_text": "CA3 8JG",
+   "exact": true
+  },
+  {
+   "start": 262,
+   "end": 268,
+   "text": "Barlow",
+   "type": "PERSON",
+   "gold_text": "Barlow",
+   "exact": true
+  },
+  {
+   "start": 329,
+   "end": 367,
+   "text": "Flat 3B, 74 The Crescent, Huddersfield",
+   "type": "ADDRESS",
+   "gold_text": "Flat 3B, 74 The Crescent, Huddersfield",
+   "exact": true
+  },
+  {
+   "start": 368,
+   "end": 375,
+   "text": "HD9 9LN",
+   "type": "POSTCODE",
+   "gold_text": "HD9 9LN",
+   "exact": true
+  },
+  {
+   "start": 512,
+   "end": 550,
+   "text": "Flat 3B, 74 The Crescent, Huddersfield",
+   "type": "ADDRESS",
+   "gold_text": "Flat 3B, 74 The Crescent, Huddersfield",
+   "exact": true
+  },
+  {
+   "start": 551,
+   "end": 558,
+   "text": "HD9 9LN",
+   "type": "POSTCODE",
+   "gold_text": "HD9 9LN",
+   "exact": true
+  },
+  {
+   "start": 808,
+   "end": 825,
+   "text": "Tetiana Hrytsenko",
+   "type": "PERSON",
+   "gold_text": "Tetiana Hrytsenko",
+   "exact": true
+  },
+  {
+   "start": 926,
+   "end": 939,
+   "text": "Antony Steele",
+   "type": "PERSON",
+   "gold_text": "Antony Steele",
+   "exact": true
+  },
+  {
+   "start": 983,
+   "end": 996,
+   "text": "023 3478 2946",
+   "type": "PHONE",
+   "gold_text": "023 3478 2946",
+   "exact": true
+  },
+  {
+   "start": 1000,
+   "end": 1031,
+   "text": "antony.steele@penrosehale.co.uk",
+   "type": "EMAIL",
+   "gold_text": "antony.steele@penrosehale.co.uk",
+   "exact": true
+  },
+  {
+   "start": 1036,
+   "end": 1042,
+   "text": "Antony",
+   "type": "PERSON",
+   "gold_text": "Antony",
+   "exact": true
+  },
+  {
+   "start": 1078,
+   "end": 1087,
+   "text": "Hrytsenko",
+   "type": "PERSON",
+   "gold_text": "Hrytsenko",
+   "exact": true
+  },
+  {
+   "start": 1596,
+   "end": 1613,
+   "text": "Tetiana Hrytsenko",
+   "type": "PERSON",
+   "gold_text": "Tetiana Hrytsenko",
+   "exact": true
+  },
+  {
+   "start": 2401,
+   "end": 2418,
+   "text": "Tetiana Hrytsenko",
+   "type": "PERSON",
+   "gold_text": "Tetiana Hrytsenko",
+   "exact": true
+  },
+  {
+   "start": 2569,
+   "end": 2583,
+   "text": "RICHARD BARLOW",
+   "type": "PERSON",
+   "gold_text": "RICHARD BARLOW",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9885
+}

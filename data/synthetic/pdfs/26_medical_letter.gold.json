@@ -1,0 +1,245 @@
+{
+ "doc_id": "pdf-026",
+ "doc_type": "medical_letter",
+ "pdf": "26_medical_letter.pdf",
+ "text": "University Hospitals Bristol and Weston NHS Foundation Trust\nCardiology Outpatients\nthe General Hospital\n70 Stanley Grove\nPreston\nLancashire\nPR5 9XN\nPatient Access Centre: 0345 047 3840\n\nDate: 15 May 2026\n\nDr P. Polishchuk\n233 The Green\nWolverhampton, WV9 5JF\n\nHospital number: 77455394\nDOB: 11.08.1957\nNHS No: 7349208103\nReferrer: Dr Simon Lloyd\n\nDear Dr Polishchuk,\n\nYour appointment on 20 June 2026 cannot go ahead. We apologise for this. A new appointment has been made for Wednesday 8 July 2026 at 1.40pm.\n\nWe apologise for the disruption to your plans.\n\nWe are a teaching hospital and students may be present. You can ask for them not to be.\n\nIf you feel unwell before your appointment, speak to your GP. If your condition gets worse before your appointment, contact your GP or call NHS 111.\n\nPlease bring this letter and your glasses or hearing aids if you use them. Please bring a list of your current medicines.\n\nChildren should not be brought to the clinic unless they are the patient. You may bring a relative or friend with you.\n\nYours faithfully,\nCardiology Administration Team\n",
+ "entities": [
+  {
+   "start": 105,
+   "end": 140,
+   "text": "70 Stanley Grove\nPreston\nLancashire",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 141,
+   "end": 148,
+   "text": "PR5 9XN",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 172,
+   "end": 185,
+   "text": "0345 047 3840",
+   "type": "PHONE"
+  },
+  {
+   "start": 209,
+   "end": 222,
+   "text": "P. Polishchuk",
+   "type": "PERSON"
+  },
+  {
+   "start": 223,
+   "end": 250,
+   "text": "233 The Green\nWolverhampton",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 252,
+   "end": 259,
+   "text": "WV9 5JF",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 278,
+   "end": 286,
+   "text": "77455394",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 292,
+   "end": 302,
+   "text": "11.08.1957",
+   "type": "DOB"
+  },
+  {
+   "start": 311,
+   "end": 321,
+   "text": "7349208103",
+   "type": "ID_DOC"
+  },
+  {
+   "start": 335,
+   "end": 346,
+   "text": "Simon Lloyd",
+   "type": "PERSON"
+  },
+  {
+   "start": 356,
+   "end": 366,
+   "text": "Polishchuk",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "medical_letter/v2",
+  "variant_id": "medical_letter/v2|cancelled-trust",
+  "hard_cases": [
+   {
+    "kind": "multiline_address",
+    "start": 105,
+    "end": 148
+   },
+   {
+    "kind": "initials",
+    "start": 209,
+    "end": 222
+   },
+   {
+    "kind": "non_english_name",
+    "start": 209,
+    "end": 222
+   },
+   {
+    "kind": "multiline_address",
+    "start": 223,
+    "end": 259
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 278,
+    "end": 286
+   },
+   {
+    "kind": "dob_near_dates",
+    "start": 292,
+    "end": 302
+   },
+   {
+    "kind": "greeting_name",
+    "start": 356,
+    "end": 366
+   },
+   {
+    "kind": "non_english_name",
+    "start": 356,
+    "end": 366
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 0,
+    "end": 60,
+    "text": "University Hospitals Bristol and Weston NHS Foundation Trust"
+   },
+   {
+    "kind": "place_name",
+    "start": 84,
+    "end": 104,
+    "text": "the General Hospital"
+   },
+   {
+    "kind": "date",
+    "start": 193,
+    "end": 204,
+    "text": "15 May 2026"
+   },
+   {
+    "kind": "date",
+    "start": 389,
+    "end": 401,
+    "text": "20 June 2026"
+   },
+   {
+    "kind": "date",
+    "start": 478,
+    "end": 499,
+    "text": "Wednesday 8 July 2026"
+   }
+  ]
+ },
+ "extracted_text": "University Hospitals Bristol and Weston NHS Foundation Trust\nCardiology Outpatients\nthe General Hospital\n70 Stanley Grove\nPreston\nLancashire\nPR5 9XN\nPatient Access Centre: 0345 047 3840\nDate: 15 May 2026\nDr P. Polishchuk\n233 The Green\nWolverhampton, WV9 5JF\nHospital number: 77455394\nDOB: 11.08.1957\nNHS No: 7349208103\nReferrer: Dr Simon Lloyd\nDear Dr Polishchuk,\nYour appointment on 20 June 2026 cannot go ahead. We apologise for this. A new appointment has been\nmade for Wednesday 8 July 2026 at 1.40pm.\nWe apologise for the disruption to your plans.\nWe are a teaching hospital and students may be present. You can ask for them not to be.\nIf you feel unwell before your appointment, speak to your GP. If your condition gets worse before your\nappointment, contact your GP or call NHS 111.\nPlease bring this letter and your glasses or hearing aids if you use them. Please bring a list of your current\nmedicines.\nChildren should not be brought to the clinic unless they are the patient. You may bring a relative or friend with\nyou.\nYours faithfully,\nCardiology Administration Team\nMedical Letter Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 105,
+   "end": 140,
+   "text": "70 Stanley Grove\nPreston\nLancashire",
+   "type": "ADDRESS",
+   "gold_text": "70 Stanley Grove\nPreston\nLancashire",
+   "exact": true
+  },
+  {
+   "start": 141,
+   "end": 148,
+   "text": "PR5 9XN",
+   "type": "POSTCODE",
+   "gold_text": "PR5 9XN",
+   "exact": true
+  },
+  {
+   "start": 172,
+   "end": 185,
+   "text": "0345 047 3840",
+   "type": "PHONE",
+   "gold_text": "0345 047 3840",
+   "exact": true
+  },
+  {
+   "start": 207,
+   "end": 220,
+   "text": "P. Polishchuk",
+   "type": "PERSON",
+   "gold_text": "P. Polishchuk",
+   "exact": true
+  },
+  {
+   "start": 221,
+   "end": 248,
+   "text": "233 The Green\nWolverhampton",
+   "type": "ADDRESS",
+   "gold_text": "233 The Green\nWolverhampton",
+   "exact": true
+  },
+  {
+   "start": 250,
+   "end": 257,
+   "text": "WV9 5JF",
+   "type": "POSTCODE",
+   "gold_text": "WV9 5JF",
+   "exact": true
+  },
+  {
+   "start": 275,
+   "end": 283,
+   "text": "77455394",
+   "type": "CUSTOM",
+   "gold_text": "77455394",
+   "exact": true
+  },
+  {
+   "start": 289,
+   "end": 299,
+   "text": "11.08.1957",
+   "type": "DOB",
+   "gold_text": "11.08.1957",
+   "exact": true
+  },
+  {
+   "start": 308,
+   "end": 318,
+   "text": "7349208103",
+   "type": "ID_DOC",
+   "gold_text": "7349208103",
+   "exact": true
+  },
+  {
+   "start": 332,
+   "end": 343,
+   "text": "Simon Lloyd",
+   "type": "PERSON",
+   "gold_text": "Simon Lloyd",
+   "exact": true
+  },
+  {
+   "start": 352,
+   "end": 362,
+   "text": "Polishchuk",
+   "type": "PERSON",
+   "gold_text": "Polishchuk",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9876
+}
