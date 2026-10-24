@@ -7,6 +7,10 @@ may be slightly malformed ([PERSON 1], [Person_1], [PERSON]); they still count.
 Placeholder numbers are not scored strictly (numbering consistency is reported
 for information only).
 
+Typographic quotes count as their plain ASCII forms (’ and ', “ and "): Haiku
+straightens them, which changes nothing a reader needs. The mapping is one
+character to one character, so key offsets stay valid.
+
 Alignment: the output is cut into literal text and placeholders. If every
 literal matches the original in order, each placeholder covers the text
 between its neighbours; when several cuts fit (two placeholders separated by a
@@ -58,6 +62,15 @@ AMOUNT_RE = re.compile(r"[£$€]|\b(?:GBP|USD|EUR)\b|^\d{1,3}(?:,\d{3})+(?:\.\d
 DATE_RE = re.compile(
     r"^(?:\d{1,2}(?:st|nd|rd|th)?\s+\w+\s+\d{4}|\w+\s+\d{1,2},?\s+\d{4}|\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}|\d{4}-\d{2}-\d{2})$"
 )
+# One character to one character, so offsets into the original chunk stay valid.
+QUOTE_TABLE = str.maketrans({"‘": "'", "’": "'", "‚": "'", "‛": "'", "′": "'",
+                             "“": '"', "”": '"', "„": '"', "‟": '"', "″": '"'})
+
+
+def plain_quotes(text: str) -> str:
+    return text.translate(QUOTE_TABLE)
+
+
 NAME_LIKE_RE = re.compile(r"^(?:(?:Mr|Mrs|Ms|Miss|Dr)\.?\s+)?[A-Z][A-Za-z'’-]+\.?(?:\s+[A-Z][A-Za-z'’-]*\.?){0,3}$")
 
 
@@ -218,9 +231,9 @@ def verbatim_in(value: str, output: str) -> bool:
 
 
 def score_chunk(chunk: dict, output: str) -> dict:
-    orig = chunk["text"]
+    orig = plain_quotes(chunk["text"])
     gold = chunk["entities"]
-    output = output.strip()
+    output = plain_quotes(output.strip())
     al = align(orig, output, {g["start"] for g in gold}, {g["end"] for g in gold})
     preds = [
         {"start": sp[0], "end": sp[1], "type": ph["type"], "raw": ph["raw"], "number": ph["number"], "canonical": ph["canonical"]}
@@ -244,7 +257,7 @@ def score_chunk(chunk: dict, output: str) -> dict:
                 "type_match": any(p["type"] == g["type"] for p in over),
                 "covered_chars": len(covered),
                 "chars": g["end"] - g["start"],
-                "leaked": verbatim_in(g["value"], output),
+                "leaked": verbatim_in(plain_quotes(g["value"]), output),
                 "numbers": sorted({p["number"] for p in over if p["type"] == g["type"] and p["number"] is not None}),
             }
         )

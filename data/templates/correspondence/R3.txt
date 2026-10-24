@@ -7,7 +7,7 @@
 # subtype: email_thread
 # year_shifts: 0 6 17
 # static_hard_cases: company_with_person_name over_redaction_trap
-# notes: headers reduced to Date, From, To, Subject, Cc with display names from X-From/X-To; the Lotus Notes column table is flattened to plain lines; registered company addresses in the search list are public company data and stay unlabelled (trap); [[opt]] blocks are added variations
+# notes: headers reduced to Date, From, To, Subject, Cc with display names from X-From/X-To; the Lotus Notes column table is flattened to plain lines; registered company addresses in the search list are ADDRESS slots with a separate POSTCODE, like every other postal address (24 Oct, one address rule with the T1 prompt); company names stay as text; [[opt]] blocks are added variations
 # ---
 Date: {{DATE:2001-11-03T12:02:35|rfc}}
 From: {{PERSON:paralegal|last_comma_first}} <{{EMAIL:paralegal|<first>.<last>@enron.com}}>
@@ -63,18 +63,13 @@ Subject: UCC Lien Searches]]
 
 Here are a few more names for UCC Lien Searches:
 
-Incorporated in Virginia:     Dominion Resources, Inc., 100 Tredegar
-St., Richmond, VA  23219
-               Virginia Power Energy Marketing, Inc., 5000
-Dominion Blvd., Glen Allen, VA  23060
+Incorporated in Virginia:     Dominion Resources, Inc., {{ADDRESS:dri_office|oneline,office}}
+               Virginia Power Energy Marketing, Inc., {{ADDRESS:vpem_office|oneline,office}}
 
 Incorporated in Delaware:
-               Dominion Exploration & Production, Inc., CNG
-Tower, 1450 Poydras St., New Orleans, LA  70112
-               Dominion Field Services, Inc., 445 West Main
-Street, Clarksburg, WV  23601
-               Dominion Transmission, Inc., 445 West Main
-Street, Clarksburg, WV  23601
+               Dominion Exploration & Production, Inc., {{ADDRESS:dep_office|oneline,office}}
+               Dominion Field Services, Inc., {{ADDRESS:clarksburg_office|oneline,office}}
+               Dominion Transmission, Inc., {{ADDRESS:clarksburg_office|oneline,office}}
 [[opt=0.6:
 Our counterparty ID for all five entities is {{CUSTOM:enron_cp|client_code}}; please quote it on the
 search requests.
