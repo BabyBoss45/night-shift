@@ -1,0 +1,115 @@
+# source_id: R5
+# title: Enron email thread, university MBA project team assignment (3 messages, Lotus Notes forwards)
+# url: https://www.cs.cmu.edu/~enron/
+# mirror: HPI Quagga copy of the corpus, exact file and commit in data/sources/correspondence/manifest.json
+# licence: Enron email corpus, research release of the FERC public record
+# kind: filled_real
+# subtype: email_thread
+# year_shifts: 0 6 17
+# static_hard_cases: company_with_person_name
+# notes: headers reduced to Date, From, To, Subject, Cc with display names from X-From/X-To; "?" encoding artefacts in the source replaced by spaces; [[opt]] blocks are added variations
+# ---
+Date: {{DATE:2001-01-24T02:55:00|rfc}}
+From: {{PERSON:vp_research|full_m}} <{{EMAIL:vp_research|<first>.<last>@enron.com}}>
+To: {{PERSON:ena_analyst|full}} <{{EMAIL:ena_analyst|<first>.<last>@enron.com}}>
+Subject: Re: Enron ALP[[opt@proj=0.6: - project {{CUSTOM:alp_project|case_triplet}}]]
+
+FYI
+
+{{PERSON:vp_research|first_var}}
+---------------------- Forwarded by {{PERSON:vp_research|full_m}}/HOU/ECT on {{DATE:2001-01-24T10:58:00|notes}} ---------------------------
+
+
+{{PERSON:mba_director|full}} <{{EMAIL:mba_director|<f><last>@rice.edu}}> on {{DATE:2001-01-24T10:13:44|notes_s}}
+To: {{EMAIL:vp_research|<First>.<M>.<Last>@enron.com}}
+cc:
+Subject: Re: Enron ALP[[opt@proj: - project {{CUSTOM:alp_project|case_triplet}}]]
+
+
+{{PERSON:vp_research|first_var}},
+
+Many thanks for the invitation.  I'm leaving for a conference in New Orleans
+today and won't be in town.  However, I'd love to join you if dinner should
+happen again in the future.
+
+Thanks again for all your support and interest in the ALP program.  I feel
+confident that this will be a great project.
+
+{{PERSON:mba_director|first_var}}
+
+At {{DATE:2001-01-24T10:03:00|wrote}} -0600, you wrote:
+{{PERSON:mba_director|first}},
+
+We have invited the team to dinner Thursday, 7:00 p.m.[[opt=0.6:  The table is booked at
+{{TRAP:venue}}.]]
+Would you loike to join us?
+
+{{PERSON:vp_research|first_var}}
+---------------------- Forwarded by {{PERSON:vp_research|full_m}}/HOU/ECT on {{DATE:2001-01-24T10:04:00|notes}} ---------------------------
+
+
+{{PERSON:mba_assoc|first_middle_last}} <{{EMAIL:mba_assoc|<last>@rice.edu}}> on {{DATE:2001-01-22T18:18:16|notes_s}}
+
+To:  {{EMAIL:ena_analyst|<First>.<Last>@enron.com}}, {{EMAIL:vp_research|<f><last6>@enron.com}}
+cc:
+Subject:  Enron ALP[[opt@proj: - project {{CUSTOM:alp_project|case_triplet}}]]
+
+
+Dear ALP Company Representatives:
+
+Thank you again for your participation in the ALP Company Day at Rice
+University. We are pleased to inform you that your project proposal has
+been chosen for the {{DATE:2001-01-01T00:00:00|year}} ALP program. The following students will  be
+working on your project:
+
+    {{PERSON:student1|upper_last_comma_first}}        {{EMAIL:student1|<first><last3>@rice.edu}}[[opt@sid=0.5:    {{CUSTOM:sid1|student_id}}]]
+    {{PERSON:student2|upper_last_comma_first}}              {{EMAIL:student2|<last><f>@rice.edu}}[[opt@sid:    {{CUSTOM:sid2|student_id}}]]
+    {{PERSON:student3|upper_last_comma_first}}    {{EMAIL:student3|<last><f>@rice.edu}}[[opt@sid:    {{CUSTOM:sid3|student_id}}]]
+    {{PERSON:student4|upper_last_comma_first}}             {{EMAIL:student4|<last>@rice.edu}}[[opt@sid:    {{CUSTOM:sid4|student_id}}]]
+    {{PERSON:student5|upper_last_comma_first}}             {{EMAIL:student5|<first>@rice.edu}}[[opt@sid:    {{CUSTOM:sid5|student_id}}]]
+    {{PERSON:student6|upper_last_comma_first}} {{EMAIL:student6|<f><last>@rice.edu}}[[opt@sid:    {{CUSTOM:sid6|student_id}}]]
+
+The faculty liaisons for your project are:
+
+
+    {{PERSON:faculty1|upper_last_comma_first}}                 {{EMAIL:faculty1|<last>@rice.edu}}
+    {{PERSON:faculty2|upper_last_comma_first}}                    {{EMAIL:faculty2|<last>@rice.edu}}
+    {{PERSON:faculty3|upper_last_comma_first}}      {{EMAIL:faculty3|<last8>@rice.edu}}
+
+A representative from the student team will contact you soon to set up
+meeting time. If you need to contact your team, I have included the
+students' email addresses. They check their email on a regular basis, so
+this is a good way to communicate with them.
+
+Please let me know if you have any questions regarding this information.
+Again, thank you for your interest in the Jones School. Best wishes for
+great project![[opt=0.6:  Please quote company ref {{CUSTOM:alp_company|client_code}} on the project
+agreement.]]
+
+==============================================================
+{{PERSON:mba_director|first_middle_last}}
+Director of MBA Program
+Rice University
+{{ADDRESS:rice_office|lines}}
+Phone: {{PHONE:mba_director_tel|landline}}
+Fax: {{PHONE:rice_fax|landline}}
+E-mail: {{EMAIL:mba_director|<f><last>@rice.edu}}
+http://www.ruf.rice.edu/~jgs/
+
+{{PERSON:mba_assoc|full}}
+MBA Program Associate
+Rice University
+Phone: {{PHONE:mba_assoc_tel|any}}
+FAX: {{PHONE:rice_fax|landline}}
+E-mail: {{EMAIL:mba_assoc|<last>@rice.edu}}
+
+======================================
+{{PERSON:mba_director|first_middle_last}}
+Director of MBA Program
+Jesse H. Jones Graduate School of Management
+Rice University
+{{ADDRESS:rice_office|any}}
+Phone:  {{PHONE:mba_director_tel|landline}}
+Fax:  {{PHONE:rice_fax|landline}}
+E-mail:  {{EMAIL:mba_director|<f><last>@rice.edu}}
+http://www.ruf.rice.edu/~jgs/

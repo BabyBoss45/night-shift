@@ -1,0 +1,103 @@
+# source_id: R1
+# title: Enron email thread, swap confirmation comments from a counterparty's counsel (2 messages)
+# url: https://www.cs.cmu.edu/~enron/
+# mirror: HPI Quagga copy of the corpus, exact file and commit in data/sources/correspondence/manifest.json
+# licence: Enron email corpus, research release of the FERC public record
+# kind: filled_real
+# subtype: email_thread
+# year_shifts: 0 6 17
+# static_hard_cases: company_with_person_name over_redaction_trap
+# sweep_allow: 03-02-00 10-01-01
+# notes: headers reduced to Date, From, To, Subject, Cc with display names from X-From/X-To; [[opt]] blocks are added variations
+# ---
+Date: {{DATE:2001-10-05T11:54:50|rfc}}
+From: "{{PERSON:usf_counsel|last_comma_first}}" <{{EMAIL:usf_counsel|<last><f>@usfilter.com}}>
+To: {{PERSON:originator|last_comma_first}} <{{EMAIL:originator|<first>.<last>@enron.com}}>, {{PERSON:desk_head|last_comma_first}} <{{EMAIL:desk_head|<first>.<last>@enron.com}}>, {{PERSON:ena_lawyer1|last_comma_first}} <{{EMAIL:ena_lawyer1|<first>.<last>@enron.com}}>,
+	{{PERSON:ena_lawyer2|last_comma_first}} <{{EMAIL:ena_lawyer2|<first>.<last>@enron.com}}>
+Subject: RE: Revised Contract[[opt@ref=0.6: (our ref {{CUSTOM:usf_matter|matter}})]]
+Cc: {{PERSON:usf_contact|last_first}} <{{EMAIL:usf_contact|<last><f>@usfilter.com}}>
+
+I have received the email below and have only two minor comments concerning
+the Confirmation.
+
+1.  In the "Cash Settlement Amount" paragraph, "Notional Amount" should be
+changed to "Notional Quantity" to be consistent.
+
+2.  For sake of avoiding doubt that the payment date is the fifth business
+day following the date on which the product is priced for the last pricing
+day of the prior month, I would amend the existing language of the Payment
+Date(s) to add the following at the end of the sentence:  "for the
+applicable Determination Period."
+[[opt@bank=0.6:
+3.  Annex A still shows our old settlement account ending {{BANK_ACCOUNT:usf_old_acct|last4}}. Payments
+should go to sort code {{SORT_CODE:usf_acct}}, account {{BANK_ACCOUNT:usf_acct|full}}
+(IBAN {{IBAN:usf_acct|spaced}}); the amounts in the schedule are unchanged.
+]]
+	If you have any questions or comments, please let me know.[[opt=0.4: {{PERSON:usf_contact|first_var}} will
+send {{PERSON:originator|title_last}}'s team the signed copy.]]
+
+{{PERSON:usf_counsel|full_mi}}
+Senior Counsel
+United States Filter Corporation
+{{ADDRESS:usf_office|lines}}
+[[alt@sig:Telephone No.:||Tel:||T:]] {{PHONE:usf_counsel_tel|landline}}
+[[alt@sig:Facsimile Transmission No.:||Fax:||F:]] {{PHONE:usf_counsel_fax|landline}}
+[[alt@sig:Email Address:||Email:||E:]] {{EMAIL:usf_counsel|<last><f>@usfilter.com}}
+[[opt@ref:Our ref: {{CUSTOM:usf_matter|matter}}
+]]
+Confidentiality Note:   This e-mail message and any attachments to it are
+intended only for the named recipients and may contain legally privileged
+and/or confidential information.  If you are not one of the intended
+recipients, please do not duplicate or forward this e-mail message and
+immediately delete it from your computer.
+
+
+[[alt@quote:-----Original Message-----
+From: {{PERSON:originator|last_comma_first}} [mailto:{{EMAIL:originator|<First>.<Last>@ENRON.com}}]
+Sent: {{DATE:2001-10-02T14:08:00|long}}
+To: {{EMAIL:usf_contact|<last><f>@usfilter.com}}; {{EMAIL:usf_counsel|<last><f>@usfilter.com}}
+Cc: {{PERSON:desk_head|last_comma_first}}; {{PERSON:ena_lawyer1|last_comma_first}}; {{PERSON:ena_lawyer2|last_comma_first}}
+Subject: Revised Contract||On {{DATE:2001-10-02T14:08:00|long}}, {{PERSON:originator|full}} <{{EMAIL:originator|<First>.<Last>@ENRON.com}}> wrote:]]
+
+
+{{PERSON:usf_contact|first_var}},
+
+Attached below is a revised draft contract and an updated Annex A that
+should address your legal department's concerns.  If there are
+additional enquiries, {{PERSON:usf_counsel|title_last}} should speak directly to {{PERSON:ena_lawyer1|full}}
+at {{PHONE:ena_lawyer1_tel|any}} or {{PERSON:ena_lawyer2|full}} at {{PHONE:ena_lawyer2_tel|any}} in our legal
+department.[[opt=0.5:  We can also walk through the Annex at the site meeting at
+{{TRAP:place}} next week.]]
+
+
+
+[[alt@signoff:Thanks,||Kind regards,||Best,]]
+
+{{PERSON:originator|first_var_last}}
+
+
+ <<Annex A - ENA(03-02-00).doc>>
+<<USFilterfixedbasisswap(10-01-01)1.doc>>
+{{PERSON:originator|full_mi}}
+Enron Global Markets, LLC
+{{ADDRESS:enron_office|lines}}
+
+Office:     {{PHONE:originator_tel|landline}}
+Mobile:    {{PHONE:originator_mob|mobile}}
+
+
+
+**********************************************************************
+This e-mail is the property of Enron Corp. and/or its relevant affiliate and
+may contain confidential and privileged material for the sole use of the
+intended recipient (s). Any review, use, distribution or disclosure by
+others is strictly prohibited. If you are not the intended recipient (or
+authorized to receive for the recipient), please contact the sender or reply
+to Enron Corp. at {{EMAIL:msgadmin|<role>@enron.com}} and delete all
+copies of the message. This e-mail (and any attachments hereto) are not
+intended to be an offer (or an acceptance) and do not create or evidence a
+binding and enforceable contract between Enron Corp. (or any of its
+affiliates) and the intended recipient or any other party, and may not be
+relied on by anyone as the basis of a contract by estoppel or otherwise.
+Thank you.
+**********************************************************************
