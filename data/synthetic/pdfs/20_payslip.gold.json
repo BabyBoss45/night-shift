@@ -1,0 +1,185 @@
+{
+ "doc_id": "pdf-020",
+ "doc_type": "payslip",
+ "pdf": "20_payslip.pdf",
+ "text": "Oakhurst Academy Trust - Payslip\n\n| Detail | Value |\n|---|---|\n| Employee | TOMLINSON, Miles |\n| Employee number | OAT8003 |\n| NI number | CA 625965 D |\n| Tax code | S1257L |\n| NI category | M |\n| Pay date | 12/10/2026 |\n| Tax period | Month 7 |\n| Department | Maintenance |\n\nPayments | Amount | Deductions | Amount\nBasic salary | 6,645.83 | Income Tax (PAYE) | 811.84\n |  | National Insurance | 379.16\n |  | Student loan (Plan 1) | 152.44\nTotal gross pay | 6,645.83 | Total deductions | 1,343.44\n\n**Net pay** £5,302.39\n\nYear to date\nTaxable pay to date: £46,139.51\nTax paid to date: £5,682.88\nNI to date: £2,654.12\n\nPaid by BACS to account ending 3261.\nIt is about 12 miles away.\n",
+ "entities": [
+  {
+   "start": 76,
+   "end": 92,
+   "text": "TOMLINSON, Miles",
+   "type": "PERSON"
+  },
+  {
+   "start": 115,
+   "end": 122,
+   "text": "OAT8003",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 139,
+   "end": 150,
+   "text": "CA 625965 D",
+   "type": "NI_NUMBER"
+  },
+  {
+   "start": 648,
+   "end": 652,
+   "text": "3261",
+   "type": "BANK_ACCOUNT"
+  }
+ ],
+ "meta": {
+  "template_id": "payslip/v1",
+  "variant_id": "payslip/v1|monthly-synth,L1",
+  "hard_cases": [
+   {
+    "kind": "table_layout",
+    "start": 34,
+    "end": 275
+   },
+   {
+    "kind": "common_word_name",
+    "start": 76,
+    "end": 92
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 115,
+    "end": 122
+   },
+   {
+    "kind": "spaced_identifier",
+    "start": 139,
+    "end": 150
+   },
+   {
+    "kind": "table_layout",
+    "start": 276,
+    "end": 497
+   },
+   {
+    "kind": "partial_number",
+    "start": 648,
+    "end": 652
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "tax_code",
+    "start": 166,
+    "end": 172,
+    "text": "S1257L"
+   },
+   {
+    "kind": "date",
+    "start": 208,
+    "end": 218,
+    "text": "12/10/2026"
+   },
+   {
+    "kind": "amount",
+    "start": 331,
+    "end": 339,
+    "text": "6,645.83"
+   },
+   {
+    "kind": "amount",
+    "start": 362,
+    "end": 368,
+    "text": "811.84"
+   },
+   {
+    "kind": "amount",
+    "start": 396,
+    "end": 402,
+    "text": "379.16"
+   },
+   {
+    "kind": "amount",
+    "start": 433,
+    "end": 439,
+    "text": "152.44"
+   },
+   {
+    "kind": "amount",
+    "start": 458,
+    "end": 466,
+    "text": "6,645.83"
+   },
+   {
+    "kind": "amount",
+    "start": 488,
+    "end": 496,
+    "text": "1,343.44"
+   },
+   {
+    "kind": "amount",
+    "start": 510,
+    "end": 519,
+    "text": "£5,302.39"
+   },
+   {
+    "kind": "amount",
+    "start": 555,
+    "end": 565,
+    "text": "£46,139.51"
+   },
+   {
+    "kind": "amount",
+    "start": 584,
+    "end": 593,
+    "text": "£5,682.88"
+   },
+   {
+    "kind": "amount",
+    "start": 606,
+    "end": 615,
+    "text": "£2,654.12"
+   },
+   {
+    "kind": "common_word",
+    "start": 669,
+    "end": 674,
+    "text": "miles"
+   }
+  ]
+ },
+ "extracted_text": "Oakhurst Academy Trust - Payslip\nDetail Value\nEmployee TOMLINSON, Miles\nEmployee number OAT8003\nNI number CA 625965 D\nTax code S1257L\nNI category M\nPay date 12/10/2026\nTax period Month 7\nDepartment Maintenance\nPayments | Amount | Deductions | Amount\nBasic salary | 6,645.83 | Income Tax (PAYE) | 811.84\nNational Insurance 379.16\nStudent loan (Plan 1) 152.44\nTotal gross pay | 6,645.83 | Total deductions | 1,343.44\nNet pay £5,302.39\nYear to date\nTaxable pay to date: £46,139.51\nTax paid to date: £5,682.88\nNI to date: £2,654.12\nPaid by BACS to account ending 3261.\nIt is about 12 miles away.\nPayslip Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 55,
+   "end": 71,
+   "text": "TOMLINSON, Miles",
+   "type": "PERSON",
+   "gold_text": "TOMLINSON, Miles",
+   "exact": true
+  },
+  {
+   "start": 88,
+   "end": 95,
+   "text": "OAT8003",
+   "type": "CUSTOM",
+   "gold_text": "OAT8003",
+   "exact": true
+  },
+  {
+   "start": 106,
+   "end": 117,
+   "text": "CA 625965 D",
+   "type": "NI_NUMBER",
+   "gold_text": "CA 625965 D",
+   "exact": true
+  },
+  {
+   "start": 559,
+   "end": 563,
+   "text": "3261",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "3261",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.922
+}

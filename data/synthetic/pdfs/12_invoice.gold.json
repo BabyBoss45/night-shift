@@ -1,0 +1,268 @@
+{
+ "doc_id": "pdf-012",
+ "doc_type": "invoice",
+ "pdf": "12_invoice.pdf",
+ "text": "INVOICE 48085\nFrom: Stonegate Design LLP\n195 Sanders Place, Liverpool, L13 3FT\n\nInvoice to:\nWhitecross Silverline plc\nFAO Gemma Pearce\nRoom 31, Prospect Place\n238 Greenhill Terrace\nInverness\nIV2 7PT\n\nInvoice date: 13 Oct 2025\nPayment terms: 7 days\n\nItem                                            Qty   Price   Total\n-------------------------------------------------------------------\nFit new radiator valve                            2  236.63  473.26\nUnblock bathroom sink (Worcester Bosch boiler)    2   31.00   62.00\n\nSubtotal: £535.26\nVAT: £107.05\nTotal due: £642.31\n\nPlease pay by bank transfer to:\nPlease pay £642.31 to sort code 11-56-63, account 20636742, quoting 48085.\n\nPayment is due within 7 days. Late payments may incur interest under the Late Payment of Commercial Debts (Interest) Act 1998.\nRegistered in England and Wales. Company number SC917148.\nQueries: contact Arjun Chopra on (01604) 445431.\n",
+ "entities": [
+  {
+   "start": 41,
+   "end": 69,
+   "text": "195 Sanders Place, Liverpool",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 71,
+   "end": 78,
+   "text": "L13 3FT",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 122,
+   "end": 134,
+   "text": "Gemma Pearce",
+   "type": "PERSON"
+  },
+  {
+   "start": 135,
+   "end": 190,
+   "text": "Room 31, Prospect Place\n238 Greenhill Terrace\nInverness",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 191,
+   "end": 198,
+   "text": "IV2 7PT",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 637,
+   "end": 645,
+   "text": "11-56-63",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 655,
+   "end": 663,
+   "text": "20636742",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 883,
+   "end": 895,
+   "text": "Arjun Chopra",
+   "type": "PERSON"
+  },
+  {
+   "start": 899,
+   "end": 913,
+   "text": "(01604) 445431",
+   "type": "PHONE"
+  }
+ ],
+ "meta": {
+  "template_id": "invoice/v1",
+  "variant_id": "invoice/v1|ltd,L1,fixed,dsp",
+  "hard_cases": [
+   {
+    "kind": "flat_number",
+    "start": 135,
+    "end": 190
+   },
+   {
+    "kind": "multiline_address",
+    "start": 135,
+    "end": 198
+   },
+   {
+    "kind": "table_layout",
+    "start": 249,
+    "end": 521
+   },
+   {
+    "kind": "account_next_to_amount",
+    "start": 637,
+    "end": 645
+   },
+   {
+    "kind": "non_english_name",
+    "start": 883,
+    "end": 895
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "doc_reference",
+    "start": 8,
+    "end": 13,
+    "text": "48085"
+   },
+   {
+    "kind": "company_name",
+    "start": 20,
+    "end": 40,
+    "text": "Stonegate Design LLP"
+   },
+   {
+    "kind": "company_name",
+    "start": 92,
+    "end": 117,
+    "text": "Whitecross Silverline plc"
+   },
+   {
+    "kind": "date",
+    "start": 214,
+    "end": 225,
+    "text": "13 Oct 2025"
+   },
+   {
+    "kind": "amount",
+    "start": 438,
+    "end": 444,
+    "text": "236.63"
+   },
+   {
+    "kind": "amount",
+    "start": 446,
+    "end": 452,
+    "text": "473.26"
+   },
+   {
+    "kind": "product",
+    "start": 476,
+    "end": 498,
+    "text": "Worcester Bosch boiler"
+   },
+   {
+    "kind": "amount",
+    "start": 507,
+    "end": 512,
+    "text": "31.00"
+   },
+   {
+    "kind": "amount",
+    "start": 515,
+    "end": 520,
+    "text": "62.00"
+   },
+   {
+    "kind": "amount",
+    "start": 532,
+    "end": 539,
+    "text": "£535.26"
+   },
+   {
+    "kind": "amount",
+    "start": 545,
+    "end": 552,
+    "text": "£107.05"
+   },
+   {
+    "kind": "amount",
+    "start": 564,
+    "end": 571,
+    "text": "£642.31"
+   },
+   {
+    "kind": "amount",
+    "start": 616,
+    "end": 623,
+    "text": "£642.31"
+   },
+   {
+    "kind": "doc_reference",
+    "start": 673,
+    "end": 678,
+    "text": "48085"
+   },
+   {
+    "kind": "statute",
+    "start": 754,
+    "end": 806,
+    "text": "Late Payment of Commercial Debts (Interest) Act 1998"
+   },
+   {
+    "kind": "company_number",
+    "start": 856,
+    "end": 864,
+    "text": "SC917148"
+   }
+  ]
+ },
+ "extracted_text": "INVOICE 48085\nFrom: Stonegate Design LLP\n195 Sanders Place, Liverpool, L13 3FT\nInvoice to:\nWhitecross Silverline plc\nFAO Gemma Pearce\nRoom 31, Prospect Place\n238 Greenhill Terrace\nInverness\nIV2 7PT\nInvoice date: 13 Oct 2025\nPayment terms: 7 days\nItem Qty Price Total\n-------------------------------------------------------------------\nFit new radiator valve 2 236.63 473.26\nUnblock bathroom sink (Worcester Bosch boiler) 2 31.00 62.00\nSubtotal: £535.26\nVAT: £107.05\nTotal due: £642.31\nPlease pay by bank transfer to:\nPlease pay £642.31 to sort code 11-56-63, account 20636742, quoting 48085.\nPayment is due within 7 days. Late payments may incur interest under the Late Payment of Commercial Debts\n(Interest) Act 1998.\nRegistered in England and Wales. Company number SC917148.\nQueries: contact Arjun Chopra on (01604) 445431.\nInvoice Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 41,
+   "end": 69,
+   "text": "195 Sanders Place, Liverpool",
+   "type": "ADDRESS",
+   "gold_text": "195 Sanders Place, Liverpool",
+   "exact": true
+  },
+  {
+   "start": 71,
+   "end": 78,
+   "text": "L13 3FT",
+   "type": "POSTCODE",
+   "gold_text": "L13 3FT",
+   "exact": true
+  },
+  {
+   "start": 121,
+   "end": 133,
+   "text": "Gemma Pearce",
+   "type": "PERSON",
+   "gold_text": "Gemma Pearce",
+   "exact": true
+  },
+  {
+   "start": 134,
+   "end": 189,
+   "text": "Room 31, Prospect Place\n238 Greenhill Terrace\nInverness",
+   "type": "ADDRESS",
+   "gold_text": "Room 31, Prospect Place\n238 Greenhill Terrace\nInverness",
+   "exact": true
+  },
+  {
+   "start": 190,
+   "end": 197,
+   "text": "IV2 7PT",
+   "type": "POSTCODE",
+   "gold_text": "IV2 7PT",
+   "exact": true
+  },
+  {
+   "start": 549,
+   "end": 557,
+   "text": "11-56-63",
+   "type": "SORT_CODE",
+   "gold_text": "11-56-63",
+   "exact": true
+  },
+  {
+   "start": 567,
+   "end": 575,
+   "text": "20636742",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "20636742",
+   "exact": true
+  },
+  {
+   "start": 794,
+   "end": 806,
+   "text": "Arjun Chopra",
+   "type": "PERSON",
+   "gold_text": "Arjun Chopra",
+   "exact": true
+  },
+  {
+   "start": 810,
+   "end": 824,
+   "text": "(01604) 445431",
+   "type": "PHONE",
+   "gold_text": "(01604) 445431",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.988
+}

@@ -1,0 +1,210 @@
+{
+ "doc_id": "pdf-030",
+ "doc_type": "email_thread",
+ "pdf": "30_email_thread.pdf",
+ "text": "From: Jian Zhang [mailto:jzhang@talentbridge.co.uk]\nSent: Tue 06/10/2026 10:47\nTo: Jake Warner [mailto:jake.warner599@yahoo.co.uk]\nSubject: Re: role at BAE Systems\n\nDear Jake,\n\nThanks for sending your CV. BAE Systems would like to interview you on November 4, 2026 at 11:00.\n\nThe salary range is £39,000 to £74,000. Could you send two referees?\n\nRegards,\nJian Zhang, Talent Partner\nPinnacle Consulting Limited\nDDI: (07700) 900876 | E: jzhang@talentbridge.co.uk\nSent from Outlook for Android",
+ "entities": [
+  {
+   "start": 6,
+   "end": 16,
+   "text": "Jian Zhang",
+   "type": "PERSON"
+  },
+  {
+   "start": 25,
+   "end": 50,
+   "text": "jzhang@talentbridge.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 83,
+   "end": 94,
+   "text": "Jake Warner",
+   "type": "PERSON"
+  },
+  {
+   "start": 103,
+   "end": 129,
+   "text": "jake.warner599@yahoo.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 170,
+   "end": 174,
+   "text": "Jake",
+   "type": "PERSON"
+  },
+  {
+   "start": 355,
+   "end": 365,
+   "text": "Jian Zhang",
+   "type": "PERSON"
+  },
+  {
+   "start": 415,
+   "end": 429,
+   "text": "(07700) 900876",
+   "type": "PHONE"
+  },
+  {
+   "start": 435,
+   "end": 460,
+   "text": "jzhang@talentbridge.co.uk",
+   "type": "EMAIL"
+  }
+ ],
+ "meta": {
+  "template_id": "email_thread/v1",
+  "variant_id": "email_thread/v1|_t_recruit,outlook",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 6,
+    "end": 16
+   },
+   {
+    "kind": "name_in_email",
+    "start": 25,
+    "end": 50
+   },
+   {
+    "kind": "name_in_email",
+    "start": 103,
+    "end": 129
+   },
+   {
+    "kind": "greeting_name",
+    "start": 170,
+    "end": 174
+   },
+   {
+    "kind": "non_english_name",
+    "start": 355,
+    "end": 365
+   },
+   {
+    "kind": "signature_name",
+    "start": 355,
+    "end": 365
+   },
+   {
+    "kind": "name_in_email",
+    "start": 435,
+    "end": 460
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "date",
+    "start": 58,
+    "end": 78,
+    "text": "Tue 06/10/2026 10:47"
+   },
+   {
+    "kind": "public_company",
+    "start": 152,
+    "end": 163,
+    "text": "BAE Systems"
+   },
+   {
+    "kind": "public_company",
+    "start": 205,
+    "end": 216,
+    "text": "BAE Systems"
+   },
+   {
+    "kind": "date",
+    "start": 248,
+    "end": 264,
+    "text": "November 4, 2026"
+   },
+   {
+    "kind": "date",
+    "start": 268,
+    "end": 273,
+    "text": "11:00"
+   },
+   {
+    "kind": "amount",
+    "start": 296,
+    "end": 303,
+    "text": "£39,000"
+   },
+   {
+    "kind": "amount",
+    "start": 307,
+    "end": 314,
+    "text": "£74,000"
+   }
+  ]
+ },
+ "extracted_text": "From: Jian Zhang [mailto:jzhang@talentbridge.co.uk]\nSent: Tue 06/10/2026 10:47\nTo: Jake Warner [mailto:jake.warner599@yahoo.co.uk]\nSubject: Re: role at BAE Systems\nDear Jake,\nThanks for sending your CV. BAE Systems would like to interview you on November 4, 2026 at 11:00.\nThe salary range is £39,000 to £74,000. Could you send two referees?\nRegards,\nJian Zhang, Talent Partner\nPinnacle Consulting Limited\nDDI: (07700) 900876 | E: jzhang@talentbridge.co.uk\nSent from Outlook for Android\nEmail Thread Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 6,
+   "end": 16,
+   "text": "Jian Zhang",
+   "type": "PERSON",
+   "gold_text": "Jian Zhang",
+   "exact": true
+  },
+  {
+   "start": 25,
+   "end": 50,
+   "text": "jzhang@talentbridge.co.uk",
+   "type": "EMAIL",
+   "gold_text": "jzhang@talentbridge.co.uk",
+   "exact": true
+  },
+  {
+   "start": 83,
+   "end": 94,
+   "text": "Jake Warner",
+   "type": "PERSON",
+   "gold_text": "Jake Warner",
+   "exact": true
+  },
+  {
+   "start": 103,
+   "end": 129,
+   "text": "jake.warner599@yahoo.co.uk",
+   "type": "EMAIL",
+   "gold_text": "jake.warner599@yahoo.co.uk",
+   "exact": true
+  },
+  {
+   "start": 169,
+   "end": 173,
+   "text": "Jake",
+   "type": "PERSON",
+   "gold_text": "Jake",
+   "exact": true
+  },
+  {
+   "start": 351,
+   "end": 361,
+   "text": "Jian Zhang",
+   "type": "PERSON",
+   "gold_text": "Jian Zhang",
+   "exact": true
+  },
+  {
+   "start": 411,
+   "end": 425,
+   "text": "(07700) 900876",
+   "type": "PHONE",
+   "gold_text": "(07700) 900876",
+   "exact": true
+  },
+  {
+   "start": 431,
+   "end": 456,
+   "text": "jzhang@talentbridge.co.uk",
+   "type": "EMAIL",
+   "gold_text": "jzhang@talentbridge.co.uk",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9749
+}

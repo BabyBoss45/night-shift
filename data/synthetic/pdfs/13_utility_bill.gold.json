@@ -1,0 +1,243 @@
+{
+ "doc_id": "pdf-013",
+ "doc_type": "utility_bill",
+ "pdf": "13_utility_bill.pdf",
+ "text": "Scottish Power\nYour energy bill\n\nAngus MacLeod\nThe Old Rectory\nPayne Hill\nEDINBURGH\nEH3 4EN\n\nBill number: 1905711\nBill date: 18 October 2026\nBilling period: 16 September 2026 to 16 October 2026\nAccount no.: 22898700233\nSupply address: as above\n\nYour account summary\nPrevious balance: £155.63\nPayments received: £188.31 - thank you\nNew charges: £406.15\nBalance to pay: £373.47\n\nWhat you're paying for\nTariff: Tracker October 2025\n| Item | Amount |\n|---|---:|\n| Electricity (894 kWh x 28.74p/kWh) | £256.94 |\n| Electricity standing charge (31 days x 46.25p/day) | £14.34 |\n| Gas (1,113 kWh x 8.86p/kWh) | £98.61 |\n| Gas standing charge (31 days x 54.58p/day) | £16.92 |\nVAT at 5%: £19.34\nTotal new charges: £406.15\n\nYou paid by card ending 6656 on 1 October 2026. Thank you.\n\nQuestions about your bill? Visit scottishpower.co.uk.\nNot happy? You can contact the Energy Ombudsman.\n",
+ "entities": [
+  {
+   "start": 33,
+   "end": 46,
+   "text": "Angus MacLeod",
+   "type": "PERSON"
+  },
+  {
+   "start": 47,
+   "end": 83,
+   "text": "The Old Rectory\nPayne Hill\nEDINBURGH",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 84,
+   "end": 91,
+   "text": "EH3 4EN",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 207,
+   "end": 218,
+   "text": "22898700233",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 738,
+   "end": 742,
+   "text": "6656",
+   "type": "CARD"
+  }
+ ],
+ "meta": {
+  "template_id": "utility_bill/v1",
+  "variant_id": "utility_bill/v1|pub-energy,pages",
+  "hard_cases": [
+   {
+    "kind": "multiline_address",
+    "start": 47,
+    "end": 91
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 207,
+    "end": 218
+   },
+   {
+    "kind": "table_layout",
+    "start": 429,
+    "end": 668
+   },
+   {
+    "kind": "partial_number",
+    "start": 738,
+    "end": 742
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "public_company",
+    "start": 0,
+    "end": 14,
+    "text": "Scottish Power"
+   },
+   {
+    "kind": "doc_reference",
+    "start": 106,
+    "end": 113,
+    "text": "1905711"
+   },
+   {
+    "kind": "date",
+    "start": 125,
+    "end": 140,
+    "text": "18 October 2026"
+   },
+   {
+    "kind": "date",
+    "start": 157,
+    "end": 174,
+    "text": "16 September 2026"
+   },
+   {
+    "kind": "date",
+    "start": 178,
+    "end": 193,
+    "text": "16 October 2026"
+   },
+   {
+    "kind": "amount",
+    "start": 284,
+    "end": 291,
+    "text": "£155.63"
+   },
+   {
+    "kind": "amount",
+    "start": 311,
+    "end": 318,
+    "text": "£188.31"
+   },
+   {
+    "kind": "amount",
+    "start": 344,
+    "end": 351,
+    "text": "£406.15"
+   },
+   {
+    "kind": "amount",
+    "start": 368,
+    "end": 375,
+    "text": "£373.47"
+   },
+   {
+    "kind": "product",
+    "start": 408,
+    "end": 428,
+    "text": "Tracker October 2025"
+   },
+   {
+    "kind": "amount",
+    "start": 483,
+    "end": 489,
+    "text": "28.74p"
+   },
+   {
+    "kind": "amount",
+    "start": 497,
+    "end": 504,
+    "text": "£256.94"
+   },
+   {
+    "kind": "amount",
+    "start": 548,
+    "end": 554,
+    "text": "46.25p"
+   },
+   {
+    "kind": "amount",
+    "start": 562,
+    "end": 568,
+    "text": "£14.34"
+   },
+   {
+    "kind": "amount",
+    "start": 590,
+    "end": 595,
+    "text": "8.86p"
+   },
+   {
+    "kind": "amount",
+    "start": 603,
+    "end": 609,
+    "text": "£98.61"
+   },
+   {
+    "kind": "amount",
+    "start": 645,
+    "end": 651,
+    "text": "54.58p"
+   },
+   {
+    "kind": "amount",
+    "start": 659,
+    "end": 665,
+    "text": "£16.92"
+   },
+   {
+    "kind": "amount",
+    "start": 679,
+    "end": 685,
+    "text": "£19.34"
+   },
+   {
+    "kind": "amount",
+    "start": 705,
+    "end": 712,
+    "text": "£406.15"
+   },
+   {
+    "kind": "date",
+    "start": 746,
+    "end": 760,
+    "text": "1 October 2026"
+   },
+   {
+    "kind": "public_company",
+    "start": 855,
+    "end": 875,
+    "text": "the Energy Ombudsman"
+   }
+  ]
+ },
+ "extracted_text": "Scottish Power\nYour energy bill\nAngus MacLeod\nThe Old Rectory\nPayne Hill\nEDINBURGH\nEH3 4EN\nBill number: 1905711\nBill date: 18 October 2026\nBilling period: 16 September 2026 to 16 October 2026\nAccount no.: 22898700233\nSupply address: as above\nYour account summary\nPrevious balance: £155.63\nPayments received: £188.31 - thank you\nNew charges: £406.15\nBalance to pay: £373.47\nWhat you're paying for\nTariff: Tracker October 2025\nItem Amount\nElectricity (894 kWh x 28.74p/kWh) £256.94\nElectricity standing charge (31 days x 46.25p/day) £14.34\nGas (1,113 kWh x 8.86p/kWh) £98.61\nGas standing charge (31 days x 54.58p/day) £16.92\nVAT at 5%: £19.34\nTotal new charges: £406.15\nYou paid by card ending 6656 on 1 October 2026. Thank you.\nQuestions about your bill? Visit scottishpower.co.uk.\nNot happy? You can contact the Energy Ombudsman.\nUtility Bill Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 32,
+   "end": 45,
+   "text": "Angus MacLeod",
+   "type": "PERSON",
+   "gold_text": "Angus MacLeod",
+   "exact": true
+  },
+  {
+   "start": 46,
+   "end": 82,
+   "text": "The Old Rectory\nPayne Hill\nEDINBURGH",
+   "type": "ADDRESS",
+   "gold_text": "The Old Rectory\nPayne Hill\nEDINBURGH",
+   "exact": true
+  },
+  {
+   "start": 83,
+   "end": 90,
+   "text": "EH3 4EN",
+   "type": "POSTCODE",
+   "gold_text": "EH3 4EN",
+   "exact": true
+  },
+  {
+   "start": 205,
+   "end": 216,
+   "text": "22898700233",
+   "type": "CUSTOM",
+   "gold_text": "22898700233",
+   "exact": true
+  },
+  {
+   "start": 692,
+   "end": 696,
+   "text": "6656",
+   "type": "CARD",
+   "gold_text": "6656",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9617
+}

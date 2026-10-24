@@ -1,0 +1,707 @@
+@import "tailwindcss";
+
+/* Veil, Bitmap Bone v2. Everything Veil says is pixel; everything that is your document is paper. */
+@theme {
+  --color-bone: #ecebe5;
+  --color-paper: #f8f7f3;
+  --color-mist: #dcdad1;
+  --color-haze: #c9c7bd;
+  --color-stone: #8b8a85;
+  --color-quiet: #55534d;
+  --color-ink: #0d0d0d;
+  --color-signal: #e2231a;
+  --color-signal-deep: #b3170f;
+  --color-signal-soft: #ff6b61;
+  --font-pixel: "Pixelify Sans Variable", "Pixelify Sans", ui-monospace, monospace;
+  --font-label: "Silkscreen", "Pixelify Sans Variable", ui-monospace, monospace;
+  --font-serif: "Source Serif 4 Variable", Georgia, serif;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.22, 0.8, 0.2, 1);
+}
+
+:root {
+  /* Notched pixel frames: a 3x3 image whose corners are empty, stretched over a 4px border. */
+  --px-ink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' shape-rendering='crispEdges'%3E%3Cpath fill='%230d0d0d' d='M1 0h1v1H1zM0 1h1v1H0zM2 1h1v1H2zM1 2h1v1H1z'/%3E%3C/svg%3E");
+  --px-red: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' shape-rendering='crispEdges'%3E%3Cpath fill='%23e2231a' d='M1 0h1v1H1zM0 1h1v1H0zM2 1h1v1H2zM1 2h1v1H1z'/%3E%3C/svg%3E");
+  --px-stone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' shape-rendering='crispEdges'%3E%3Cpath fill='%238b8a85' d='M1 0h1v1H1zM0 1h1v1H0zM2 1h1v1H2zM1 2h1v1H1z'/%3E%3C/svg%3E");
+  --px-bone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' shape-rendering='crispEdges'%3E%3Cpath fill='%23ecebe5' d='M1 0h1v1H1zM0 1h1v1H0zM2 1h1v1H2zM1 2h1v1H1z'/%3E%3C/svg%3E");
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  background: var(--color-bone);
+  color: var(--color-ink);
+  font: 500 15px/1.5 var(--font-pixel);
+  caret-color: var(--color-signal);
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: var(--color-signal);
+  color: #fff;
+}
+:focus-visible {
+  outline: 3px solid var(--color-signal);
+  outline-offset: 3px;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink) transparent;
+}
+::placeholder {
+  font-family: var(--font-pixel);
+  color: var(--color-quiet);
+  opacity: 1;
+}
+.pixelated {
+  image-rendering: pixelated;
+}
+
+/* Component classes sit in the components layer, so Tailwind utilities (hidden, w-full, ...) can still override them. */
+@layer components {
+/* ---------- Pixel components ---------- */
+
+.px-frame {
+  border: 4px solid transparent;
+  border-image: var(--px-ink) 1 / 4px stretch;
+  background-clip: padding-box;
+}
+.px-frame-thin {
+  border: 2px solid transparent;
+  border-image: var(--px-ink) 1 / 2px stretch;
+  background-clip: padding-box;
+}
+.px-frame-red {
+  border-image-source: var(--px-red);
+}
+.px-frame-stone {
+  border-image-source: var(--px-stone);
+}
+.px-frame-bone {
+  border-image-source: var(--px-bone);
+}
+
+.px-label {
+  font: 400 11px/1.3 var(--font-label);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.px-btn {
+  --shadow: var(--color-ink);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 4px solid transparent;
+  border-image: var(--px-ink) 1 / 4px stretch;
+  background-clip: padding-box;
+  font: 600 15px/1 var(--font-pixel);
+  padding: 10px 16px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  filter: drop-shadow(0 4px 0 var(--shadow));
+  transition:
+    transform 0.14s var(--ease-out-soft),
+    filter 0.14s var(--ease-out-soft),
+    background-color 0.15s ease-out,
+    color 0.15s ease-out;
+}
+.px-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 6px 0 var(--shadow));
+}
+.px-btn:active:not(:disabled) {
+  transform: translateY(4px);
+  filter: drop-shadow(0 0 0 var(--shadow));
+  transition-duration: 0.05s;
+}
+.px-btn:focus-visible {
+  outline-offset: 6px;
+}
+.px-btn:disabled {
+  cursor: not-allowed;
+  filter: none;
+  background-color: var(--color-mist);
+  color: var(--color-quiet);
+  border-image-source: var(--px-stone);
+}
+.px-btn-primary {
+  background-color: var(--color-signal);
+  color: #fff;
+}
+.px-btn-primary:hover:not(:disabled) {
+  background-color: #f03a2f;
+}
+.px-btn-secondary {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+.px-btn-secondary:hover:not(:disabled) {
+  background-color: #fff;
+}
+.px-btn-dark {
+  --shadow: var(--color-quiet);
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+}
+.px-btn-ghost {
+  filter: none;
+  border-image: none;
+  border-color: transparent;
+  background-color: transparent;
+  color: inherit;
+}
+.px-btn-ghost:hover:not(:disabled) {
+  filter: none;
+  transform: none;
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+.px-btn-ghost:active:not(:disabled) {
+  transform: none;
+}
+.px-btn-sm {
+  font-size: 13px;
+  padding: 6px 10px;
+  gap: 8px;
+}
+.px-btn-lg {
+  font-size: 20px;
+  padding: 14px 24px;
+  gap: 12px;
+}
+.px-btn-xl {
+  font-size: 26px;
+  padding: 18px 30px;
+  gap: 14px;
+}
+
+.px-field {
+  display: block;
+  border: 4px solid transparent;
+  border-image: var(--px-ink) 1 / 4px stretch;
+  background: var(--color-paper) padding-box;
+}
+.px-field:focus-within {
+  border-image-source: var(--px-red);
+}
+.px-field textarea,
+.px-field input {
+  display: block;
+  width: 100%;
+  resize: none;
+  background: transparent;
+  outline: none;
+  font: 400 16px/1.55 var(--font-serif);
+  color: var(--color-ink);
+  padding: 12px 14px;
+}
+
+.px-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 2px solid transparent;
+  border-image: var(--px-ink) 1 / 2px stretch;
+  background-clip: padding-box;
+  padding: 4px 8px;
+  font: 400 11px/1 var(--font-label);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.px-chip-red {
+  border-image-source: var(--px-red);
+  color: var(--color-signal-deep);
+}
+.px-chip-dark {
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+}
+
+.px-spinner {
+  display: inline-flex;
+  gap: 3px;
+}
+.px-spinner i {
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  animation: px-blink 0.9s steps(1, jump-none) infinite;
+}
+.px-spinner i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.px-spinner i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes px-blink {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  33% {
+    opacity: 1;
+  }
+}
+
+.px-tabs {
+  display: inline-flex;
+  gap: 4px;
+}
+.px-tab {
+  font: 400 11px/1 var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 7px 10px;
+  border: 2px solid transparent;
+  border-image: var(--px-ink) 1 / 2px stretch;
+  background-clip: padding-box;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+.px-tab[aria-selected="true"] {
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+}
+.px-tab:hover:not([aria-selected="true"]) {
+  background-color: var(--color-mist);
+}
+
+/* Segmented progress strip; fills animate their width smoothly. */
+.segments {
+  background-image: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 6px);
+}
+.indeterminate {
+  animation: crawl 1.2s linear infinite;
+}
+@keyframes crawl {
+  to {
+    background-position: 36px 0;
+  }
+}
+
+/* ---------- The redaction pass ---------- */
+
+.doc-line {
+  transition: background-color 0.2s ease-out;
+}
+.doc-line.is-current {
+  background: color-mix(in srgb, var(--color-signal) 9%, transparent);
+  box-shadow:
+    inset 0 2px var(--color-signal),
+    inset 0 -2px var(--color-signal);
+}
+.doc-line.is-reading {
+  animation: reading 1.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 40ms);
+}
+@keyframes reading {
+  50% {
+    background: color-mix(in srgb, var(--color-ink) 5%, transparent);
+  }
+}
+.gutter-mark {
+  transform: scaleY(0);
+  transition: transform 0.25s var(--ease-out-soft);
+}
+.doc-line.is-passed .gutter-mark {
+  transform: scaleY(1);
+}
+
+.val {
+  position: relative;
+  display: inline-block;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  white-space: pre;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+.val::after {
+  content: "";
+  position: absolute;
+  inset: -3px -2px;
+  background: var(--color-ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.38s var(--ease-out-soft);
+}
+.val::before {
+  content: attr(data-p);
+  position: absolute;
+  z-index: 1;
+  left: 5px;
+  top: 50%;
+  translate: 0 -50%;
+  max-width: calc(100% - 8px);
+  overflow: hidden;
+  font: 400 10px/1 var(--font-label);
+  color: var(--color-signal-soft);
+  opacity: 0;
+  transition: opacity 0.2s 0.25s;
+}
+.val.is-flash {
+  background: var(--color-signal);
+  color: #fff;
+  text-decoration: line-through;
+}
+.val.is-flash::after {
+  transition-delay: 0.12s;
+}
+.val.is-hidden {
+  min-width: var(--tag);
+}
+.val.is-hidden::after {
+  transform: scaleX(1);
+}
+.val.is-hidden::before {
+  opacity: 1;
+}
+.val.is-live {
+  cursor: pointer;
+}
+.val.is-live:hover::after,
+.val.is-focus::after {
+  outline: 3px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+.review-bar {
+  transform: translateY(calc(100% + 24px));
+  opacity: 0;
+  transition:
+    transform 0.5s var(--ease-out-expo),
+    opacity 0.3s ease-out;
+}
+.review-bar.is-up {
+  transform: none;
+  opacity: 1;
+}
+
+.ask-in {
+  animation: ask-in 0.5s var(--ease-out-expo) both;
+}
+@keyframes ask-in {
+  from {
+    clip-path: inset(0 0 0 100%);
+    transform: translateX(24px);
+  }
+  to {
+    clip-path: inset(0);
+    transform: none;
+  }
+}
+
+.bob {
+  animation: bob 0.9s steps(2) infinite;
+}
+@keyframes bob {
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* ---------- Intake ---------- */
+
+.dropzone {
+  --dash: var(--color-ink);
+  background-color: var(--color-paper);
+  background-image:
+    repeating-linear-gradient(90deg, var(--dash) 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(90deg, var(--dash) 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(180deg, var(--dash) 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(180deg, var(--dash) 0 8px, transparent 8px 16px);
+  background-size:
+    calc(100% - 8px) 4px,
+    calc(100% - 8px) 4px,
+    4px calc(100% - 8px),
+    4px calc(100% - 8px);
+  background-position:
+    4px 0,
+    4px 100%,
+    0 4px,
+    100% 4px;
+  background-repeat: no-repeat;
+  transition: background-color 0.2s ease-out;
+}
+.dropzone.is-over {
+  --dash: var(--color-signal);
+  background-color: #fff4f2;
+}
+.dropzone-icon {
+  animation: float 2.4s ease-in-out infinite;
+}
+.dropzone.is-over .dropzone-icon {
+  animation-duration: 0.8s;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.sample-card {
+  cursor: pointer;
+  transition:
+    transform 0.2s var(--ease-out-soft),
+    filter 0.2s var(--ease-out-soft);
+}
+.sample-card:hover:not(:disabled),
+.sample-card:focus-visible {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 6px 0 var(--color-ink));
+}
+.sample-card:active:not(:disabled) {
+  transform: translateY(2px);
+  filter: none;
+  transition-duration: 0.05s;
+}
+.sample-card:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+.sample-card.is-opening {
+  opacity: 1;
+}
+.sample-open {
+  transform: translateY(105%);
+  transition: transform 0.25s var(--ease-out-soft);
+}
+.sample-card:hover .sample-open,
+.sample-card:focus-visible .sample-open,
+.sample-card.is-opening .sample-open {
+  transform: none;
+}
+.sample-thumb {
+  transition: transform 0.35s var(--ease-out-soft);
+  box-shadow: 0 0 0 2px var(--color-ink);
+}
+.sample-card:hover .sample-thumb,
+.sample-card:focus-visible .sample-thumb {
+  transform: translateY(-6px);
+}
+
+/* ---------- App shell ---------- */
+
+.session {
+  transition:
+    background-color 0.15s ease-out,
+    transform 0.15s var(--ease-out-soft);
+}
+.session:hover:not(.is-on) {
+  background-color: var(--color-paper);
+  border-image-source: var(--px-ink);
+}
+.session:active {
+  transform: translateY(2px);
+}
+.review-bar .px-btn {
+  --shadow: #45443f;
+}
+.review-bar .px-btn-ghost {
+  color: var(--color-bone);
+}
+.pop {
+  animation: pop-in 0.18s var(--ease-out-soft) both;
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* ---------- Victory ---------- */
+
+.victory {
+  background-color: var(--color-bone);
+  background-image: radial-gradient(color-mix(in srgb, var(--color-ink) 9%, transparent) 1px, transparent 1.2px);
+  background-size: 6px 6px;
+  animation: v-in 0.4s var(--ease-out-soft) both;
+}
+.v-title {
+  font-size: clamp(44px, 7.5vw, 120px);
+  clip-path: inset(0 100% 0 0);
+  animation: v-type 0.9s steps(15, jump-none) 2.35s forwards;
+}
+.v-px {
+  position: absolute;
+  animation: v-assemble 0.95s var(--ease-out-expo) both;
+}
+.v-hero {
+  transform: translateY(calc(var(--p) * var(--lift) * -1));
+  animation: v-strike 0.34s var(--ease-out-soft) 1.75s forwards;
+}
+.v-hacker svg {
+  clip-path: inset(100% 0 0 0);
+  animation: v-rise 0.3s var(--ease-out-soft) 0.9s forwards;
+}
+.v-hacker {
+  animation: v-hide 0.01s 2.09s forwards;
+}
+.v-taunt {
+  opacity: 0;
+  animation:
+    v-pop 0.15s ease-out 1.15s forwards,
+    v-hide 0.01s 1.8s forwards;
+}
+.v-down {
+  opacity: 0;
+  animation: v-pop 0.01s 2.09s forwards;
+}
+.v-stage {
+  animation: v-shake 0.32s steps(8, jump-none) 2.09s;
+}
+.v-dust {
+  position: absolute;
+  opacity: 0;
+  animation: v-dust 0.8s var(--ease-out-soft) 2.09s forwards;
+}
+.v-confetti {
+  position: absolute;
+  top: -30px;
+  animation-name: v-fall;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+.v-sub,
+.v-go {
+  opacity: 0;
+  animation: v-pop 0.4s ease-out 2.9s forwards;
+}
+.v-go {
+  animation-delay: 3.1s;
+}
+@keyframes v-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+@keyframes v-type {
+  to {
+    clip-path: inset(0 -2% 0 0);
+  }
+}
+@keyframes v-assemble {
+  from {
+    opacity: 0;
+    transform: translate(var(--fx), var(--fy)) rotate(180deg) scale(1.8);
+  }
+  15% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes v-strike {
+  45% {
+    transform: translateY(calc(var(--p) * (var(--lift) + 2) * -1));
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes v-rise {
+  to {
+    clip-path: inset(0);
+  }
+}
+@keyframes v-shake {
+  0%,
+  50% {
+    transform: translate(calc(var(--p) * -0.5), calc(var(--p) * 0.5));
+  }
+  25%,
+  75% {
+    transform: translate(calc(var(--p) * 0.5), calc(var(--p) * -0.25));
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes v-dust {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  50% {
+    transform: translate(calc(var(--dx) * 0.6), var(--dy));
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), 0);
+  }
+}
+@keyframes v-pop {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes v-hide {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes v-fall {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(115vh) rotate(calc(var(--spin) * 540deg));
+  }
+}
+
+/* Sprite frame swaps (torches, pennants, wings) are the one place stepped timing belongs. */
+.flick {
+  animation: flick 0.6s steps(1, jump-none) infinite;
+}
+.flick-b {
+  animation-direction: reverse;
+}
+.flick-late .flick {
+  animation-delay: -0.3s;
+}
+@keyframes flick {
+  0%,
+  49.9% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}

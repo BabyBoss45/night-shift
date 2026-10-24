@@ -1,0 +1,310 @@
+import { animate, motion, useInView, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { KNIGHT_SMALL, Sprite } from "../sprites";
+import { Button, Icon, LinkButton } from "../ui/kit";
+import { CASTLE, CASTLE_TOP, CASTLE_W, CLOUD, GATEHOUSE, HILLS_FAR, HILLS_NEAR, PENNANT, TORCH } from "./art";
+import { Journey } from "./Journey";
+import "./landing.css";
+
+const SAMPLE = "/app?sample=01_tenancy_agreement.pdf";
+
+// Each figure was checked on its source page; see docs/research/2026-10-24-veil-numbers.
+const NUMBERS = [
+  { to: 2, suffix: " in 3", text: "writing requests to ChatGPT ask it to rework text the user pasted in: edit, translate, summarise.", source: "OpenAI and NBER, 2025, 1.1m conversations", href: "https://www.nber.org/papers/w34255" },
+  { to: 71, suffix: "%", text: "of UK employees have used AI tools their employer never approved. Only 32% worry about the customer data they put in.", source: "Microsoft UK and Censuswide, Oct 2025, 2,003 employees", href: "https://ukstories.microsoft.com/features/rise-in-shadow-ai-tools-raising-security-concerns-for-uk/" },
+  { to: 3.13, prefix: "£", suffix: "m", text: "is the average cost of one data breach for a UK organisation in 2026.", source: "IBM Cost of a Data Breach, July 2026", href: "https://uk.newsroom.ibm.com/IBM-Study-More-Than-One-in-Five-Malicious-UK-Breaches-are-AI-Generated" },
+];
+
+function Flicker({ frames, scale, late }: { frames: readonly (readonly string[])[]; scale: number; late?: boolean }) {
+  return (
+    <span className={`relative block ${late ? "flick-late" : ""}`}>
+      <Sprite rows={frames[0]} scale={scale} className="flick" />
+      <Sprite rows={frames[1]} scale={scale} className="flick flick-b absolute inset-0" />
+    </span>
+  );
+}
+
+// Hills are wide, so each colour is one path of horizontal runs instead of one square per cell.
+function Hills({ rows, edge, fill }: { rows: readonly string[]; edge: string; fill: string }) {
+  const paths = useMemo(() => {
+    const runs: Record<string, string[]> = { k: [], f: [] };
+    rows.forEach((row, y) => {
+      let x = 0;
+      while (x < row.length) {
+        const c = row[x];
+        let n = 1;
+        while (x + n < row.length && row[x + n] === c) n++;
+        if (c !== ".") runs[c === "k" ? "k" : "f"].push(`M${x} ${y}h${n}v1h-${n}z`);
+        x += n;
+      }
+    });
+    return runs;
+  }, [rows]);
+  return (
+    <svg viewBox={`0 0 ${rows[0].length} ${rows.length}`} className="block h-auto w-full" shapeRendering="crispEdges" aria-hidden>
+      <path d={paths.f.join("")} fill={fill} />
+      <path d={paths.k.join("")} fill={edge} />
+    </svg>
+  );
+}
+
+function TopBar() {
+  const { scrollY } = useScroll();
+  const [solid, setSolid] = useState(false);
+  useMotionValueEvent(scrollY, "change", (v) => setSolid(v > 24));
+  return (
+    <header className={`topbar sticky top-0 z-40 ${solid ? "is-solid" : ""}`}>
+      <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4 sm:px-8">
+        <a href="/" className="font-pixel text-[30px] leading-none font-bold">Veil</a>
+        <nav className="ml-auto hidden items-center gap-6 sm:flex" aria-label="Page sections">
+          <a href="#journey" className="topbar-link">How it works</a>
+          <a href="#learns" className="topbar-link">Learning</a>
+          <a href="#numbers" className="topbar-link">Numbers</a>
+        </nav>
+        <LinkButton href="/app" variant="primary" size="sm" iconRight="right" className="ml-auto sm:ml-0">
+          Protect a document
+        </LinkButton>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const shift = (px: number) => (reduce ? [0, 0] : [0, px]);
+  const textY = useTransform(scrollYProgress, [0, 1], shift(-90));
+  const textOpacity = useTransform(scrollYProgress, [0, 0.7], [1, reduce ? 1 : 0]);
+  const farY = useTransform(scrollYProgress, [0, 1], shift(50));
+  const castleY = useTransform(scrollYProgress, [0, 1], shift(110));
+  const nearY = useTransform(scrollYProgress, [0, 1], shift(170));
+  const [p, setP] = useState(6);
+  useEffect(() => {
+    const fit = () =>
+      setP(Math.max(3, Math.min(7, Math.floor(Math.min(window.innerWidth * 0.62, 540) / CASTLE_W), Math.floor((window.innerHeight - 430) / 56))));
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, []);
+
+  return (
+    <section ref={ref} className="hero relative overflow-hidden">
+      <motion.div style={{ y: textY, opacity: textOpacity }} className="relative z-10 mx-auto max-w-5xl px-4 pt-8 text-center sm:pt-10">
+        <h1 className="mx-auto max-w-[21ch] font-pixel text-[clamp(36px,4.8vw,66px)] leading-[1.04] font-bold text-balance">
+          Your documents stay inside the walls.
+        </h1>
+        <p className="mx-auto mt-5 max-w-[56ch] text-[clamp(16px,1.4vw,19px)] text-quiet">
+          Veil hides names, account numbers and IDs before a document goes to an AI, then puts the real values back in the answer.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <LinkButton href="/app" variant="primary" size="lg" iconRight="right">
+            Protect a document
+          </LinkButton>
+          <LinkButton href={SAMPLE} variant="secondary" size="lg" icon="file">
+            Try a sample
+          </LinkButton>
+        </div>
+      </motion.div>
+
+      <div className="scene relative" style={{ height: 56 * p + 64 }}>
+        <Sprite rows={CLOUD} scale={6} className="cloud absolute top-2 left-[8%] hidden md:block" />
+        <Sprite rows={CLOUD} scale={4} className="cloud cloud-slow absolute top-16 right-[10%] hidden md:block" />
+        <motion.div style={{ y: farY }} className="absolute inset-x-0 bottom-10">
+          <Hills rows={HILLS_FAR} edge="#8b8a85" fill="#c9c7bd" />
+        </motion.div>
+        <motion.div style={{ y: castleY }} className="absolute bottom-12 left-1/2 -translate-x-1/2">
+          <span className="relative block">
+            <Sprite rows={CASTLE} scale={p} label="Veil's castle" />
+            <span className="absolute" style={{ left: 8 * p, top: 0 }}><Flicker frames={PENNANT} scale={p} /></span>
+            <span className="absolute" style={{ left: (CASTLE_W - 9) * p, top: 0 }}><Flicker frames={PENNANT} scale={p} late /></span>
+            <span className="absolute" style={{ left: 25 * p, top: (CASTLE_TOP + 35) * p }}><Flicker frames={TORCH} scale={p} /></span>
+            <span className="absolute" style={{ left: 48 * p, top: (CASTLE_TOP + 35) * p }}><Flicker frames={TORCH} scale={p} late /></span>
+          </span>
+        </motion.div>
+        <motion.div style={{ y: nearY }} className="absolute inset-x-0 -bottom-24">
+          <Hills rows={HILLS_NEAR} edge="#0d0d0d" fill="#dcdad1" />
+        </motion.div>
+      </div>
+      <div className="relative z-10 flex justify-center bg-mist pt-2 pb-8">
+        <a href="#journey" className="scroll-cue flex items-center gap-2 bg-paper px-3 py-2 px-frame-thin">
+          <Icon name="down" />
+          <span className="px-label">Follow a document</span>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function Learn() {
+  const [hidden, setHidden] = useState(false);
+  const [examples, setExamples] = useState(102);
+  return (
+    <section id="learns" className="relative bg-bone px-4 pt-20 sm:px-8">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="max-w-[22ch] font-pixel text-[clamp(28px,3vw,40px)] leading-tight font-bold">It learns your firm's own codes</h2>
+        <p className="mt-4 max-w-[60ch] text-[17px] text-quiet">
+          Rules cannot learn, and a frontier model reads your data before it hides it. Veil's guard is trained through Mubit, and
+          every miss you fix becomes a training example for its next version. In our test on 1,459 synthetic documents, pattern rules
+          alone hid 38.5% of personal values.
+        </p>
+      </div>
+      <div className="mx-auto mt-10 grid max-w-6xl items-end gap-10 lg:grid-cols-[auto_minmax(0,1fr)]">
+        <div className="relative hidden lg:block" aria-hidden>
+          <Sprite rows={GATEHOUSE} scale={4} />
+          <span className="absolute bottom-0 left-[92px]">
+            <Sprite rows={KNIGHT_SMALL} scale={4} className="bob" />
+          </span>
+        </div>
+        <div className="learn-demo mb-6 bg-paper p-6 px-frame">
+          <h3 className="font-pixel text-[22px] font-bold">The guard's ledger</h3>
+          <p className="mt-1 text-[14px] text-quiet">The guard missed a client code. Fix it once.</p>
+          <p className="mt-4 bg-bone p-4 font-serif text-[19px] leading-relaxed px-frame-thin">
+            Invoice for client ref{" "}
+            <span className={`learn-val ${hidden ? "is-hidden" : ""}`} data-p="CUSTOM_1">
+              LA-20931
+            </span>{" "}
+            is overdue.
+          </p>
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            {hidden ? (
+              <Button
+                icon="close"
+                onClick={() => {
+                  setHidden(false);
+                  setExamples(102);
+                }}
+              >
+                Undo
+              </Button>
+            ) : (
+              <Button
+                variant="primary"
+                icon="marker"
+                onClick={() => {
+                  setHidden(true);
+                  window.setTimeout(() => setExamples(103), 450);
+                }}
+              >
+                Hide LA-20931
+              </Button>
+            )}
+            <span className={`learn-count flex items-center gap-2 ${examples > 102 ? "is-up" : ""}`}>
+              <span className="px-label text-quiet">Training examples</span>
+              <span className="font-label text-[20px] tabular-nums">{examples}</span>
+            </span>
+          </div>
+          <p className="mt-4 min-h-[1.5em] text-[14px] text-quiet" aria-live="polite">
+            {hidden ? "Fixed once. The next model version learns to catch client codes like this." : ""}
+          </p>
+        </div>
+      </div>
+      <div className="-mx-4 h-8 border-t-4 border-ink bg-mist sm:-mx-8" />
+    </section>
+  );
+}
+
+// The final figure is there at rest (for thumbnails, reduced motion and a missed observer); it counts up once when seen.
+function Counter({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-20% 0px" });
+  const reduce = useReducedMotion();
+  const [v, setV] = useState(to);
+  useEffect(() => {
+    if (!inView || reduce) return;
+    const c = animate(0, to, { duration: 1.1, ease: [0.16, 1, 0.3, 1], onUpdate: setV });
+    return () => c.stop();
+  }, [inView, reduce, to]);
+  const shown = Number.isInteger(to) ? Math.round(v).toString() : v.toFixed(2);
+  return (
+    <span ref={ref} aria-label={`${prefix}${to}${suffix}`}>
+      {prefix}
+      {shown}
+      {suffix}
+    </span>
+  );
+}
+
+function Numbers() {
+  return (
+    <section id="numbers" className="wall-bg px-4 py-20 sm:px-8">
+      <div className="notice relative mx-auto max-w-4xl bg-paper px-6 py-8 px-frame sm:px-10">
+        <span className="nail left-3 top-3" aria-hidden />
+        <span className="nail right-3 top-3" aria-hidden />
+        <h2 className="max-w-[24ch] font-pixel text-[clamp(26px,2.8vw,36px)] leading-tight font-bold">
+          Notice: people already pass client documents to AI
+        </h2>
+        <ol className="mt-6">
+          {NUMBERS.map((n, i) => (
+            <li key={n.source} className="grid gap-x-6 gap-y-2 border-t-2 border-ink py-5 sm:grid-cols-[180px_minmax(0,1fr)]">
+              <p className={`font-label text-[clamp(36px,4vw,46px)] leading-none tabular-nums ${i === 1 ? "text-signal-deep" : ""}`}>
+                <Counter to={n.to} prefix={n.prefix} suffix={n.suffix} />
+              </p>
+              <div>
+                <p className="text-[17px]">{n.text}</p>
+                <a href={n.href} className="mt-2 inline-block text-[12px] text-quiet underline underline-offset-4 hover:text-signal-deep">
+                  {n.source}
+                </a>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <p className="border-t-2 border-ink pt-5 text-[17px]">
+          The solicitors' regulator has seen <q>confidential client information being entered into public AI tools</q>.{" "}
+          <a href="https://www.sra.org.uk/solicitors/guidance/misuse-ai/" className="text-[12px] whitespace-nowrap text-quiet underline underline-offset-4 hover:text-signal-deep">
+            SRA warning notice, 17 Aug 2026
+          </a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function FinalCta() {
+  return (
+    <section className="final bg-ink text-bone">
+      <div className="bg-bone">
+        <Hills rows={HILLS_NEAR} edge="#0d0d0d" fill="#0d0d0d" />
+      </div>
+      <div className="mx-auto grid max-w-6xl items-end gap-10 px-4 pt-12 sm:px-8 lg:grid-cols-[1fr_auto]">
+        <div className="min-w-0 pb-16">
+          <h2 className="max-w-[18ch] font-pixel text-[clamp(32px,4vw,56px)] leading-[1.05] font-bold">Protect your first document</h2>
+          <p className="mt-4 max-w-[50ch] text-[17px] text-bone/80">
+            Open Veil, drop a contract, a payslip or a client email, and approve every hidden value before any AI sees it.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <LinkButton href="/app" variant="primary" size="lg" iconRight="right" className="sm:px-btn-xl">
+              Protect a document
+            </LinkButton>
+            <LinkButton href={SAMPLE} variant="secondary" size="lg" icon="file">
+              Try a sample
+            </LinkButton>
+          </div>
+        </div>
+        <Sprite rows={GATEHOUSE} scale={5} className="final-gate hidden lg:block" label="The castle gate" />
+      </div>
+    </section>
+  );
+}
+
+export function Landing() {
+  return (
+    <div className="landing min-h-screen bg-bone text-ink">
+      <TopBar />
+      <main>
+        <Hero />
+        <Journey />
+        <Learn />
+        <Numbers />
+        <FinalCta />
+      </main>
+      <footer className="border-t-4 border-signal bg-ink px-4 py-8 text-bone/75 sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-8 gap-y-2 text-[13px]">
+          <span className="font-pixel text-[20px] font-bold text-bone">Veil</span>
+          <span>Pseudonymised, not anonymised: placeholders map back to real values only on your side.</span>
+          <span>Demo documents are synthetic. Built at Night Shift, London, on Mubit.</span>
+        </div>
+      </footer>
+    </div>
+  );
+}

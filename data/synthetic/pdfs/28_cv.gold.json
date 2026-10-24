@@ -1,0 +1,225 @@
+{
+ "doc_id": "pdf-028",
+ "doc_type": "cv",
+ "pdf": "28_cv.pdf",
+ "text": "# Chiamaka Nwachukwu\nBlackpool  |  (07700) 900400  |  chiamakanwachukwu@hotmail.co.uk\n\n## Personal statement\nOrganised paralegal with experience in residential conveyancing. Happy to relocate.\n\n## Employment history\n### Office Manager - Crown plc, Canterbury\n*Nov 2022 – Present*\n- Managed diaries and billing for three partners.\n- Prepared completion statements and SDLT returns.\n- Handled a caseload of 34 conveyancing files from instruction to completion.\n- Ran ID and AML checks under the Proceeds of Crime Act 2002.\n### Compliance Officer - Redbrick Whitecross & Co Ltd, Croydon\n*Jul 2020 to Oct 2022*\n- Prepared completion statements and SDLT returns.\n- Handled a caseload of 90 conveyancing files from instruction to completion.\n- Ran ID and AML checks under the Proceeds of Crime Act 2002.\n- Managed diaries and billing for three partners.\n### Conveyancing Assistant - Redbrick Evergreen LLP, Slough\n*Apr 2018 to Jun 2020*\n- Ran ID and AML checks under the Money Laundering Regulations 2017.\n- Handled a caseload of 70 conveyancing files from instruction to completion.\n- Prepared completion statements and SDLT returns.\n- Managed diaries and billing for three partners.\n### Paralegal - GSK, Worcester\n*Aug 2015 - Mar 2018*\n- Ran ID and AML checks under the Proceeds of Crime Act 2002.\n- Prepared completion statements and SDLT returns.\n- Managed diaries and billing for three partners.\n\n## Education\nBA (Hons) English, Sheffield Hallam University, 2016-2019\n\n## Skills\nPower BI, Xero, Python, Fluent Ukrainian\n\n## References\nMrs. Aoife Ní Dónaill\nSupervisor, Harbour Beacon Limited\nanidonaill@harbourbeaconlimited.co.uk\n",
+ "entities": [
+  {
+   "start": 2,
+   "end": 20,
+   "text": "Chiamaka Nwachukwu",
+   "type": "PERSON"
+  },
+  {
+   "start": 35,
+   "end": 49,
+   "text": "(07700) 900400",
+   "type": "PHONE"
+  },
+  {
+   "start": 54,
+   "end": 85,
+   "text": "chiamakanwachukwu@hotmail.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 1539,
+   "end": 1555,
+   "text": "Aoife Ní Dónaill",
+   "type": "PERSON"
+  },
+  {
+   "start": 1591,
+   "end": 1628,
+   "text": "anidonaill@harbourbeaconlimited.co.uk",
+   "type": "EMAIL"
+  }
+ ],
+ "meta": {
+  "template_id": "cv/v1",
+  "variant_id": "cv/v1|md,legal",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 2,
+    "end": 20
+   },
+   {
+    "kind": "name_in_email",
+    "start": 54,
+    "end": 85
+   },
+   {
+    "kind": "non_english_name",
+    "start": 1539,
+    "end": 1555
+   },
+   {
+    "kind": "name_in_email",
+    "start": 1591,
+    "end": 1628
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "company_name",
+    "start": 237,
+    "end": 246,
+    "text": "Crown plc"
+   },
+   {
+    "kind": "date",
+    "start": 260,
+    "end": 268,
+    "text": "Nov 2022"
+   },
+   {
+    "kind": "date",
+    "start": 271,
+    "end": 278,
+    "text": "Present"
+   },
+   {
+    "kind": "statute",
+    "start": 493,
+    "end": 519,
+    "text": "Proceeds of Crime Act 2002"
+   },
+   {
+    "kind": "company_name",
+    "start": 546,
+    "end": 574,
+    "text": "Redbrick Whitecross & Co Ltd"
+   },
+   {
+    "kind": "date",
+    "start": 585,
+    "end": 593,
+    "text": "Jul 2020"
+   },
+   {
+    "kind": "date",
+    "start": 597,
+    "end": 605,
+    "text": "Oct 2022"
+   },
+   {
+    "kind": "statute",
+    "start": 770,
+    "end": 796,
+    "text": "Proceeds of Crime Act 2002"
+   },
+   {
+    "kind": "company_name",
+    "start": 877,
+    "end": 899,
+    "text": "Redbrick Evergreen LLP"
+   },
+   {
+    "kind": "date",
+    "start": 909,
+    "end": 917,
+    "text": "Apr 2018"
+   },
+   {
+    "kind": "date",
+    "start": 921,
+    "end": 929,
+    "text": "Jun 2020"
+   },
+   {
+    "kind": "statute",
+    "start": 965,
+    "end": 998,
+    "text": "Money Laundering Regulations 2017"
+   },
+   {
+    "kind": "public_company",
+    "start": 1195,
+    "end": 1198,
+    "text": "GSK"
+   },
+   {
+    "kind": "date",
+    "start": 1211,
+    "end": 1219,
+    "text": "Aug 2015"
+   },
+   {
+    "kind": "date",
+    "start": 1222,
+    "end": 1230,
+    "text": "Mar 2018"
+   },
+   {
+    "kind": "statute",
+    "start": 1266,
+    "end": 1292,
+    "text": "Proceeds of Crime Act 2002"
+   },
+   {
+    "kind": "date",
+    "start": 1457,
+    "end": 1461,
+    "text": "2016"
+   },
+   {
+    "kind": "date",
+    "start": 1462,
+    "end": 1466,
+    "text": "2019"
+   },
+   {
+    "kind": "company_name",
+    "start": 1568,
+    "end": 1590,
+    "text": "Harbour Beacon Limited"
+   }
+  ]
+ },
+ "extracted_text": "Chiamaka Nwachukwu\nBlackpool | (07700) 900400 | chiamakanwachukwu@hotmail.co.uk\nPersonal statement\nOrganised paralegal with experience in residential conveyancing. Happy to relocate.\nEmployment history\nOffice Manager - Crown plc, Canterbury\n*Nov 2022 – Present*\n- Managed diaries and billing for three partners.\n- Prepared completion statements and SDLT returns.\n- Handled a caseload of 34 conveyancing files from instruction to completion.\n- Ran ID and AML checks under the Proceeds of Crime Act 2002.\nCompliance Officer - Redbrick Whitecross & Co Ltd, Croydon\n*Jul 2020 to Oct 2022*\n- Prepared completion statements and SDLT returns.\n- Handled a caseload of 90 conveyancing files from instruction to completion.\n- Ran ID and AML checks under the Proceeds of Crime Act 2002.\n- Managed diaries and billing for three partners.\nConveyancing Assistant - Redbrick Evergreen LLP, Slough\n*Apr 2018 to Jun 2020*\n- Ran ID and AML checks under the Money Laundering Regulations 2017.\n- Handled a caseload of 70 conveyancing files from instruction to completion.\n- Prepared completion statements and SDLT returns.\n- Managed diaries and billing for three partners.\nParalegal - GSK, Worcester\n*Aug 2015 - Mar 2018*\n- Ran ID and AML checks under the Proceeds of Crime Act 2002.\n- Prepared completion statements and SDLT returns.\n- Managed diaries and billing for three partners.\nEducation\nBA (Hons) English, Sheffield Hallam University, 2016-2019\nSkills\nPower BI, Xero, Python, Fluent Ukrainian\nReferences\nMrs. Aoife Ní Dónaill\nSupervisor, Harbour Beacon Limited\nanidonaill@harbourbeaconlimited.co.uk\nCv Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 0,
+   "end": 18,
+   "text": "Chiamaka Nwachukwu",
+   "type": "PERSON",
+   "gold_text": "Chiamaka Nwachukwu",
+   "exact": true
+  },
+  {
+   "start": 31,
+   "end": 45,
+   "text": "(07700) 900400",
+   "type": "PHONE",
+   "gold_text": "(07700) 900400",
+   "exact": true
+  },
+  {
+   "start": 48,
+   "end": 79,
+   "text": "chiamakanwachukwu@hotmail.co.uk",
+   "type": "EMAIL",
+   "gold_text": "chiamakanwachukwu@hotmail.co.uk",
+   "exact": true
+  },
+  {
+   "start": 1497,
+   "end": 1513,
+   "text": "Aoife Ní Dónaill",
+   "type": "PERSON",
+   "gold_text": "Aoife Ní Dónaill",
+   "exact": true
+  },
+  {
+   "start": 1549,
+   "end": 1586,
+   "text": "anidonaill@harbourbeaconlimited.co.uk",
+   "type": "EMAIL",
+   "gold_text": "anidonaill@harbourbeaconlimited.co.uk",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9851
+}

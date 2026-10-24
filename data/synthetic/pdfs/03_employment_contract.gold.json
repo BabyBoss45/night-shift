@@ -1,0 +1,470 @@
+{
+ "doc_id": "pdf-003",
+ "doc_type": "employment_contract",
+ "pdf": "03_employment_contract.pdf",
+ "text": "STATEMENT OF MAIN TERMS OF EMPLOYMENT\nThis written statement is given under section 1 of the Employment Rights Act 1996.\n\nBETWEEN:\n(1) Copperleaf Digital Ltd (company number 15014501) whose registered office is at 58 Primrose Mews, London, W2 3GZ (\"the Company\"); and\n(2) Manpreet Chauhan of 186 Primrose Place, Brighton BN1 1NZ (\"you\" or \"the Employee\").\n\nEmployee details\nStaff no.:     CD5318\nDate of birth: 1963-03-08\nMobile:        +44 (0)7700 900725\nStart date:    2026-08-27\n\nSECTION 1 - COMMENCEMENT AND PROBATION\n1.1  Your employment will begin on 27th August 2026. No previous employment counts as part of your period of continuous employment.\n\nSECTION 2 - JOB TITLE AND DUTIES\n2.1\tYour job title is Marketing Executive. A job description has been given to you but it does not form part of this contract.\n\n2.2  You will work from our premises at Weavers Yard, Clarence Crescent, Warrington, WA5 9JN, with hybrid working of up to three days a week subject to business needs.\n\nSECTION 3 - HOURS OF WORK\n3.1\tYour normal hours are 35 hours per week, Monday to Friday, between 9am and 5.30pm with an unpaid lunch break of 30 minutes.\n\n3.2 Your working time will comply with the Working Time Regulations 1998. Overtime is paid at time and a half when authorised in advance.\n\nSECTION 4 - PAY\n4.1\tYour salary is £60,250 per year, paid monthly in arrears on or around the 20th of each month by credit transfer.\n\n4.2 Deductions will only be made where required by law or where you have agreed to them in writing.\n\n4.3  Your salary will be reviewed each April. There is no obligation to increase it.\n\nSECTION 5 - HOLIDAYS\n5.1  You are entitled to 20 days' paid holiday each holiday year, plus the usual bank holidays in England and Wales. The holiday year runs from 1 January to 31 December.\n\n5.2 You may carry forward up to five days of unused holiday into the next holiday year with your manager's approval.\n\nSECTION 6 - SICKNESS ABSENCE\n6.1\tStatutory Sick Pay is payable in line with current rules. Company sick pay of 6 weeks at full pay applies after probation.\n\nSECTION 7 - PENSION\n7.1 You will be enrolled into the Smart Pension pension scheme. You may opt out within one month of enrolment.\n\nSECTION 8 - NOTICE\n8.1  After probation you must give us three months' written notice to end your employment. We will give you one week's notice for each complete year of service, with a minimum of four weeks.\n\nSECTION 9 - COLLECTIVE AGREEMENTS\n9.1  Your terms are not affected by any collective agreement.\n\nSECTION 10 - RESTRICTIONS AFTER EMPLOYMENT\n10.1\tYou must not, for 9 months after leaving, try to entice away any employee of the Company with whom you worked closely.\n\nSECTION 11 - CONFIDENTIALITY AND DATA\n11.1 You must not, during or after your employment, disclose any confidential information about the Company, its clients or suppliers.\n\n11.2 We will process your personal data in line with the Data Protection Act 2018 and our privacy notice for employees.\n\nSECTION 12 - DISCIPLINE AND GRIEVANCE\n12.1 If you have a grievance you should raise it with your manager in writing. Our procedures follow the ACAS Code.\n\nSECTION 13 - RIGHT TO WORK\nThis offer is conditional on you proving your right to work in the UK. We have seen your passport, number 551356904).\n\nSIGNED by the Employer\n______________________\nName: Maria Doherty-Gibbons\nPosition: Head of Finance\nDate: 03/08/2026\n\nEMPLOYEE ACCEPTANCE\n..............................\nName: Manpreet Chauhan\nDate: 18/08/2026\n",
+ "entities": [
+  {
+   "start": 214,
+   "end": 238,
+   "text": "58 Primrose Mews, London",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 240,
+   "end": 246,
+   "text": "W2 3GZ",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 272,
+   "end": 288,
+   "text": "Manpreet Chauhan",
+   "type": "PERSON"
+  },
+  {
+   "start": 292,
+   "end": 320,
+   "text": "186 Primrose Place, Brighton",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 321,
+   "end": 328,
+   "text": "BN1 1NZ",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 389,
+   "end": 395,
+   "text": "CD5318",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 411,
+   "end": 421,
+   "text": "1963-03-08",
+   "type": "DOB"
+  },
+  {
+   "start": 437,
+   "end": 455,
+   "text": "+44 (0)7700 900725",
+   "type": "PHONE"
+  },
+  {
+   "start": 856,
+   "end": 899,
+   "text": "Weavers Yard, Clarence Crescent, Warrington",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 901,
+   "end": 908,
+   "text": "WA5 9JN",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 3258,
+   "end": 3267,
+   "text": "551356904",
+   "type": "ID_DOC"
+  },
+  {
+   "start": 3323,
+   "end": 3344,
+   "text": "Maria Doherty-Gibbons",
+   "type": "PERSON"
+  },
+  {
+   "start": 3446,
+   "end": 3462,
+   "text": "Manpreet Chauhan",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "employment_contract/statement",
+  "variant_id": "employment_contract/statement|statement,right_to_work",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 272,
+    "end": 288
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 389,
+    "end": 395
+   },
+   {
+    "kind": "non_english_name",
+    "start": 3446,
+    "end": 3462
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "statute",
+    "start": 93,
+    "end": 119,
+    "text": "Employment Rights Act 1996"
+   },
+   {
+    "kind": "company_number",
+    "start": 174,
+    "end": 182,
+    "text": "15014501"
+   },
+   {
+    "kind": "date",
+    "start": 471,
+    "end": 481,
+    "text": "2026-08-27"
+   },
+   {
+    "kind": "clause_number",
+    "start": 491,
+    "end": 492,
+    "text": "1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 522,
+    "end": 525,
+    "text": "1.1"
+   },
+   {
+    "kind": "date",
+    "start": 557,
+    "end": 573,
+    "text": "27th August 2026"
+   },
+   {
+    "kind": "clause_number",
+    "start": 663,
+    "end": 664,
+    "text": "2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 688,
+    "end": 691,
+    "text": "2.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 816,
+    "end": 819,
+    "text": "2.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 993,
+    "end": 994,
+    "text": "3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1011,
+    "end": 1014,
+    "text": "3.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1140,
+    "end": 1143,
+    "text": "3.2"
+   },
+   {
+    "kind": "statute",
+    "start": 1183,
+    "end": 1212,
+    "text": "Working Time Regulations 1998"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1287,
+    "end": 1288,
+    "text": "4"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1295,
+    "end": 1298,
+    "text": "4.1"
+   },
+   {
+    "kind": "amount",
+    "start": 1314,
+    "end": 1321,
+    "text": "£60,250"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1413,
+    "end": 1416,
+    "text": "4.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1514,
+    "end": 1517,
+    "text": "4.3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1608,
+    "end": 1609,
+    "text": "5"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1621,
+    "end": 1624,
+    "text": "5.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1792,
+    "end": 1795,
+    "text": "5.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1918,
+    "end": 1919,
+    "text": "6"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1939,
+    "end": 1942,
+    "text": "6.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2075,
+    "end": 2076,
+    "text": "7"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2087,
+    "end": 2090,
+    "text": "7.1"
+   },
+   {
+    "kind": "public_company",
+    "start": 2121,
+    "end": 2134,
+    "text": "Smart Pension"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2207,
+    "end": 2208,
+    "text": "8"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2218,
+    "end": 2221,
+    "text": "8.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2418,
+    "end": 2419,
+    "text": "9"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2444,
+    "end": 2447,
+    "text": "9.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2515,
+    "end": 2517,
+    "text": "10"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2550,
+    "end": 2554,
+    "text": "10.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2683,
+    "end": 2685,
+    "text": "11"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2713,
+    "end": 2717,
+    "text": "11.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2849,
+    "end": 2853,
+    "text": "11.2"
+   },
+   {
+    "kind": "statute",
+    "start": 2906,
+    "end": 2930,
+    "text": "Data Protection Act 2018"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2978,
+    "end": 2980,
+    "text": "12"
+   },
+   {
+    "kind": "clause_number",
+    "start": 3008,
+    "end": 3012,
+    "text": "12.1"
+   },
+   {
+    "kind": "public_company",
+    "start": 3113,
+    "end": 3117,
+    "text": "ACAS"
+   },
+   {
+    "kind": "clause_number",
+    "start": 3133,
+    "end": 3135,
+    "text": "13"
+   },
+   {
+    "kind": "date",
+    "start": 3377,
+    "end": 3387,
+    "text": "03/08/2026"
+   },
+   {
+    "kind": "date",
+    "start": 3469,
+    "end": 3479,
+    "text": "18/08/2026"
+   }
+  ]
+ },
+ "extracted_text": "STATEMENT OF MAIN TERMS OF EMPLOYMENT\nThis written statement is given under section 1 of the Employment Rights Act 1996.\nBETWEEN:\n(1) Copperleaf Digital Ltd (company number 15014501) whose registered office is at 58 Primrose Mews,\nLondon, W2 3GZ (\"the Company\"); and\n(2) Manpreet Chauhan of 186 Primrose Place, Brighton BN1 1NZ (\"you\" or \"the Employee\").\nEmployee details\nStaff no.: CD5318\nDate of birth: 1963-03-08\nMobile: +44 (0)7700 900725\nStart date: 2026-08-27\nSECTION 1 - COMMENCEMENT AND PROBATION\n1.1 Your employment will begin on 27th August 2026. No previous employment counts as part of your period of continuous\nemployment.\nSECTION 2 - JOB TITLE AND DUTIES\n2.1 Your job title is Marketing Executive. A job description has been given to you but it does not form part of\nthis contract.\n2.2 You will work from our premises at Weavers Yard, Clarence Crescent, Warrington, WA5 9JN, with hybrid working of up to\nthree days a week subject to business needs.\nSECTION 3 - HOURS OF WORK\n3.1 Your normal hours are 35 hours per week, Monday to Friday, between 9am and 5.30pm with an unpaid\nlunch break of 30 minutes.\n3.2 Your working time will comply with the Working Time Regulations 1998. Overtime is paid at time and a\nhalf when authorised in advance.\nSECTION 4 - PAY\n4.1 Your salary is £60,250 per year, paid monthly in arrears on or around the 20th of each month by credit\ntransfer.\n4.2 Deductions will only be made where required by law or where you have agreed to them in writing.\n4.3 Your salary will be reviewed each April. There is no obligation to increase it.\nSECTION 5 - HOLIDAYS\n5.1 You are entitled to 20 days' paid holiday each holiday year, plus the usual bank holidays in England and Wales. The\nholiday year runs from 1 January to 31 December.\n5.2 You may carry forward up to five days of unused holiday into the next holiday year with your manager's\napproval.\nSECTION 6 - SICKNESS ABSENCE\n6.1 Statutory Sick Pay is payable in line with current rules. Company sick pay of 6 weeks at full pay applies\nafter probation.\nSECTION 7 - PENSION\n7.1 You will be enrolled into the Smart Pension pension scheme. You may opt out within one month of\nenrolment.\nSECTION 8 - NOTICE\n8.1 After probation you must give us three months' written notice to end your employment. We will give you one week's notice\nfor each complete year of service, with a minimum of four weeks.\nSECTION 9 - COLLECTIVE AGREEMENTS\n9.1 Your terms are not affected by any collective agreement.\nSECTION 10 - RESTRICTIONS AFTER EMPLOYMENT\n10.1 You must not, for 9 months after leaving, try to entice away any employee of the Company with whom you worked\nclosely.\nEmployment Contract Page 1 of 2\nSECTION 11 - CONFIDENTIALITY AND DATA\n11.1 You must not, during or after your employment, disclose any confidential information about the\nCompany, its clients or suppliers.\n11.2 We will process your personal data in line with the Data Protection Act 2018 and our privacy notice for\nemployees.\nSECTION 12 - DISCIPLINE AND GRIEVANCE\n12.1 If you have a grievance you should raise it with your manager in writing. Our procedures follow the ACAS\nCode.\nSECTION 13 - RIGHT TO WORK\nThis offer is conditional on you proving your right to work in the UK. We have seen your passport, number\n551356904).\nSIGNED by the Employer\n______________________\nName: Maria Doherty-Gibbons\nPosition: Head of Finance\nDate: 03/08/2026\nEMPLOYEE ACCEPTANCE\n..............................\nName: Manpreet Chauhan\nDate: 18/08/2026\nEmployment Contract Page 2 of 2",
+ "extracted_entities": [
+  {
+   "start": 213,
+   "end": 237,
+   "text": "58 Primrose Mews,\nLondon",
+   "type": "ADDRESS",
+   "gold_text": "58 Primrose Mews, London",
+   "exact": false
+  },
+  {
+   "start": 239,
+   "end": 245,
+   "text": "W2 3GZ",
+   "type": "POSTCODE",
+   "gold_text": "W2 3GZ",
+   "exact": true
+  },
+  {
+   "start": 271,
+   "end": 287,
+   "text": "Manpreet Chauhan",
+   "type": "PERSON",
+   "gold_text": "Manpreet Chauhan",
+   "exact": true
+  },
+  {
+   "start": 291,
+   "end": 319,
+   "text": "186 Primrose Place, Brighton",
+   "type": "ADDRESS",
+   "gold_text": "186 Primrose Place, Brighton",
+   "exact": true
+  },
+  {
+   "start": 320,
+   "end": 327,
+   "text": "BN1 1NZ",
+   "type": "POSTCODE",
+   "gold_text": "BN1 1NZ",
+   "exact": true
+  },
+  {
+   "start": 383,
+   "end": 389,
+   "text": "CD5318",
+   "type": "CUSTOM",
+   "gold_text": "CD5318",
+   "exact": true
+  },
+  {
+   "start": 405,
+   "end": 415,
+   "text": "1963-03-08",
+   "type": "DOB",
+   "gold_text": "1963-03-08",
+   "exact": true
+  },
+  {
+   "start": 424,
+   "end": 442,
+   "text": "+44 (0)7700 900725",
+   "type": "PHONE",
+   "gold_text": "+44 (0)7700 900725",
+   "exact": true
+  },
+  {
+   "start": 835,
+   "end": 878,
+   "text": "Weavers Yard, Clarence Crescent, Warrington",
+   "type": "ADDRESS",
+   "gold_text": "Weavers Yard, Clarence Crescent, Warrington",
+   "exact": true
+  },
+  {
+   "start": 880,
+   "end": 887,
+   "text": "WA5 9JN",
+   "type": "POSTCODE",
+   "gold_text": "WA5 9JN",
+   "exact": true
+  },
+  {
+   "start": 3249,
+   "end": 3258,
+   "text": "551356904",
+   "type": "ID_DOC",
+   "gold_text": "551356904",
+   "exact": true
+  },
+  {
+   "start": 3313,
+   "end": 3334,
+   "text": "Maria Doherty-Gibbons",
+   "type": "PERSON",
+   "gold_text": "Maria Doherty-Gibbons",
+   "exact": true
+  },
+  {
+   "start": 3435,
+   "end": 3451,
+   "text": "Manpreet Chauhan",
+   "type": "PERSON",
+   "gold_text": "Manpreet Chauhan",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9908
+}

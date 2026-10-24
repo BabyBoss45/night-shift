@@ -1,0 +1,162 @@
+{
+ "doc_id": "pdf-019",
+ "doc_type": "payslip",
+ "pdf": "19_payslip.pdf",
+ "text": "Anchor Anchor & Co Ltd - Payslip\n\nEmployee: ESPOSITO M\nEmployee number: XU0109\nNI number: RE821674A\nTax code: S1257L\nNI category: A\nPay date: 7 Jul 2025\nTax period: Month 4\nDepartment: Kitchen\n\nPayments | Amount | Deductions | Amount\nBasic salary | 4,166.67 | Income Tax (PAYE) | 813.84\n |  | National Insurance | 308.02\n |  | Pension (employee) | 125.00\nTotal gross pay | 4,166.67 | Total deductions | 1,246.86\n\nNet pay: £2,919.81\n\nCumulative totals\nTaxable pay to date: £16,257.71\nTax paid to date: £3,255.36\nNI to date: £1,232.08\nPension to date: £500.00\n\n",
+ "entities": [
+  {
+   "start": 44,
+   "end": 54,
+   "text": "ESPOSITO M",
+   "type": "PERSON"
+  },
+  {
+   "start": 72,
+   "end": 78,
+   "text": "XU0109",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 90,
+   "end": 99,
+   "text": "RE821674A",
+   "type": "NI_NUMBER"
+  }
+ ],
+ "meta": {
+  "template_id": "payslip/v1",
+  "variant_id": "payslip/v1|monthly-other,L0",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 44,
+    "end": 54
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 72,
+    "end": 78
+   },
+   {
+    "kind": "table_layout",
+    "start": 194,
+    "end": 412
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "company_name",
+    "start": 0,
+    "end": 22,
+    "text": "Anchor Anchor & Co Ltd"
+   },
+   {
+    "kind": "tax_code",
+    "start": 110,
+    "end": 116,
+    "text": "S1257L"
+   },
+   {
+    "kind": "date",
+    "start": 142,
+    "end": 152,
+    "text": "7 Jul 2025"
+   },
+   {
+    "kind": "amount",
+    "start": 249,
+    "end": 257,
+    "text": "4,166.67"
+   },
+   {
+    "kind": "amount",
+    "start": 280,
+    "end": 286,
+    "text": "813.84"
+   },
+   {
+    "kind": "amount",
+    "start": 314,
+    "end": 320,
+    "text": "308.02"
+   },
+   {
+    "kind": "amount",
+    "start": 348,
+    "end": 354,
+    "text": "125.00"
+   },
+   {
+    "kind": "amount",
+    "start": 373,
+    "end": 381,
+    "text": "4,166.67"
+   },
+   {
+    "kind": "amount",
+    "start": 403,
+    "end": 411,
+    "text": "1,246.86"
+   },
+   {
+    "kind": "amount",
+    "start": 422,
+    "end": 431,
+    "text": "£2,919.81"
+   },
+   {
+    "kind": "amount",
+    "start": 472,
+    "end": 482,
+    "text": "£16,257.71"
+   },
+   {
+    "kind": "amount",
+    "start": 501,
+    "end": 510,
+    "text": "£3,255.36"
+   },
+   {
+    "kind": "amount",
+    "start": 523,
+    "end": 532,
+    "text": "£1,232.08"
+   },
+   {
+    "kind": "amount",
+    "start": 550,
+    "end": 557,
+    "text": "£500.00"
+   }
+  ]
+ },
+ "extracted_text": "Anchor Anchor & Co Ltd - Payslip\nEmployee: ESPOSITO M\nEmployee number: XU0109\nNI number: RE821674A\nTax code: S1257L\nNI category: A\nPay date: 7 Jul 2025\nTax period: Month 4\nDepartment: Kitchen\nPayments | Amount | Deductions | Amount\nBasic salary | 4,166.67 | Income Tax (PAYE) | 813.84\nNational Insurance 308.02\nPension (employee) 125.00\nTotal gross pay | 4,166.67 | Total deductions | 1,246.86\nNet pay: £2,919.81\nCumulative totals\nTaxable pay to date: £16,257.71\nTax paid to date: £3,255.36\nNI to date: £1,232.08\nPension to date: £500.00\nPayslip Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 43,
+   "end": 53,
+   "text": "ESPOSITO M",
+   "type": "PERSON",
+   "gold_text": "ESPOSITO M",
+   "exact": true
+  },
+  {
+   "start": 71,
+   "end": 77,
+   "text": "XU0109",
+   "type": "CUSTOM",
+   "gold_text": "XU0109",
+   "exact": true
+  },
+  {
+   "start": 89,
+   "end": 98,
+   "text": "RE821674A",
+   "type": "NI_NUMBER",
+   "gold_text": "RE821674A",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9711
+}

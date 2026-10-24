@@ -1,0 +1,482 @@
+{
+ "doc_id": "pdf-008",
+ "doc_type": "service_agreement",
+ "pdf": "08_service_agreement.pdf",
+ "text": "Hi,\nPlease find our service agreement below. Let me know if anything needs changing.\nTa,\nRafał\n\nSERVICES AGREEMENT\n\nThis Agreement is made on 16/03/2026\n\n(1) Silverline Design & Co Ltd of Victoria Quays, Wellington Street, Dundee DD1 2TR (\"the Supplier\")\n(2) Lighthouse Electrical Limited, 50C Cromwell Green, Gloucester, GL4 4GB (\"the Customer\")\n\nNamed contacts\nSupplier: Rafał Kamiński, 07833 259604, r.kaminski@silverlinedesignandcol.co.uk\nCustomer: Sinéad Ní Dhomhnaill (Operations Lead), +44 1923 411039, s.nidhomhnaill@lighthouseelectricalli.co.uk\n\nSECTION 1 - SERVICES\n1.1 The Supplier will carry out the Services set out in Schedule 1 using appropriately qualified staff.\n\n1.2\tThe Customer will co-operate with the Supplier and provide timely feedback.\n\nSECTION 2 - FEES AND PAYMENT\n2.1\tInvoices are payable within 7 days. Payment is to be made by bank transfer to the account below.\n\n2.2\tAll fees are exclusive of VAT, which will be added at the prevailing rate where applicable.\n\n2.3  If payment is late the Supplier may suspend the Services and charge statutory interest under the Late Payment of Commercial Debts (Interest) Act 1998.\n\nSECTION 3 - TERM AND TERMINATION\n3.1  Termination does not affect any rights that have accrued before the date of termination.\n\n3.2\tThe Agreement runs for an initial period of 3 months from 23/03/2026 and then continues month to month.\n\nSECTION 4 - LIABILITY\n4.1  Neither party excludes liability for death or personal injury caused by negligence, or for fraud.\n\nSECTION 5 - INTELLECTUAL PROPERTY\n5.1 On payment in full, the Supplier assigns to the Customer all intellectual property rights in the deliverables.\n\nSECTION 6 - DATA PROTECTION AND CONFIDENTIALITY\n6.1  Each party shall comply with the Data Protection Act 2018 in relation to any personal data processed under this Agreement.\n\n6.2 Each party shall keep the other's confidential information secret.\n\nSECTION 7 - GENERAL\n7.1 Any dispute will first be referred to the parties' named contacts, who will meet in good faith to resolve it.\n\n7.2  Neither party may assign this Agreement without the other's consent.\n\nSchedule: Fees\n\n| Service | Rate | Quantity | Total |\n|---|---|---|---|\n| Training workshop | £2,495.04 | 1 | £2,495.04 |\n| Window cleaning | £38.35 | 11 | £421.85 |\n| IT support retainer | £892.53 | 11 | £9,817.83 |\n| Website design and build | £2,404.79 | 1 | £2,404.79 |\n\nPayment details\nAccount name:   Silverline Design & Co Ltd\nSort code:      83-41-04\nAccount number: 92279776\n\nSigned for the Supplier ____________________________\nName: Rafał Kamiński\n\nSigned for the Customer ______________________\nName: Kyle Newton\n",
+ "entities": [
+  {
+   "start": 89,
+   "end": 94,
+   "text": "Rafał",
+   "type": "PERSON"
+  },
+  {
+   "start": 188,
+   "end": 229,
+   "text": "Victoria Quays, Wellington Street, Dundee",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 230,
+   "end": 237,
+   "text": "DD1 2TR",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 290,
+   "end": 320,
+   "text": "50C Cromwell Green, Gloucester",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 322,
+   "end": 329,
+   "text": "GL4 4GB",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 373,
+   "end": 387,
+   "text": "Rafał Kamiński",
+   "type": "PERSON"
+  },
+  {
+   "start": 389,
+   "end": 401,
+   "text": "07833 259604",
+   "type": "PHONE"
+  },
+  {
+   "start": 403,
+   "end": 442,
+   "text": "r.kaminski@silverlinedesignandcol.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 453,
+   "end": 473,
+   "text": "Sinéad Ní Dhomhnaill",
+   "type": "PERSON"
+  },
+  {
+   "start": 493,
+   "end": 508,
+   "text": "+44 1923 411039",
+   "type": "PHONE"
+  },
+  {
+   "start": 510,
+   "end": 553,
+   "text": "s.nidhomhnaill@lighthouseelectricalli.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 2469,
+   "end": 2477,
+   "text": "83-41-04",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 2494,
+   "end": 2502,
+   "text": "92279776",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 2563,
+   "end": 2577,
+   "text": "Rafał Kamiński",
+   "type": "PERSON"
+  },
+  {
+   "start": 2632,
+   "end": 2643,
+   "text": "Kyle Newton",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "service_agreement/v1",
+  "variant_id": "service_agreement/v1|cover_note",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 89,
+    "end": 94
+   },
+   {
+    "kind": "signature_name",
+    "start": 89,
+    "end": 94
+   },
+   {
+    "kind": "non_english_name",
+    "start": 373,
+    "end": 387
+   },
+   {
+    "kind": "name_in_email",
+    "start": 403,
+    "end": 442
+   },
+   {
+    "kind": "non_english_name",
+    "start": 453,
+    "end": 473
+   },
+   {
+    "kind": "name_in_email",
+    "start": 510,
+    "end": 553
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2563,
+    "end": 2577
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "date",
+    "start": 142,
+    "end": 152,
+    "text": "16/03/2026"
+   },
+   {
+    "kind": "company_name",
+    "start": 158,
+    "end": 184,
+    "text": "Silverline Design & Co Ltd"
+   },
+   {
+    "kind": "company_name",
+    "start": 259,
+    "end": 288,
+    "text": "Lighthouse Electrical Limited"
+   },
+   {
+    "kind": "clause_number",
+    "start": 563,
+    "end": 564,
+    "text": "1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 576,
+    "end": 579,
+    "text": "1.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 681,
+    "end": 684,
+    "text": "1.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 770,
+    "end": 771,
+    "text": "2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 791,
+    "end": 794,
+    "text": "2.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 893,
+    "end": 896,
+    "text": "2.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 990,
+    "end": 993,
+    "text": "2.3"
+   },
+   {
+    "kind": "statute",
+    "start": 1092,
+    "end": 1144,
+    "text": "Late Payment of Commercial Debts (Interest) Act 1998"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1155,
+    "end": 1156,
+    "text": "3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1180,
+    "end": 1183,
+    "text": "3.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1275,
+    "end": 1278,
+    "text": "3.2"
+   },
+   {
+    "kind": "date",
+    "start": 1337,
+    "end": 1347,
+    "text": "23/03/2026"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1392,
+    "end": 1393,
+    "text": "4"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1406,
+    "end": 1409,
+    "text": "4.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1518,
+    "end": 1519,
+    "text": "5"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1544,
+    "end": 1547,
+    "text": "5.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1668,
+    "end": 1669,
+    "text": "6"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1708,
+    "end": 1711,
+    "text": "6.1"
+   },
+   {
+    "kind": "statute",
+    "start": 1746,
+    "end": 1770,
+    "text": "Data Protection Act 2018"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1837,
+    "end": 1840,
+    "text": "6.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1917,
+    "end": 1918,
+    "text": "7"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1929,
+    "end": 1932,
+    "text": "7.1"
+   },
+   {
+    "kind": "common_word",
+    "start": 2022,
+    "end": 2027,
+    "text": "faith"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2044,
+    "end": 2047,
+    "text": "7.2"
+   },
+   {
+    "kind": "amount",
+    "start": 2213,
+    "end": 2222,
+    "text": "£2,495.04"
+   },
+   {
+    "kind": "amount",
+    "start": 2229,
+    "end": 2238,
+    "text": "£2,495.04"
+   },
+   {
+    "kind": "amount",
+    "start": 2261,
+    "end": 2267,
+    "text": "£38.35"
+   },
+   {
+    "kind": "amount",
+    "start": 2275,
+    "end": 2282,
+    "text": "£421.85"
+   },
+   {
+    "kind": "amount",
+    "start": 2309,
+    "end": 2316,
+    "text": "£892.53"
+   },
+   {
+    "kind": "amount",
+    "start": 2324,
+    "end": 2333,
+    "text": "£9,817.83"
+   },
+   {
+    "kind": "amount",
+    "start": 2365,
+    "end": 2374,
+    "text": "£2,404.79"
+   },
+   {
+    "kind": "amount",
+    "start": 2381,
+    "end": 2390,
+    "text": "£2,404.79"
+   },
+   {
+    "kind": "company_name",
+    "start": 2426,
+    "end": 2452,
+    "text": "Silverline Design & Co Ltd"
+   }
+  ]
+ },
+ "extracted_text": "Hi,\nPlease find our service agreement below. Let me know if anything needs changing.\nTa,\nRafał\nSERVICES AGREEMENT\nThis Agreement is made on 16/03/2026\n(1) Silverline Design & Co Ltd of Victoria Quays, Wellington Street, Dundee DD1 2TR (\"the Supplier\")\n(2) Lighthouse Electrical Limited, 50C Cromwell Green, Gloucester, GL4 4GB (\"the Customer\")\nNamed contacts\nSupplier: Rafał Kamiński, 07833 259604, r.kaminski@silverlinedesignandcol.co.uk\nCustomer: Sinéad Ní Dhomhnaill (Operations Lead), +44 1923 411039,\ns.nidhomhnaill@lighthouseelectricalli.co.uk\nSECTION 1 - SERVICES\n1.1 The Supplier will carry out the Services set out in Schedule 1 using appropriately qualified staff.\n1.2 The Customer will co-operate with the Supplier and provide timely feedback.\nSECTION 2 - FEES AND PAYMENT\n2.1 Invoices are payable within 7 days. Payment is to be made by bank transfer to the account below.\n2.2 All fees are exclusive of VAT, which will be added at the prevailing rate where applicable.\n2.3 If payment is late the Supplier may suspend the Services and charge statutory interest under the Late Payment of\nCommercial Debts (Interest) Act 1998.\nSECTION 3 - TERM AND TERMINATION\n3.1 Termination does not affect any rights that have accrued before the date of termination.\n3.2 The Agreement runs for an initial period of 3 months from 23/03/2026 and then continues month to\nmonth.\nSECTION 4 - LIABILITY\n4.1 Neither party excludes liability for death or personal injury caused by negligence, or for fraud.\nSECTION 5 - INTELLECTUAL PROPERTY\n5.1 On payment in full, the Supplier assigns to the Customer all intellectual property rights in the deliverables.\nSECTION 6 - DATA PROTECTION AND CONFIDENTIALITY\n6.1 Each party shall comply with the Data Protection Act 2018 in relation to any personal data processed under this\nAgreement.\n6.2 Each party shall keep the other's confidential information secret.\nSECTION 7 - GENERAL\n7.1 Any dispute will first be referred to the parties' named contacts, who will meet in good faith to resolve it.\n7.2 Neither party may assign this Agreement without the other's consent.\nSchedule: Fees\nService Rate Quantity Total\nTraining workshop £2,495.04 1 £2,495.04\nWindow cleaning £38.35 11 £421.85\nIT support retainer £892.53 11 £9,817.83\nWebsite design and build £2,404.79 1 £2,404.79\nPayment details\nAccount name: Silverline Design & Co Ltd\nSort code: 83-41-04\nAccount number: 92279776\nService Agreement Page 1 of 2\nSigned for the Supplier ____________________________\nName: Rafał Kamiński\nSigned for the Customer ______________________\nName: Kyle Newton\nService Agreement Page 2 of 2",
+ "extracted_entities": [
+  {
+   "start": 89,
+   "end": 94,
+   "text": "Rafał",
+   "type": "PERSON",
+   "gold_text": "Rafał",
+   "exact": true
+  },
+  {
+   "start": 185,
+   "end": 226,
+   "text": "Victoria Quays, Wellington Street, Dundee",
+   "type": "ADDRESS",
+   "gold_text": "Victoria Quays, Wellington Street, Dundee",
+   "exact": true
+  },
+  {
+   "start": 227,
+   "end": 234,
+   "text": "DD1 2TR",
+   "type": "POSTCODE",
+   "gold_text": "DD1 2TR",
+   "exact": true
+  },
+  {
+   "start": 287,
+   "end": 317,
+   "text": "50C Cromwell Green, Gloucester",
+   "type": "ADDRESS",
+   "gold_text": "50C Cromwell Green, Gloucester",
+   "exact": true
+  },
+  {
+   "start": 319,
+   "end": 326,
+   "text": "GL4 4GB",
+   "type": "POSTCODE",
+   "gold_text": "GL4 4GB",
+   "exact": true
+  },
+  {
+   "start": 369,
+   "end": 383,
+   "text": "Rafał Kamiński",
+   "type": "PERSON",
+   "gold_text": "Rafał Kamiński",
+   "exact": true
+  },
+  {
+   "start": 385,
+   "end": 397,
+   "text": "07833 259604",
+   "type": "PHONE",
+   "gold_text": "07833 259604",
+   "exact": true
+  },
+  {
+   "start": 399,
+   "end": 438,
+   "text": "r.kaminski@silverlinedesignandcol.co.uk",
+   "type": "EMAIL",
+   "gold_text": "r.kaminski@silverlinedesignandcol.co.uk",
+   "exact": true
+  },
+  {
+   "start": 449,
+   "end": 469,
+   "text": "Sinéad Ní Dhomhnaill",
+   "type": "PERSON",
+   "gold_text": "Sinéad Ní Dhomhnaill",
+   "exact": true
+  },
+  {
+   "start": 489,
+   "end": 504,
+   "text": "+44 1923 411039",
+   "type": "PHONE",
+   "gold_text": "+44 1923 411039",
+   "exact": true
+  },
+  {
+   "start": 506,
+   "end": 549,
+   "text": "s.nidhomhnaill@lighthouseelectricalli.co.uk",
+   "type": "EMAIL",
+   "gold_text": "s.nidhomhnaill@lighthouseelectricalli.co.uk",
+   "exact": true
+  },
+  {
+   "start": 2369,
+   "end": 2377,
+   "text": "83-41-04",
+   "type": "SORT_CODE",
+   "gold_text": "83-41-04",
+   "exact": true
+  },
+  {
+   "start": 2394,
+   "end": 2402,
+   "text": "92279776",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "92279776",
+   "exact": true
+  },
+  {
+   "start": 2492,
+   "end": 2506,
+   "text": "Rafał Kamiński",
+   "type": "PERSON",
+   "gold_text": "Rafał Kamiński",
+   "exact": true
+  },
+  {
+   "start": 2560,
+   "end": 2571,
+   "text": "Kyle Newton",
+   "type": "PERSON",
+   "gold_text": "Kyle Newton",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.967
+}

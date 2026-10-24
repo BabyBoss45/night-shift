@@ -1,0 +1,444 @@
+{
+ "doc_id": "pdf-005",
+ "doc_type": "nda",
+ "pdf": "05_nda.pdf",
+ "text": "CONFIDENTIALITY AGREEMENT\n\nThis Agreement is dated 08/08/2025\n\nBETWEEN\n(1) Apex Locksmiths Limited, a company incorporated in England and Wales with company number 05765223) whose registered office is Brunswick House, 163 Mill Mews, Swindon SN4 1JY (\"Party A\"); and\n(2) Bluebell Ironbridge & Co Ltd (company no. 12148178) of Navigation Point, Allen Road, London SE20 8HP (\"Party B\").\n\nBACKGROUND\n(A) The parties wish to exchange information for the purpose of reviewing a pilot of the Discloser's analytics platform.\n(B) Each party has agreed to keep that information confidential on the terms of this Agreement.\n\nContact for notices: Jaspreet Iyer, j.iyer@apexlocksmithslimited.co.uk, 029 7978 4178\n\n## 1. Definitions\n1.1 \"Confidential Infor-\nmation\" means all information of a confidential nature disclosed by either party to the other party, whether in writing, orally or by any other means, including business plans, customer lists, pricing, software, designs and know-how.\n\n1.2 References to a party include its Representatives.\n\n## 2. Obligations\n2.1 Each party shall not copy or reproduce the Confidential Information except as reasonably required for the Purpose.\n\n2.2 The Recipient will use the Confidential Information only for the Purpose and will protect it with at least the same degree of care it uses for its own information.\n\n## 3. Exceptions\n3.1 This Agreement does not restrict the use of information which is already public, or which must be disclosed by law or by order of a court or regulator, provided notice is given where lawful.\n\n## 4. Return of information\n4.1 On request, the other party shall return or destroy all documents containing Confidential Information and confirm in writing that it has done so.\n\n1 | Initials: JI\n\nApex Locksmiths Limited / NDA\n\n## 5. Term\n5.1 The confidentiality obligations survive termination for a period of 5 years.\n\n## 6. General\n6.1 All Confidential Information remains the property of the Discloser.\n\n6.2 The parties will negotiate in good faith in relation to any dispute arising under this Agreement.\n\n6.3 This Agreement is governed by Scots law.\n\n6.4 This Agreement may only be varied in writing signed by both parties.\n\nNotices under this Agreement must be in writing and marked for the attention of Miss Iyer (or J. Iyer, if Jaspreet has left the business).\n\nSIGNED by the parties on the date stated above.\n\nSigned by Jaspreet Iyer, Director, for and on behalf of Party A ______________________\nDate: 8th August 2025\n\nSigned by Irene Charlton, Authorised signatory, for and on behalf of Party B ..............................\nDate: 08/08/2025\n\n",
+ "entities": [
+  {
+   "start": 201,
+   "end": 240,
+   "text": "Brunswick House, 163 Mill Mews, Swindon",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 241,
+   "end": 248,
+   "text": "SN4 1JY",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 325,
+   "end": 361,
+   "text": "Navigation Point, Allen Road, London",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 362,
+   "end": 370,
+   "text": "SE20 8HP",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 635,
+   "end": 648,
+   "text": "Jaspreet Iyer",
+   "type": "PERSON"
+  },
+  {
+   "start": 650,
+   "end": 684,
+   "text": "j.iyer@apexlocksmithslimited.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 686,
+   "end": 699,
+   "text": "029 7978 4178",
+   "type": "PHONE"
+  },
+  {
+   "start": 1748,
+   "end": 1750,
+   "text": "JI",
+   "type": "PERSON"
+  },
+  {
+   "start": 2271,
+   "end": 2275,
+   "text": "Iyer",
+   "type": "PERSON"
+  },
+  {
+   "start": 2280,
+   "end": 2287,
+   "text": "J. Iyer",
+   "type": "PERSON"
+  },
+  {
+   "start": 2292,
+   "end": 2300,
+   "text": "Jaspreet",
+   "type": "PERSON"
+  },
+  {
+   "start": 2385,
+   "end": 2398,
+   "text": "Jaspreet Iyer",
+   "type": "PERSON"
+  },
+  {
+   "start": 2495,
+   "end": 2509,
+   "text": "Irene Charlton",
+   "type": "PERSON"
+  }
+ ],
+ "meta": {
+  "template_id": "nda/mutual",
+  "variant_id": "nda/mutual|mutual,pdf",
+  "hard_cases": [
+   {
+    "kind": "non_english_name",
+    "start": 635,
+    "end": 648
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 635,
+    "end": 648
+   },
+   {
+    "kind": "name_in_email",
+    "start": 650,
+    "end": 684
+   },
+   {
+    "kind": "pdf_hyphenation",
+    "start": 738,
+    "end": 750
+   },
+   {
+    "kind": "pdf_header_footer",
+    "start": 1734,
+    "end": 1781
+   },
+   {
+    "kind": "initials",
+    "start": 1748,
+    "end": 1750
+   },
+   {
+    "kind": "non_english_name",
+    "start": 1748,
+    "end": 1750
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 1748,
+    "end": 1750
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2271,
+    "end": 2275
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 2271,
+    "end": 2275
+   },
+   {
+    "kind": "initials",
+    "start": 2280,
+    "end": 2287
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2280,
+    "end": 2287
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 2280,
+    "end": 2287
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2292,
+    "end": 2300
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 2292,
+    "end": 2300
+   },
+   {
+    "kind": "non_english_name",
+    "start": 2385,
+    "end": 2398
+   },
+   {
+    "kind": "same_person_3_ways",
+    "start": 2385,
+    "end": 2398
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "date",
+    "start": 51,
+    "end": 61,
+    "text": "08/08/2025"
+   },
+   {
+    "kind": "company_name",
+    "start": 75,
+    "end": 98,
+    "text": "Apex Locksmiths Limited"
+   },
+   {
+    "kind": "company_number",
+    "start": 164,
+    "end": 172,
+    "text": "05765223"
+   },
+   {
+    "kind": "company_name",
+    "start": 270,
+    "end": 298,
+    "text": "Bluebell Ironbridge & Co Ltd"
+   },
+   {
+    "kind": "company_number",
+    "start": 312,
+    "end": 320,
+    "text": "12148178"
+   },
+   {
+    "kind": "clause_number",
+    "start": 704,
+    "end": 705,
+    "text": "1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 719,
+    "end": 722,
+    "text": "1.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 979,
+    "end": 982,
+    "text": "1.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1038,
+    "end": 1039,
+    "text": "2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1053,
+    "end": 1056,
+    "text": "2.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1173,
+    "end": 1176,
+    "text": "2.2"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1345,
+    "end": 1346,
+    "text": "3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1359,
+    "end": 1362,
+    "text": "3.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1558,
+    "end": 1559,
+    "text": "4"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1583,
+    "end": 1586,
+    "text": "4.1"
+   },
+   {
+    "kind": "company_name",
+    "start": 1752,
+    "end": 1775,
+    "text": "Apex Locksmiths Limited"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1786,
+    "end": 1787,
+    "text": "5"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1794,
+    "end": 1797,
+    "text": "5.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1879,
+    "end": 1880,
+    "text": "6"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1890,
+    "end": 1893,
+    "text": "6.1"
+   },
+   {
+    "kind": "clause_number",
+    "start": 1963,
+    "end": 1966,
+    "text": "6.2"
+   },
+   {
+    "kind": "common_word",
+    "start": 2002,
+    "end": 2007,
+    "text": "faith"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2066,
+    "end": 2069,
+    "text": "6.3"
+   },
+   {
+    "kind": "clause_number",
+    "start": 2112,
+    "end": 2115,
+    "text": "6.4"
+   },
+   {
+    "kind": "date",
+    "start": 2468,
+    "end": 2483,
+    "text": "8th August 2025"
+   },
+   {
+    "kind": "date",
+    "start": 2599,
+    "end": 2609,
+    "text": "08/08/2025"
+   }
+  ]
+ },
+ "extracted_text": "CONFIDENTIALITY AGREEMENT\nThis Agreement is dated 08/08/2025\nBETWEEN\n(1) Apex Locksmiths Limited, a company incorporated in England and Wales with company number\n05765223) whose registered office is Brunswick House, 163 Mill Mews, Swindon SN4 1JY (\"Party A\"); and\n(2) Bluebell Ironbridge & Co Ltd (company no. 12148178) of Navigation Point, Allen Road, London SE20 8HP\n(\"Party B\").\nBACKGROUND\n(A) The parties wish to exchange information for the purpose of reviewing a pilot of the Discloser's analytics\nplatform.\n(B) Each party has agreed to keep that information confidential on the terms of this Agreement.\nContact for notices: Jaspreet Iyer, j.iyer@apexlocksmithslimited.co.uk, 029 7978 4178\n1. Definitions\n1.1 \"Confidential Infor-\nmation\" means all information of a confidential nature disclosed by either party to the other party, whether in\nwriting, orally or by any other means, including business plans, customer lists, pricing, software, designs and\nknow-how.\n1.2 References to a party include its Representatives.\n2. Obligations\n2.1 Each party shall not copy or reproduce the Confidential Information except as reasonably required for the\nPurpose.\n2.2 The Recipient will use the Confidential Information only for the Purpose and will protect it with at least\nthe same degree of care it uses for its own information.\n3. Exceptions\n3.1 This Agreement does not restrict the use of information which is already public, or which must be disclosed\nby law or by order of a court or regulator, provided notice is given where lawful.\n4. Return of information\n4.1 On request, the other party shall return or destroy all documents containing Confidential Information and\nconfirm in writing that it has done so.\n1 | Initials: JI\nApex Locksmiths Limited / NDA\n5. Term\n5.1 The confidentiality obligations survive termination for a period of 5 years.\n6. General\n6.1 All Confidential Information remains the property of the Discloser.\n6.2 The parties will negotiate in good faith in relation to any dispute arising under this Agreement.\n6.3 This Agreement is governed by Scots law.\n6.4 This Agreement may only be varied in writing signed by both parties.\nNotices under this Agreement must be in writing and marked for the attention of Miss Iyer (or J. Iyer, if\nJaspreet has left the business).\nSIGNED by the parties on the date stated above.\nSigned by Jaspreet Iyer, Director, for and on behalf of Party A ______________________\nDate: 8th August 2025\nNda Page 1 of 2\nSigned by Irene Charlton, Authorised signatory, for and on behalf of Party B ..............................\nDate: 08/08/2025\nNda Page 2 of 2",
+ "extracted_entities": [
+  {
+   "start": 199,
+   "end": 238,
+   "text": "Brunswick House, 163 Mill Mews, Swindon",
+   "type": "ADDRESS",
+   "gold_text": "Brunswick House, 163 Mill Mews, Swindon",
+   "exact": true
+  },
+  {
+   "start": 239,
+   "end": 246,
+   "text": "SN4 1JY",
+   "type": "POSTCODE",
+   "gold_text": "SN4 1JY",
+   "exact": true
+  },
+  {
+   "start": 323,
+   "end": 359,
+   "text": "Navigation Point, Allen Road, London",
+   "type": "ADDRESS",
+   "gold_text": "Navigation Point, Allen Road, London",
+   "exact": true
+  },
+  {
+   "start": 360,
+   "end": 368,
+   "text": "SE20 8HP",
+   "type": "POSTCODE",
+   "gold_text": "SE20 8HP",
+   "exact": true
+  },
+  {
+   "start": 631,
+   "end": 644,
+   "text": "Jaspreet Iyer",
+   "type": "PERSON",
+   "gold_text": "Jaspreet Iyer",
+   "exact": true
+  },
+  {
+   "start": 646,
+   "end": 680,
+   "text": "j.iyer@apexlocksmithslimited.co.uk",
+   "type": "EMAIL",
+   "gold_text": "j.iyer@apexlocksmithslimited.co.uk",
+   "exact": true
+  },
+  {
+   "start": 682,
+   "end": 695,
+   "text": "029 7978 4178",
+   "type": "PHONE",
+   "gold_text": "029 7978 4178",
+   "exact": true
+  },
+  {
+   "start": 1725,
+   "end": 1727,
+   "text": "JI",
+   "type": "PERSON",
+   "gold_text": "JI",
+   "exact": true
+  },
+  {
+   "start": 2235,
+   "end": 2239,
+   "text": "Iyer",
+   "type": "PERSON",
+   "gold_text": "Iyer",
+   "exact": true
+  },
+  {
+   "start": 2244,
+   "end": 2251,
+   "text": "J. Iyer",
+   "type": "PERSON",
+   "gold_text": "J. Iyer",
+   "exact": true
+  },
+  {
+   "start": 2256,
+   "end": 2264,
+   "text": "Jaspreet",
+   "type": "PERSON",
+   "gold_text": "Jaspreet",
+   "exact": true
+  },
+  {
+   "start": 2347,
+   "end": 2360,
+   "text": "Jaspreet Iyer",
+   "type": "PERSON",
+   "gold_text": "Jaspreet Iyer",
+   "exact": true
+  },
+  {
+   "start": 2472,
+   "end": 2486,
+   "text": "Irene Charlton",
+   "type": "PERSON",
+   "gold_text": "Irene Charlton",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9904
+}

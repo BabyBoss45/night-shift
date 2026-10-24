@@ -1,0 +1,362 @@
+{
+ "doc_id": "pdf-011",
+ "doc_type": "invoice",
+ "pdf": "11_invoice.pdf",
+ "text": "Sandhu Family Holdings Ltd\n47A Devonshire Terrace\nBOURNEMOUTH\nDorset\nBH11 0FU\nPhone: 0333 133 7204\nE: a.sandhu@sandhufamilyholdings.co.uk\n\nInvoice\n\nInvoice to:\nAnjali Pillai\n179 North Street\nWrexham\nLL12 3QE\n\nInvoice number:  63138\nInvoice date:  9 Oct 2026\nDue date: 16 Oct 2026\nVAT reg no: GB 996 3066 75\n\n1 x Oven deep clean - Hyde Park @ £635.09 = £635.09\n1 x End of tenancy clean - 2 bed flat @ £442.96 = £442.96\n1 x Materials @ £300.16 = £300.16\n2 x Window cleaning @ £241.13 = £482.26\n3 x Regular clean (weekly), site: Victoria Park @ £65.17 = £195.51\n1 x Carpet cleaning (3 rooms) @ £309.83 = £309.83\n\nSubtotal: £2,365.81\nVAT @ 20%: £473.16\nTotal due: £2,838.97\n\nPlease pay by bank transfer to:\nBank: Metro Bank\nAccount name: Sandhu Family Holdings Ltd\nSort code: 23-07-23\nAccount number: 66019739\nReference: 63138\n\nPayment is due within 7 days. Late payments may incur interest under the Late Payment of Commercial Debts (Interest) Act 1998.\nMany thanks for your custom.\nRegistered in England and Wales. Company number 96999987.\nQueries: contact Anika Sandhu on 0800 120 5288.\n",
+ "entities": [
+  {
+   "start": 27,
+   "end": 68,
+   "text": "47A Devonshire Terrace\nBOURNEMOUTH\nDorset",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 69,
+   "end": 77,
+   "text": "BH11 0FU",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 85,
+   "end": 98,
+   "text": "0333 133 7204",
+   "type": "PHONE"
+  },
+  {
+   "start": 102,
+   "end": 137,
+   "text": "a.sandhu@sandhufamilyholdings.co.uk",
+   "type": "EMAIL"
+  },
+  {
+   "start": 160,
+   "end": 173,
+   "text": "Anjali Pillai",
+   "type": "PERSON"
+  },
+  {
+   "start": 174,
+   "end": 198,
+   "text": "179 North Street\nWrexham",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 199,
+   "end": 207,
+   "text": "LL12 3QE",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 772,
+   "end": 780,
+   "text": "23-07-23",
+   "type": "SORT_CODE"
+  },
+  {
+   "start": 797,
+   "end": 805,
+   "text": "66019739",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 1055,
+   "end": 1067,
+   "text": "Anika Sandhu",
+   "type": "PERSON"
+  },
+  {
+   "start": 1071,
+   "end": 1084,
+   "text": "0800 120 5288",
+   "type": "PHONE"
+  }
+ ],
+ "meta": {
+  "template_id": "invoice/v1",
+  "variant_id": "invoice/v1|ltd,L0,fixed",
+  "hard_cases": [
+   {
+    "kind": "multiline_address",
+    "start": 27,
+    "end": 77
+   },
+   {
+    "kind": "name_in_email",
+    "start": 102,
+    "end": 137
+   },
+   {
+    "kind": "non_english_name",
+    "start": 160,
+    "end": 173
+   },
+   {
+    "kind": "multiline_address",
+    "start": 174,
+    "end": 207
+   },
+   {
+    "kind": "non_english_name",
+    "start": 1055,
+    "end": 1067
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "company_with_person_name",
+    "start": 0,
+    "end": 26,
+    "text": "Sandhu Family Holdings Ltd"
+   },
+   {
+    "kind": "doc_reference",
+    "start": 226,
+    "end": 231,
+    "text": "63138"
+   },
+   {
+    "kind": "date",
+    "start": 247,
+    "end": 257,
+    "text": "9 Oct 2026"
+   },
+   {
+    "kind": "date",
+    "start": 268,
+    "end": 279,
+    "text": "16 Oct 2026"
+   },
+   {
+    "kind": "vat_number",
+    "start": 292,
+    "end": 306,
+    "text": "GB 996 3066 75"
+   },
+   {
+    "kind": "place_name",
+    "start": 330,
+    "end": 339,
+    "text": "Hyde Park"
+   },
+   {
+    "kind": "amount",
+    "start": 342,
+    "end": 349,
+    "text": "£635.09"
+   },
+   {
+    "kind": "amount",
+    "start": 352,
+    "end": 359,
+    "text": "£635.09"
+   },
+   {
+    "kind": "amount",
+    "start": 400,
+    "end": 407,
+    "text": "£442.96"
+   },
+   {
+    "kind": "amount",
+    "start": 410,
+    "end": 417,
+    "text": "£442.96"
+   },
+   {
+    "kind": "amount",
+    "start": 434,
+    "end": 441,
+    "text": "£300.16"
+   },
+   {
+    "kind": "amount",
+    "start": 444,
+    "end": 451,
+    "text": "£300.16"
+   },
+   {
+    "kind": "amount",
+    "start": 474,
+    "end": 481,
+    "text": "£241.13"
+   },
+   {
+    "kind": "amount",
+    "start": 484,
+    "end": 491,
+    "text": "£482.26"
+   },
+   {
+    "kind": "place_name",
+    "start": 526,
+    "end": 539,
+    "text": "Victoria Park"
+   },
+   {
+    "kind": "amount",
+    "start": 542,
+    "end": 548,
+    "text": "£65.17"
+   },
+   {
+    "kind": "amount",
+    "start": 551,
+    "end": 558,
+    "text": "£195.51"
+   },
+   {
+    "kind": "amount",
+    "start": 591,
+    "end": 598,
+    "text": "£309.83"
+   },
+   {
+    "kind": "amount",
+    "start": 601,
+    "end": 608,
+    "text": "£309.83"
+   },
+   {
+    "kind": "amount",
+    "start": 620,
+    "end": 629,
+    "text": "£2,365.81"
+   },
+   {
+    "kind": "amount",
+    "start": 641,
+    "end": 648,
+    "text": "£473.16"
+   },
+   {
+    "kind": "amount",
+    "start": 660,
+    "end": 669,
+    "text": "£2,838.97"
+   },
+   {
+    "kind": "public_company",
+    "start": 709,
+    "end": 719,
+    "text": "Metro Bank"
+   },
+   {
+    "kind": "company_with_person_name",
+    "start": 734,
+    "end": 760,
+    "text": "Sandhu Family Holdings Ltd"
+   },
+   {
+    "kind": "doc_reference",
+    "start": 817,
+    "end": 822,
+    "text": "63138"
+   },
+   {
+    "kind": "statute",
+    "start": 897,
+    "end": 949,
+    "text": "Late Payment of Commercial Debts (Interest) Act 1998"
+   },
+   {
+    "kind": "company_number",
+    "start": 1028,
+    "end": 1036,
+    "text": "96999987"
+   }
+  ]
+ },
+ "extracted_text": "Sandhu Family Holdings Ltd\n47A Devonshire Terrace\nBOURNEMOUTH\nDorset\nBH11 0FU\nPhone: 0333 133 7204\nE: a.sandhu@sandhufamilyholdings.co.uk\nInvoice\nInvoice to:\nAnjali Pillai\n179 North Street\nWrexham\nLL12 3QE\nInvoice number: 63138\nInvoice date: 9 Oct 2026\nDue date: 16 Oct 2026\nVAT reg no: GB 996 3066 75\n1 x Oven deep clean - Hyde Park @ £635.09 = £635.09\n1 x End of tenancy clean - 2 bed flat @ £442.96 = £442.96\n1 x Materials @ £300.16 = £300.16\n2 x Window cleaning @ £241.13 = £482.26\n3 x Regular clean (weekly), site: Victoria Park @ £65.17 = £195.51\n1 x Carpet cleaning (3 rooms) @ £309.83 = £309.83\nSubtotal: £2,365.81\nVAT @ 20%: £473.16\nTotal due: £2,838.97\nPlease pay by bank transfer to:\nBank: Metro Bank\nAccount name: Sandhu Family Holdings Ltd\nSort code: 23-07-23\nAccount number: 66019739\nReference: 63138\nPayment is due within 7 days. Late payments may incur interest under the Late Payment of Commercial Debts\n(Interest) Act 1998.\nMany thanks for your custom.\nRegistered in England and Wales. Company number 96999987.\nQueries: contact Anika Sandhu on 0800 120 5288.\nInvoice Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 27,
+   "end": 68,
+   "text": "47A Devonshire Terrace\nBOURNEMOUTH\nDorset",
+   "type": "ADDRESS",
+   "gold_text": "47A Devonshire Terrace\nBOURNEMOUTH\nDorset",
+   "exact": true
+  },
+  {
+   "start": 69,
+   "end": 77,
+   "text": "BH11 0FU",
+   "type": "POSTCODE",
+   "gold_text": "BH11 0FU",
+   "exact": true
+  },
+  {
+   "start": 85,
+   "end": 98,
+   "text": "0333 133 7204",
+   "type": "PHONE",
+   "gold_text": "0333 133 7204",
+   "exact": true
+  },
+  {
+   "start": 102,
+   "end": 137,
+   "text": "a.sandhu@sandhufamilyholdings.co.uk",
+   "type": "EMAIL",
+   "gold_text": "a.sandhu@sandhufamilyholdings.co.uk",
+   "exact": true
+  },
+  {
+   "start": 158,
+   "end": 171,
+   "text": "Anjali Pillai",
+   "type": "PERSON",
+   "gold_text": "Anjali Pillai",
+   "exact": true
+  },
+  {
+   "start": 172,
+   "end": 196,
+   "text": "179 North Street\nWrexham",
+   "type": "ADDRESS",
+   "gold_text": "179 North Street\nWrexham",
+   "exact": true
+  },
+  {
+   "start": 197,
+   "end": 205,
+   "text": "LL12 3QE",
+   "type": "POSTCODE",
+   "gold_text": "LL12 3QE",
+   "exact": true
+  },
+  {
+   "start": 764,
+   "end": 772,
+   "text": "23-07-23",
+   "type": "SORT_CODE",
+   "gold_text": "23-07-23",
+   "exact": true
+  },
+  {
+   "start": 789,
+   "end": 797,
+   "text": "66019739",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "66019739",
+   "exact": true
+  },
+  {
+   "start": 1046,
+   "end": 1058,
+   "text": "Anika Sandhu",
+   "type": "PERSON",
+   "gold_text": "Anika Sandhu",
+   "exact": true
+  },
+  {
+   "start": 1062,
+   "end": 1075,
+   "text": "0800 120 5288",
+   "type": "PHONE",
+   "gold_text": "0800 120 5288",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.9908
+}

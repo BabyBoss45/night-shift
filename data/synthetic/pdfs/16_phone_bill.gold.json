@@ -1,0 +1,619 @@
+{
+ "doc_id": "pdf-016",
+ "doc_type": "phone_bill",
+ "pdf": "16_phone_bill.pdf",
+ "text": "Lumen Mobile - Your bill\n\nMr Guy Fitzgerald-Kaur\n182 Thornton Terrace\nLondon\nSW7 1PR\n\nAccount number: LM65821372\nBill date: 27 May 2026\nPhone number: 07309 774989\nPlan: Family SIM 50GB\nAccount holder: Guy Fitzgerald-Kaur\nBill number: 5399320\n\nBILL SUMMARY\nMonthly plan charge: £62.60\nCharges outside your plan: £11.12\nTotal: £73.72\n\nWe will collect £73.72 by Direct Debit from your account ending 1160 on or after 6 June 2026.\n\nItemised calls and texts\n| Date | Time | Type | Number | Duration | Cost |\n|---|---|---|---|---|---:|\n| 03 May | 14:43 | Call | 07700 900725 | 00:23:25 | 0.00 |\n| 04 May | 22:19 | Call | 07700 900725 | 00:32:45 | Inc |\n| 05 May | 08:40 | Call | 07700 900725 | 00:04:43 | Inc |\n| 05 May | 15:11 | Data | 2.63GB |  | Inc |\n| 06 May | 15:16 | Call | 0115 496 0278 | 00:28:19 | £2.59 |\n| 06 May | 16:25 | Call | 0117 496 0498 | 00:15:57 | 0.00 |\n| 07 May | 08:11 | Call | 07251 440 886 | 00:16:06 | 0.00 |\n| 07 May | 13:35 | Call | 07700 900491 | 00:34:37 | £3.28 |\n| 08 May | 10:13 | Call | 0117 496 0498 | 00:44:05 | 0.00 |\n| 08 May | 21:24 | Text | 07700 900725 | - | Inc |\n| 08 May | 22:08 | Data | 0.51GB |  | Inc |\n| 09 May | 12:18 | Text | 07383 579 614 | - | £1.05 |\n| 09 May | 13:48 | Data | 2.61GB |  | 0.00 |\n| 15 May | 15:59 | Call | 07251 440 886 | 00:12:03 | 0.00 |\n| 18 May | 23:23 | Call | 0117 496 0498 | 00:23:41 | Included |\n| 22 May | 18:42 | Call | 07383 579 614 | 00:28:38 | 0.00 |\n| 23 May | 23:15 | Call | 07700 900725 | 00:03:33 | 0.00 |\n| 25 May | 09:30 | Call | 07251 440 886 | 00:03:18 | Inc |\n| 25 May | 12:05 | Call | 07700 900725 | 00:26:55 | £4.20 |\n| 26 May | 13:06 | Call | 07700 900491 | 00:30:21 | 0.00 |\n| 26 May | 18:33 | Text | 07700 900491 | - | Included |\n| 27 May | 22:35 | Text | 07251 440 886 | - | Included |\n\nQuestions? Go to lumenmobile.co.uk.\n",
+ "entities": [
+  {
+   "start": 29,
+   "end": 48,
+   "text": "Guy Fitzgerald-Kaur",
+   "type": "PERSON"
+  },
+  {
+   "start": 49,
+   "end": 76,
+   "text": "182 Thornton Terrace\nLondon",
+   "type": "ADDRESS"
+  },
+  {
+   "start": 77,
+   "end": 84,
+   "text": "SW7 1PR",
+   "type": "POSTCODE"
+  },
+  {
+   "start": 102,
+   "end": 112,
+   "text": "LM65821372",
+   "type": "CUSTOM"
+  },
+  {
+   "start": 150,
+   "end": 162,
+   "text": "07309 774989",
+   "type": "PHONE"
+  },
+  {
+   "start": 201,
+   "end": 220,
+   "text": "Guy Fitzgerald-Kaur",
+   "type": "PERSON"
+  },
+  {
+   "start": 397,
+   "end": 401,
+   "text": "1160",
+   "type": "BANK_ACCOUNT"
+  },
+  {
+   "start": 556,
+   "end": 568,
+   "text": "07700 900725",
+   "type": "PHONE"
+  },
+  {
+   "start": 615,
+   "end": 627,
+   "text": "07700 900725",
+   "type": "PHONE"
+  },
+  {
+   "start": 673,
+   "end": 685,
+   "text": "07700 900725",
+   "type": "PHONE"
+  },
+  {
+   "start": 775,
+   "end": 788,
+   "text": "0115 496 0278",
+   "type": "PHONE"
+  },
+  {
+   "start": 836,
+   "end": 849,
+   "text": "0117 496 0498",
+   "type": "PHONE"
+  },
+  {
+   "start": 896,
+   "end": 909,
+   "text": "07251 440 886",
+   "type": "PHONE"
+  },
+  {
+   "start": 956,
+   "end": 968,
+   "text": "07700 900491",
+   "type": "PHONE"
+  },
+  {
+   "start": 1016,
+   "end": 1029,
+   "text": "0117 496 0498",
+   "type": "PHONE"
+  },
+  {
+   "start": 1076,
+   "end": 1088,
+   "text": "07700 900725",
+   "type": "PHONE"
+  },
+  {
+   "start": 1171,
+   "end": 1184,
+   "text": "07383 579 614",
+   "type": "PHONE"
+  },
+  {
+   "start": 1270,
+   "end": 1283,
+   "text": "07251 440 886",
+   "type": "PHONE"
+  },
+  {
+   "start": 1330,
+   "end": 1343,
+   "text": "0117 496 0498",
+   "type": "PHONE"
+  },
+  {
+   "start": 1394,
+   "end": 1407,
+   "text": "07383 579 614",
+   "type": "PHONE"
+  },
+  {
+   "start": 1454,
+   "end": 1466,
+   "text": "07700 900725",
+   "type": "PHONE"
+  },
+  {
+   "start": 1513,
+   "end": 1526,
+   "text": "07251 440 886",
+   "type": "PHONE"
+  },
+  {
+   "start": 1572,
+   "end": 1584,
+   "text": "07700 900725",
+   "type": "PHONE"
+  },
+  {
+   "start": 1632,
+   "end": 1644,
+   "text": "07700 900491",
+   "type": "PHONE"
+  },
+  {
+   "start": 1691,
+   "end": 1703,
+   "text": "07700 900491",
+   "type": "PHONE"
+  },
+  {
+   "start": 1747,
+   "end": 1760,
+   "text": "07251 440 886",
+   "type": "PHONE"
+  }
+ ],
+ "meta": {
+  "template_id": "phone_bill/v1",
+  "variant_id": "phone_bill/v1|syn",
+  "hard_cases": [
+   {
+    "kind": "common_word_name",
+    "start": 29,
+    "end": 48
+   },
+   {
+    "kind": "multiline_address",
+    "start": 49,
+    "end": 84
+   },
+   {
+    "kind": "custom_org_id",
+    "start": 102,
+    "end": 112
+   },
+   {
+    "kind": "common_word_name",
+    "start": 201,
+    "end": 220
+   },
+   {
+    "kind": "partial_number",
+    "start": 397,
+    "end": 401
+   },
+   {
+    "kind": "table_layout",
+    "start": 453,
+    "end": 1778
+   }
+  ],
+  "keep_traps": [
+   {
+    "kind": "date",
+    "start": 124,
+    "end": 135,
+    "text": "27 May 2026"
+   },
+   {
+    "kind": "product",
+    "start": 169,
+    "end": 184,
+    "text": "Family SIM 50GB"
+   },
+   {
+    "kind": "doc_reference",
+    "start": 234,
+    "end": 241,
+    "text": "5399320"
+   },
+   {
+    "kind": "amount",
+    "start": 277,
+    "end": 283,
+    "text": "£62.60"
+   },
+   {
+    "kind": "amount",
+    "start": 311,
+    "end": 317,
+    "text": "£11.12"
+   },
+   {
+    "kind": "amount",
+    "start": 325,
+    "end": 331,
+    "text": "£73.72"
+   },
+   {
+    "kind": "amount",
+    "start": 349,
+    "end": 355,
+    "text": "£73.72"
+   },
+   {
+    "kind": "date",
+    "start": 414,
+    "end": 425,
+    "text": "6 June 2026"
+   },
+   {
+    "kind": "date",
+    "start": 532,
+    "end": 538,
+    "text": "03 May"
+   },
+   {
+    "kind": "date",
+    "start": 591,
+    "end": 597,
+    "text": "04 May"
+   },
+   {
+    "kind": "date",
+    "start": 649,
+    "end": 655,
+    "text": "05 May"
+   },
+   {
+    "kind": "date",
+    "start": 707,
+    "end": 713,
+    "text": "05 May"
+   },
+   {
+    "kind": "date",
+    "start": 751,
+    "end": 757,
+    "text": "06 May"
+   },
+   {
+    "kind": "amount",
+    "start": 802,
+    "end": 807,
+    "text": "£2.59"
+   },
+   {
+    "kind": "date",
+    "start": 812,
+    "end": 818,
+    "text": "06 May"
+   },
+   {
+    "kind": "date",
+    "start": 872,
+    "end": 878,
+    "text": "07 May"
+   },
+   {
+    "kind": "date",
+    "start": 932,
+    "end": 938,
+    "text": "07 May"
+   },
+   {
+    "kind": "amount",
+    "start": 982,
+    "end": 987,
+    "text": "£3.28"
+   },
+   {
+    "kind": "date",
+    "start": 992,
+    "end": 998,
+    "text": "08 May"
+   },
+   {
+    "kind": "date",
+    "start": 1052,
+    "end": 1058,
+    "text": "08 May"
+   },
+   {
+    "kind": "date",
+    "start": 1103,
+    "end": 1109,
+    "text": "08 May"
+   },
+   {
+    "kind": "date",
+    "start": 1147,
+    "end": 1153,
+    "text": "09 May"
+   },
+   {
+    "kind": "amount",
+    "start": 1191,
+    "end": 1196,
+    "text": "£1.05"
+   },
+   {
+    "kind": "date",
+    "start": 1201,
+    "end": 1207,
+    "text": "09 May"
+   },
+   {
+    "kind": "date",
+    "start": 1246,
+    "end": 1252,
+    "text": "15 May"
+   },
+   {
+    "kind": "date",
+    "start": 1306,
+    "end": 1312,
+    "text": "18 May"
+   },
+   {
+    "kind": "date",
+    "start": 1370,
+    "end": 1376,
+    "text": "22 May"
+   },
+   {
+    "kind": "date",
+    "start": 1430,
+    "end": 1436,
+    "text": "23 May"
+   },
+   {
+    "kind": "date",
+    "start": 1489,
+    "end": 1495,
+    "text": "25 May"
+   },
+   {
+    "kind": "date",
+    "start": 1548,
+    "end": 1554,
+    "text": "25 May"
+   },
+   {
+    "kind": "amount",
+    "start": 1598,
+    "end": 1603,
+    "text": "£4.20"
+   },
+   {
+    "kind": "date",
+    "start": 1608,
+    "end": 1614,
+    "text": "26 May"
+   },
+   {
+    "kind": "date",
+    "start": 1667,
+    "end": 1673,
+    "text": "26 May"
+   },
+   {
+    "kind": "date",
+    "start": 1723,
+    "end": 1729,
+    "text": "27 May"
+   }
+  ]
+ },
+ "extracted_text": "Lumen Mobile - Your bill\nMr Guy Fitzgerald-Kaur\n182 Thornton Terrace\nLondon\nSW7 1PR\nAccount number: LM65821372\nBill date: 27 May 2026\nPhone number: 07309 774989\nPlan: Family SIM 50GB\nAccount holder: Guy Fitzgerald-Kaur\nBill number: 5399320\nBILL SUMMARY\nMonthly plan charge: £62.60\nCharges outside your plan: £11.12\nTotal: £73.72\nWe will collect £73.72 by Direct Debit from your account ending 1160 on or after 6 June 2026.\nItemised calls and texts\nDate Time Type Number Duration Cost\n03 May 14:43 Call 07700 900725 00:23:25 0.00\n04 May 22:19 Call 07700 900725 00:32:45 Inc\n05 May 08:40 Call 07700 900725 00:04:43 Inc\n05 May 15:11 Data 2.63GB Inc\n06 May 15:16 Call 0115 496 0278 00:28:19 £2.59\n06 May 16:25 Call 0117 496 0498 00:15:57 0.00\n07 May 08:11 Call 07251 440 886 00:16:06 0.00\n07 May 13:35 Call 07700 900491 00:34:37 £3.28\n08 May 10:13 Call 0117 496 0498 00:44:05 0.00\n08 May 21:24 Text 07700 900725 - Inc\n08 May 22:08 Data 0.51GB Inc\n09 May 12:18 Text 07383 579 614 - £1.05\n09 May 13:48 Data 2.61GB 0.00\n15 May 15:59 Call 07251 440 886 00:12:03 0.00\n18 May 23:23 Call 0117 496 0498 00:23:41 Included\n22 May 18:42 Call 07383 579 614 00:28:38 0.00\n23 May 23:15 Call 07700 900725 00:03:33 0.00\n25 May 09:30 Call 07251 440 886 00:03:18 Inc\n25 May 12:05 Call 07700 900725 00:26:55 £4.20\n26 May 13:06 Call 07700 900491 00:30:21 0.00\n26 May 18:33 Text 07700 900491 - Included\n27 May 22:35 Text 07251 440 886 - Included\nQuestions? Go to lumenmobile.co.uk.\nPhone Bill Page 1 of 1",
+ "extracted_entities": [
+  {
+   "start": 28,
+   "end": 47,
+   "text": "Guy Fitzgerald-Kaur",
+   "type": "PERSON",
+   "gold_text": "Guy Fitzgerald-Kaur",
+   "exact": true
+  },
+  {
+   "start": 48,
+   "end": 75,
+   "text": "182 Thornton Terrace\nLondon",
+   "type": "ADDRESS",
+   "gold_text": "182 Thornton Terrace\nLondon",
+   "exact": true
+  },
+  {
+   "start": 76,
+   "end": 83,
+   "text": "SW7 1PR",
+   "type": "POSTCODE",
+   "gold_text": "SW7 1PR",
+   "exact": true
+  },
+  {
+   "start": 100,
+   "end": 110,
+   "text": "LM65821372",
+   "type": "CUSTOM",
+   "gold_text": "LM65821372",
+   "exact": true
+  },
+  {
+   "start": 148,
+   "end": 160,
+   "text": "07309 774989",
+   "type": "PHONE",
+   "gold_text": "07309 774989",
+   "exact": true
+  },
+  {
+   "start": 199,
+   "end": 218,
+   "text": "Guy Fitzgerald-Kaur",
+   "type": "PERSON",
+   "gold_text": "Guy Fitzgerald-Kaur",
+   "exact": true
+  },
+  {
+   "start": 393,
+   "end": 397,
+   "text": "1160",
+   "type": "BANK_ACCOUNT",
+   "gold_text": "1160",
+   "exact": true
+  },
+  {
+   "start": 502,
+   "end": 514,
+   "text": "07700 900725",
+   "type": "PHONE",
+   "gold_text": "07700 900725",
+   "exact": true
+  },
+  {
+   "start": 547,
+   "end": 559,
+   "text": "07700 900725",
+   "type": "PHONE",
+   "gold_text": "07700 900725",
+   "exact": true
+  },
+  {
+   "start": 591,
+   "end": 603,
+   "text": "07700 900725",
+   "type": "PHONE",
+   "gold_text": "07700 900725",
+   "exact": true
+  },
+  {
+   "start": 664,
+   "end": 677,
+   "text": "0115 496 0278",
+   "type": "PHONE",
+   "gold_text": "0115 496 0278",
+   "exact": true
+  },
+  {
+   "start": 711,
+   "end": 724,
+   "text": "0117 496 0498",
+   "type": "PHONE",
+   "gold_text": "0117 496 0498",
+   "exact": true
+  },
+  {
+   "start": 757,
+   "end": 770,
+   "text": "07251 440 886",
+   "type": "PHONE",
+   "gold_text": "07251 440 886",
+   "exact": true
+  },
+  {
+   "start": 803,
+   "end": 815,
+   "text": "07700 900491",
+   "type": "PHONE",
+   "gold_text": "07700 900491",
+   "exact": true
+  },
+  {
+   "start": 849,
+   "end": 862,
+   "text": "0117 496 0498",
+   "type": "PHONE",
+   "gold_text": "0117 496 0498",
+   "exact": true
+  },
+  {
+   "start": 895,
+   "end": 907,
+   "text": "07700 900725",
+   "type": "PHONE",
+   "gold_text": "07700 900725",
+   "exact": true
+  },
+  {
+   "start": 961,
+   "end": 974,
+   "text": "07383 579 614",
+   "type": "PHONE",
+   "gold_text": "07383 579 614",
+   "exact": true
+  },
+  {
+   "start": 1031,
+   "end": 1044,
+   "text": "07251 440 886",
+   "type": "PHONE",
+   "gold_text": "07251 440 886",
+   "exact": true
+  },
+  {
+   "start": 1077,
+   "end": 1090,
+   "text": "0117 496 0498",
+   "type": "PHONE",
+   "gold_text": "0117 496 0498",
+   "exact": true
+  },
+  {
+   "start": 1127,
+   "end": 1140,
+   "text": "07383 579 614",
+   "type": "PHONE",
+   "gold_text": "07383 579 614",
+   "exact": true
+  },
+  {
+   "start": 1173,
+   "end": 1185,
+   "text": "07700 900725",
+   "type": "PHONE",
+   "gold_text": "07700 900725",
+   "exact": true
+  },
+  {
+   "start": 1218,
+   "end": 1231,
+   "text": "07251 440 886",
+   "type": "PHONE",
+   "gold_text": "07251 440 886",
+   "exact": true
+  },
+  {
+   "start": 1263,
+   "end": 1275,
+   "text": "07700 900725",
+   "type": "PHONE",
+   "gold_text": "07700 900725",
+   "exact": true
+  },
+  {
+   "start": 1309,
+   "end": 1321,
+   "text": "07700 900491",
+   "type": "PHONE",
+   "gold_text": "07700 900491",
+   "exact": true
+  },
+  {
+   "start": 1354,
+   "end": 1366,
+   "text": "07700 900491",
+   "type": "PHONE",
+   "gold_text": "07700 900491",
+   "exact": true
+  },
+  {
+   "start": 1396,
+   "end": 1409,
+   "text": "07251 440 886",
+   "type": "PHONE",
+   "gold_text": "07251 440 886",
+   "exact": true
+  }
+ ],
+ "missing_in_extracted": [],
+ "text_similarity": 0.8867
+}

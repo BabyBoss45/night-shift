@@ -8,9 +8,24 @@
 # Secrets, raw source downloads, Python tooling
 .env
 .env.*
+*.env
 !.env.example
 data/raw/
 .venv/
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Large local datasets and build output (not committed; regenerate with datagen/dataconv/evalkit)
+/data/synthetic/*
+!/data/synthetic/pdfs/
+/data/external/
+/data/rounds/
+/evalkit/runs/
+
+# Frontend build output
+node_modules/
+frontend/dist/
+
+# Local Claude Code permissions
+.claude/settings.local.json
