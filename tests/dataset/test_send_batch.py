@@ -67,7 +67,8 @@ def test_send_builds_the_agreed_request(chunks_dir, tmp_path, monkeypatch):
     assert run(["--send", "--chunks-dir", str(chunks_dir), "--results-dir", str(results)], fake) == 0
 
     assert len(fake.requests) == 2
-    req = fake.requests[0]
+    # Requests run concurrently, so pick the C1 fill 1 request by its session, not by position.
+    req = next(r for r in fake.requests if json.loads(r.content)["metadata"]["user_id"] == "doc-contracts-C1-f1")
     assert str(req.url) == "https://api.mubit.ai/anthropic/v1/messages"
     # SDK 2.x sends the key as a Bearer token, which Mubit accepts; only the Mubit key is sent.
     assert req.headers["authorization"] == "Bearer mbt_test"

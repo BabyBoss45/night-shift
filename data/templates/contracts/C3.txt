@@ -1,0 +1,345 @@
+#! source_id: C3
+#! title: Acas written statement of employment particulars, employee
+#! url: https://www.acas.org.uk/templates-for-written-statements/written-statement-employee-template
+#! fetched_from: https://www.acas.org.uk/sites/default/files/2026-05/template-for-written-statement-employee-13-may-2026.docx
+#! licence: Open Government Licence v3.0, (c) Acas. Changes: DOCX converted to plain text (list letters and bullets kept), one option chosen per fill where the template says "Use either", square-bracket fields replaced by fill slots; the template's own instruction lines are kept.
+#! kind: template (blank written statement; every slot below is one of its fill-in fields)
+#!
+#! pool temp_end: 31 March 2027
+#! pool temp_end: the return of the post holder from maternity leave, expected in September 2026
+#! pool temp_end: the end of the Christmas trading period, on 6 January 2027
+#! pool fixed_end: 30 June 2027
+#! pool fixed_end: 31 December 2026
+#! pool fixed_end: 28 February 2027
+#! pool continuous: 1 June 2019
+#! pool continuous: 14 February 2021
+#! pool continuous: 3 September 2018
+#! pool continuous: 6 April 2022
+#! pool pay: £24,960 a year (£12.00 an hour), rising to £26,000 a year after your probation period
+#! pool pay: £31,500 a year, on point 4 of our administrative pay scale
+#! pool pay: £12.60 an hour, with time and a half for hours worked on Sundays and bank holidays
+#! pool pay: £2,350 a month before tax and other deductions, plus overtime at £18.50 an hour
+#! pool pay: £27,800 a year, reviewed each April; your payroll number is {{CUSTOM:payroll}}
+#! pool pay_when: monthly
+#! pool pay_when: weekly, every Friday
+#! pool pay_when: monthly, on the last working day of the month, by credit transfer to your bank account ending {{BANK_ACCOUNT:employee|last4}}
+#! pool pay_when: every four weeks, by BACS to the account you gave us (sort code {{SORT_CODE:employee}}, account {{BANK_ACCOUNT:employee}})
+#! pool pay_when: monthly, on the 28th of each month
+#! pool other_sites: our depots in Leeds and Wakefield{{TAG:over_redaction_trap}}
+#! pool other_sites: any of our shops in the Bristol area{{TAG:over_redaction_trap}}
+#! pool other_sites: our second site at {{ADDRESS:site2|oneline}}
+#! pool other_sites: client premises within 30 miles of your normal place of work
+#! pool other_sites: our warehouse on Station Road and the Mill Lane depot{{TAG:over_redaction_trap}}
+#! pool months: 2 months
+#! pool months: 3 months
+#! pool months: 6 weeks
+#! pool months: 4 months
+#! pool currency: pounds sterling
+#! pool currency: euros
+#! pool currency: US dollars
+#! pool abroad_pay: a daily allowance of £45 for meals and incidental costs
+#! pool abroad_pay: a monthly overseas allowance of £600
+#! pool abroad_pay: reasonable travel expenses, refunded on receipt of a claim form
+#! pool abroad_benefits: travel insurance arranged by us and a company mobile phone
+#! pool abroad_benefits: use of a company vehicle and accommodation paid by us
+#! pool abroad_terms: that we will pay for your flight home at the end of the assignment
+#! pool abroad_terms: that you return to your normal place of work and pay at the end of the assignment
+#! pool hours: Monday to Friday, 9am to 5pm,
+#! pool hours: 37.5 hours a week, Monday to Friday, 8.30am to 4.30pm,
+#! pool hours: four days a week on a rota, 7am to 3pm,
+#! pool hours: Tuesday to Saturday, 10am to 6pm,
+#! pool hours: 30 hours a week, Monday to Thursday, 8am to 4pm,
+#! pool lunch: 30 minutes
+#! pool lunch: one hour
+#! pool lunch: 45 minutes
+#! pool vary: Your shifts are set on a four-week rota, published at least two weeks in advance.
+#! pool vary: Your days of work may change in the run-up to Christmas, when we agree extra days with you a month ahead.
+#! pool vary: Your start and finish times may move by up to an hour, with at least one week’s notice.
+#! pool holiday: 28 days a year including the 8 bank holidays, and the holiday year runs from 1 January to 31 December
+#! pool holiday: 5.6 weeks a year, pro rata for part-time work, including bank holidays
+#! pool holiday: 25 days a year plus bank holidays, rising by one day for each year of service up to 30 days
+#! pool holiday: 20 days a year plus the 8 bank holidays; the holiday year runs from 1 April to 31 March
+#! pool benefits: private health insurance after one year of service and a discounted gym membership
+#! pool benefits: a car allowance of £3,600 a year and a mobile phone
+#! pool benefits: free parking and a staff discount of 20% in our shops
+#! pool benefits_start: on your first day
+#! pool benefits_start: after the completion of your probation period
+#! pool benefits_where: HR
+#! pool benefits_where: the staff intranet
+#! pool benefits_where: {{PERSON:manager|full}}
+#! pool timescale: 9am on the first day of absence
+#! pool timescale: one hour before your shift is due to start
+#! pool timescale: 10am on your first day of absence
+#! pool ssp: You will receive Statutory Sick Pay if you qualify, paid from the fourth day of absence.
+#! pool ssp: Statutory Sick Pay is paid in line with the government’s guidance, and you must give us a fit note after 7 days.
+#! pool csp: After your probation period, you’ll receive full pay for up to 4 weeks and half pay for a further 4 weeks in any 12-month period.
+#! pool csp: You’ll receive full pay for up to 10 working days of sickness in each holiday year, including any Statutory Sick Pay.
+#! pool stat_leave: maternity, adoption, paternity and shared parental leave, paid in line with the statutory schemes
+#! pool stat_leave: parental bereavement leave and neonatal care leave, paid at the statutory rate
+#! pool add_leave: up to 5 days’ paid compassionate leave a year
+#! pool add_leave: 2 days’ paid study leave for each exam you take
+#! pool leave_where: HR
+#! pool leave_where: the intranet
+#! pool leave_where: {{PERSON:manager|title_surname}}
+#! pool training_kind: in-house and external
+#! pool training_kind: online and classroom
+#! pool training_extra: time off work to undertake training
+#! pool training_extra: help with course fees
+#! pool training_where: the staff handbook
+#! pool training_where: our learning portal
+#! pool training_compulsory: food hygiene and manual handling training
+#! pool training_compulsory: induction training and fire safety training
+#! pool training_own: a forklift licence
+#! pool training_own: a Level 3 diploma in your field
+#! pool probation: 3 months
+#! pool probation: 6 months
+#! pool probation: 12 weeks
+#! pool probation_terms: monthly review meetings with your manager and a one-week notice period
+#! pool probation_terms: a review at the end of the period, which we may extend once by up to 3 months
+#! pool notice_short: 1 week
+#! pool notice_short: 2 weeks
+#! pool notice_long: 4 weeks
+#! pool notice_long: 1 month
+#! pool notice_long: 2 weeks
+#! pool pension_terms: that you and we each pay 5% of your qualifying earnings into the scheme
+#! pool pension_terms: set out in the scheme booklet, which HR will give you when you join
+#! pool pension_where: on the staff intranet
+#! pool pension_where: in the pension scheme booklet available from HR
+#! pool collective: The agreement of 1 April 2024 between us and Unite the Union sets your pay and working hours.
+#! pool collective: The pay agreement made each year with the union representing care staff applies to you.
+#! pool grievance_to: your manager
+#! pool grievance_to: HR
+#! pool grievance_to: the Operations Manager
+#! pool grievance_to: {{PERSON:manager|full}} ({{EMAIL:manager}})
+#! pool appeal_to: the Managing Director
+#! pool appeal_to: the Head of HR
+#! pool appeal_to: the Operations Director
+Written statement template: employee
+
+This is a template for a ‘written statement of employment particulars’. An employer can adapt this template, although certain details must be included.
+
+Find out more about written statements and contracts on the Acas website
+
+Instructions or options to fill in this template are in [square brackets].
+
+Template last updated 22 May 2026
+
+____________________________________________________________________________
+
+This written statement lists the ‘particulars’ (terms and conditions) of your employment with us as of {{DATE:statement}}. These must be given to you under the Employment Rights Act 1996.
+
+1. Names of the employee and employer
+
+You {{ALT}}{{PERSON:employee|full}}{{OR}}{{PERSON:employee|title_full}}{{OR}}{{PERSON:employee|upper_full}}{{/ALT}} began working for {{COMPANY:employer}}.
+
+Our registered address is {{ADDRESS:employer|oneline}}.
+
+2. Start date and continuous employment
+
+Your employment started on {{DATE:start}}.
+
+[Use either A or B]
+
+{{ALT}}A. Your previous employment does not count as part of a period of ‘continuous employment’ (working for the same employer without a significant break).{{OR}}B. Your previous employment with {{COMPANY:previous}} counts as part of your ‘continuous employment’ (working for the same employer without a significant break). This began on {{TEXT:continuous}}.{{/ALT}}
+
+3. Appointment type
+
+[Use either A, B or C]
+
+{{ALT}}A. This is a permanent appointment{{OR}}B. This is a temporary appointment. Your employment is expected to end on {{TEXT:temp_end}}{{OR}}C. This is a fixed term appointment. Your employment is expected to end on {{TEXT:fixed_end}}{{/ALT}}
+
+4. Job title or a brief description of the job
+
+[Use either job title, brief description of the job or both]
+
+Job title
+
+You’ll be employed as {{ALT:job}}a Warehouse Operative{{OR}}a Payroll Administrator{{OR}}a Senior Care Assistant{{OR}}a Junior Software Developer{{OR}}an Assistant Store Manager{{/ALT}}.
+
+Brief description of the job
+
+[Use either A or B]
+
+{{ALT}}A. A brief description of your work is {{ALT:job}}picking, packing and dispatching customer orders, and keeping the goods-in area safe and tidy{{OR}}running the monthly payroll for about 140 staff and answering payroll queries from managers{{OR}}supporting residents with personal care, meals and activities, and keeping care records up to date{{OR}}building and testing features for our booking website under the direction of the lead developer{{OR}}opening and closing the shop, managing the rota for 12 staff and handling customer complaints{{/ALT}}.{{OR}}B. Your responsibilities are set out in the job description attached to this statement.{{/ALT}}
+
+[Optional] Your job description may be amended by us.
+
+You may be required to undertake additional or other reasonable duties as necessary to meet the needs of our business. This is in addition to duties set out in the job description.
+
+5. Pay
+
+Your pay will be {{TEXT:pay}}.
+
+You’ll be paid {{TEXT:pay_when}}.
+
+6. Place of work
+
+[Use either or both options]
+
+A. Your normal place of work is {{ADDRESS:workplace|oneline}}.
+
+B. You may be required to work at {{TEXT:other_sites}}.
+
+[Optional] Working abroad
+
+You may be required to travel outside of the UK for a total of up to {{TEXT:months}} in any 12-month period.
+
+[Note: if an employee may be required to travel abroad for longer than 1 month, use the relevant following options.]
+
+A. You’ll be paid in {{TEXT:currency}} while you’re working outside the UK.
+
+B. While you're working outside the UK, in addition to your pay, you’ll be paid {{TEXT:abroad_pay}}.
+
+C. While you're working outside the UK, you’ll be entitled to {{TEXT:abroad_benefits}}.
+
+D. The terms and conditions relating to your return to the UK are {{TEXT:abroad_terms}}.
+
+7. Working hours
+
+Your normal working days and hours are {{TEXT:hours}} with a daily {{ALT}}paid{{OR}}unpaid{{/ALT}} lunch break of {{TEXT:lunch}}.
+
+[Optional] Variable hours or days of work
+
+{{ALT}}Your hours of work may change.{{OR}}Your days of work may change.{{/ALT}} {{TEXT:vary}}
+
+8. Holiday entitlement
+
+[Note: an employer must give enough information to make sure that entitlements can be precisely calculated. This includes accrued holiday pay on termination].
+
+Your holiday entitlement is {{TEXT:holiday}}.
+
+9. Other benefits
+
+[Use either A, B or C]
+
+{{ALT}}A. You’ll be entitled to {{TEXT:benefits}}. Your entitlement to these benefits will start {{TEXT:benefits_start}}.{{OR}}B. You’re also eligible for other benefits, as set out in our benefits policy, if you meet the qualifying criteria. Our benefits policy can change over time. The benefits policy is available from {{TEXT:benefits_where}}.{{OR}}C. You’re not entitled to any benefits not set out in this statement.{{/ALT}}
+
+10. Absence and sick pay
+
+If you’re absent for work for any reason, you must inform {{ALT}}{{PERSON:manager|title_surname}} on {{PHONE:manager}}{{OR}}your manager, {{PERSON:manager|full}},{{OR}}HR on {{PHONE:hr}}{{/ALT}} by telephone as soon as possible, but no later than {{TEXT:timescale}}.
+
+For absences of 7 days or less, you can self-certify.
+
+[Optional] On your return to work you must complete and return a self-certification form to your manager. This must be returned before the end of your first day back at work.
+
+For absences of 7 days or more because of sickness or injury, you must get a fit note from your doctor.
+
+All sickness or injury absences will be added to your employment record.
+
+Sick pay
+
+[Use either or both options]
+
+A. You may be entitled to be paid if you’re not able to work due to ‘incapacity’ (sickness or injury). {{TEXT:ssp}}
+
+B. You may be eligible for contractual sick pay. {{TEXT:csp}}
+
+11. Other paid leave
+
+[Use A, B and C]
+
+A. You may be eligible for statutory paid leave, including {{TEXT:stat_leave}}
+
+[Note: the employer must state terms and conditions relating to statutory paid leave, including:
+
+• maternity leave
+
+• adoption leave
+
+• paternity leave
+
+• shared parental leave
+
+• parental bereavement leave
+
+• neonatal care leave]
+
+B. You may be eligible for additional paid leave, including {{TEXT:add_leave}}
+
+[Note: the employer must state terms and conditions relating to any additional paid leave that they offer, for example:
+
+• leave to care for dependants
+
+• compassionate leave
+
+• sabbatical leave
+
+• training and study leave
+
+• bereaved partner’s paternity leave
+
+• ordinary parental leave]
+
+C. Further information can be found in the policies on each type of leave, which are available from {{TEXT:leave_where}}.
+
+11. Training
+
+[Use any of the following options. Option A can be provided later, but must be provided within 2 months of the start of employment.]
+
+A. We offer {{TEXT:training_kind}} training and in some cases {{TEXT:training_extra}}, subject to certain eligibility requirements and other conditions. Details of this training are set out in {{TEXT:training_where}}.
+
+B. We require you to complete {{TEXT:training_compulsory}}. We will pay for the cost of this training.
+
+C. You’re required to complete {{TEXT:training_own}} at your own expense.
+
+12. Probation period
+
+[Use either A or B]
+
+{{ALT}}A. There is no probation period.{{OR}}B. There is a probation period of {{TEXT:probation}} for new employees. During this time, your probation period terms include {{TEXT:probation_terms}}.{{/ALT}}
+
+13. Notice period
+
+[Use A if an employee has different notice periods during and after their probation period. Use B if the notice periods during and after probation are the same or if there is not a probation period.]
+
+{{ALT}}A. During your probation period, the notice that you or your employer must give to end your employment is {{TEXT:notice_short}}.
+
+After your probation period, the notice that you must give to end your employment is {{TEXT:notice_long}}.
+
+We may end your employment at any time by giving you {{TEXT:notice_long}} or the statutory notice you’re entitled to, whichever is longer.{{OR}}B. The notice you must give to end your employment is {{TEXT:notice_long}}.
+
+We may end your employment at any time by giving you {{TEXT:notice_long}} or the statutory notice you’re entitled to, whichever is longer.{{/ALT}}
+
+[The following terms can be provided later. But, these must be provided within 2 months of the start of employment]
+
+14. Pension arrangements
+
+[Use either A or B]
+
+{{ALT}}A. If you’re eligible, we’ll automatically enrol you into our occupational pension scheme in accordance with our obligations under Part 1 of the Pensions Act 2008. If you do not opt out of automatic enrolment, details of the scheme will be provided once you join.
+
+Pension terms and conditions are {{TEXT:pension_terms}}.{{OR}}B. Pension terms and conditions can be found {{TEXT:pension_where}}.{{/ALT}}
+
+15. Collective agreements
+
+A 'collective agreement' is an agreement the employer has with employees’ representatives (including trade unions) that allow terms and conditions like pay or working hours to be negotiated on behalf of employees.
+
+[Use either A or B]
+
+{{ALT}}A. There are no collective agreements.{{OR}}B. {{TEXT:collective}}{{/ALT}}
+
+16. Grievances
+
+If you wish to raise a grievance, you should put it in writing to {{TEXT:grievance_to}}.
+
+[Use either A, B or C]
+
+{{ALT}}A. The grievance procedure which applies to you is attached to this statement.{{OR}}B. The grievance procedure which applies to you can be found in the staff handbook on the intranet.{{OR}}C. You should use this grievance procedure: write to your manager, who will invite you to a meeting within 5 working days and confirm the outcome in writing.{{/ALT}}
+
+17. Disciplinary rules and procedures
+
+[Use either A, B or C]
+
+{{ALT}}A. The disciplinary rules which apply to you are attached to this statement.{{OR}}B. The disciplinary rules which apply to you are can be found in the staff handbook on the intranet.{{OR}}C. The disciplinary rules which apply to you are set out in our disciplinary policy, which your manager will go through with you in your first week.{{/ALT}}
+
+If you’re unhappy with any disciplinary decision taken in relation to you, you can appeal by writing to {{TEXT:appeal_to}}.
+
+Please sign and return a copy of this statement to confirm you’ve received and accepted these terms.
+
+Employee’s signature: {{SIGNATURE:employee}}
+
+Date: {{DATE:signed_employee}}
+
+Manager’s signature on behalf of the organisation: {{SIGNATURE:manager}}
+
+Date: {{DATE:signed_manager}}

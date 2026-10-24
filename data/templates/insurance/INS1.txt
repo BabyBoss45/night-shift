@@ -1,0 +1,269 @@
+# INS1: Pre-Action Protocol for Personal Injury Claims, annexes B1 (letter of claim),
+# B2 (letter of response) and D (letter of instruction to medical expert), rendered as one
+# claim file: the claimant's solicitors write to the defendant, the defendant's insurer
+# replies, and the claimant's solicitors instruct a medical expert.
+# Fetched 24 Oct 2026 by fetch_real.py (page sha256 4b1fda94d7a4dcf4eea0af2d45afbb6d5455bb14a6e6dd57be17bc82870adbe3).
+# The annex text is kept; every fill-in field and bracketed choice is a slot or a text block.
+# Address rule: an address in a party, sender, recipient or contact role is an ADDRESS slot
+# with its own POSTCODE, for people and organisations alike. The hospital and the accident
+# place are not in such a role: the hospital is named only, the place is a keep slot.
+# source_id: INS1
+# group: insurance
+# subtype: personal_injury_claim_letters
+# url: https://www.justice.gov.uk/courts/procedure-rules/civil/protocol/prot_pic
+# licence: Crown copyright (Ministry of Justice, Pre-Action Protocol for Personal Injury Claims, annexes B1, B2 and D)
+# kind: template
+---
+{{keep:firm}}
+{{ADDRESS:firm_office|noco}}
+Tel: {{PHONE:firm_office}}
+[[opt: Email: {{EMAIL:handler}}]]
+
+Our ref: {{CUSTOM:our_ref}}/{{PERSON:handler|initials}}
+[[alt: Please ask for: {{PERSON:handler|full}} || Contact: {{PERSON:handler|initial_surname}}]]
+
+{{keep:date_loc}}
+
+To: {{PERSON:defendant|formal}}
+{{ADDRESS:defendant}}
+
+LETTER OF CLAIM
+
+[[alt: Dear Sirs || Dear {{PERSON:defendant|title_surname}}]]
+
+Re:
+
+Claimant’s full name: {{PERSON:claimant|full}}
+
+Claimant’s full address: {{ADDRESS:claimant}}
+
+Claimant’s Clock or Works Number: {{CUSTOM:works_no}}
+
+Claimant’s Employer: {{keep:employer_name|company}}, {{ADDRESS:employer|oneline|noco}}
+
+[[opt: Claimant’s date of birth and National Insurance number (for the Compensation Recovery Unit): {{DOB:claimant}}, {{NI_NUMBER:claimant}}]]
+
+[[alt: We are instructed by the above named to claim damages in connection with a road traffic accident on {{keep:date_accident}} at {{keep:place}}.
+
+Please confirm the identity of your insurers. Please note that the insurers will need to see this letter as soon as possible and it may affect your insurance cover and/or the conduct of any subsequent legal proceedings if you do not send this letter to them.
+
+Clear summary of the facts
+
+The circumstances of the accident are:
+
+Our client was driving [[alt: a works van || a hatchback || a motorcycle]] and had stopped at a red light when the vehicle you were driving collided with the rear of {{PERSON:claimant|surname|poss}} vehicle.
+
+Liability
+
+The reason why we are alleging fault is:
+
+You failed to keep a proper lookout and drove too close to the vehicle in front.
+
+We are obtaining a police report and will let you have a copy of the same upon your undertaking to meet half the fee.
+|| We are instructed by the above named to claim damages in connection with a tripping accident on {{keep:date_accident}} at {{keep:place}}.
+
+Please confirm the identity of your insurers. Please note that the insurers will need to see this letter as soon as possible and it may affect your insurance cover and/or the conduct of any subsequent legal proceedings if you do not send this letter to them.
+
+Clear summary of the facts
+
+The circumstances of the accident are:
+
+{{PERSON:claimant|title_surname}} was walking across the paved area that you own and maintain when [[alt: a raised paving slab || a missing drain cover || a loose step]] caused our client to fall heavily.
+
+Liability
+
+The reason why we are alleging fault is:
+
+[[alt: broken ground that had been reported to you some weeks before the accident || a hazard that was not fenced off, lit or signed]].
+|| We are instructed by the above named to claim damages in connection with an accident at work on {{keep:date_accident}} at {{keep:place}}, where our client was working for {{keep:employer_name|company}} on premises occupied by you.
+
+Please confirm the identity of your insurers. Please note that the insurers will need to see this letter as soon as possible and it may affect your insurance cover and/or the conduct of any subsequent legal proceedings if you do not send this letter to them.
+
+Clear summary of the facts
+
+The circumstances of the accident are:
+
+While unloading stock, {{PERSON:claimant|any}} was struck by [[alt: a pallet that fell from an unsecured racking unit || the arm of a defective loading machine]].
+
+Liability
+
+The reason why we are alleging fault is:
+
+[[alt: defective machine || unsafe racking that had not been inspected]], which you were responsible for as occupier.]]
+
+Injuries
+
+A description of our clients’ injuries is as follows:
+
+[[alt: Whiplash injury to the neck and upper back, with headaches. || A fracture of the right wrist, treated in a cast for six weeks. || Soft tissue injuries to the lower back and left knee.]] [[alt: Our client cannot drive for more than short distances, has difficulty sleeping and needs help with shopping and housework. || Our client cannot lift or carry, cannot care for a young child unaided and has stopped all sport.]]
+
+Our client (hospital reference number {{CUSTOM:hospital_ref}}) received treatment for the injuries at [[alt: Northgate General Hospital || St Aidan’s Hospital || Riverside Community Hospital || the Royal Albion Infirmary]].
+
+Our client is still suffering from the effects of [[alt: the injury || {{PERSON:claimant|surname|poss}} injuries]]. We invite you to participate with us in addressing our client’s immediate needs by use of rehabilitation.
+
+Loss of Earnings
+
+{{PERSON:claimant|title_surname}} is employed as [[alt: a warehouse operative || a care assistant || a delivery driver || an electrician]] and has had the following time off work: {{keep:date_off_from}} to {{keep:date_off_to}}. [[alt: Our client’s || {{PERSON:claimant|first|poss}}]] approximate weekly income is {{keep:amount_weekly|amount|small}}.
+
+If you are our client’s employers, please provide us with the usual earnings details which will enable us to calculate our client’s financial loss.
+
+Other Financial Losses
+
+We are also aware of the following likely financial losses:
+
+[[shuffle: Travel to hospital and physiotherapy appointments: {{keep:amount_travel|amount|small}} || Prescription charges: {{keep:amount_prescriptions|amount|small}} || Damaged clothing and personal effects: {{keep:amount_clothing|amount|small}}]]
+
+[[opt: Statutory sick pay only has been paid, into our client’s account ending {{BANK_ACCOUNT:claimant|last4}}.]]
+
+Details of the insurer
+
+We have also sent a letter of claim to {{keep:second_defendant|company}}, {{ADDRESS:second_defendant|oneline|noco}}, and a copy of that letter is attached. We understand their insurers are {{keep:insurer_2|insurer}}, {{ADDRESS:insurer_2|oneline|noco}} (claims number {{CUSTOM:claim_ref_2}}).
+
+At this stage of our enquiries we would expect the documents contained in parts [[alt: A and B || A, B and D || 1 and 3]] of the standard disclosure list to be relevant to this action.
+
+A copy of this letter is attached for you to send to your insurers. Finally we expect an acknowledgment of this letter within 21 days by yourselves or your insurers.
+
+[[opt: Any interim payment should be made to our client account: sort code {{SORT_CODE:firm_client}}, account number {{BANK_ACCOUNT:firm_client}}[[opt: , IBAN {{IBAN:firm_client}}]].]]
+
+Yours faithfully
+
+{{PERSON:handler|signature}}
+{{keep:firm}}
+
+----------------------------------------
+
+{{keep:insurer}}
+[[alt: Personal Injury Claims || Casualty Claims Department || Major Loss Unit]]
+{{ADDRESS:insurer_office|noco}}
+Tel: {{PHONE:insurer_contact}}
+[[opt: Email: {{EMAIL:insurer_contact}}]]
+
+{{keep:date_response}}
+
+To: {{keep:firm}} (Claimant’s legal representative)
+For the attention of {{PERSON:handler|formal}}
+{{ADDRESS:firm_office|noco}}
+
+Your ref: {{CUSTOM:our_ref}}/{{PERSON:handler|initials}}
+Our ref: {{CUSTOM:insurer_ref}}
+Claim number: {{CUSTOM:claim_ref}}
+[[opt: Policy number: {{CUSTOM:policy_no}}]]
+
+[[alt: Dear Sirs || Dear {{PERSON:handler|title_surname}}]]
+
+Letter of Response
+
+{{PERSON:claimant|surname}} v {{PERSON:defendant|surname}}
+
+Parties
+
+We have been instructed to act on behalf of {{PERSON:defendant|formal}} in relation to your client’s accident on {{keep:date_accident}}. We note that you have also written to {{keep:second_defendant|company}} in connection with this claim. We [[alt: do believe they are a relevant party because they were responsible for maintaining the area where the accident happened || do not believe they are a relevant party because they had no involvement in the events described in your letter]]. [[opt: In addition we believe your claim should be directed against {{keep:third_party|company}} for the following reasons: they were contracted to carry out the work that created the hazard your client describes.]]
+
+[[alt: Liability
+
+In respect of our client’s liability for this accident we admit the accident occurred and that our client is liable for loss and damage to the claimant the extent of which will require quantification.
+
+Limitation
+
+We do not intend to raise any limitation defence.
+
+Documents
+
+We attach copies of the following documents in support of our client’s position: the accident report form and photographs of the scene.
+
+Next Steps
+
+Please advise us which medical experts you are proposing to instruct.
+
+Please also supply us with your client’s schedule of past and future expenses which are claimed, even if this can only be supplied on a provisional basis at present to assist us with making an appropriate reserve.
+
+If you have identified that {{PERSON:claimant|title_surname}} has any immediate need for additional medical treatment or other early rehabilitation intervention, please tell us so that we can take instructions pursuant to the Rehabilitation Code.
+|| Liability
+
+In respect of our client’s liability for this accident we [[alt: admit the accident occurred but deny that our client is responsible for any loss or damage alleged to have been caused for the following reasons: the hazard was clearly signed and our client’s inspection records are up to date. || do not admit the accident occurred either in the manner described in your letter of claim or at all because: our client has no record of any incident on that date.]]
+
+Limitation
+
+We do not intend to raise any limitation defence.
+
+Documents
+
+You have requested copies of the following documents which we are not enclosing as we do not believe they are relevant for the following reasons: the maintenance records you ask for relate to a different part of the premises.
+
+[[opt: It would assist our investigations if you could supply us with copies of the following documents: your client’s GP records for the five years before the accident.]]
+
+Next Steps
+
+Please confirm we may now close our file. Alternatively, if you intend to proceed please advise which experts you are proposing to instruct.]]
+
+Alternative Dispute Resolution
+
+[[alt: We would be willing to consider a joint settlement meeting on a without prejudice basis once the medical evidence is available. || We propose mediation on a without prejudice basis if the claim is not resolved within three months.]]
+
+[[alt: Yours faithfully || Yours sincerely]]
+
+{{PERSON:insurer_contact|signature}}
+[[alt: Claims Handler || Senior Technical Claims Handler || Claims Team Leader]]
+for and on behalf of {{keep:insurer}}
+
+----------------------------------------
+
+{{keep:firm}}
+{{ADDRESS:firm_office|noco}}
+Tel: {{PHONE:firm_office}}
+Our ref: {{CUSTOM:our_ref}}/{{PERSON:handler|initials}}
+
+{{keep:date_instruction}}
+
+{{PERSON:expert|formal}}
+Consultant [[alt: Orthopaedic Surgeon || in Emergency Medicine || Physician in Rehabilitation Medicine]]
+{{ADDRESS:expert_rooms|noco}}
+
+LETTER OF INSTRUCTION TO MEDICAL EXPERT
+
+[[alt: Dear Sir or Madam, || Dear {{PERSON:expert|title_surname}},]]
+
+Re: {{PERSON:claimant|formal}}, {{ADDRESS:claimant|oneline}}
+
+D.O.B. – {{DOB:claimant}}
+
+Telephone No. – {{PHONE:claimant|mobile}}
+
+Date of Accident – {{keep:date_accident}}
+
+We are acting for the above named in connection with injuries received in an accident which occurred on the above date. A summary of the main facts of the accident circumstances is provided below. The main injuries appear to have been those described in our Letter of Claim dated {{keep:date_loc}}, with the functional impact on day to day living set out there.
+
+In order to assist with the preparation of your report we have enclosed the following documents:
+
+Enclosures
+
+Hospital Records
+
+GP records
+
+Statement of Events
+
+We have not obtained [[alt: the physiotherapy || the occupational health || the ambulance service]] records yet but will use our best endeavours to obtain these without delay if you request them.
+
+We should be obliged if you would examine our Client and let us have a full and detailed report dealing with any relevant pre-accident medical history, the injuries sustained, treatment received and present condition, dealing in particular with the capacity for work and giving a prognosis.
+
+It is central to our assessment of the extent of {{PERSON:claimant|any|poss}} injuries to establish the extent and duration of any continuing disability. Accordingly, in the prognosis section we would ask you to specifically comment on any areas of continuing complaint or disability or impact on daily living. If there is such continuing disability you should comment upon the level of suffering or inconvenience caused and, if you are able, give your view as to when or if the complaint or disability is likely to resolve.
+
+If our client requires further treatment, please can you advise of the cost on a private patient basis.
+
+Please send our Client an appointment direct for this purpose. Should you be able to offer a cancellation appointment please contact our Client direct. We confirm we will be responsible for your reasonable fees.
+
+We are obtaining the notes and records from our Client’s GP and Hospitals attended and will forward them to you when they are to hand/or please request the GP and Hospital records direct and advise that any invoice for the provision of these records should be forwarded to us.
+
+In order to comply with Court Rules we would be grateful if you would insert above your signature, the following statement: “I confirm that I have made clear which facts and matters referred to in this report are within my own knowledge and which are not. Those that are within my own knowledge I confirm to be true. The opinions I have expressed represent my true and complete professional opinions on the matters to which they refer”.
+
+In order to avoid further correspondence we can confirm that on the evidence we have there is no reason to suspect we may be pursuing a claim against the hospital or its staff.
+
+We look forward to receiving your report within [[alt: six || eight || 4 || 6]] weeks. If you will not be able to prepare your report within this period please telephone us upon receipt of these instructions.
+
+When acknowledging these instructions it would assist if you could give an estimate as to the likely time scale for the provision of your report and also an indication as to your fee.
+
+[[alt: Yours faithfully, || Yours sincerely,]]
+
+{{PERSON:paralegal|signature}}
+[[alt: Paralegal || Trainee Solicitor]], for {{keep:firm}}

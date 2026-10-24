@@ -15,6 +15,8 @@ SOURCES = [
         "subtype": "tenancy",
         "kind": "template",
         "licence": OGL,
+        # The PDF keeps the clause and heading numbers; the ODT generates them from list styles.
+        "attachment_ext": [".pdf", ".odt"],
     },
     {
         "source_id": "C2",
@@ -23,6 +25,8 @@ SOURCES = [
         "subtype": "tenancy",
         "kind": "template",
         "licence": OGL,
+        # The PDF keeps the list letters and the footnotes, which the DOCX holds outside the text.
+        "attachment_ext": [".pdf", ".docx"],
     },
     {
         "source_id": "C3",
@@ -55,7 +59,7 @@ SOURCES = [
         "subtype": "nda",
         "kind": "template",
         "licence": OGL,
-        "attachment_hint": "one",
+        "attachment_hint": "one-way",
     },
     {
         "source_id": "C7",
@@ -119,6 +123,7 @@ SOURCES = [
 ]
 
 # Design section 5: one source per contract subtype goes only to eval.
-EVAL_SOURCES = {"C2", "C5", "C10"}
+# C6 and C7 (IPO NDAs) were added on 24 Oct because C5 and C10 (SEC EDGAR) could not be fetched.
+EVAL_SOURCES = {"C2", "C5", "C6", "C7", "C10"}
 
 BY_ID = {s["source_id"]: s for s in SOURCES}

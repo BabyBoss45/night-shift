@@ -54,40 +54,40 @@
     "url": "https://www.justice.gov.uk/courts/procedure-rules/civil/protocol/prot_hou",
     "licence": "Crown copyright, Open Government Licence",
     "kind": "template",
-    "fetched": false,
-    "fetched_at": "2026-10-23T23:06:17+00:00",
-    "sha256": null,
-    "notes": "Housing disrepair pre-action protocol, annex letter templates; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+    "fetched": true,
+    "fetched_at": "2026-10-24T08:57:51+00:00",
+    "sha256": "d8510d0c88207fd962ffa82a6e92979f6f9349ea3478c81ca20afb1eebe58e76",
+    "notes": "Housing disrepair pre-action protocol, annex letter templates; sha256 is of the extracted text"
   },
   {
     "source_id": "R7",
     "url": "https://ico.org.uk/media2/migrated/4028636/sar-complaint-letter-or-email-template-v10.docx",
     "licence": "Open Government Licence",
     "kind": "template",
-    "fetched": false,
-    "fetched_at": "2026-10-23T23:06:17+00:00",
-    "sha256": null,
-    "notes": "ICO subject access request complaint template; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+    "fetched": true,
+    "fetched_at": "2026-10-24T08:57:51+00:00",
+    "sha256": "afe290b26981bd2b4aa87ab123f04a71b4e0e173914d7b385e0537ae252102ba",
+    "notes": "ICO subject access request complaint template; sha256 is of the extracted text"
   },
   {
     "source_id": "R8",
     "url": "https://www.acas.org.uk/job-offer-templates/job-offer-letter-template-with-written-statement",
     "licence": "Open Government Licence",
     "kind": "template",
-    "fetched": false,
-    "fetched_at": "2026-10-23T23:06:18+00:00",
-    "sha256": null,
-    "notes": "Acas job offer letter template; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+    "fetched": true,
+    "fetched_at": "2026-10-24T08:57:51+00:00",
+    "sha256": "59738649dd433b3ca466148732e8b40e9f8a309cb2e8e161dd139383eb049421",
+    "notes": "Acas job offer letter template; sha256 is of the extracted text"
   },
   {
     "source_id": "R9",
     "url": "https://www.acas.org.uk/disciplinary-outcome-letter-templates/notice-of-disciplinary-outcome-letter-template-dismissal-disciplinary-action-or-no-action",
     "licence": "Open Government Licence",
     "kind": "template",
-    "fetched": false,
-    "fetched_at": "2026-10-23T23:06:18+00:00",
-    "sha256": null,
-    "notes": "Acas disciplinary outcome letter template; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+    "fetched": true,
+    "fetched_at": "2026-10-24T08:57:51+00:00",
+    "sha256": "de7426128aa63085a862d557ebe4d4b02ea703996eb7c47afa712a91916ac305",
+    "notes": "Acas disciplinary outcome letter template; sha256 is of the extracted text"
   },
   {
     "source_id": "R10",
@@ -95,9 +95,9 @@
     "licence": "Public filing, SEC EDGAR",
     "kind": "filled_real",
     "fetched": false,
-    "fetched_at": "2026-10-23T23:06:18+00:00",
+    "fetched_at": null,
     "sha256": null,
-    "notes": "IHG letter to the SEC; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+    "notes": "IHG letter to the SEC; NOT FETCHED: sec.gov is not used, by decision"
   },
   {
     "source_id": "R11",
@@ -105,8 +105,24 @@
     "licence": "Open Parliament Licence",
     "kind": "filled_real",
     "fetched": false,
-    "fetched_at": "2026-10-23T23:06:18+00:00",
-    "sha256": null,
-    "notes": "Parliament committee correspondence listing; letters to pick by hand; NOT FETCHED from the build sandbox: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+    "fetched_at": "2026-10-24T08:57:51+00:00",
+    "sha256": "7671624ac43bed7d44df9141702bdd0bb85ad193ea0027747aa0157395fd3667",
+    "notes": "Parliament committee correspondence listing; letters to pick by hand; sha256 is of the extracted text; the publication page was fetched but none of its letter files",
+    "files": [
+      {
+        "url": "https://committees.parliament.uk/publications/7750/documents/80738/default/",
+        "name": "Letter to Lord Gilbert 261021.pdf",
+        "fetched": false,
+        "sha256": null,
+        "error": "RuntimeError: HTTP 403 with a Cloudflare bot challenge (not bypassed)"
+      },
+      {
+        "url": "https://committees.parliament.uk/publications/7750/documents/80739/default/",
+        "name": "Letter to Lord Gilbert 261021.pdf",
+        "fetched": false,
+        "sha256": null,
+        "error": "RuntimeError: HTTP 403 with a Cloudflare bot challenge (not bypassed)"
+      }
+    ]
   }
 ]

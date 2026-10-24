@@ -1,0 +1,155 @@
+# source_id: R6
+# title: Housing conditions pre-action protocol, Annex A letter of claim to the landlord with the Annex B draft letter of instruction to the expert enclosed, from the tenant's solicitor or from the tenant
+# url: https://www.justice.gov.uk/courts/procedure-rules/civil/protocol/prot_hou
+# licence: Crown copyright, Open Government Licence
+# kind: template
+# subtype: letter
+# locales: uk
+# year_shifts: -1 0 1
+# static_hard_cases: company_with_person_name over_redaction_trap
+# notes: Annex A and Annex B letters from the protocol page; version (a) solicitor or (b) tenant rotates by fill (@who), and the landlord (housing association, private landlord, named housing officer) rotates separately (@ll); every bracketed field is filled and the guidance in brackets, the asterisks and the "Delete as appropriate" notes are removed; letterheads, addressee blocks, references, dates and sign-offs are added; firm, surveyors and landlord company are invented; protocol and practice direction references, the judiciary URL and amounts stay visible (traps)
+# ---
+[[alt@who:Marchbank & Tull LLP
+Solicitors
+{{ADDRESS:firm_office|lines,office}}
+Tel: {{PHONE:firm_tel|landline}}[[opt=0.4:   Fax: {{PHONE:firm_fax|landline}}]]
+Email: {{EMAIL:fee_earner|<first>.<last>@marchbanktull.co.uk}}
+||{{PERSON:tenant|full}}
+{{ADDRESS:property|lines,home}}
+[[opt=0.6:Tel: {{PHONE:tenant_mob|mobile}}
+]][[opt=0.5:Email: [[alt:{{EMAIL:tenant|<first><last><N>@gmail.com}}||{{EMAIL:tenant|<f>.<last>@outlook.com}}]]
+]]]]
+[[alt@ll:The Housing Services Manager
+Northfold Homes Ltd
+{{ADDRESS:landlord_addr|lines,office}}||{{PERSON:landlord|title_full}}
+{{ADDRESS:landlord_addr|lines,home}}||{{PERSON:housing_officer|title_full}}
+Housing Officer
+Northfold Homes Ltd
+{{ADDRESS:landlord_addr|lines,office}}]]
+
+[[alt@who:Our ref: {{PERSON:fee_earner|initials}}/{{CUSTOM:firm_matter|matter}}
+[[opt=0.6:Your ref: {{CUSTOM:tenancy|tenancy_ref}}
+]][[opt=0.5:Please ask for: {{PERSON:fee_earner|full}}, direct line {{PHONE:fee_earner_dd|landline}}
+]]||[[opt=0.6:Tenancy reference: {{CUSTOM:tenancy|tenancy_ref}}
+]]]]
+{{DATE:2025-02-10|letter}}
+
+[[alt@ll:Dear Sirs,||Dear {{PERSON:landlord|title_last}},||Dear {{PERSON:housing_officer|title_last}},]]
+
+RE: {{PERSON:tenant|upper_full}}, {{ADDRESS:property|oneline,upper,home}}
+
+[[alt@who:We are instructed by your above-named tenant.[[opt=0.6: [[alt:Our client has the benefit of a legal aid certificate.||Our client's case is funded under a conditional fee agreement entered into before 1 April 2013.]]]] We are using the Pre-Action Protocol for Housing Conditions Claims – England.[[opt=0.7: We enclose a copy of the Protocol for your information.]]||I write regarding housing conditions at the above address. I am using the Pre-Action Protocol for Housing Conditions Claims – England.[[opt=0.7:
+
+I enclose a copy of the Protocol for your information.]]]]
+
+Housing Conditions
+
+[[alt@who:Your tenant complains of the following defects at the property||The following defects exist at the property]]: [[alt:penetrating damp and black mould in the front bedroom and the bathroom, a leaking roof above the kitchen and a boiler that has broken down repeatedly||rotten window frames in the living room, rising damp along the hall and a broken extractor fan in the bathroom||a collapsed kitchen ceiling after a leak from the flat above, unsafe electrics in the kitchen and condensation mould in both bedrooms]].
+[[opt=0.7:
+[[alt@who:We||I]] enclose a schedule of conditions which sets out the defects in each room.
+]]
+The history is as follows: [[alt@who:our client||I]] first reported the problem to your repairs line in {{DATE:2024-10-15|monthyear}} (repair reference {{CUSTOM:repair_ref|case_triplet}}). A contractor attended on {{DATE:2024-11-04|letter}} but did not carry out any repair, and the damp has got worse since the flooding near {{TRAP:place}} last winter.
+
+You received notice of the defects as follows: [[alt:telephone calls to your repairs line on {{DATE:2024-10-15|letter}} and {{DATE:2024-12-02|letter}}, and [[alt@who:our client's||my]] email of {{DATE:2025-01-08|letter}}||[[alt@who:our client's||my]] letter dated {{DATE:2024-12-02|letter}} and the inspection by your surveyor, {{PERSON:landlord_surveyor|full}}, on {{DATE:2025-01-13|letter}}]].
+
+The defects at the property are causing damage to [[alt@who:our client's||my]] furniture, clothing and bedding, and [[alt@who:{{PERSON:tenant|title_last}}'s||my]] youngest child, {{PERSON:child|first}}, has asthma which the family's GP says is made worse by the mould.[[opt=0.5: {{PERSON:partner|full}}, who also lives at the property, will be an additional claimant.]]
+
+Please arrange to inspect the property as soon as possible. Access will be available on the following dates and times: [[alt:{{DATE:2025-02-17|letter}} and {{DATE:2025-02-19|letter}}, between 9am and 1pm||any weekday after 2pm; please call [[alt@who:our client||me]] on {{PHONE:tenant_mob|mobile}} to arrange a time]].
+
+Please confirm whether you intend to carry out remedial works at this stage or whether you wish to wait until the property has been inspected by the expert(s) as set out below.
+
+If you intend to carry out works at this stage, please set out a full schedule of intended works including anticipated start and completion dates and a timetable for the works[[alt@who:||.]]
+
+Disclosure
+
+Please also provide within 20 working days of this letter [[alt@who:the following:
+
+All relevant records or documents including:||all relevant records or documents including:]]
+
+(i) a copy of the tenancy agreement including the tenancy conditions;
+
+(ii) the tenancy file;
+
+(iii) documents relating to notice of defects given, including copies of any notes of meetings and oral discussions;
+
+(iv) inspection reports or documents relating to works required to the property; and
+
+(iv) relevant computerised records[[alt@who:
+
+We enclose a signed authority from our client for you to release this information to us.
+
+We also enclose copies of the following relevant documents from our client||.
+
+I enclose copies of the following relevant documents]]: [[alt:photographs of the bedroom and bathroom taken on {{DATE:2025-01-20|letter}}, [[alt@who:our client's||my]] emails to your repairs team and a letter from the GP||the job sheet left by your contractor, {{PERSON:contractor|full}}, on {{DATE:2024-11-04|letter}} and photographs of the kitchen ceiling]].
+
+Expert
+
+If agreement is not reached about the carrying out of works within 20 working days of this letter, [[alt@who:we propose that the parties agree to jointly instruct||I propose that we jointly instruct]] a single joint expert ({{PERSON:expert|title_full}} MRICS of Pennock & Hale Chartered Surveyors, {{ADDRESS:expert_office|oneline,office}}) to carry out an inspection of the property and provide a report. [[alt@who:We||I]] enclose a copy of their CV, plus a draft letter of instruction.[[alt@who:
+
+Please let us know if you agree to his/her appointment. If you object, please let us know your reasons within 20 working days.|| Please let me know if you agree to his/her appointment. If you object, please let me know your reasons within 20 working days.]]
+
+If you do not object to the expert being instructed as a single joint expert, but wish to provide your own instructions, you should send those directly to [[alt:{{PERSON:expert|title_last}}||{{PERSON:expert|full}}]] within 20 working days of this letter. Please send [[alt@who:us||me]] a copy of your letter of instruction. If you do not agree to a single joint expert, [[alt@who:we||I]] will instruct {{PERSON:expert|title_last}} to inspect the property in any event. In those circumstances, if you wish to instruct your expert to attend at the same time, please let [[alt@who:us||me]] and [[alt:{{PERSON:expert|title_last}}||{{PERSON:expert|first_var_last}}]] know within 20 working days.
+
+Claim
+
+[[alt@who:We take the view that you are in breach of your obligations in respect of housing conditions. Please provide us with your proposals for compensation.||I take the view that you are in breach of your obligations relating to housing conditions. Please provide me with your proposals for compensation.]][[opt=0.5: [[alt@who:We||I]] suggest general damages of £[[alt:2,500||1,800||3,750]] a year for [[alt:2||3]] years.]][[opt@special=0.7:[[alt@who:
+
+Our client also requires compensation for special damages, and we attach a schedule of the special damages claimed.|| I also require compensation for special damages, and I attach a schedule of the special damages claimed.]]]]
+
+Yours faithfully,
+
+[[alt@who:[[opt=0.5:{{PERSON:fee_earner|full}}
+]]Marchbank & Tull LLP||{{PERSON:tenant|full}}]]
+
+Enc.
+
+
+DRAFT LETTER OF INSTRUCTION TO EXPERT (enclosed)
+
+[[alt@who:Marchbank & Tull LLP, {{ADDRESS:firm_office|oneline,office}}||{{PERSON:tenant|full}}, {{ADDRESS:property|oneline,home}}]]
+
+{{PERSON:expert|title_full}} MRICS
+Pennock & Hale Chartered Surveyors
+{{ADDRESS:expert_office|lines,office}}
+
+[[alt@who:Our ref: {{PERSON:fee_earner|initials}}/{{CUSTOM:firm_matter|matter}}
+||]]{{DATE:2025-02-10|letter}}
+
+Dear [[alt:{{PERSON:expert|title_last}}||{{PERSON:expert|first_var}}]],
+
+RE: {{PERSON:tenant|upper_full}}, {{ADDRESS:property|oneline,upper,home}}
+
+[[alt@who:We act for the above named in connection with a housing conditions claim at the above property.||I am currently in dispute with my landlord about housing conditions at the above property.]] [[alt@who:We are||I am]] using the Pre-Action Protocol for Housing Conditions Claims – England.
+[[opt=0.7:
+[[alt@who:We||I]] enclose a copy of the Protocol for your information.
+]]
+Please carry out an inspection of the above property by {{DATE:2025-03-10|letter}} and provide a report covering the following points:
+
+(a) whether you agree that the defects are as claimed;
+
+(b) whether any of the defects is structural;
+
+(c) the cause of the defect(s);
+
+(d) the age, character and prospective life of the property;
+
+(e) a schedule of works[[alt@who:; and||;]]
+
+(f) an estimate of the costs of those works.
+
+Access will be available on the following dates and times: [[alt:{{DATE:2025-02-24|letter}} or {{DATE:2025-02-26|letter}}, from 10am||weekday mornings; please telephone [[alt@who:our client, {{PERSON:tenant|title_full}},||me]] on {{PHONE:tenant_mob|mobile}} to arrange a time]].
+
+[[alt:You are instructed as a single joint expert.||The landlord is [[alt@ll:Northfold Homes Ltd, {{ADDRESS:landlord_addr|oneline,office}}||{{PERSON:landlord|full}} of {{ADDRESS:landlord_addr|oneline,home}}, telephone {{PHONE:landlord_tel|any}}||Northfold Homes Ltd, {{ADDRESS:landlord_addr|oneline,office}}; the housing officer is {{PERSON:housing_officer|full}}, telephone {{PHONE:ho_tel|landline}}]]. The landlord will be providing you with their own instructions direct.||The landlord is [[alt@ll:Northfold Homes Ltd, {{ADDRESS:landlord_addr|oneline,office}}||{{PERSON:landlord|full}} of {{ADDRESS:landlord_addr|oneline,home}}, telephone {{PHONE:landlord_tel|any}}||Northfold Homes Ltd, {{ADDRESS:landlord_addr|oneline,office}}; the housing officer is {{PERSON:housing_officer|full}}, telephone {{PHONE:ho_tel|landline}}]]. The landlord will contact you to confirm that their expert will attend at the same time as you to carry out a joint inspection.]]
+
+Please provide the report within 10 working days of the inspection. Please contact [[alt@who:us||me]] immediately if there are any works which require an interim injunction.
+
+If the case proceeds to court, the report may be used in evidence. Please ensure that the report complies with Civil Procedure Rules Practice Direction 35.3 and the Guidance for the Instruction of Experts in Civil Claims (2014) https://www.judiciary.uk/wp-content/uploads/2014/08/experts-guidance-cjc-aug-2014-amended-dec-8.pdf
+
+If you do not have a copy please let [[alt@who:us||me]] know.
+
+[[alt@who:We confirm that this firm will be responsible for your reasonable fees of up to £[[alt:450||600||750]] plus VAT, payable within 30 days of receipt of your invoice.||I will pay your fee of £[[alt:350||450]], as quoted, within 14 days of receiving your report.]]
+
+Yours sincerely,
+
+[[alt@who:{{PERSON:fee_earner|full}}
+Marchbank & Tull LLP||{{PERSON:tenant|first_var_last}}]]

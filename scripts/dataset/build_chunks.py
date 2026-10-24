@@ -21,12 +21,14 @@ chunk and per type in order of first appearance; all entities sharing an
 entity_id in the chunk get the same N. An entity value that runs over several
 lines keeps its line breaks, with the placeholder on each line.
 
-Dedup (design section 5): a chunk with no entities is emitted once per
-source_id. Documents are processed in fill order, so the earliest fill keeps it
-and later identical copies are dropped.
+Dedup (design section 5): chunks with no entities are emitted once per
+source_id, from its earliest fill only. Text variations (hard wrapping, date
+formats) make later fills' empty chunks near-identical but not byte-identical,
+and Mubit wastes near-duplicate calls. --keep-empty-variants restores the older
+rule, which keeps an empty chunk from a later fill when its text is new.
 
 Usage:
-    python scripts/dataset/build_chunks.py [--docs-dir data/docs] [--out-dir data/chunks] [--max-tokens 1000]
+    python scripts/dataset/build_chunks.py [--docs-dir data/docs] [--out-dir data/chunks] [--max-tokens 1000] [--keep-empty-variants]
 """
 
 from __future__ import annotations
@@ -227,17 +229,23 @@ def chunk_document(doc: dict, max_tokens: int = MAX_CHUNK_TOKENS) -> list[dict]:
     return chunks
 
 
-def build(docs: list[dict], max_tokens: int = MAX_CHUNK_TOKENS) -> tuple[dict[str, list[dict]], dict]:
+def build(
+    docs: list[dict], max_tokens: int = MAX_CHUNK_TOKENS, keep_empty_variants: bool = False
+) -> tuple[dict[str, list[dict]], dict]:
     """Chunk all documents and apply the dedup rule. Returns (chunks by split, stats)."""
     by_split: dict[str, list[dict]] = {s: [] for s in SPLITS}
     seen_clean: set[tuple[str, str]] = set()
+    first_fill: dict[str, int] = {}
+    for doc in docs:
+        first_fill[doc["source_id"]] = min(doc["fill"], first_fill.get(doc["source_id"], doc["fill"]))
     stats = {"dropped": Counter(), "docs": Counter(), "over_limit": 0}
     for doc in sorted(docs, key=lambda d: (d["source_id"], d["fill"], d["doc_id"])):
         stats["docs"][(doc["split"], doc["group"])] += 1
         for ch in chunk_document(doc, max_tokens):
             if not ch["entities"]:
                 key = (ch["source_id"], ch["text"])
-                if key in seen_clean:
+                later_fill = not keep_empty_variants and doc["fill"] != first_fill[doc["source_id"]]
+                if later_fill or key in seen_clean:
                     stats["dropped"][(ch["split"], ch["group"])] += 1
                     continue
                 seen_clean.add(key)
@@ -287,6 +295,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--out-dir", type=Path, default=CHUNKS_DIR)
     ap.add_argument("--max-tokens", type=int, default=MAX_CHUNK_TOKENS, help="chunk limit in estimated tokens")
     ap.add_argument("--skip-validation", action="store_true", help="do not run validate_docs first (not recommended)")
+    ap.add_argument("--keep-empty-variants", action="store_true",
+                    help="keep empty chunks from later fills when their text is new (older dedup rule)")
     args = ap.parse_args(argv)
 
     if not args.skip_validation:
@@ -301,7 +311,7 @@ def main(argv: list[str] | None = None) -> int:
     if not docs:
         print(f"No documents in {args.docs_dir}")
         return 1
-    by_split, stats = build(docs, args.max_tokens)
+    by_split, stats = build(docs, args.max_tokens, args.keep_empty_variants)
     for split in SPLITS:
         write_jsonl(args.out_dir / f"{split}.jsonl", by_split[split])
     print(summary(by_split, stats, args.max_tokens))

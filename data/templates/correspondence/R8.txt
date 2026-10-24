@@ -1,0 +1,106 @@
+# source_id: R8
+# title: Acas job offer letter with written statement, filled in by an employer, with the candidate's signed acceptance slip
+# url: https://www.acas.org.uk/job-offer-templates/job-offer-letter-template-with-written-statement
+# licence: Open Government Licence
+# kind: template
+# subtype: letter
+# locales: uk
+# year_shifts: -1 0 1
+# static_hard_cases: company_with_person_name over_redaction_trap
+# notes: template text from the Acas page (page navigation, download links and feedback form dropped); every bracketed field is filled and the "[Optional]" lines are [[opt]] blocks; "paid into you" corrected to "paid into your"; the letterhead, reference line, absence contact sentence, right-to-work sentence and the payroll lines (employee number, NI number, date of birth) on the acceptance slip are added variations; the employer is invented; place names in "other places of work" are not addresses (trap)
+# ---
+[[opt@lh=0.5:Hollis & Mercer Ltd
+{{ADDRESS:biz_office|lines,office}}
+
+]][[alt:{{PERSON:candidate|full}}||{{PERSON:candidate|title_full}}||{{PERSON:candidate|first_middle_last}}]]
+{{ADDRESS:candidate_home|lines,home}}
+
+{{DATE:2025-08-04|letter}}
+[[opt=0.5:
+Our ref: {{PERSON:writer|initials}}/{{PERSON:hr_contact|initials}}[[opt:/{{CUSTOM:emp_no|employee_no}}]]
+]]
+Dear {{PERSON:candidate|first_var}},
+
+Following [[alt:our recent selection process||your recent interview||your recent interview with {{PERSON:manager|title_last}} and me]], I am writing to offer you the post of [[alt@job:Payroll Administrator||Warehouse Team Leader||Junior Software Developer]] at the salary of [[alt@job:£26,500||£31,200||£34,000]] per year, starting on {{DATE:2025-09-01|letter}}.
+
+On starting, you will report to {{PERSON:manager|full}}[[opt:, [[alt@job:Payroll Manager||Warehouse Manager||Engineering Lead]]]].
+
+This is a [[alt:permanent post||fixed-term post ending on {{DATE:2026-08-31|letter}}||temporary post to cover for maternity leave]].
+
+This letter forms part of your contract of employment.
+
+The other terms and conditions of your employment will be:
+
+Continuous employment – your previous employment [[alt@cont:counts||does not count]] as part of a period of 'continuous employment' (working for the same employer without a significant break).[[alt@cont: This began on {{DATE:2019-04-01|letter}}.||]]
+
+Place of work – [[alt@pw:{{ADDRESS:biz_office|oneline,office}}||{{ADDRESS:work_site|oneline,office}}]]
+[[opt:
+Other places you may be required to work at – our [[alt:depots in Wakefield and Doncaster||client sites across Greater Manchester||offices in Leeds and Sheffield]]
+]][[opt=0.3:
+Working abroad – you may be required to travel outside of the UK for a total of up to [[alt:2||3]] months in any 12-month period. [[alt:Travel and accommodation will be paid for by the company.||You will receive an overseas allowance of £45 per day.]]
+]]
+Hours of work – [[alt:37.5||40]] per week, [[alt:Monday to Friday, 9am to 5:30pm, including a 1 hour lunch break||Monday to Friday, 8:30am to 5:30pm, including 1 hour lunch break; and 1 Saturday in 4, 9am to 1pm, with time off in lieu for weekend working]]
+
+Salary – reviewed every 12 months with [[alt:your head of department||your line manager||the Finance Director]]. Your monthly salary will be paid into your [[alt:bank||building society]] account on the [[alt:last working day of each month||25th of each month]]
+
+Benefits – [[alt:a contributory health plan and a cycle to work scheme; details are in the staff handbook||a company van for work use and a quarterly bonus scheme; details are on the intranet]]
+
+Company pension – [[alt:details of the workplace pension scheme are in the staff handbook||you will be enrolled into the company's workplace pension scheme; {{PERSON:hr_contact|full}} will send you the details before you start]]
+
+Collective agreements – [[alt:there are no collective agreements that affect your employment||your terms are affected by the collective agreement with Unite the Union, a copy of which is available from HR]]
+
+Holiday entitlement – [[alt:25||28]] days per year plus 8 bank holidays. The holiday year runs from [[alt:1 January to 31 December||1 April to 31 March]]
+
+Holiday pay – [[alt:you will be paid your normal pay for holidays; if you leave, you will be paid for any holiday you have built up but not taken||holiday pay is based on your average pay over the previous 52 weeks; if you leave, untaken holiday will be paid in your final salary]]
+
+Absence – if you're absent from work for any reason you must inform {{PERSON:manager|first_var}} by telephone as soon as possible, but no later than [[alt:9:30am||one hour after the start of your shift]].[[opt=0.7: In {{PERSON:manager|title_last}}'s absence, call {{PERSON:hr_contact|full}} on {{PHONE:hr_tel|landline}}.]]
+
+Sick pay – you may be entitled to be paid if you're not able to work due to sickness or injury. [[alt:You will receive Statutory Sick Pay (SSP) if you qualify.||You will receive full pay for up to 4 weeks in any 12-month period, and Statutory Sick Pay after that if you qualify.]]
+
+Other paid leave – [[alt:you are entitled to statutory maternity, paternity, adoption and shared parental leave and pay||you are entitled to statutory family leave and pay, and to 2 days' paid volunteering leave a year]]
+
+Probationary period – there will be a probationary period of [[alt:3||6]] months which will have to be completed satisfactorily. [[alt:Your manager will review your progress every month during this period.||Your probationary period may be extended once by up to 3 months.]]
+
+Performance management – a review with [[alt:{{PERSON:manager|full}}||your line manager]] every [[alt:3||6]] months, with a full structured appraisal every 12 months
+
+Training – [[alt:you must complete manual handling and fire safety training in your first month; this is paid for by the company||you must complete the company's data protection training in your first week; this is paid for by the company]]. [[alt:Details of other training are on the intranet.||Other courses are listed in the staff handbook.]]
+
+Notice period – during the probationary period, 1 week's notice by you or the employer; after the probationary period, [[alt:1 month's||4 weeks']] notice by you or the employer
+
+Grievances – if you wish to raise a grievance, you should put it in writing to [[alt:your manager||the HR Manager]]. The grievance procedure is in the staff handbook.
+
+Disciplinary rules and procedures – these are in the staff handbook. If you're unhappy with any disciplinary decision taken in relation to you, you can appeal in writing to the [[alt:Operations Director||Managing Director]].
+[[opt:
+We will provide you with [[alt:the employee handbook||an induction pack]] on your first day of employment.
+]]
+As explained at your [[alt:assessment day||interview]], this job offer is made subject to satisfactory results from necessary pre-employment checks.[[opt=0.5: Please bring your passport or other proof of your right to work in the UK on your first day.]]
+
+If you have any queries on the contents of this letter or the pre-employment checks, please do not hesitate to contact me on {{PHONE:writer_tel|any}} or {{EMAIL:writer|<first>.<last>@hollismercer.co.uk}}.
+
+To accept this offer, please sign this letter and send it back to [[alt:{{PERSON:hr_contact|full}} at the address below||{{PERSON:hr_contact|full}}, HR Officer, by email to {{EMAIL:hr_contact|<f><last>@hollismercer.co.uk}}||me at the address below]][[opt: by {{DATE:2025-08-15|letter}}]].
+
+We are delighted to offer you this opportunity and look forward to you joining the organisation and working with you.
+
+Yours sincerely,
+
+[[alt@sig:{{PERSON:writer|full}}||{{PERSON:writer|full_mi}}]]
+[[alt:HR Manager||Head of People||Operations Director]]
+
+Hollis & Mercer Ltd
+{{ADDRESS:biz_office|lines,office}}
+
+For the candidate to sign and return
+
+I accept the job offer on the terms and conditions outlined in this letter.
+
+Signed: [[alt:____________________||{{PERSON:candidate|full}}]]
+
+Name: {{PERSON:candidate|upper_full}}
+[[opt@payroll=0.6:
+Employee number: {{CUSTOM:emp_no|employee_no}}
+
+National Insurance number: [[alt:{{NI_NUMBER:candidate_ni|spaced}}||{{NI_NUMBER:candidate_ni|compact}}]]
+
+Date of birth: {{DOB:candidate_dob|uk}}
+]]
+Date: {{DATE:2025-08-11|letter}}

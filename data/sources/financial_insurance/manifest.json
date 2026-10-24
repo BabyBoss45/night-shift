@@ -1,40 +1,270 @@
 {
   "owner": "dataset-finance",
-  "outputs": ["data/docs/financial.jsonl", "data/docs/insurance.jsonl"],
+  "outputs": [
+    "data/docs/financial.jsonl",
+    "data/docs/insurance.jsonl"
+  ],
   "sources": {
     "gretel": {
       "url": "https://huggingface.co/datasets/gretelai/synthetic_pii_finance_multilingual",
       "licence": "Apache-2.0",
       "attribution": "Gretel.ai",
       "provenance_kind": "synthetic",
-      "revision": "pinned to the dataset commit hash at build time (see section gretel)",
-      "selection_rule": "English UK documents only (rule in scripts/sources/financial_insurance/build_gretel.py, UK_RULE); financial or insurance document types, machine formats (FIX, XBRL, SWIFT, EDI, JSON, logs) left out; labels mapped by label_map.md; validated and swept; about 100 chosen round-robin over document types for variety; split by document, seeded: 50% train, 30% fresh, 20% eval"
+      "revision": "7b844d16738527a04264f50214cb426a4cea0897",
+      "selection_rule": "English UK documents only: language_description is exactly 'English language as spoken in the United Kingdom' and the text has no non-UK signal (UK_RULE in build_gretel.py); 19 personal financial and insurance document types (DOC_TYPES in build_gretel.py), everything else left out; labels mapped and checked by label_map.md; validated and swept; 100 chosen round-robin over document types (45 insurance, 55 financial), invoices, payslips and claim letters first inside their type; split by document, seeded: 50% train, 30% fresh, 20% eval",
+      "files_read": [
+        "data/English_train-00000-of-00001.parquet (24.4 MB)",
+        "data/English_test-00000-of-00001.parquet (2.7 MB)"
+      ],
+      "download": "hf_hub_download of those two files only, to /tmp/raw/financial_insurance/gretel (outside the repo); no other file of the dataset is fetched"
     },
     "INS1": {
       "url": "https://www.justice.gov.uk/courts/procedure-rules/civil/protocol/prot_pic",
-      "part": "Pre-Action Protocol for Personal Injury Claims, annexes B1, B2 and D (letters of claim to an insurer and responses)",
-      "licence": "Crown copyright (design section 4); confirm the page's reuse terms when fetching",
+      "part": "Pre-Action Protocol for Personal Injury Claims, annexes B1 (letter of claim), B2 (letter of response) and D (letter of instruction to medical expert), rendered as one claim file",
+      "licence": "Crown copyright. The page (fetched 24 Oct 2026) states only '© Crown copyright' in its footer, with no Open Government Licence notice",
       "provenance_kind": "template",
       "template": "data/templates/insurance/INS1.txt",
       "fills": 5,
-      "splits": "fills 1-3 train, 4-5 fresh"
+      "splits": "fills 1-3 train, 4-5 fresh",
+      "fetched": "24 Oct 2026 by fetch_real.py; page sha256 4b1fda94d7a4dcf4eea0af2d45afbb6d5455bb14a6e6dd57be17bc82870adbe3; raw files in /tmp/raw/financial_insurance, not committed"
     },
     "INS2": {
       "url": "https://www.sec.gov/Archives/edgar/data/1190935/000095013607000199/file8.htm",
       "part": "Lloyd's blanket bond, PIMCO Funds (policy and schedule)",
       "licence": "Public SEC EDGAR filing",
       "provenance_kind": "filled_real",
-      "template": "data/templates/insurance/INS2.txt",
-      "fills": 5,
-      "splits": "fills 1-3 train, 4-5 fresh"
+      "status": "blocked by decision (24 Oct 2026): sec.gov is never fetched and no INS2 template or documents are built"
     }
   },
-  "not_built": {
-    "gretel": "huggingface.co blocked by the build session's network policy (proxy 403 on CONNECT, 23 Oct 2026). Run build_gretel.py from a session that can reach huggingface.co.",
-    "real": "www.justice.gov.uk and www.sec.gov blocked by the build session's network policy (proxy 403 on CONNECT, 23 Oct 2026). Run fetch_real.py, write the two templates, then build_real.py."
-  },
   "counts": {
-    "financial.jsonl": 0,
-    "insurance.jsonl": 0
+    "financial.jsonl": 55,
+    "insurance.jsonl": 50
+  },
+  "gretel": {
+    "dataset": "gretelai/synthetic_pii_finance_multilingual",
+    "url": "https://huggingface.co/datasets/gretelai/synthetic_pii_finance_multilingual",
+    "revision": "7b844d16738527a04264f50214cb426a4cea0897",
+    "files": [
+      "data/English_train-00000-of-00001.parquet",
+      "data/English_test-00000-of-00001.parquet"
+    ],
+    "licence": "Apache-2.0",
+    "attribution": "Gretel.ai",
+    "seed": "night-shift-gretel-v1",
+    "uk_rule": "language column is English; language_description names the United Kingdom and no other country (exactly 'English language as spoken in the United Kingdom'; the mixed 'United States, the UK, or Canada' rows are left out); and the text has no non-UK signal ($ or USD/EUR/CHF/SEK or €, US SSN pattern NNN-NN-NNNN, 'routing number', 'ZIP', 'Social Security', US state plus ZIP)",
+    "document_types": {
+      "financial": [
+        "Bank Statement",
+        "Credit Card Statement",
+        "Mortgage Amortization Schedule",
+        "Loan Application",
+        "Credit Application",
+        "Credit Card Application",
+        "Financial Aid Application",
+        "Payment Confirmation",
+        "Transaction Confirmation",
+        "Loan Agreement",
+        "Mortgage Contract",
+        "Real Estate Loan Agreement",
+        "Tax Return",
+        "Tax Assessment Notice"
+      ],
+      "insurance": [
+        "Insurance Policy",
+        "Insurance Claim Form",
+        "Health Insurance Claim Form",
+        "Policyholder's Report",
+        "Renewal Reminder"
+      ]
+    },
+    "label_map": "scripts/sources/financial_insurance/label_map.md",
+    "counts": {
+      "rows_seen": 28910,
+      "english": 28910,
+      "not_uk": {
+        "locale_not_uk": 24446,
+        "non_uk_signal": 535
+      },
+      "english_uk": 3929,
+      "uk_in_scope": 1106,
+      "valid_candidates": 950,
+      "valid_by_group": {
+        "financial": 614,
+        "insurance": 336
+      },
+      "selected": 100,
+      "drop_reasons": {
+        "document_type_out_of_scope": 2823,
+        "template_placeholder_span": 77,
+        "placeholder_like_token": 17,
+        "drop_label:api_key": 15,
+        "sweep_ambiguous:ACCOUNT8": 12,
+        "drop_label:password": 11,
+        "span_value_not_valid:DOB": 8,
+        "person_span_not_a_name": 5,
+        "drop_label:bank_routing_number": 3,
+        "sweep_ambiguous:SORT_CODE": 2,
+        "sweep_ambiguous:CARD": 1,
+        "field_partial_overlap:CUSTOM": 1,
+        "span_mid_word": 1,
+        "person_data_inside_company_name": 1,
+        "field_partial_overlap:BANK_ACCOUNT": 1,
+        "sweep_partial_overlap:EMAIL": 1
+      },
+      "fixes_in_candidates": {
+        "sweep_added:EMAIL": 193,
+        "field_added:CUSTOM": 145,
+        "sweep_added:POSTCODE": 105,
+        "sweep_added:PHONE": 100,
+        "field_added:BANK_ACCOUNT": 80,
+        "field_added:SORT_CODE": 46,
+        "title_moved_inside": 42,
+        "nested_duplicate_removed": 28,
+        "sweep_added:NI_NUMBER": 20,
+        "merged_name_parts": 16,
+        "field_added:DOB": 6,
+        "field_added:ID_DOC": 3,
+        "date_relabelled_dob": 3
+      },
+      "by_group_split": {
+        "financial": {
+          "eval": 11,
+          "fresh": 16,
+          "train": 28
+        },
+        "insurance": {
+          "eval": 9,
+          "fresh": 14,
+          "train": 22
+        }
+      },
+      "by_group_subtype": {
+        "financial": {
+          "bank_statement": 4,
+          "credit_application": 4,
+          "credit_card_application": 4,
+          "credit_card_statement": 4,
+          "financial_aid_application": 4,
+          "loan_agreement": 4,
+          "loan_application": 4,
+          "mortgage_amortization_schedule": 4,
+          "mortgage_contract": 4,
+          "payment_confirmation": 4,
+          "real_estate_loan_agreement": 4,
+          "tax_assessment_notice": 4,
+          "tax_return": 4,
+          "transaction_confirmation": 3
+        },
+        "insurance": {
+          "health_insurance_claim_form": 9,
+          "insurance_claim_form": 9,
+          "insurance_policy": 9,
+          "policyholder_s_report": 9,
+          "renewal_reminder": 9
+        }
+      },
+      "preferred_expanded_selected": {
+        "financial/payment_confirmation/Online Invoice Payment": 2,
+        "financial/payment_confirmation/Payroll Deposit": 2,
+        "financial/transaction_confirmation/Salary Slip": 1,
+        "financial/transaction_confirmation/Tax Invoice": 1,
+        "insurance/policyholder_s_report/Claim Denial": 2,
+        "insurance/renewal_reminder/Claim Approval": 2,
+        "insurance/renewal_reminder/Claim Rejection": 2
+      },
+      "entities_by_type": {
+        "PERSON": 161,
+        "ADDRESS": 99,
+        "POSTCODE": 47,
+        "PHONE": 46,
+        "EMAIL": 41,
+        "CUSTOM": 35,
+        "DOB": 22,
+        "ID_DOC": 8,
+        "CARD": 7,
+        "IBAN": 6,
+        "BANK_ACCOUNT": 5,
+        "SORT_CODE": 3,
+        "NI_NUMBER": 1
+      },
+      "uk_document_types_out_of_scope": {
+        "ISDA Definition": 134,
+        "CSV": 134,
+        "Customer support conversational log": 133,
+        "IT support ticket": 132,
+        "EDI": 125,
+        "MT940": 122,
+        "Email": 121,
+        "Financial Statement": 115,
+        "BAI Format": 114,
+        "Bill of Lading": 111,
+        "Safety Data Sheet": 109,
+        "FIX Protocol": 109,
+        "XBRL": 109,
+        "SWIFT Message": 87,
+        "Investment Prospectus": 82,
+        "FpML": 81,
+        "Corporate Tax Return": 56,
+        "Financial Risk Assessment": 51,
+        "Employment Contract": 50,
+        "Supply Chain Management Agreement": 49,
+        "Financial Regulatory Compliance Report": 47,
+        "Regulatory Filing": 46,
+        "Compliance Certificate": 46,
+        "Dispute Resolution Policy": 45,
+        "Shareholder Agreement": 45,
+        "Financial Forecast": 44,
+        "Privacy Policy": 43,
+        "Financial Disclosure Statement": 43,
+        "Regulatory Compliance Guide": 42,
+        "Audit Report": 41,
+        "Pension Plan Agreement": 40,
+        "Cryptocurrency Transaction Report": 40,
+        "Customer Agreement": 39,
+        "Annual Report": 38,
+        "Business Plan": 36,
+        "Trade Confirmation": 35,
+        "Financial Data Feed": 33,
+        "Product Disclosure Statement": 33,
+        "Corporate Governance Guidelines": 30,
+        "Securities Prospectus": 29,
+        "Currency Exchange Rate Sheet": 4
+      }
+    }
+  },
+  "real": {
+    "seed": "night-shift-ins-v1",
+    "fills": 5,
+    "faker_locale": "en_GB",
+    "sources": {
+      "INS1": {
+        "template": "data/templates/insurance/INS1.txt",
+        "url": "https://www.justice.gov.uk/courts/procedure-rules/civil/protocol/prot_pic",
+        "licence": "Crown copyright (Ministry of Justice, Pre-Action Protocol for Personal Injury Claims, annexes B1, B2 and D)",
+        "kind": "template",
+        "subtype": "personal_injury_claim_letters",
+        "documents": 5
+      }
+    },
+    "counts": {
+      "documents": 5,
+      "by_split": {
+        "train": 3,
+        "fresh": 2
+      },
+      "by_type": {
+        "ADDRESS": 55,
+        "POSTCODE": 55,
+        "PHONE": 20,
+        "CUSTOM": 42,
+        "PERSON": 107,
+        "BANK_ACCOUNT": 4,
+        "EMAIL": 4,
+        "DOB": 8,
+        "NI_NUMBER": 3,
+        "SORT_CODE": 1,
+        "IBAN": 1
+      }
+    }
   }
 }

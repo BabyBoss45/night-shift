@@ -1,0 +1,112 @@
+#! source_id: C6
+#! title: IPO example non-disclosure agreement, one-way
+#! url: https://www.gov.uk/government/publications/non-disclosure-agreements
+#! fetched_from: https://assets.publishing.service.gov.uk/media/5ad448cae5274a76be66c2e1/Example-One-Way-Non-Disclosure-Agreement__3_.odt
+#! licence: Open Government Licence v3.0, Crown copyright (Intellectual Property Office). Changes: ODT converted to plain text, square-bracket options resolved per fill, blanks replaced by fill slots.
+#! kind: template (blank example agreement; every slot below is one of its fill-in fields)
+#!
+#! Company numbers use the Scottish (SC), Northern Ireland (NI) and LLP (OC) formats. They are public
+#! register numbers, not personal data, and stay unlabelled.
+#! pool c6_reg_r: Scotland under company number SC547120
+#! pool c6_reg_r: England and Wales under company number OC421873
+#! pool c6_reg_r: Northern Ireland under company number NI658204
+#! pool c6_reg_r: Scotland under company number SC603917
+#! pool c6_reg_d: England and Wales under company number OC398214
+#! pool c6_reg_d: Scotland under company number SC612389
+#! pool c6_reg_d: Northern Ireland under company number NI671530
+#! pool c6_reg_d: England and Wales under company number OC405562
+#! pool c6_purpose: discussing the possibility of the Recipient and the Discloser entering into a joint venture
+#! pool c6_purpose: evaluating the Discloser’s proposal to supply route-planning software to the Recipient’s depots in Leeds and Wakefield, at an estimated value of £45,000{{TAG:over_redaction_trap}}
+#! pool c6_purpose: assessing the recipes and production methods for the Discloser’s range of chilled soups before a trial order planned for 3 March 2026{{TAG:over_redaction_trap}}
+#! pool c6_purpose: reviewing the Discloser’s plans for the refit of the Victoria Street shop, which {{PERSON:discloser|title_surname}} will present to the Recipient on {{DATE:meeting}}{{TAG:over_redaction_trap}}
+#! pool c6_purpose: allowing {{PERSON:recipient|title_full}} to review the Discloser’s customer list before a possible purchase of the business, under the Discloser’s file reference {{CUSTOM:matter}}
+#! pool c6_purpose: considering a licence of the Discloser’s design for a modular heat pump, as described in {{PERSON:discloser|initials_surname}}’s letter of {{DATE:letter}}
+#! pool c6_purpose: evaluating the Discloser’s pricing for the Mill Lane depot contract, in which the Discloser’s bid is quoted as tender {{CUSTOM:ref_slash}}{{TAG:over_redaction_trap}}
+#! pool nyears: two
+#! pool nyears: three
+#! pool nyears: five
+#! pool nyears: 2
+#! pool nyears: 3 (three)
+#! pool nyears: ten
+{{ALT}}An Example of a
+One-way Non-Disclosure Agreement{{OR}}One-way Non-Disclosure Agreement{{OR}}ONE-WAY NON-DISCLOSURE AGREEMENT{{/ALT}}
+
+Date: {{DATE:agreement}}
+
+Parties:
+
+{{ALT:rk}}{{ALT}}{{PERSON:recipient|upper_full}}{{OR}}{{PERSON:recipient|title_full}}{{OR}}{{PERSON:recipient|full}}{{/ALT}} of {{ADDRESS:recipient|oneline}}{{OR}}{{COMPANY:recipient|registered}}, a company registered in {{TEXT:c6_reg_r}} whose registered office is at {{ADDRESS:recipient|oneline}}{{/ALT}}
+(the Recipient)
+
+and
+
+{{ALT:dk}}{{ALT}}{{PERSON:discloser|upper_full}}{{OR}}{{PERSON:discloser|title_full}}{{OR}}{{PERSON:discloser|full}}{{/ALT}} of {{ADDRESS:discloser|oneline}}{{OR}}{{COMPANY:discloser|registered}}, a company registered in {{TEXT:c6_reg_d}} whose registered office is at {{ADDRESS:discloser|oneline}}{{/ALT}}
+(the Discloser)
+
+1. The Discloser intends to disclose information (the Confidential Information) to the Recipient for the purpose of {{TEXT:c6_purpose}} (the Purpose).
+
+2. The Recipient undertakes not to use the Confidential Information for any purpose except the Purpose, without first obtaining the written agreement of the Discloser.
+
+3. The Recipient undertakes to keep the Confidential Information secure and not to disclose it to any third party {{ALT}}except to its employees and professional advisers{{OR}}except to its employees{{/ALT}} who need to know the same for the Purpose, who know they owe a duty of confidence to the Discloser and who are bound by obligations equivalent to those in clause 2 above and this clause 3.
+
+4. The undertakings in clauses 2 and 3 above apply to all of the information disclosed by the Discloser to the Recipient, regardless of the way or form in which it is disclosed or recorded but they do not apply to:
+
+a) any information which is or in future comes into the public domain (unless as a result of the breach of this Agreement); or
+
+b) any information which is already known to the Recipient and which was not subject to any obligation of confidence before it was disclosed to the Recipient by the Discloser.
+
+5. Nothing in this Agreement will prevent the Recipient from making any disclosure of the Confidential Information required by law or by any competent authority.
+
+6. The Recipient will, on request from the Discloser, return all copies and records of the Confidential Information to the Discloser and will not retain any copies or records of the Confidential Information.
+
+7. Neither this Agreement nor the supply of any information grants the Recipient any licence, interest or right in respect of any intellectual property rights of the Discloser except the right to copy the Confidential Information solely for the Purpose.
+
+8. The undertakings in clauses 2 and 3 will continue in force {{ALT}}indefinitely.{{OR}}for {{TEXT:nyears}} years from the date of this Agreement.{{/ALT}}
+
+9. This Agreement is governed by, and is to be construed in accordance with, English law. The English Courts will have non-exclusive jurisdiction to deal with any dispute which has arisen or may arise out of, or in connection with, this Agreement.
+
+{{ALT:rk}}{{ALT}}If the Recipient is an individual
+
+{{OR}}{{/ALT}}Signed and Delivered as a Deed by:
+
+{{PERSON:recipient|full}} in the presence of:
+
+{{SIGNATURE:recipient}}
+
+Signature
+
+{{SIGNATURE:witness}}
+
+Signature of witness
+
+{{PERSON:witness|print}}
+
+Name of witness
+
+{{ADDRESS:witness|multiline}}
+
+Address of witness{{OR}}{{ALT}}If the Recipient is a company
+
+{{OR}}{{/ALT}}Executed and Delivered as a Deed by
+
+{{COMPANY:recipient}} acting by
+
+{{PERSON:recipient|full}}, a director,
+
+in the presence of:
+
+{{SIGNATURE:recipient}}
+
+Signature of Director
+
+{{SIGNATURE:witness}}
+
+Signature of witness
+
+{{PERSON:witness|print}}
+
+Name of witness
+
+{{ADDRESS:witness|multiline}}
+
+Address of witness{{/ALT}}

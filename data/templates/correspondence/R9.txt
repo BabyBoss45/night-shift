@@ -1,0 +1,39 @@
+# source_id: R9
+# title: Acas notice of disciplinary outcome letter (dismissal, disciplinary action or no action), filled in by an employer
+# url: https://www.acas.org.uk/disciplinary-outcome-letter-templates/notice-of-disciplinary-outcome-letter-template-dismissal-disciplinary-action-or-no-action
+# licence: Open Government Licence
+# kind: template
+# subtype: letter
+# locales: uk
+# year_shifts: -1 0 1
+# static_hard_cases: company_with_person_name
+# notes: template text from the Acas page (page navigation, download links and feedback form dropped); every bracketed field is filled; Option A, B or C rotates by fill (@outcome); the letterhead, addressee block, employee number, reference line, hearing attendees and cc line are added variations; the employer is invented
+# ---
+Hollins Fairley Logistics Ltd
+[[opt@lh=0.7:{{ADDRESS:employer_office|lines,office}}
+[[opt=0.6:Tel: {{PHONE:hr_tel|landline}}
+]]]]
+[[opt@addr=0.8:PRIVATE AND CONFIDENTIAL
+[[alt:{{PERSON:employee|title_full}}||{{PERSON:employee|full}}]]
+{{ADDRESS:employee_home|lines,home}}
+
+]][[opt@refs=0.8:[[opt=0.6:Our ref: {{PERSON:manager|initials}}/{{PERSON:hr_adviser|initials}}
+]]Employee number: {{CUSTOM:emp_no|employee_no}}
+
+]]{{DATE:2025-06-20|letter}}
+
+Dear [[alt:{{PERSON:employee|first_var}}||{{PERSON:employee|title_last}}]]
+
+You attended a disciplinary hearing on {{DATE:2025-06-17|letter}}.[[opt@hearing=0.7: The hearing was chaired by me[[alt:, with {{PERSON:hr_adviser|full}} from HR taking notes|| and {{PERSON:hr_adviser|full}}, HR Adviser, was also present]]. You were accompanied by {{PERSON:companion|full}}, your [[alt:trade union representative||work colleague]].]] I am writing to inform you that:
+
+[[alt@outcome:no further action will be taken against you.[[opt=0.5: However, I would remind you of the standards expected of all drivers, which {{PERSON:supervisor|title_last}} went through with you on {{DATE:2025-04-07|letter}}.]]||disciplinary action will be taken against you. The action will be: [[alt:a first written warning, which will stay on your file for 6 months||a final written warning, which will stay on your file for 12 months||a written warning, which will stay on your file for 6 months, and a period of retraining with {{PERSON:supervisor|full}}]]. The reasons for this disciplinary action are: [[alt@why:on {{DATE:2025-05-29|letter}} you were found asleep in a company vehicle parked at {{TRAP:place}} during your shift||you shouted and swore at a colleague, {{PERSON:colleague|first_var}}, in front of customers on {{DATE:2025-05-12|letter}}, after an earlier verbal warning from {{PERSON:supervisor|title_last}} about your conduct||your attendance has not met the standard set out in the improvement plan you agreed with {{PERSON:supervisor|full}} on {{DATE:2025-02-03|letter}}]].||you will be dismissed and your last day of service with the company will be {{DATE:2025-06-27|letter}}. The reasons for your dismissal are: [[alt@why:on {{DATE:2025-05-29|letter}} you were found asleep in a company vehicle parked at {{TRAP:place}} during your shift, which is gross misconduct under the company's disciplinary rules||you shouted and swore at a colleague, {{PERSON:colleague|first_var}}, in front of customers on {{DATE:2025-05-12|letter}} while you were already on a final written warning||your attendance has not improved during the improvement plan you agreed with {{PERSON:supervisor|full}} on {{DATE:2025-02-03|letter}}, and you were already on a final written warning]].[[opt=0.5: You will be paid for any holiday you have accrued but not taken.]]]]
+
+You have the right of appeal against this decision. If you would like to do this, [[alt@appeal:write to {{PERSON:appeal_mgr|title_full}}, Operations Director, at {{ADDRESS:employer_office|oneline,office}}||email {{PERSON:appeal_mgr|full}} at {{EMAIL:appeal_mgr|<first>.<last>@hollinsfairley.co.uk}}||email {{EMAIL:hr_box|hr@hollinsfairley.co.uk}} or write to the HR team at {{ADDRESS:employer_office|oneline,office}}]] within [[alt:5||7||10]] days of receiving this disciplinary decision.
+
+Yours sincerely,
+
+[[alt@sig:{{PERSON:manager|full}}||{{PERSON:manager|first_middle_last}}||{{PERSON:manager|full_mi}}]]
+[[alt:Depot Manager||Transport Manager||Operations Manager]]
+[[opt=0.5:
+cc: {{PERSON:hr_adviser|initial_last}}, HR; personnel file
+]]

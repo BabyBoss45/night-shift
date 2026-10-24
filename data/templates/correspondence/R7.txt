@@ -1,0 +1,43 @@
+# source_id: R7
+# title: ICO subject access request complaint letter, filled in by an individual and sent to the organisation
+# url: https://ico.org.uk/media2/migrated/4028636/sar-complaint-letter-or-email-template-v10.docx
+# licence: Open Government Licence
+# kind: template
+# subtype: letter
+# locales: uk
+# year_shifts: -1 0 1
+# static_hard_cases: over_redaction_trap
+# notes: template text from the ICO DOCX; every bracketed field is filled; the bracketed guidance and examples are turned into the writer's own complaint (one or both example complaints per fill); the "Version 1.0 20240417" footer is dropped; the organisation (energy supplier, building society or council) rotates by fill (@org) and is invented; the ICO, its website and the request dates stay visible (traps)
+# ---
+{{ADDRESS:home|lines,home}}
+{{PHONE:requester_tel|any}}
+{{DATE:2025-11-03|letter}}
+[[alt@org:Data Protection Officer
+Northwold Energy Ltd
+{{ADDRESS:org_addr|lines,office}}||The Data Protection Team
+Brindlecombe Building Society
+{{ADDRESS:org_addr|lines,office}}||Information Governance Team
+Westmere Borough Council
+{{ADDRESS:org_addr|lines,office}}]]
+[[opt@ref=0.7:
+Your reference: {{CUSTOM:org_ref|case_triplet}}
+]]
+Dear [[alt@dear:Sir or Madam||{{PERSON:dpo|title_last}}||{{PERSON:dpo|first_var}}]]
+Subject access request complaint
+{{PERSON:requester|full}}, {{ADDRESS:home|oneline,home}}[[alt@org:, customer account number {{CUSTOM:acct|client_code}}||, savings account ending {{BANK_ACCOUNT:acct|last4}}||, council tax account {{CUSTOM:acct|hotel_conf}}]][[opt=0.4:, date of birth {{DOB:requester_dob|long}}]]
+I’m concerned you haven’t done everything you’re meant to.
+I made a subject access request to you on {{DATE:2025-08-26|letter}}[[opt=0.6: by email to [[alt@org:{{EMAIL:org_box|dataprotection@northwoldenergy.co.uk}}||{{EMAIL:org_box|dpo@brindlecombe.co.uk}}||{{EMAIL:org_box|foi.dpa@westmere.gov.uk}}]]]][[alt@dear:||, and {{PERSON:dpo|full}} wrote to me on {{DATE:2025-09-22|letter}} to say the request was being handled||. {{PERSON:dpo|full}} acknowledged it on {{DATE:2025-08-28|letter}}]]. [[alt:I received your reply on {{DATE:2025-10-01|letter}}, but it is incomplete.||Your reply of {{DATE:2025-10-01|letter}} does not include everything I asked for.]]
+[[alt@what:You haven’t sent me the following information:
+[[alt:the recordings of my calls to your customer service team on {{DATE:2025-06-12|letter}} and {{DATE:2025-07-02|letter}}, including my call with {{PERSON:agent|first_var}}||the notes your staff made about my complaint, which was handled by {{PERSON:complaints_mgr|full}}||the emails about my account between {{PERSON:complaints_mgr|initial_last}} and your debt collection agency]]
+You’ve removed or blacked out information and you haven’t explained why.
+In the email of {{DATE:2025-07-14|letter}} from {{PERSON:complaints_mgr|full}} to {{PERSON:agent|full}}, the second and third paragraphs are blacked out.||You haven’t sent me the following information:
+[[alt:the recordings of my calls to your customer service team on {{DATE:2025-06-12|letter}} and {{DATE:2025-07-02|letter}}, including my call with {{PERSON:agent|first_var}}||the notes your staff made about my complaint, which was handled by {{PERSON:complaints_mgr|full}}]]
+I still think you have more information about me than you sent, for example the notes {{PERSON:agent|title_full}} made during the visit to my home on {{DATE:2025-05-20|letter}}.||You’ve removed or blacked out information and you haven’t explained why.
+In the letter of {{DATE:2025-07-14|letter}} from {{PERSON:complaints_mgr|full}} to me, and in {{PERSON:complaints_mgr|title_last}}’s internal notes about my account, whole sections are blacked out and no reason is given.]]
+I understand that before reporting my complaint to the Information Commissioner’s Office (ICO) I should give you the chance to deal with it.
+I’ll give a copy of your reply to the ICO if I decide I still want to report my complaint to them.
+You can find guidance on what you’re meant to do if you receive a subject access request on the ICO’s website (www.ico.org.uk or https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/helping-you-find-subject-access-request-resources/). There’s also information on their regulatory powers and the action they can take.
+Please respond fully within one calendar month. If you can’t reply within that time, please tell me when you will be able to reply.
+If you’d like to discuss this, please contact me on [[alt@contact:{{PHONE:requester_tel|any}}||{{EMAIL:requester|<first>.<last>@outlook.com}}||{{PHONE:requester_tel|any}} or {{EMAIL:requester|<f><last><N>@btinternet.com}}]].
+Yours sincerely
+[[alt@sig:{{PERSON:requester|full}}||{{PERSON:requester|first_var_last}}||{{PERSON:requester|title_full}}]]

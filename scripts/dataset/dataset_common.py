@@ -44,7 +44,8 @@ FILLED_SOURCES = (
     + ("INS1", "INS2")
 )
 # Eval holdout by source (design section 5): all fills go to eval, never to train or fresh.
-EVAL_SOURCES = frozenset({"C2", "C5", "C10", "R5", "R7", "R9"})
+# C6 and C7 (IPO NDAs) were added on 24 Oct because C5 and C10 (SEC EDGAR) could not be fetched.
+EVAL_SOURCES = frozenset({"C2", "C5", "C6", "C7", "C10", "R5", "R7", "R9"})
 GRETEL_PREFIX = "gretel-"
 
 # Default chunk limit in estimated tokens (design section 3, decision 6).
