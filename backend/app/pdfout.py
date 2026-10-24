@@ -17,5 +17,7 @@ def redact_pdf(source: bytes, boxes: list[Box]) -> bytes:
         page = pdf[pno]
         for b in page_boxes:
             page.add_redact_annot(pymupdf.Rect(b.x0 - PAD, b.y0 - PAD, b.x1 + PAD, b.y1 + PAD), fill=(0, 0, 0))
-        page.apply_redactions()
+        # Image pixels under each box are blanked too (photos and scans). This is PyMuPDF's default; it
+        # is spelled out so a change of default cannot leave a scanned value readable in the image.
+        page.apply_redactions(images=pymupdf.PDF_REDACT_IMAGE_PIXELS)
     return pdf.tobytes(garbage=3, deflate=True)

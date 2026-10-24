@@ -89,19 +89,20 @@ def _store(doc: Document) -> dict:
 
 
 def _ocr(data: bytes, name: str) -> dict:
-    """Scans and photos go through app/ingest (Apple Vision OCR on this Mac). Text only for now:
-    no page boxes, so the download is the redacted text, not a redacted image."""
+    """Scans and photos go through app/ingest (Apple Vision OCR on this Mac), then app/ocrdoc turns
+    them into a PDF with a box for every word, so they get black boxes and a redacted PDF download."""
     try:
-        from .ingest import OcrError, UnsupportedDocument, extract
+        from .ingest import OcrError, UnsupportedDocument
+        from .ocrdoc import document_from_ocr
     except ImportError:
         raise HTTPException(415, "Reading scans and photos needs the OCR packages. Run uv sync in backend.") from None
     try:
-        doc = extract(data)
+        doc = document_from_ocr(data, name)
     except (OcrError, UnsupportedDocument) as exc:
         raise HTTPException(415, str(exc)) from None
     if not doc.text.strip():
         raise HTTPException(400, "No text was found in this file.")
-    return _store(extract_text(doc.text, name))
+    return _store(doc)
 
 
 @app.get("/api/health")
