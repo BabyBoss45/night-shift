@@ -1,0 +1,34 @@
+# FIXTURE for the self-test only, not a real source. Exercises every slot form and block.
+# source_id: INS1
+# group: insurance
+# subtype: insurance_claim
+# url: https://example.invalid/fixture
+# licence: test
+# kind: template
+---
+{{keep:firm}}
+{{ADDRESS:firm_office|noco}}
+Tel: {{PHONE:firm_office}}  Email: {{EMAIL:handler}}
+
+To: {{keep:insurer}}
+Your ref: {{CUSTOM:insurer_ref}}   Our ref: {{CUSTOM:our_ref}}   Claim: {{CUSTOM:claim_ref}}
+
+{{keep:date_letter}}
+
+Dear Sirs,
+
+[[alt: Re: Our client {{PERSON:claimant|formal}} || Re: {{PERSON:claimant|surname_first}}]]
+Address: {{ADDRESS:claimant}}
+Date of birth: {{DOB:claimant}}   NI number: {{NI_NUMBER:claimant}}
+Driving licence: {{ID_DOC:claimant}}   Passport: {{ID_DOC:claimant|passport}}
+Your insured: {{PERSON:insured|full}}, policy {{CUSTOM:policy_no}}, vehicle registration withheld.
+
+[[shuffle: The accident happened on {{keep:date_accident}} near {{keep:place}} when {{PERSON:insured|title_surname}}'s vehicle struck our client. || {{PERSON:claimant|any}} was taken to hospital. {{PERSON:claimant|any}} lost earnings of {{keep:amount}}. || [[opt: Please note {{PERSON:claimant|surname|poss}} mobile is {{PHONE:claimant|mobile}}.]]]]
+
+Payment of interim damages to sort code {{SORT_CODE:claimant}}, account {{BANK_ACCOUNT:claimant}} (IBAN {{IBAN:claimant}}).
+The damaged card ending {{CARD:claimant|last4}} (full number {{CARD:claimant}}, shown as {{CARD:claimant|masked}}).
+Clause {{keep:wording}} applies. Reference {{CUSTOM:umr}}, {{CUSTOM:bond_no}}, {{CUSTOM:client_id}}, {{CUSTOM:insured_ref}}.
+
+Yours faithfully,
+
+{{PERSON:handler|signature}}
