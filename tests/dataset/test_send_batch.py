@@ -150,6 +150,24 @@ def test_truncated_output_is_an_error(chunks_dir, tmp_path, monkeypatch):
     assert "max_tokens" in rows(results / "train.jsonl")[0]["error"]
 
 
+def test_key_comes_from_env_file_when_unset(chunks_dir, tmp_path, monkeypatch):
+    # setenv first so monkeypatch removes the variable that load_env_file sets once the test ends.
+    monkeypatch.setenv("MUBIT_API_KEY", "placeholder")
+    monkeypatch.delenv("MUBIT_API_KEY")
+    env_file = tmp_path / ".env"
+    env_file.write_text("# Mubit\nMUBIT_API_KEY='mbt_fromfile'\n")
+    fake = FakeMubit()
+    args = ["--send", "--limit", "1", "--chunks-dir", str(chunks_dir), "--results-dir", str(tmp_path / "r")]
+    assert run(args + ["--env-file", str(env_file)], fake) == 0
+    assert fake.requests[0].headers["authorization"] == "Bearer mbt_fromfile"
+
+    # A variable already set in the environment wins over the file.
+    monkeypatch.setenv("MUBIT_API_KEY", "mbt_fromenv")
+    fake2 = FakeMubit()
+    assert run(args + ["--env-file", str(env_file), "--results-dir", str(tmp_path / "r2")], fake2) == 0
+    assert fake2.requests[0].headers["authorization"] == "Bearer mbt_fromenv"
+
+
 def test_refuses_a_key_that_is_not_a_mubit_key(chunks_dir, tmp_path, monkeypatch):
     monkeypatch.setenv("MUBIT_API_KEY", "sk-ant-provider-key")
     fake = FakeMubit()

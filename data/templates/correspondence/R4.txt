@@ -6,8 +6,7 @@
 # kind: filled_real
 # subtype: email_thread
 # year_shifts: 0 6 17
-# static_hard_cases: over_redaction_trap
-# notes: headers reduced to Date, From, To, Subject, Cc with display names from X-From/X-To; the hotel's own listing address stays unlabelled (public business, trap); [[opt]] blocks are added variations
+# notes: headers reduced to Date, From, To, Subject, Cc with display names from X-From/X-To; the hotel's listing address is an ADDRESS slot with a separate POSTCODE, like every other postal address (24 Oct, one address rule with the T1 prompt), and the hotel name stays as text; [[opt]] blocks are added variations
 # ---
 Date: {{DATE:2001-07-30T11:54:57|rfc}}
 From: {{PERSON:traveller|last_comma_first}} <{{EMAIL:traveller|<first>.<last>@enron.com}}>
@@ -67,9 +66,7 @@ CAR                   {{DATE:2001-08-09T00:00:00|air}} NATIONAL               AT
                             ATLANTA
 
 HOTEL                 {{DATE:2001-08-09T00:00:00|air}} DAYS INN ELBERTON - 1984
-                      {{DATE:2001-08-10T00:00:00|air}} 302 ELBERT STREET, HWY 72
-                            ELBERTON, GA 30635
-                            UNITED STATES OF AMERICA
+                      {{DATE:2001-08-10T00:00:00|air}} {{ADDRESS:hotel_addr|oneline,upper,office}}
                             TELEPHONE: {{PHONE:hotel_tel|landline}}
                             FAX: {{PHONE:hotel_fax|landline}}
                             TELEX: NONE

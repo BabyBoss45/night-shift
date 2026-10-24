@@ -114,9 +114,11 @@ the fixtures. When trying the pipeline on the fixtures, write the output outside
    targets: about 225 documents; train 300 to 500 chunks, fresh about 200, eval about 150.
 5. Nick reviews `backend/app/prompts.py`. After the next step it is frozen: any
    change to the prompt, model or request shape makes a new Mubit task.
-6. Dry run, then a 10-call test:
+6. Copy `.env.example` to `.env` (git-ignored) and put the Mubit Inference key in
+   `MUBIT_API_KEY`; the sender reads it when the variable is not set in the shell.
+   Dry run, then a 10-call test:
    `python scripts/dataset/send_batch.py --split train` (check the cost), then
-   `MUBIT_API_KEY=mbt_... python scripts/dataset/send_batch.py --split train --limit 10 --send`.
+   `python scripts/dataset/send_batch.py --split train --limit 10 --send`.
    In the Mubit console confirm: exactly one new task, with a sensible name taken
    from "Redact personal data in one document chunk"; 10 requests; sessions named
    `doc-<doc_id>`. In `data/results/train.jsonl` every row has an `mreq_` id and

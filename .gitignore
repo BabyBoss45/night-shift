@@ -9,6 +9,7 @@
 .env
 .env.*
 *.env
+!.env.example
 data/raw/
 .venv/
 __pycache__/

@@ -104,6 +104,17 @@ def test_text_changed_outside_placeholders_is_reported():
     assert not [p for p in s["preds"] if not p["overlaps_gold"]]
 
 
+def test_straightened_quotes_are_not_a_change():
+    chunk = one_chunk("The Tenant’s deposit (“the Deposit”) is held for Siobhán O’Brien.",
+                      [("Siobhán O’Brien", "PERSON", "p1")])
+    s = score.score_chunk(chunk, "The Tenant's deposit (\"the Deposit\") is held for [PERSON_1].")
+    assert s["changed_chars"] == 0
+    assert s["gold"][0]["type_match"] and s["gold"][0]["covered_chars"] == s["gold"][0]["chars"]
+    # A leak is still caught when the output straightens the quote inside the value.
+    leaked = score.score_chunk(chunk, "The Tenant's deposit (\"the Deposit\") is held for Siobhán O'Brien.")
+    assert leaked["gold"][0]["leaked"]
+
+
 def test_leak_check_uses_word_boundaries():
     chunk = one_chunk("Signed: Jo. Job title: manager.", [("Jo", "PERSON", "p1")])
     assert not score.score_chunk(chunk, "Signed: [PERSON_1]. Job title: manager.")["gold"][0]["leaked"]
