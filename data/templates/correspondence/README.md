@@ -15,8 +15,9 @@ answer key from the slots. Provenance and checksums of the raw sources are in
 Changes to the original text, applied to all five Enron threads:
 - headers reduced to Date, From, To, Subject, Cc; display names taken from X-From/X-To;
   Message-ID, Bcc and the other X- headers dropped;
-- names, emails, phones, signature and contact addresses replaced by slots; registered
-  company addresses and a hotel's listing address are public business data and stay as text;
+- names, emails, phones and every postal address replaced by slots, including the registered
+  company addresses in R3 and the hotel's listing address in R4 (one address rule with the
+  T1 prompt since 24 Oct); company and hotel names stay as text;
 - R3: the Lotus Notes column table is flattened into plain header lines;
 - R5: "?" encoding artefacts replaced by spaces;
 - dates are `{{DATE:...}}` slots so each fill can move them by a calendar-preserving

@@ -8,6 +8,7 @@
 # Secrets, raw source downloads, Python tooling
 .env
 .env.*
+!.env.example
 data/raw/
 .venv/
 __pycache__/

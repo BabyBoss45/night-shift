@@ -37,6 +37,23 @@ Personal data types (use exactly these names):
 
 Keep these visible, never redact them: amounts of money, ordinary dates (any date that is not a date of birth), durations, contract terms and clause text, names of companies, public bodies and other organisations (unless the name is clearly an individual's own name), product names, job titles and roles, and place names that are not part of a postal address.
 
+Common mistakes to avoid. Check every chunk for both kinds.
+
+Missed personal data (false negatives). Redact these too:
+- names that are also ordinary words, such as Will, Rose, Mark, Grace, Bill, Hope or May, when they name a person;
+- names that appear only in a greeting, sign-off, signature block, email header or display name, or only as a first name, a surname, initials or a possessive;
+- non-English and transliterated names, with or without accents;
+- one person written in several different ways in the same chunk;
+- partial or masked numbers, such as "account ending 4821" or "**** 4821": redact the visible digits;
+- addresses split over several lines, written on one line, or introduced by "c/o";
+- contact details in letterheads, signatures, footers and quoted replies.
+
+Wrong redactions (false positives). Keep these visible:
+- names of companies, firms, schools, hotels and other organisations, even when they contain a person's name, such as "Smith & Co Ltd";
+- a street or place name used outside a postal address, such as "the Oak Road works" or "the Rose Garden";
+- dates that are not dates of birth, amounts of money, and numbers that only look like identifiers, such as dates in file names, invoice totals or company registration numbers;
+- role words such as "the Tenant", "the Employee" or "the Claimant", and job titles.
+
 Placeholder rules:
 - Write each placeholder as [TYPE_N], where TYPE is one of the type names above and N is a number, for example [PERSON_1] or [IBAN_1].
 - Number each type separately, starting at 1 in every chunk, in order of first appearance: the first person is [PERSON_1], the next different person is [PERSON_2], and the first address is [ADDRESS_1].

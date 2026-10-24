@@ -3,7 +3,8 @@
 
 DRY RUN BY DEFAULT: without --send it only prints what would be sent and a
 cost estimate. Real calls need --send and MUBIT_API_KEY (a Mubit key, mbt_...;
-never a provider key).
+never a provider key), taken from the environment or, when unset there, from
+the repo's .env file (--env-file).
 
 Each call (official anthropic SDK, base_url https://api.mubit.ai/anthropic):
 - model prompts.MODEL_ID, system prompts.T1_SYSTEM_PROMPT, max_tokens 2048,
@@ -51,6 +52,20 @@ PRICE_OUT_PER_M = 5.0
 # Rough per-call overhead for the message wrapper, in tokens.
 MESSAGE_OVERHEAD_TOKENS = 10
 RETRY_STATUSES = (429, 503, 529)
+
+
+def load_env_file(path: Path) -> None:
+    """Set KEY=VALUE lines from path in os.environ, never overriding a variable that is already set."""
+    if not path.is_file():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.removeprefix("export ").split("=", 1)
+        key, value = key.strip(), value.strip().strip("\"'")
+        if key and key not in os.environ:
+            os.environ[key] = value
 
 
 def load_chunks(chunks_dir: Path, split: str) -> list[dict]:
@@ -194,6 +209,7 @@ def run(args: argparse.Namespace, http_client=None) -> int:
         print("DRY RUN: nothing sent. Add --send to make real calls.")
         return 0
 
+    load_env_file(args.env_file)
     api_key = os.environ.get("MUBIT_API_KEY", "")
     if not api_key.startswith("mbt_"):
         print("MUBIT_API_KEY must be set to a Mubit key starting with mbt_ (never a provider key).")
@@ -243,6 +259,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     ap.add_argument("--results-dir", type=Path, default=RESULTS_DIR)
     ap.add_argument("--base-url", default=MUBIT_BASE_URL)
     ap.add_argument("--show", type=int, default=10, help="dry run: how many chunks to list")
+    ap.add_argument("--env-file", type=Path, default=REPO_ROOT / ".env",
+                    help="read MUBIT_API_KEY from this file when it is not already set in the environment")
     return ap.parse_args(argv)
 
 
