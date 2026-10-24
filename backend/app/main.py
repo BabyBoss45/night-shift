@@ -1,14 +1,19 @@
 """Veil API: upload or paste, redact through Mubit, download the redacted file, ask about it, fix it.
 
-Run: MUBIT_API_KEY=mbt_... uv run uvicorn app.main:app --reload --port 8000
+Run: uv run uvicorn app.main:app --reload --port 8000
+The Mubit key comes from MUBIT_API_KEY, backend/.env or the repo-root .env (see llm.py).
 Documents live in memory for the session; nothing is written to disk and document text is never logged.
 """
 
 import email
 import json
+import logging
 import os
+import queue
 import re
+import threading
 from collections import Counter
+from collections.abc import Iterator
 from dataclasses import asdict
 from email import policy
 from pathlib import Path
@@ -17,13 +22,20 @@ import pymupdf
 from evalkit.redact import restore
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response
+from fastapi.responses import Response, StreamingResponse
 from pydantic import BaseModel
 
 from .extract import Document, extract_pdf, extract_text
-from .llm import T1_MODEL, T2_MODEL, make_t1_factory, make_t2
+from .llm import T1_CHUNK_CHARS, T1_MODEL, T1_PROMPT, T2_MODEL, find_key, make_t1_factory, make_t2
 from .pdfout import redact_pdf
-from .pipeline import PipelineResult, rebuild, run_pipeline
+from .pipeline import Emit, PipelineResult, rebuild, run_pipeline
+
+log = logging.getLogger("veil")
+if not log.handlers:
+    _handler = logging.StreamHandler()
+    _handler.setFormatter(logging.Formatter("%(levelname)s:     %(name)s %(message)s"))
+    log.addHandler(_handler)
+    log.setLevel(logging.INFO)
 
 app = FastAPI(title="Veil")
 app.add_middleware(
@@ -32,12 +44,30 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.state.t1_factory = make_t1_factory()
-app.state.t2 = make_t2()
+_key, app.state.key_source = find_key()
+app.state.t1_prompt, app.state.t1_model = T1_PROMPT, T1_MODEL
+app.state.t1_factory = make_t1_factory(_key)
+app.state.t2 = make_t2(_key)
+del _key
+if app.state.t1_factory:
+    log.info("T1 on: prompt %s, model %s, %d-character chunks, Mubit key from %s",
+             T1_PROMPT, T1_MODEL, T1_CHUNK_CHARS[T1_PROMPT], app.state.key_source)
+else:
+    log.info("T1 off: no Mubit key (mbt_...) in MUBIT_API_KEY, backend/.env or .env; regex layer only")
 
 DOCS: dict[str, Document] = {}
 RESULTS: dict[str, PipelineResult] = {}
-TEXT_TYPES = (".txt", ".md", ".csv", ".json", ".eml")
+TEXT_TYPES = (
+    ".txt", ".text", ".md", ".markdown", ".rst", ".csv", ".tsv", ".json", ".jsonl", ".ndjson", ".eml",
+    ".log", ".vcf", ".ics", ".srt", ".vtt", ".tex",
+    # code
+    ".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".vue", ".svelte", ".java", ".kt", ".kts", ".scala",
+    ".go", ".rb", ".rs", ".c", ".h", ".cc", ".cpp", ".hpp", ".cs", ".php", ".swift", ".m", ".dart", ".lua",
+    ".pl", ".r", ".sql", ".sh", ".bash", ".zsh", ".ps1", ".bat", ".graphql", ".proto",
+    # config and markup
+    ".yaml", ".yml", ".toml", ".ini", ".cfg", ".conf", ".properties", ".xml", ".html", ".htm", ".css",
+    ".scss", ".tf",
+)
 IMAGE_TYPES = (".jpg", ".jpeg", ".png", ".heic", ".heif", ".tif", ".tiff", ".webp")
 MAX_UPLOAD = 20 * 1024 * 1024
 
@@ -83,6 +113,22 @@ def _email_to_text(raw: bytes) -> str:
     return f"{head}\n\n{text}".strip()
 
 
+def _text_or_none(data: bytes) -> str | None:
+    """Text from an upload with an unknown extension: valid UTF-8 with no NUL byte in the first 8 KB."""
+    if b"\x00" in data[:8192]:
+        return None
+    try:
+        return data.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        return None
+
+
+def _store_text(text: str, name: str) -> dict:
+    if not text.strip():
+        raise HTTPException(400, "No text was found in this file.")
+    return _store(extract_text(text, name))
+
+
 def _store(doc: Document) -> dict:
     DOCS[doc.doc_id] = doc
     return _doc_payload(doc)
@@ -107,8 +153,9 @@ def _ocr(data: bytes, name: str) -> dict:
 @app.get("/api/health")
 def health() -> dict:
     on = bool(app.state.t1_factory)
-    return {"model": "on" if on else "off", "t1_model": T1_MODEL if on else None,
-            "t2_model": T2_MODEL if app.state.t2 else None}
+    return {"model": "on" if on else "off", "t1_model": app.state.t1_model if on else None,
+            "t1_prompt": app.state.t1_prompt, "t2_model": T2_MODEL if app.state.t2 else None,
+            "key_source": app.state.key_source if on else None}
 
 
 @app.post("/api/documents")
@@ -129,21 +176,72 @@ async def create_document(text: str | None = Form(None), file: UploadFile | None
             raise HTTPException(400, "This PDF could not be read.") from None
         return _store(doc) if doc.text.strip() else _ocr(data, name)  # no text layer: a scanned PDF
     if lower.endswith(".eml"):
-        return _store(extract_text(_email_to_text(data), name))
+        return _store_text(_email_to_text(data), name)
     if lower.endswith(TEXT_TYPES):
-        return _store(extract_text(data.decode("utf-8", errors="replace"), name))
+        return _store_text(data.decode("utf-8-sig", errors="replace"), name)
     if lower.endswith(IMAGE_TYPES):
         return _ocr(data, name)
+    text = _text_or_none(data)  # an unknown extension that is really text, such as a Dockerfile
+    if text is not None:
+        return _store_text(text, name)
     raise HTTPException(415, "This file type is not supported yet. Use PDF, an image, TXT or EML, or paste the text.")
+
+
+def _scan(doc: Document, emit: Emit | None = None) -> dict:
+    """Run the pipeline, store the result for /file, /ask and /corrections, and return its payload."""
+    factory = app.state.t1_factory
+    res = run_pipeline(doc, t1=factory(doc.doc_id) if factory else None,
+                       max_chars=T1_CHUNK_CHARS[app.state.t1_prompt], emit=emit)
+    RESULTS[doc.doc_id] = res
+    return _result_payload(doc, res)
 
 
 @app.post("/api/documents/{doc_id}/redact")
 def redact(doc_id: str) -> dict:
-    doc = _doc(doc_id)
-    factory = app.state.t1_factory
-    res = run_pipeline(doc, t1=factory(doc_id) if factory else None)
-    RESULTS[doc_id] = res
-    return _result_payload(doc, res)
+    return _scan(_doc(doc_id))
+
+
+PING_SECONDS = 5.0  # a comment line while waiting, so proxies and the browser keep the stream open
+SSE_HEADERS = {"Content-Type": "text/event-stream", "Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
+
+
+def _sse(name: str, data: dict) -> str:
+    return f"event: {name}\ndata: {json.dumps(data)}\n\n"
+
+
+def _events(doc: Document) -> Iterator[str]:
+    """Server-sent events for one scan: start, regex, chunk (as each finishes), then done or error.
+    The scan runs in its own thread, so it finishes and stores its result even if the client leaves."""
+    events: queue.Queue = queue.Queue()
+    on = bool(app.state.t1_factory)
+    head = {"doc_id": doc.doc_id, "model": "on" if on else "off",
+            "t1_model": app.state.t1_model if on else None, "t1_prompt": app.state.t1_prompt}
+
+    def emit(name: str, data: dict) -> None:
+        events.put((name, {**head, **data} if name == "start" else data))
+
+    def work() -> None:
+        try:
+            events.put(("done", _scan(doc, emit)))
+        except Exception as exc:  # noqa: BLE001 - reported to the client; the type only, never document text
+            log.error("scan failed doc=%s error=%s", doc.doc_id, type(exc).__name__)
+            events.put(("error", {"message": f"The scan stopped unexpectedly ({type(exc).__name__}). Try again."}))
+
+    threading.Thread(target=work, name=f"scan-{doc.doc_id}", daemon=True).start()
+    while True:
+        try:
+            name, data = events.get(timeout=PING_SECONDS)
+        except queue.Empty:
+            yield ": ping\n\n"
+            continue
+        yield _sse(name, data)
+        if name in ("done", "error"):
+            return
+
+
+@app.post("/api/documents/{doc_id}/redact/stream")
+def redact_stream(doc_id: str) -> StreamingResponse:
+    return StreamingResponse(_events(_doc(doc_id)), headers=SSE_HEADERS)
 
 
 @app.get("/api/documents/{doc_id}/pages/{page}.png")

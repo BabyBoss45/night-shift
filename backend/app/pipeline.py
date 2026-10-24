@@ -6,12 +6,17 @@
 3. Overlapping spans are merged into one, so a regex hit is never uncovered by a shorter model span.
 4. A per-document vault gives each distinct value one placeholder; PDF words that overlap a span
    become one rectangle per line.
+
+run_pipeline can report progress through `emit(name, data)`: "start" (the chunk plan), "regex" (the
+regex hits), then one "chunk" per chunk in the order they finish. The API streams these as events.
 """
 
+import logging
+import time
 from collections import Counter
 from collections.abc import Callable
-from concurrent.futures import ThreadPoolExecutor
-from dataclasses import dataclass, field
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import asdict, dataclass, field
 
 from evalkit import regex_baseline
 from evalkit.redact import Vault, apply
@@ -20,6 +25,9 @@ from evalkit.spans import Span, locate
 from .extract import Document
 
 MAX_CHARS = 4000  # about 1,000 tokens per T1 call
+
+log = logging.getLogger("veil.pipeline")
+Emit = Callable[[str, dict], None]
 
 
 @dataclass
@@ -31,12 +39,15 @@ class T1Result:
 
 @dataclass
 class ChunkInfo:
+    index: int
     chunk_id: str
     start: int
     end: int
-    mreq_id: str | None
-    error: str | None
-    found: int = 0
+    status: str  # "ok", "error", "empty" (whitespace only, no call) or "off" (no model, no call)
+    error: str | None = None
+    mreq_id: str | None = None
+    latency_ms: int | None = None
+    found: int = 0  # how many values T1 returned for this chunk
 
 
 @dataclass
@@ -114,26 +125,49 @@ def _boxes(doc: Document, spans: list[Span], vault: Vault) -> list[Box]:
     return boxes
 
 
+def _entity(sp: Span, source: str, offset: int = 0) -> dict:
+    return {"start": sp.start + offset, "end": sp.end + offset, "text": sp.text, "type": sp.type, "source": source}
+
+
 def run_pipeline(doc: Document, t1: Callable[[str], T1Result] | None, max_chars: int = MAX_CHARS,
-                 workers: int = 6) -> PipelineResult:
+                 workers: int = 6, emit: Emit | None = None) -> PipelineResult:
     text = doc.text
     ranges = chunk_ranges(text, max_chars)
+    ids = [f"{doc.doc_id}-c{i:02d}" for i in range(len(ranges))]
+    if emit:
+        emit("start", {"chunks": [{"index": i, "chunk_id": ids[i], "start": s, "end": e}
+                                  for i, (s, e) in enumerate(ranges)]})
+        emit("regex", {"entities": [_entity(sp, "regex") for sp in regex_baseline.detect(text)]})
 
     def run_chunk(i: int) -> tuple[ChunkInfo, list[dict]]:
         s, e = ranges[i]
-        cid = f"{doc.doc_id}-c{i:02d}"
         if t1 is None:
-            return ChunkInfo(cid, s, e, None, "model off"), []
+            return ChunkInfo(i, ids[i], s, e, "off", "model off"), []
         if not text[s:e].strip():
-            return ChunkInfo(cid, s, e, None, None), []
+            return ChunkInfo(i, ids[i], s, e, "empty"), []
+        t0 = time.monotonic()
         try:
             r = t1(text[s:e])
         except Exception as exc:  # noqa: BLE001 - one bad chunk must not stop the document
-            return ChunkInfo(cid, s, e, None, f"{type(exc).__name__}: {exc}"), []
-        return ChunkInfo(cid, s, e, r.mreq_id, r.error, found=len(r.entities)), r.entities
+            ms = round((time.monotonic() - t0) * 1000)
+            return ChunkInfo(i, ids[i], s, e, "error", f"{type(exc).__name__}: {exc}", latency_ms=ms), []
+        ms = round((time.monotonic() - t0) * 1000)
+        if r.error:
+            return ChunkInfo(i, ids[i], s, e, "error", r.error, r.mreq_id, ms), []
+        return ChunkInfo(i, ids[i], s, e, "ok", None, r.mreq_id, ms, found=len(r.entities)), r.entities
 
+    finished: dict[int, tuple[ChunkInfo, list[dict]]] = {}
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
-        results = list(pool.map(run_chunk, range(len(ranges))))
+        for fut in as_completed([pool.submit(run_chunk, i) for i in range(len(ranges))]):
+            info, ents = fut.result()
+            finished[info.index] = (info, ents)
+            # Metadata only: never the chunk text or the values.
+            log.info("t1 chunk doc=%s index=%d status=%s latency_ms=%s mreq=%s found=%d",
+                     doc.doc_id, info.index, info.status, info.latency_ms, info.mreq_id, info.found)
+            if emit:
+                hits = locate(text[info.start:info.end], ents)
+                emit("chunk", {**asdict(info), "entities": [_entity(sp, "model", info.start) for sp in hits]})
+    results = [finished[i] for i in range(len(ranges))]
     chunks = [c for c, _ in results]
 
     values: dict[str, str] = {}

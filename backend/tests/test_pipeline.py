@@ -43,7 +43,28 @@ def test_each_chunk_keeps_its_mubit_request_id():
 def test_without_a_model_the_regex_layer_still_runs():
     res = run_pipeline(extract_text("Email jo@example.com please"), t1=None)
     assert res.redacted_text == "Email [EMAIL_1] please"
-    assert res.chunks[0].error == "model off"
+    assert (res.chunks[0].status, res.chunks[0].error, res.chunks[0].latency_ms) == ("off", "model off", None)
+
+
+def test_progress_is_reported_through_emit():
+    text = "Tenant: Raj Patel.\n\n" + "Clause. " * 300 + "\n\nPay sort code 20-45-77."
+    events = []
+    res = run_pipeline(extract_text(text), t1=model_finds(("Raj Patel", "PERSON")), max_chars=1000,
+                       emit=lambda name, data: events.append((name, data)))
+    assert [n for n, _ in events] == ["start", "regex"] + ["chunk"] * len(res.chunks)
+    assert [c["index"] for c in events[0][1]["chunks"]] == list(range(len(res.chunks)))
+    assert [e["text"] for e in events[1][1]["entities"]] == ["20-45-77"]
+    by_index = {d["index"]: d for n, d in events if n == "chunk"}
+    assert by_index[0]["entities"] == [{"start": 8, "end": 17, "text": "Raj Patel", "type": "PERSON", "source": "model"}]
+    assert by_index[0]["found"] == 1 and all(by_index[i]["found"] == 0 for i in range(1, len(res.chunks)))
+
+
+def test_a_model_error_is_an_error_chunk_without_values():
+    res = run_pipeline(extract_text("Jo Smith"), t1=lambda chunk: T1Result([{"text": "Jo Smith", "type": "PERSON"}],
+                                                                          "mreq_e", "unreadable answer"))
+    chunk = res.chunks[0]
+    assert (chunk.status, chunk.error, chunk.mreq_id, chunk.found) == ("error", "unreadable answer", "mreq_e", 0)
+    assert res.redacted_text == "Jo Smith"
 
 
 def test_chunks_cut_on_paragraphs_and_cover_the_text():
