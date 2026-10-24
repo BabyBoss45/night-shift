@@ -372,11 +372,12 @@ class Fill:
             return f"{last.upper()}, {first}"
         raise ValueError(f"unknown PERSON form {form!r}")
 
-    def company(self, role):
+    def company(self, role, registered=False):
         if "company" not in role:
             r, f = self.rng, self.fake
             c = r.random()
-            role["sole_trader"] = c < 0.18
+            # A registered company (one with a company number) is never a sole trader.
+            role["sole_trader"] = c < 0.18 and not registered
             if role["sole_trader"]:
                 role["company"] = None
             else:
@@ -394,6 +395,9 @@ class Fill:
                         break
                 role["company"] = name
                 role["company_has_name"] = c < 0.75
+        if registered and role["company"] is None:
+            raise ValueError(f"role {role['name']!r} is a sole trader; put {{{{COMPANY:{role['name']}|registered}}}} "
+                             "before any other COMPANY or TITLE slot of that role")
         return role["company"]
 
     def address(self, role):
@@ -428,13 +432,15 @@ class Fill:
             self.tags.add("address_care_of")
         if a["flat"]:
             self.tags.add("address_flat")
+        # The separator before the postcode is kept per role and form: a one-line address
+        # never takes the line break of the same role's multi-line address.
         if form == "oneline":
             out += [(", ".join(a["lines"]), "ADDRESS", f"{rn}.address"),
-                    (self.memo.setdefault(("pc_sep", rn), self.rng.choice([" ", ", "])), None, None)]
+                    (self.memo.setdefault(("pc_sep", rn, form), self.rng.choice([" ", ", "])), None, None)]
         elif form == "multiline":
             self.tags.add("address_split_lines")
             out += [("\n".join(a["lines"]), "ADDRESS", f"{rn}.address"),
-                    (self.memo.setdefault(("pc_sep", rn), self.rng.choice(["\n", " "])), None, None)]
+                    (self.memo.setdefault(("pc_sep", rn, form), self.rng.choice(["\n", " "])), None, None)]
         else:
             raise ValueError(f"unknown ADDRESS form {form!r}")
         out.append((a["postcode"], "POSTCODE", f"{rn}.postcode"))
@@ -505,7 +511,8 @@ class Fill:
             self.tags.add("custom_identifier")
         return self.memo[key]
 
-    def date(self, name, kind="ordinary"):
+    def date(self, name, kind="ordinary", offset=""):
+        """A date near the fill's base date; with an offset ("+364", "-30") exactly that many days from it."""
         key = ("date", name)
         if key not in self.memo:
             r = self.rng
@@ -514,6 +521,10 @@ class Fill:
             elif "base_date" not in self.memo:
                 d = dt.date(2024, 1, 1) + dt.timedelta(days=r.randint(0, 1400))
                 self.memo["base_date"] = d
+                if offset:
+                    d += dt.timedelta(days=int(offset))
+            elif offset:
+                d = self.memo["base_date"] + dt.timedelta(days=int(offset))
             else:
                 d = self.memo["base_date"] - dt.timedelta(days=r.randint(0, 14))
             self.memo[key] = d
@@ -548,7 +559,9 @@ class Fill:
             self.render(parse(entry))
             return []
         if kind == "DATE":
-            return [(self.date(arg), None, None)]
+            if form and not re.fullmatch(r"[+-]\d+", form):
+                raise ValueError(f"DATE offset must look like +364 or -30, got {form!r}")
+            return [(self.date(arg, offset=form), None, None)]
         if kind == "CUSTOM":
             return [(self.custom(arg), "CUSTOM", f"custom.{arg}")]
         role = self.role(arg)
@@ -576,7 +589,7 @@ class Fill:
         if kind == "PHONE":
             return [(self.phone(role), "PHONE", f"{rn}.phone")]
         if kind == "COMPANY":
-            company = self.company(role)
+            company = self.company(role, registered=form == "registered")
             if company is None:
                 self.tags.add("sole_trader")
                 suffix = self.memo.setdefault(("sole", rn), r.choice([" (sole trader)", ", sole trader"]))
@@ -838,7 +851,7 @@ Email {{EMAIL:a}} or {{EMAIL:a|alt}}, tel {{PHONE:a}}
 Account {{BANK_ACCOUNT:a}}, sort code {{SORT_CODE:a}}, IBAN {{IBAN:a}}, account ending {{BANK_ACCOUNT:a|last4}}
 Card {{CARD:a}}, Visa ending {{CARD:a|last4}}
 NI {{NI_NUMBER:a}}, born {{DOB:a}}, passport {{ID_DOC:a|passport}}, licence {{ID_DOC:a|licence}}
-Company {{COMPANY:b}} ({{TITLE:b}}), dated {{DATE:x}}
+Company {{COMPANY:b}} ({{TITLE:b}}), dated {{DATE:x}} to {{DATE:y|+364}}; registered company {{COMPANY:r|registered}} ({{TITLE:r}})
 Refs {{CUSTOM:client}} {{CUSTOM:matter}} {{CUSTOM:other}}
 {{ALT:k}}alt-one{{OR}}alt-two{{/ALT}} {{ALT:k}}alt-one{{OR}}alt-two{{/ALT}} {{CHECK:x}} {{CHECK:o}} {{TEXT:t}}
 

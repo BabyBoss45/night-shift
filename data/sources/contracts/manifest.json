@@ -7,11 +7,13 @@
       "licence": "Open Government Licence v3.0",
       "kind": "template",
       "subtype": "tenancy",
-      "fetched": false,
-      "fetched_at": null,
-      "fetched_from": null,
-      "sha256": null,
-      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to webarchive.nationalarchives.gov.uk (403)"
+      "fetched": true,
+      "fetched_at": "2026-10-24T08:50:56+00:00",
+      "fetched_from": [
+        "https://webarchive.nationalarchives.gov.uk/ukgwa/20260105195424mp_/https://assets.publishing.service.gov.uk/media/62b17a918fa8f53571e130a9/Model_agreement_for_a_shorthold_assured_tenancy.pdf"
+      ],
+      "sha256": "e32faf08b1f13e02718315726931d31c1e9be2f5f4c3fb12ba7af34a2dd95b42",
+      "notes": "attachment: https://webarchive.nationalarchives.gov.uk/ukgwa/20260105195424mp_/https://assets.publishing.service.gov.uk/media/62b17a918fa8f53571e130a9/Model_agreement_for_a_shorthold_assured_tenancy.pdf"
     },
     {
       "source_id": "C2",
@@ -20,11 +22,13 @@
       "licence": "Open Government Licence v3.0",
       "kind": "template",
       "subtype": "tenancy",
-      "fetched": false,
-      "fetched_at": null,
-      "fetched_from": null,
-      "sha256": null,
-      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.gov.wales (403)"
+      "fetched": true,
+      "fetched_at": "2026-10-24T08:50:59+00:00",
+      "fetched_from": [
+        "https://www.gov.wales/sites/default/files/publications/2026-05/model-written-statement-periodic-standard-contract.pdf"
+      ],
+      "sha256": "2375baf35db2bf2bcdb3c6c9d1f9c128840bdac81df8f57e43952e515860faa6",
+      "notes": "attachment: https://www.gov.wales/sites/default/files/publications/2026-05/model-written-statement-periodic-standard-contract.pdf"
     },
     {
       "source_id": "C3",
@@ -33,11 +37,13 @@
       "licence": "Open Government Licence v3.0",
       "kind": "template",
       "subtype": "employment",
-      "fetched": false,
-      "fetched_at": null,
-      "fetched_from": null,
-      "sha256": null,
-      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.acas.org.uk (403)"
+      "fetched": true,
+      "fetched_at": "2026-10-24T08:50:59+00:00",
+      "fetched_from": [
+        "https://www.acas.org.uk/sites/default/files/2026-05/template-for-written-statement-employee-13-may-2026.docx"
+      ],
+      "sha256": "31578a517fdf18e2f9f63b1b5e7ac0a21338eaab22a02887ceefcb61234afd8f",
+      "notes": "attachment: https://www.acas.org.uk/sites/default/files/2026-05/template-for-written-statement-employee-13-may-2026.docx"
     },
     {
       "source_id": "C4",
@@ -72,11 +78,13 @@
       "licence": "Open Government Licence v3.0",
       "kind": "template",
       "subtype": "nda",
-      "fetched": false,
-      "fetched_at": null,
-      "fetched_from": null,
-      "sha256": null,
-      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.gov.uk (403)"
+      "fetched": true,
+      "fetched_at": "2026-10-24T08:50:59+00:00",
+      "fetched_from": [
+        "https://assets.publishing.service.gov.uk/media/5ad448cae5274a76be66c2e1/Example-One-Way-Non-Disclosure-Agreement__3_.odt"
+      ],
+      "sha256": "8847c6e659f9df7f0bdc0c7cadfb4db9f1e8355c12b1392979d3ccd434a47211",
+      "notes": "attachment: https://assets.publishing.service.gov.uk/media/5ad448cae5274a76be66c2e1/Example-One-Way-Non-Disclosure-Agreement__3_.odt"
     },
     {
       "source_id": "C7",
@@ -85,11 +93,13 @@
       "licence": "Open Government Licence v3.0",
       "kind": "template",
       "subtype": "nda",
-      "fetched": false,
-      "fetched_at": null,
-      "fetched_from": null,
-      "sha256": null,
-      "notes": "blocked: the build sandbox's egress proxy refused CONNECT to www.gov.uk (403)"
+      "fetched": true,
+      "fetched_at": "2026-10-24T08:50:59+00:00",
+      "fetched_from": [
+        "https://assets.publishing.service.gov.uk/media/5ad448fb40f0b617df3359ff/Example-Mutual-Non-Disclosure-Agreement.odt"
+      ],
+      "sha256": "20710825b81510886027027ea746bd16ec49e21f4680dfdf503534f4a63fa5cd",
+      "notes": "attachment: https://assets.publishing.service.gov.uk/media/5ad448fb40f0b617df3359ff/Example-Mutual-Non-Disclosure-Agreement.odt"
     },
     {
       "source_id": "C8",

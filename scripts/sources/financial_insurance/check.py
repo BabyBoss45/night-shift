@@ -4,6 +4,11 @@ Usage: python3 scripts/sources/financial_insurance/check.py [FILE ...]
 Defaults to data/docs/financial.jsonl and data/docs/insurance.jsonl.
 Also sweeps for structured identifiers that are not inside an entity: fatal in
 rendered templates, a warning in Gretel documents.
+
+A file named on the command line (or a default file) that does not exist is a failure:
+both outputs must be built. Which real sources are present is not checked: INS2 is
+blocked by decision (24 Oct 2026, sec.gov is never fetched), so its absence is reported
+on the "sources" line and is not an error.
 """
 
 import sys
@@ -16,6 +21,7 @@ from common import DOCS_DIR, check_file, read_jsonl, uncovered_hits
 def main(argv):
     paths = [Path(p) for p in argv] or [DOCS_DIR / "financial.jsonl", DOCS_DIR / "insurance.jsonl"]
     failed = False
+    sources = Counter()
     for path in paths:
         if not path.exists():
             print(f"FAIL {path}: file does not exist")
@@ -45,10 +51,15 @@ def main(argv):
             for doc_id, (s, e, kind, value) in leaks[:50]:
                 print(f"  {doc_id}: unlabelled {kind} {value!r} at {s}")
             continue
+        sources.update("gretel" if str(r.get("source_id", "")).startswith("gretel-") else r.get("source_id") for r in records)
         types = Counter(e["type"] for r in records for e in r["entities"])
         splits = Counter(r["split"] for r in records)
         print(f"OK   {path}: {n} records, splits {dict(sorted(splits.items()))}, "
               f"entities {sum(types.values())} {dict(sorted(types.items()))}")
+    missing = [s for s in ("INS1", "INS2") if not sources.get(s)]
+    print(f"sources: {dict(sorted(sources.items()))}"
+          + (f"; not present: {', '.join(missing)}" if missing else "")
+          + ("; INS2 is blocked by decision, not an error" if "INS2" in missing else ""))
     sys.exit(1 if failed else 0)
 
 

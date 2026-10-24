@@ -22,7 +22,7 @@ TYPES = {
 GROUPS = {"contracts", "correspondence", "financial", "insurance"}
 SPLITS = {"train", "fresh", "eval"}
 KINDS = {"template", "filled_real", "synthetic"}
-EVAL_SOURCES = {"C2", "C5", "C10", "R5", "R7", "R9"}
+EVAL_SOURCES = {"C2", "C5", "C6", "C7", "C10", "R5", "R7", "R9"}
 SOURCE_RE = re.compile(r"^(C(1[0-2]|[1-9])|R(1[01]|[1-9])|INS[12]|gretel-[A-Za-z0-9_.-]+)$")
 SLOT_MARKERS = ("{{", "}}", "[[", "]]")
 # Unfilled form blanks (dotted or underscored fill-in lines) left in a rendered template.
@@ -97,6 +97,11 @@ def _check_record(rec, group):
         if b:
             errs.append(f"unfilled blank {b.group()!r} at {b.start()}")
     errs += check_entities(text, rec["entities"])
+    if isinstance(rec["entities"], list) and all(isinstance(e, dict) and {"start", "end", "type"} <= e.keys() for e in rec["entities"]):
+        for s, v in email_misses(text, rec["entities"]):
+            errs.append(f"email address {v!r} at {s} is not inside an EMAIL entity")
+    for s, v in placeholder_tokens(text):
+        errs.append(f"placeholder-like token {v!r} at {s}")
     prov = rec["provenance"]
     if not isinstance(prov, dict):
         errs.append("provenance must be an object")
@@ -133,6 +138,8 @@ def check_entities(text, entities):
             errs.append(f"entity {i}: value has surrounding whitespace {e['value']!r}")
         if e["type"] not in TYPES:
             errs.append(f"entity {i}: bad type {e['type']!r}")
+        if e["type"] == "PERSON" and POSSESSIVE_END_RE.search(e["value"]) and len(e["value"]) > 2:
+            errs.append(f"entity {i}: PERSON value {e['value']!r} ends with a possessive")
         if not isinstance(e["entity_id"], str) or not e["entity_id"]:
             errs.append(f"entity {i}: entity_id must be a non-empty string")
         elif id_type.setdefault(e["entity_id"], e["type"]) != e["type"]:
@@ -141,6 +148,32 @@ def check_entities(text, entities):
             errs.append(f"entity {i}: overlaps or is out of order (start {s} < previous end {prev_end})")
         prev_end = max(prev_end, t)
     return errs
+
+
+# Two rules of scripts/dataset/validate_docs.py, mirrored here so check.py and the builders
+# reject what that validator rejects: every email address lies inside an EMAIL entity, and
+# the text has no token the scorer would read as a placeholder ([PERSON], [Address 2]).
+VALIDATOR_EMAIL_RE = re.compile(r"[A-Za-z0-9._%+'-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+")
+PLACEHOLDER_RE = re.compile(r"\[\s*([A-Za-z]+(?:[ _-]+[A-Za-z]+)*)(?:[ _-]*#?(\d+))?\s*\]")
+POSSESSIVE_END_RE = re.compile(r"['’]s?$")
+
+
+def email_misses(text, entities):
+    """(start, value) of email addresses not inside an EMAIL entity."""
+    spans = [(e["start"], e["end"]) for e in entities if e.get("type") == "EMAIL"]
+    return [(m.start(), m.group()) for m in VALIDATOR_EMAIL_RE.finditer(text)
+            if not any(s <= m.start() and m.end() <= t for s, t in spans)]
+
+
+def placeholder_tokens(text, strict=False):
+    """(start, token) of bracketed tokens that name one of our types; with strict, also
+    capitalised tokens with a number such as [NAME_1]."""
+    out = []
+    for m in PLACEHOLDER_RE.finditer(text):
+        name, number = m.group(1), m.group(2)
+        if re.sub(r"[ _-]+", "_", name.strip()).upper() in TYPES or (strict and number is not None and name == name.upper()):
+            out.append((m.start(), m.group()))
+    return out
 
 
 def check_file(path):
@@ -174,7 +207,9 @@ CARD_RE = re.compile(r"(?<![\d-])\d(?:[ -]?\d){12,18}(?![\d-])")
 # prefix is still personal-looking); the fake_* generators below emit only valid values.
 NI_RE = re.compile(r"\b[A-Z]{2} ?\d{2} ?\d{2} ?\d{2} ?[A-D]\b")
 PHONE_RE = re.compile(r"(?<![\w+])(?:\+44\s?(?:\(0\)\s?)?|\(?0)\d{2,4}\)?[\s-]?\d{3,4}[\s-]?\d{3,4}(?!\d)")
-POSTCODE_RE = re.compile(r"\b(?:[A-PR-UWYZ][A-HK-Y]?\d[A-Z\d]?|GIR) ?\d[ABD-HJLNP-UW-Z]{2}\b")
+# Format level, like validate_docs.py: placeholder postcodes such as AB1 2CD (letters a real
+# postcode never has in the last part) must still be split out of addresses and swept.
+POSTCODE_RE = re.compile(r"\b(?:GIR ?0AA|[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2})\b")
 SORT_CODE_RE = re.compile(r"(?<![\d-])\d{2}-\d{2}-\d{2}(?![\d-])")
 ACCOUNT8_RE = re.compile(r"(?<![\d-])\d{8}(?![\d-])")
 NI_BAD_PREFIX = {"BG", "GB", "NK", "KN", "TN", "NT", "ZZ"}

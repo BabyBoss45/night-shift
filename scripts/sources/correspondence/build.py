@@ -15,7 +15,8 @@ Template format
 Header lines start with "# key: value" and end with a line "# ---".
 Keys used: source_id, url, licence, kind, subtype, year_shifts, static_hard_cases,
 sweep_allow (space-separated literal strings that look like identifiers but are not,
-e.g. dates in attachment file names; the sweeps skip exactly these strings).
+e.g. dates in attachment file names; the sweeps skip exactly these strings),
+locales (space-separated pool the fill's locale is drawn from; default "uk uk us").
 
 Body syntax:
   {{TYPE:key|form}}   a slot. Slots with the same TYPE and key are the same
@@ -26,6 +27,7 @@ Body syntax:
   @group after opt/alt ([[opt@subj:...]], [[alt@sig:...]]) makes every block
   in that group take the same decision within one fill. Grouped alts rotate
   through their options by fill number; ungrouped ones are random.
+  Blocks may be nested; the innermost blocks are resolved first.
 
 Entity slots (type is the answer-key type):
   PERSON   forms: full, full_m, full_mi, first_middle_last, first, first_var,
@@ -38,10 +40,12 @@ Entity slots (type is the answer-key type):
            (generic mailbox word). Token case sets output case:
            <first> -> "anna", <First> -> "Anna", <FIRST> -> "ANNA".
   PHONE    forms: any, landline, mobile, intl, ext4, ext5
-  ADDRESS  forms: lines, oneline, any; options: upper, indent=N, quote.
+  ADDRESS  forms: lines, oneline, any; options: upper, indent=N, quote,
+           home (no office prefix), office (no flat prefix).
            Renders ADDRESS spans (one per line) plus a POSTCODE span.
   CUSTOM   form is a format family: client_code, matter, case_triplet, pnr,
-           loyalty, conf_9d_alpha, hotel_conf, student_id
+           loyalty, conf_9d_alpha, hotel_conf, student_id, tenancy_ref,
+           employee_no
   CARD     forms: full, spaced, last4
   BANK_ACCOUNT forms: full, last4 (key shared with SORT_CODE and IBAN)
   SORT_CODE, IBAN (forms: compact, spaced), NI_NUMBER (compact, spaced),
@@ -49,7 +53,8 @@ Entity slots (type is the answer-key type):
 
 Non-entity slots (rendered text is not labelled):
   {{DATE:2001-10-05T11:54:50|style}}  styles: rfc, long, notes, notes_s,
-           wrote, air, airlong, dow3, year, mdy, monthday. Dates move by the
+           wrote, air, airlong, dow3, year, mdy, monthday, letter (date line of
+           a letter, one written style per fill), monthyear. Dates move by the
            fill's year shift (calendar-preserving) and use the fill's locale.
   {{TRAP:pool}}  over-redaction trap phrase from a pool (place, venue).
 """
@@ -155,7 +160,8 @@ NI_FIRST = "ABCEGHJKLMNOPRSTWXYZ"
 NI_SECOND = "ABCEGHJKLMNPRSTWXYZ"
 NI_BAD_PREFIX = {"BG", "GB", "NK", "KN", "TN", "NT", "ZZ"}
 
-BLOCK_RE = re.compile(r"\[\[(opt|alt)(?:@(\w+))?(?:=([0-9.]+))?:(.*?)\]\]", re.S)
+# The body may not contain "[[", so a match is always an innermost block.
+BLOCK_RE = re.compile(r"\[\[(opt|alt)(?:@(\w+))?(?:=([0-9.]+))?:((?:(?!\[\[).)*?)\]\]", re.S)
 SLOT_RE = re.compile(r"\{\{([A-Z_]+):([^|}]*)(?:\|([^}]*))?\}\}")
 EMAIL_TOKEN_RE = re.compile(r"<([A-Za-z]+?)(\d?)>")
 
@@ -208,7 +214,7 @@ class Fill:
         self.rng = random.Random(f"{seed}:{source_id}:{fill}")
         self.fake = Faker("en_GB")
         self.fake.seed_instance(self.rng.getrandbits(32))
-        self.locale = self.rng.choice(["uk", "uk", "us"])
+        self.locale = self.rng.choice(meta.get("locales", "uk uk us").split())
         shifts = [int(x) for x in meta.get("year_shifts", "0").split()]
         self.year_shift = self.rng.choice(shifts)
         self.people, self.values, self.used_last, self.used_first = {}, {}, set(), set()
@@ -372,7 +378,8 @@ class Fill:
             district = area + str(rng.randint(1, 20))
         return f"{district} {rng.randint(1, 9)}{rng.choice(PC_LETTERS)}{rng.choice(PC_LETTERS)}"
 
-    def address(self, key):
+    def address(self, key, kind=None):
+        """kind "home" never gets an office prefix, kind "office" never a flat number."""
         k = ("ADDRESS", key)
         if k not in self.values:
             rng = self.rng
@@ -385,10 +392,10 @@ class Fill:
                 street = f"{base} {rng.choice(STREET_SUFFIXES)}"
             lines = []
             r = rng.random()
-            if r < 0.2:
+            if r < 0.2 and kind != "office":
                 lines.append(f"Flat {rng.randint(1, 24)}")
                 self.tags.add("flat_number")
-            elif r < 0.45:
+            elif r < 0.45 and kind != "home":
                 lines.append(rng.choice(OFFICE_PREFIX))
             lines.append(f"{rng.randint(1, 240)} {street}")
             lines.append(town)
@@ -402,7 +409,7 @@ class Fill:
         indent = next((" " * int(o[7:]) for o in opts if o.startswith("indent=")), "")
         if "quote" in opts:
             indent = "> "
-        lines, pc = self.address(key)
+        lines, pc = self.address(key, next((o for o in opts if o in ("home", "office")), None))
         if layout == "any":
             layout = self.rng.choice(["lines", "oneline"])
         if upper:
@@ -473,6 +480,10 @@ class Fill:
             v = str(rng.randint(1, 9)) + d(7)
         elif family == "student_id":
             v = f"S{d(8)}"
+        elif family == "tenancy_ref":
+            v = f"{d(7)}/{d(2)}"
+        elif family == "employee_no":
+            v = f"E{d(6)}"
         else:
             raise ValueError(f"unknown CUSTOM family {family!r}")
         self.tags.add("custom_identifier")
@@ -537,6 +548,17 @@ class Fill:
             return str(d.year)
         if style == "mdy":
             return f"{d.month}/{d.day}/{d.year}" if us else d.strftime("%d/%m/%Y")
+        if style == "letter":
+            if us:
+                return f"{d.strftime('%B')} {d.day}, {d.year}"
+            if "letter_style" not in self.values:
+                self.values["letter_style"] = self.rng.choice(["plain", "plain", "ordinal"])
+            sfx = ""
+            if self.values["letter_style"] == "ordinal":
+                sfx = "th" if 11 <= d.day <= 13 else {1: "st", 2: "nd", 3: "rd"}.get(d.day % 10, "th")
+            return f"{d.day}{sfx} {d.strftime('%B %Y')}"
+        if style == "monthyear":
+            return d.strftime("%B %Y")
         if style == "monthday":
             sfx = "th" if 11 <= d.day <= 13 else {1: "st", 2: "nd", 3: "rd"}.get(d.day % 10, "th")
             return f"{d.strftime('%B')} {d.day}{sfx}" if us else f"{d.day} {d.strftime('%B')}"
@@ -636,7 +658,9 @@ def resolve_blocks(body, rng, fill_no=1, source_id=""):
             groups[gkey] = idx
         return options[idx % len(options)]
 
-    return BLOCK_RE.sub(sub, body)
+    while BLOCK_RE.search(body):  # innermost blocks first, then the blocks around them
+        body = BLOCK_RE.sub(sub, body)
+    return body
 
 
 def render(meta, body, fill_no, seed):
@@ -657,7 +681,7 @@ def render(meta, body, fill_no, seed):
     full = "".join(out)
     tags = set(f.tags)
     for e in ents:
-        if e["type"] == "PERSON" and full[e["end"]:e["end"] + 2] == "'s":
+        if e["type"] == "PERSON" and full[e["end"]:e["end"] + 2] in ("'s", "\u2019s"):
             tags.add("possessive")
     forms = {}
     for e in ents:
@@ -775,7 +799,10 @@ def check_all(docs, allow):
 
 def check_template(path, body, allow):
     """Regex sweep of a template with all slots removed: leftover identifiers are misses."""
-    bare = SLOT_RE.sub(" ", BLOCK_RE.sub(lambda m: " ".join(m.group(4).split("||")), body))
+    bare = body
+    while BLOCK_RE.search(bare):
+        bare = BLOCK_RE.sub(lambda m: " ".join(m.group(4).split("||")), bare)
+    bare = SLOT_RE.sub(" ", bare)
     return [f"{path.name}: leftover {k}: {v!r}" for k, v in sweep(bare, allow)]
 
 

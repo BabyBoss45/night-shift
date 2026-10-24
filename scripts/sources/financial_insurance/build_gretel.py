@@ -2,12 +2,15 @@
 map their PII labels to our 13 types, validate them, and merge them into
 data/docs/financial.jsonl and data/docs/insurance.jsonl.
 
+Only the English part of the dataset is read: the two parquet files in FILES, at the
+pinned commit REVISION, downloaded with hf_hub_download to a directory outside the repo
+(default /tmp/raw/financial_insurance/gretel). No other file of the dataset is fetched.
 The label mapping is read from label_map.md (the committed table is the only copy).
-The dataset is streamed and pinned to a commit hash; nothing is written inside the
-repo except the two JSONL files and the manifest section "gretel".
+Nothing is written inside the repo except the two JSONL files and the manifest section
+"gretel".
 
 Usage:
-  python3 build_gretel.py [--revision SHA] [--n 100]
+  python3 build_gretel.py [--revision SHA] [--n 100] [--raw DIR]
   python3 build_gretel.py --rows FILE.jsonl --out-dir DIR   # local rows, for tests
 """
 
@@ -19,27 +22,52 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from common import (
-    POSTCODE_RE, assert_valid, check_entities, merge_write, stable_rng, sweep, update_manifest,
+    NI_RE, POSTCODE_RE, REPO, assert_valid, check_entities, email_misses, iban_valid, merge_write,
+    placeholder_tokens, stable_rng, sweep, update_manifest,
 )
 
 DATASET = "gretelai/synthetic_pii_finance_multilingual"
 URL = f"https://huggingface.co/datasets/{DATASET}"
+REVISION = "7b844d16738527a04264f50214cb426a4cea0897"
+FILES = {"train": "data/English_train-00000-of-00001.parquet", "test": "data/English_test-00000-of-00001.parquet"}
+RAW_DEFAULT = Path("/tmp/raw/financial_insurance/gretel")
 LABEL_MAP_MD = Path(__file__).with_name("label_map.md")
 SEED = "night-shift-gretel-v1"
 SPLIT_SHARES = (("train", 0.5), ("fresh", 0.3), ("eval", 0.2))
+INSURANCE_SHARE = 0.45
 TEXT_COLS = ("generated_text", "text")
 SPAN_COLS = ("pii_spans", "spans")
-ID_COLS = ("uid", "id", "index", "level_0")
-LOCALE_COLS = ("locale", "region", "country")
+ID_COLS = ("__index_level_0__", "uid", "id", "index", "level_0")
+LOCALE_COLS = ("language_description", "locale", "region", "country")
 
-# Document types: insurance first, then a deny list of machine formats, then financial.
-INSURANCE_RE = re.compile(r"insur|claim|policyholder|underwrit|indemnity|annuit", re.I)
-MACHINE_RE = re.compile(r"\bfix\b|xbrl|swift|\bbai\b|\bedi\b|fpml|iso ?20022|json|xml|csv|data feed|"
-                        r"\blog\b|api|code|protocol|schema|message format|sql", re.I)
-PRIORITY_RE = re.compile(r"statement|invoice|loan|credit card|pay ?slip|pay ?stub|payroll|mortgage|"
-                         r"insurance policy|insurance claim|claim", re.I)
+# Document types kept, by group: personal financial and insurance documents about an
+# individual. Everything else in the English files (machine formats such as FIX, SWIFT,
+# MT940, EDI, XBRL, CSV; corporate reports, prospectuses, policies and guidelines;
+# marketing email, chat logs, safety data sheets, bills of lading) is left out.
+DOC_TYPES = {
+    "financial": [
+        "Bank Statement", "Credit Card Statement", "Mortgage Amortization Schedule",
+        "Loan Application", "Credit Application", "Credit Card Application", "Financial Aid Application",
+        "Payment Confirmation", "Transaction Confirmation",
+        "Loan Agreement", "Mortgage Contract", "Real Estate Loan Agreement",
+        "Tax Return", "Tax Assessment Notice",
+    ],
+    "insurance": [
+        "Insurance Policy", "Insurance Claim Form", "Health Insurance Claim Form", "Policyholder's Report",
+        "Renewal Reminder",  # every expanded type in the data is about an insurance policy or claim
+    ],
+}
+GROUP_OF = {t: g for g, ts in DOC_TYPES.items() for t in ts}
+# Inside a document type, these expanded types (invoices, payslips, claim letters) are picked first.
+PREFERRED_EXPANDED_RE = re.compile(r"invoice|salary|payroll|pay ?slip|claim (?:approval|rejection|denial)", re.I)
 
-# UK signals and non-UK signals (used only when the dataset has no locale column).
+# UK rule. The English files mark each row's variety in language_description: either
+# "English language as spoken in the United Kingdom" or "... in the United States, the UK,
+# or Canada". A row is UK when that column names the UK and no other country, and the text
+# has no non-UK signal. Without such a column (local test rows), the text must also carry
+# a UK signal.
+UK_LOCALE_RE = re.compile(r"\b(?:United Kingdom|UK|GB|en[-_]GB)\b", re.I)
+OTHER_LOCALE_RE = re.compile(r"United States|\bUSA?\b|Canada|Australia|Ireland|\ben[-_](?:US|CA|AU|IE)\b")
 UK_SIGNALS = [re.compile(p, re.I if i > 1 else 0) for i, p in enumerate([
     r"£|\bGBP\b",
     r"\bGB\d{2} ?[A-Z]{4}",
@@ -50,11 +78,38 @@ NON_UK_SIGNALS = [re.compile(p) for p in [
     r"\b\d{3}-\d{2}-\d{4}\b",
     r"\brouting number\b|\bZIP\b|\bSocial Security\b",
     r"\b[A-Z]{2} \d{5}(?:-\d{4})?\b",
-]]
-UK_RULE = ("language column is English; then the locale column if the dataset has one (value names GB or UK), "
-           "otherwise at least one UK signal (GBP or £, GB IBAN, UK postcode, UK phone, 'sort code', "
-           "'National Insurance', 'HMRC', 'postcode') and no non-UK signal ($, USD, EUR, €, CHF, SEK, "
-           "US SSN pattern, 'routing number', 'ZIP', 'Social Security', US state plus ZIP)")
+]] + [re.compile(r"\brouting number\b|\bsocial security\b", re.I)]
+UK_RULE = ("language column is English; language_description names the United Kingdom and no other country "
+           "(exactly 'English language as spoken in the United Kingdom'; the mixed 'United States, the UK, or Canada' "
+           "rows are left out); and the text has no non-UK signal ($ or USD/EUR/CHF/SEK or €, US SSN pattern "
+           "NNN-NN-NNNN, 'routing number', 'ZIP', 'Social Security', US state plus ZIP)")
+
+# Field-label sweep (design 9.4, "fixed if the fix is unambiguous"): a value written
+# right after an explicit field label is labelled when the dataset left it unlabelled.
+DIGITS_TOKEN = r"(?=[A-Za-z0-9/._-]*\d)[A-Za-z0-9](?:[A-Za-z0-9/._-]*[A-Za-z0-9])?"
+DATE_VALUE = (r"\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}|\d{4}-\d{2}-\d{2}|\d{1,2}(?:st|nd|rd|th)?\s+[A-Z][a-z]+,?\s+\d{4}"
+              r"|[A-Z][a-z]+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}")
+SEP = r"\**[ \t]*[:#.]?[ \t]*\**[ \t]*"  # label and value on one line; markdown bold allowed
+FIELD_RULES = [
+    ("DOB", re.compile(r"\b(?:date\s+of\s+birth|D\.?O\.?B\.?)" + SEP + r"(?P<v>" + DATE_VALUE + r")", re.I)),
+    ("SORT_CODE", re.compile(r"\bsort\s*code" + SEP + r"(?P<v>\d{2}[- ]\d{2}[- ]\d{2}|\d{6})(?![\d-])", re.I)),
+    ("BANK_ACCOUNT", re.compile(r"\b(?:bank\s+)?(?:account|acct\.?|a/c)\s*(?:number|no\.?|num\.?|#)" + SEP
+                                + r"(?P<v>\d{2,}(?:[ -]\d{2,})+(?![\d-])|" + DIGITS_TOKEN + r")", re.I)),
+    ("ID_DOC", re.compile(r"\b(?:passport|driving\s+licen[cs]e|driver'?s?\s+licen[cs]e)\s*(?:number|no\.?|#)?" + SEP
+                          + r"(?P<v>" + DIGITS_TOKEN + r")", re.I)),
+    ("CUSTOM", re.compile(r"\b(?:(?:policy|claim|customer|client|member(?:ship)?|case|patient|employee|applicant|"
+                          r"application|loan)\s*(?:number|no\.?|id|#|ref(?:erence)?|code)"
+                          r"|tax\s+reference(?:\s+(?:number|no\.?))?|unique\s+taxpayer\s+reference|UTR)"
+                          + SEP + r"(?P<v>" + DIGITS_TOKEN + r")", re.I)),
+]
+MIN_FIELD_LEN = {"BANK_ACCOUNT": 4, "ID_DOC": 5, "CUSTOM": 5}
+YEAR_RE = re.compile(r"(?:19|20)\d{2}")
+DIGIT_TYPES = {"PHONE", "BANK_ACCOUNT", "SORT_CODE", "IBAN", "CARD", "NI_NUMBER", "DOB", "ID_DOC"}
+TEMPLATE_CHARS = set("[]{}<>")
+# A title written with a name goes inside the PERSON entity (T1 prompt); mentions with and
+# without the title are the same person.
+TITLE_BEFORE_RE = re.compile(r"\b(?:Mrs|Mr|Ms|Miss|Mx|Dr)\.? $")
+TITLE_START_RE = re.compile(r"^(?:mrs|mr|ms|miss|mx|dr)\.? ")
 
 
 def load_label_map():
@@ -85,18 +140,17 @@ def pick_col(row, names, what, required=True):
     return None
 
 
-def is_uk(text, row, locale_col):
+def uk_check(text, row, locale_col):
+    """Return None for a UK document, else the reason it is not one."""
     if locale_col:
-        return bool(re.search(r"\b(GB|UK|United Kingdom|en[-_]GB)\b", str(row[locale_col]), re.I))
-    return any(p.search(text) for p in UK_SIGNALS) and not any(p.search(text) for p in NON_UK_SIGNALS)
-
-
-def classify(doc_type):
-    if INSURANCE_RE.search(doc_type) and not re.search(r"privacy|disclaimer", doc_type, re.I):
-        return "insurance"
-    if MACHINE_RE.search(doc_type):
-        return None
-    return "financial"
+        v = str(row[locale_col])
+        if not UK_LOCALE_RE.search(v) or OTHER_LOCALE_RE.search(v):
+            return "locale_not_uk"
+    elif not any(p.search(text) for p in UK_SIGNALS):
+        return "no_uk_signal"
+    if any(p.search(text) for p in NON_UK_SIGNALS):
+        return "non_uk_signal"
+    return None
 
 
 def slug(s):
@@ -126,19 +180,39 @@ def split_address(text, s, e):
     return res
 
 
+def value_problem(label, target, value):
+    """Why a labelled value cannot be used as-is, or None."""
+    if TEMPLATE_CHARS & set(value):
+        return "template_placeholder_span"
+    if target == "PERSON":
+        if not re.search(r"[A-Z]", value) or re.search(r"[\d_@/\\:#]", value):
+            return "person_span_not_a_name"
+    elif target in DIGIT_TYPES and not re.search(r"\d", value):
+        return f"span_value_not_valid:{target}"
+    elif target == "CUSTOM":
+        if label == "user_name":
+            if re.search(r"\s", value):
+                return "span_value_not_valid:CUSTOM"
+        elif not re.search(r"\d", value) or ": " in value:
+            return "span_value_not_valid:CUSTOM"
+    elif target == "EMAIL" and "@" not in value:
+        return "email_span_without_at"
+    return None
+
+
 def convert(text, raw_spans, label_map):
     """Return (entities, None, notes) or (None, drop_reason, notes)."""
     notes = Counter()
     if isinstance(raw_spans, str):
         raw_spans = json.loads(raw_spans)
-    hidden, visible = [], []  # (start, end, type, group key)
+    hidden, visible = [], []  # (start, end, type, group key) / (start, end, label)
     for n, sp in enumerate(raw_spans):
         label = str(sp.get("label", sp.get("type", ""))).lower()
         s, e = sp.get("start"), sp.get("end")
         if label not in label_map:
             return None, f"unmapped_label:{label}", notes
         if label_map[label] == "DROP_DOC":
-            return None, "contains_password_or_api_key", notes
+            return None, f"drop_label:{label}", notes
         if not (isinstance(s, int) and isinstance(e, int) and 0 <= s < e <= len(text)):
             return None, "span_offsets_invalid", notes
         value = sp.get("value", sp.get("text"))
@@ -148,15 +222,57 @@ def convert(text, raw_spans, label_map):
             s += 1
         while e > s and text[e - 1] in " \n\t.,;:":
             e -= 1
-        if s == e or mid_word(text, s, e) or (label == "email" and "@" not in text[s:e]):
-            return None, "span_text_mismatch", notes
         target = label_map[label]
         if target == "KEEP":
-            visible.append((s, e, label))
-        elif target == "ADDRESS" and label == "street_address":
+            if s < e:
+                visible.append((s, e, label))
+            continue
+        if target == "PERSON":
+            m = re.search(r"['’]s?$", text[s:e])
+            if m and e - s - len(m.group()) >= 2:
+                e -= len(m.group())
+                notes["possessive_trimmed"] += 1
+            t = TITLE_BEFORE_RE.search(text[max(0, s - 6):s])
+            if t:
+                s -= len(t.group())
+                notes["title_moved_inside"] += 1
+        if s == e or mid_word(text, s, e):
+            return None, "span_mid_word", notes
+        value = text[s:e]
+        if label == "bban" and iban_valid(value):
+            target = "IBAN"
+            notes["bban_is_iban"] += 1
+        elif label == "ssn" and NI_RE.fullmatch(value):
+            target = "NI_NUMBER"
+            notes["ssn_in_ni_format"] += 1
+        problem = value_problem(label, target, value)
+        if problem:
+            return None, problem, notes
+        if target == "ADDRESS" and label == "street_address":
             hidden += [(a, b, t, f"addr{n}:{t}") for a, b, t in split_address(text, s, e)]
         else:
             hidden.append((s, e, target, None))
+
+    # Field-label sweep: unlabelled values right after an explicit field label.
+    for typ, rx in FIELD_RULES:
+        for m in rx.finditer(text):
+            s, e = m.span("v")
+            v = m.group("v")
+            if len(v) < MIN_FIELD_LEN.get(typ, 0) or (typ == "CUSTOM" and YEAR_RE.fullmatch(v)):
+                continue
+            if any(a <= s and e <= b for a, b, _, _ in hidden):
+                continue
+            if any(s < b and a < e for a, b, _, _ in hidden):
+                return None, f"field_partial_overlap:{typ}", notes
+            vis = [x for x in visible if s < x[1] and x[0] < e]
+            if vis:
+                if typ == "DOB" and all(x[2] in ("date", "date_time") for x in vis):
+                    visible = [x for x in visible if x not in vis]
+                    notes["date_relabelled_dob"] += 1
+                else:
+                    continue
+            hidden.append((s, e, typ, None))
+            notes[f"field_added:{typ}"] += 1
 
     # One person per span: merge PERSON spans separated only by spaces (first_name + last_name).
     hidden.sort(key=lambda h: (h[0], -h[1]))
@@ -213,12 +329,13 @@ def convert(text, raw_spans, label_map):
     # entity_id: same type and value share an id; address parts of one span share an id;
     # a one-word PERSON mention joins the only longer PERSON name containing that word.
     norm = lambda v: re.sub(r"\s+", " ", v).strip().lower()
+    pnorm = lambda v: TITLE_START_RE.sub("", norm(v))
     key_of = {}
     for s, e, t, g in clean:
-        key_of[(s, e)] = g or (t, norm(text[s:e]))
-    full_names = {norm(text[s:e]) for s, e, t, _ in clean if t == "PERSON" and " " in norm(text[s:e])}
+        key_of[(s, e)] = g or (t, pnorm(text[s:e]) if t == "PERSON" else norm(text[s:e]))
+    full_names = {pnorm(text[s:e]) for s, e, t, _ in clean if t == "PERSON" and " " in pnorm(text[s:e])}
     for s, e, t, _ in clean:
-        v = norm(text[s:e])
+        v = pnorm(text[s:e])
         if t == "PERSON" and " " not in v:
             owners = [f for f in full_names if v in f.split(" ")]
             if len(owners) == 1:
@@ -230,6 +347,11 @@ def convert(text, raw_spans, label_map):
         entities.append(dict(start=s, end=e, type=t, value=text[s:e], entity_id=eid))
     if check_entities(text, entities):
         return None, "invalid_after_processing", notes
+    # The documents validator (scripts/dataset/validate_docs.py) rejects these two; drop them here.
+    if email_misses(text, entities):
+        return None, "email_not_covered", notes
+    if placeholder_tokens(text, strict=True):
+        return None, "placeholder_like_token", notes
     return entities, None, notes
 
 
@@ -238,9 +360,12 @@ def iter_rows(args):
         for n, line in enumerate(args.rows.read_text(encoding="utf-8").splitlines()):
             yield "local", n, json.loads(line)
         return
-    from datasets import load_dataset
-    for split, ds in load_dataset(DATASET, revision=args.revision, streaming=True).items():
-        for n, row in enumerate(ds):
+    import pyarrow.parquet as pq
+    from huggingface_hub import hf_hub_download
+    for split, filename in FILES.items():
+        path = Path(hf_hub_download(DATASET, filename, repo_type="dataset", revision=args.revision, local_dir=args.raw))
+        print(f"  read {path} ({path.stat().st_size / 1e6:.1f} MB)")
+        for n, row in enumerate(pq.read_table(path).to_pylist()):
             yield split, n, row
 
 
@@ -248,29 +373,26 @@ def resolve_revision(args):
     if args.rows:
         return "local-rows"
     from huggingface_hub import HfApi
-    info = HfApi().dataset_info(DATASET, revision=args.revision or "main", files_metadata=True)
-    for f in info.siblings:
-        print(f"  {f.rfilename}: {(f.size or 0) / 1e6:.1f} MB")
-    return info.sha
+    revision = args.revision or REVISION
+    for info in HfApi().get_paths_info(DATASET, list(FILES.values()), repo_type="dataset", revision=revision):
+        print(f"  {info.path}: {(info.size or 0) / 1e6:.1f} MB")
+    return revision
 
 
 def select(cands, n, rng):
-    """Round-robin over (group, subtype) buckets for variety; priority types take 2 per round."""
+    """Round-robin over document types for variety; inside a type, preferred expanded types first."""
     buckets = defaultdict(list)
     for c in sorted(cands, key=lambda c: c["doc_id"]):
-        buckets[(c["group"], c["subtype"])].append(c)
+        buckets[c["subtype"]].append(c)
     for b in buckets.values():
         rng.shuffle(b)
+        b.sort(key=lambda c: not PREFERRED_EXPANDED_RE.search(c["_expanded"]))  # stable: keeps the shuffle
     order = sorted(buckets)
-    chosen, cap = [], max(6, n // 8)
+    chosen = []
     while len(chosen) < n and any(buckets.values()):
         for k in order:
-            take = 2 if PRIORITY_RE.search(k[1].replace("_", " ")) else 1
-            for _ in range(take):
-                if buckets[k] and len(chosen) < n and sum(1 for c in chosen if (c["group"], c["subtype"]) == k) < cap:
-                    chosen.append(buckets[k].pop())
-            if sum(1 for c in chosen if (c["group"], c["subtype"]) == k) >= cap:
-                buckets[k] = []
+            if buckets[k] and len(chosen) < n:
+                chosen.append(buckets[k].pop(0))
     return chosen
 
 
@@ -290,21 +412,26 @@ def assign_splits(docs, rng):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--revision", help="dataset commit hash (default: current main, recorded in the manifest)")
+    ap.add_argument("--revision", help=f"dataset commit hash (default: the pinned {REVISION})")
     ap.add_argument("--n", type=int, default=100)
+    ap.add_argument("--raw", type=Path, default=RAW_DEFAULT, help="download directory, outside the repo")
     ap.add_argument("--rows", type=Path, help="local JSONL rows instead of the Hugging Face dataset (tests)")
     ap.add_argument("--out-dir", type=Path, help="write financial.jsonl / insurance.jsonl here instead of data/docs")
     args = ap.parse_args()
+    args.raw = args.raw.resolve()
+    if args.raw.is_relative_to(REPO):
+        sys.exit("raw files must be kept outside the repo")
     label_map = load_label_map()
     revision = resolve_revision(args)
     args.revision = revision if not args.rows else None
 
-    stats, drops, notes, types_seen = Counter(), Counter(), Counter(), Counter()
+    stats, drops, notes, uk_drops, types_seen, out_of_scope = Counter(), Counter(), Counter(), Counter(), Counter(), Counter()
     cands, cols = [], None
     for split, n, row in iter_rows(args):
         if cols is None:
             cols = dict(text=pick_col(row, TEXT_COLS, "text"), spans=pick_col(row, SPAN_COLS, "PII spans"),
                         lang=pick_col(row, ("language",), "language"), type=pick_col(row, ("document_type",), "document type"),
+                        expanded=pick_col(row, ("expanded_type",), "expanded type", required=False),
                         id=pick_col(row, ID_COLS, "row id", required=False),
                         locale=pick_col(row, LOCALE_COLS, "locale", required=False))
             print("columns used:", cols)
@@ -313,31 +440,42 @@ def main():
             continue
         stats["english"] += 1
         text = row[cols["text"]]
-        if not is_uk(text, row, cols["locale"]):
+        not_uk = uk_check(text, row, cols["locale"])
+        if not_uk:
+            uk_drops[not_uk] += 1
             continue
         stats["english_uk"] += 1
         doc_type = str(row[cols["type"]])
         types_seen[doc_type] += 1
-        group = classify(doc_type)
+        group = GROUP_OF.get(doc_type)
         if group is None:
-            drops["document_type_not_a_document"] += 1
+            out_of_scope[doc_type] += 1
+            drops["document_type_out_of_scope"] += 1
             continue
+        stats["uk_in_scope"] += 1
         entities, reason, nt = convert(text, row[cols["spans"]], label_map)
-        notes.update(nt)
         if reason:
             drops[reason] += 1
             continue
+        notes.update(nt)
         row_id = f"{split}-{row[cols['id']] if cols['id'] else n}"
         cands.append(dict(
             doc_id=f"{group}-gretel-{row_id}", source_id=f"gretel-{row_id}", group=group, subtype=slug(doc_type),
             split=None, fill=0, text=text, entities=entities,
             provenance=dict(url=URL, licence="Apache-2.0", kind="synthetic",
                             attribution="Gretel.ai, gretelai/synthetic_pii_finance_multilingual"),
+            _expanded=str(row[cols["expanded"]]) if cols["expanded"] else "",
         ))
     stats["valid_candidates"] = len(cands)
     rng = stable_rng(SEED)
-    chosen = select(cands, args.n, rng)
+    n_ins = round(args.n * INSURANCE_SHARE)
+    ins = select([c for c in cands if c["group"] == "insurance"], n_ins, rng)
+    fin = select([c for c in cands if c["group"] == "financial"], args.n - len(ins), rng)
+    chosen = fin + ins
     assign_splits(chosen, rng)
+    expanded = Counter(f"{c['group']}/{c['subtype']}/{c['_expanded']}" for c in chosen)
+    for c in chosen:
+        del c["_expanded"]
 
     for group in ("financial", "insurance"):
         recs = [c for c in chosen if c["group"] == group]
@@ -350,18 +488,27 @@ def main():
         else:
             merge_write(group, recs, lambda r: r["source_id"].startswith("gretel-"))
 
+    by_group_subtype = defaultdict(Counter)
+    for c in chosen:
+        by_group_subtype[c["group"]][c["subtype"]] += 1
     summary = dict(
-        dataset=DATASET, url=URL, revision=revision, licence="Apache-2.0", attribution="Gretel.ai",
-        seed=SEED, uk_rule=UK_RULE if not cols["locale"] else f"locale column {cols['locale']!r} names GB/UK",
+        dataset=DATASET, url=URL, revision=revision, files=list(FILES.values()), licence="Apache-2.0",
+        attribution="Gretel.ai", seed=SEED,
+        uk_rule=UK_RULE if cols["locale"] else "no locale column: a UK signal in the text and no non-UK signal",
+        document_types=DOC_TYPES,
         label_map="scripts/sources/financial_insurance/label_map.md",
         counts=dict(
-            rows_seen=stats["rows"], english=stats["english"], english_uk=stats["english_uk"],
-            valid_candidates=stats["valid_candidates"], selected=len(chosen),
-            drop_reasons=dict(drops.most_common()), fixes=dict(notes.most_common()),
-            by_group_split={g: dict(Counter(c["split"] for c in chosen if c["group"] == g)) for g in ("financial", "insurance")},
-            by_subtype=dict(Counter(f"{c['group']}/{c['subtype']}" for c in chosen).most_common()),
+            rows_seen=stats["rows"], english=stats["english"], not_uk=dict(uk_drops.most_common()),
+            english_uk=stats["english_uk"], uk_in_scope=stats["uk_in_scope"],
+            valid_candidates=stats["valid_candidates"],
+            valid_by_group=dict(Counter(c["group"] for c in cands)), selected=len(chosen),
+            drop_reasons=dict(drops.most_common()), fixes_in_candidates=dict(notes.most_common()),
+            by_group_split={g: dict(sorted(Counter(c["split"] for c in chosen if c["group"] == g).items()))
+                            for g in ("financial", "insurance")},
+            by_group_subtype={g: dict(sorted(v.items())) for g, v in sorted(by_group_subtype.items())},
+            preferred_expanded_selected={k: v for k, v in sorted(expanded.items()) if PREFERRED_EXPANDED_RE.search(k)},
             entities_by_type=dict(Counter(e["type"] for c in chosen for e in c["entities"]).most_common()),
-            uk_document_types_seen=dict(types_seen.most_common()),
+            uk_document_types_out_of_scope=dict(out_of_scope.most_common()),
         ),
     )
     if not args.out_dir:

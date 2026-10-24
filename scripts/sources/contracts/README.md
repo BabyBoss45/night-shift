@@ -15,8 +15,8 @@ Files:
 
 | Path | What |
 |---|---|
-| `sources.py` | source table: URL, subtype, kind, licence; eval sources C2, C5, C10 |
-| `fetch.py` | downloads each source (descriptive User-Agent), extracts plain text (HTML, PDF, DOCX, ODT, EDGAR .txt, markdown), writes `data/sources/contracts/manifest.json` |
+| `sources.py` | source table: URL, subtype, kind, licence, and for publication pages which attachment to take (`attachment_ext`, `attachment_hint`); eval sources in `EVAL_SOURCES` |
+| `fetch.py` | downloads each source (descriptive User-Agent, only from the source's own hosts and the gov.uk asset host, redirects included), extracts plain text (HTML, PDF re-flowed into paragraphs, DOCX with list numbers, ODT, EDGAR .txt, markdown), writes `data/sources/contracts/manifest.json` |
 | `build.py` | template parser, fake value generators, renderer, schema check |
 | `data/templates/contracts/<id>.txt` | one slotted template per source, no real personal values |
 
@@ -49,8 +49,9 @@ address, email, phone, bank details and company, generated once per fill and reu
 | `{{NI_NUMBER:role}}`, `{{DOB:role}}`, `{{ID_DOC:role\|passport}}`, `{{ID_DOC:role\|licence}}` | valid patterns | NI_NUMBER, DOB, ID_DOC |
 | `{{CUSTOM:name}}` | organisation-specific identifier; `client`, `matter`, `nda`, `acct`, `vendor`, `policy`, `dotted`, `ref_slash` pick that format, any other name picks one at random | CUSTOM |
 | `{{COMPANY:role}}` | company name (often containing a surname: "Hughes and Bradley Ltd"), or for a sole trader the person's own name | none, or PERSON for a sole trader |
+| `{{COMPANY:role\|registered}}` | a company name, never a sole trader, for text such as "a company registered in Scotland"; it must come before the role's other COMPANY and TITLE slots | none |
 | `{{TITLE:role}}` | job title | none |
-| `{{DATE:name}}` | ordinary date in the fill's date format; same name, same date | none |
+| `{{DATE:name}}`, `{{DATE:name\|+364}}` | ordinary date in the fill's date format; same name, same date. Dates without an offset fall within two weeks before the fill's base date; an offset puts the date exactly that many days after (or, with `-`, before) the base date, for terms such as "begins on ... ends on" | none |
 | `{{TEXT:pool}}` | an entry from a header pool | whatever its slots produce |
 | `{{CHECK:x}}`, `{{CHECK:o}}` | ticked or empty box in the fill's style | none |
 | `{{TAG:name}}` | nothing; adds `name` to `hard_cases` (used for `over_redaction_trap`) | none |

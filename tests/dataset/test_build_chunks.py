@@ -91,7 +91,7 @@ def test_dedup_keeps_new_text_and_other_sources():
     f2 = make_doc(base.replace("Ann Lee", "Bo Tan") + "\n\nPets are allowed.", [("Bo Tan", "PERSON", "p1")],
                   doc_id="contracts-C1-f2", fill=2)
     other = make_doc(base, [("Ann Lee", "PERSON", "p1")], doc_id="contracts-C3-f1", source_id="C3", subtype="employment")
-    by_split, stats = build_chunks.build([f2, other, f1], 8)
+    by_split, stats = build_chunks.build([f2, other, f1], 8, keep_empty_variants=True)
     texts = [(c["doc_id"], c["text"]) for c in by_split["train"] if not c["entities"]]
     assert texts == [
         ("contracts-C1-f1", "The rent is due monthly."),
@@ -99,6 +99,23 @@ def test_dedup_keeps_new_text_and_other_sources():
         ("contracts-C3-f1", "The rent is due monthly."),
     ]
     assert sum(stats["dropped"].values()) == 1
+
+
+def test_dedup_default_keeps_empty_chunks_from_first_fill_only():
+    base = "Ann Lee rents the flat.\n\nThe rent is due monthly."
+    f1 = make_doc(base, [("Ann Lee", "PERSON", "p1")], doc_id="contracts-C1-f1", fill=1)
+    f2 = make_doc(base.replace("Ann Lee", "Bo Tan").replace("due monthly", "due each month"),
+                  [("Bo Tan", "PERSON", "p1")], doc_id="contracts-C1-f2", fill=2)
+    other = make_doc(base, [("Ann Lee", "PERSON", "p1")], doc_id="contracts-C3-f1", source_id="C3", subtype="employment")
+    by_split, stats = build_chunks.build([f2, other, f1], 8)
+    texts = [(c["doc_id"], c["text"]) for c in by_split["train"] if not c["entities"]]
+    assert texts == [
+        ("contracts-C1-f1", "The rent is due monthly."),
+        ("contracts-C3-f1", "The rent is due monthly."),
+    ]
+    assert sum(stats["dropped"].values()) == 1
+    assert [c["doc_id"] for c in by_split["train"] if c["entities"]] == [
+        "contracts-C1-f1", "contracts-C1-f2", "contracts-C3-f1"]
 
 
 def test_main_writes_three_files(tmp_path, capsys):

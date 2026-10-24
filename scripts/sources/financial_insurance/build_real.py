@@ -53,6 +53,12 @@ INSURERS = ["Northgate Mutual Insurance plc", "Albion General Assurance Limited"
             "Severn & Wye Underwriting Ltd", "Pennine Indemnity plc", "Harbourline Insurance UK Limited"]
 TRAP_PLACES = ["the Rose Garden car park", "the roadworks on Oak Road", "Victoria Park", "Grace Court Retail Park",
                "the Hope Street junction", "Penny Lane Business Centre"]
+# Fictional companies (employers, other defendants). About a third carry a person's surname
+# (hard case 9.4: a company name containing a person's name stays visible).
+COMPANY_STEMS = ["Kestrel", "Brookfield", "Northgate", "Riverside", "Ashdown", "Meridian", "Harbourside", "Castlegate",
+                 "Fenwick Vale", "Larchmont", "Redbridge", "Thistle"]
+COMPANY_SECTORS = ["Logistics", "Packaging", "Construction", "Facilities Management", "Engineering", "Haulage",
+                   "Retail", "Foods", "Scaffolding", "Property Services", "Care Homes", "Cleaning Services"]
 # Public Lloyd's market clause codes: look like references, stay visible.
 WORDINGS = ["NMA 2915", "LSW 238", "LMA 5021", "NMA 1191", "LMA 3100", "NMA 464"]
 STREET_STEMS = ["Church", "Mill", "Station", "Victoria", "King's", "Queen's", "Park", "Manor", "Oak", "Elm",
@@ -82,6 +88,8 @@ CUSTOM_FORMATS = {
     "broker_ref": "BRK{D2}x{D4}",
     "client_id": "{D4} {D4} {D2}",
     "insured_ref": "~{L1}{D3}~{D2}",
+    "works_no": "{D2}/{D4}{L1}",
+    "hospital_ref": "RX{D2}-{D5}",
 }
 DEFAULT_CUSTOM = "{L2}{D6}"
 PERSON_FORMS = {"full", "formal", "title_surname", "initial_surname", "first", "surname", "initials",
@@ -106,6 +114,7 @@ class Fill:
             "spaced": r.random() < 0.5,
         }
         self.persons, self.addresses, self.values, self.keeps = {}, {}, {}, {}
+        self.keep_values = set()
         self.used_names = set()
         self.tags = set()
         self.person_forms = defaultdict(list)
@@ -214,9 +223,19 @@ class Fill:
         return d.strftime(fmt)
 
     def keep(self, key, mods):
-        """Unlabelled filler (amounts, ordinary dates, company names, traps)."""
+        """Unlabelled filler (amounts, ordinary dates, company names, traps). Different keys
+        get different values where the pool allows (two insurers in one letter are not the same)."""
         if key in self.keeps:
             return self.keeps[key]
+        for _ in range(20):
+            v = self._keep_value(key, mods)
+            if v not in self.keep_values:
+                break
+        self.keep_values.add(v)
+        self.keeps[key] = v
+        return v
+
+    def _keep_value(self, key, mods):
         r, f = self.rng, self.fake
         kind = mods[0] if mods else key
         if kind.startswith("date"):
@@ -232,6 +251,13 @@ class Fill:
             a, b = f.last_name(), r.choice(COMMON_LAST + [f.last_name()])
             v = r.choice([f"{a} & {b} LLP", f"{a} {b} Solicitors", f"{a} & Co Solicitors Limited"])
             self.tags.add("company_person_name")
+        elif kind.startswith("company"):
+            sector = r.choice(COMPANY_SECTORS)
+            if r.random() < 0.35:
+                v = r.choice([f"{f.last_name()} & Sons Ltd", f"{r.choice(COMMON_LAST)} {sector} Limited"])
+                self.tags.add("company_person_name")
+            else:
+                v = f"{r.choice(COMPANY_STEMS)} {sector} {r.choice(['Ltd', 'Limited', 'plc', '(UK) Limited'])}"
         elif kind.startswith("wording"):
             v = r.choice(WORDINGS)
             self.tags.add("over_redaction_trap")
@@ -240,7 +266,6 @@ class Fill:
             self.tags.add("over_redaction_trap")
         else:
             raise ValueError(f"unknown keep slot {key!r} {mods}")
-        self.keeps[key] = v
         return v
 
     # ------------------------------------------------ rendering to pieces
