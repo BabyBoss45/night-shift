@@ -1,8 +1,10 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { api } from "../api";
 import { changeList, stepMs, toLines, type Line } from "../redaction";
+import { advancePasses, hiddenSoFar, liveEntities, partAt, partLines, partsOf, passesDone } from "../scan";
 import type { Session } from "../session";
 import { Button, Chip, Icon, LinkButton, Tabs } from "../ui/kit";
+import { Routing } from "./Routing";
 
 const TYPES: [string, string][] = [
   ["CUSTOM", "Client or case reference"], ["PERSON", "Person"], ["ADDRESS", "Address"], ["POSTCODE", "Postcode"],
@@ -13,28 +15,34 @@ const TYPES: [string, string][] = [
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isHeading = (t: string) => t.length > 0 && t.length < 60 && /[A-Z]/.test(t) && t === t.toUpperCase();
 const lineText = (l: Line) => l.segments.map((s) => s.text).join("");
+const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 
 type Pop = { entity: number; x: number; y: number };
 type Pick = { text: string; x: number; y: number };
 
-export function DocumentPane({ session, modelOn, onRevealed, onApprove, onDecline, onRetry, onCorrect }: {
+export function DocumentPane({ session, onRevealed, onApprove, onDecline, onRetry, onCorrect }: {
   session: Session;
-  modelOn: boolean;
   onRevealed: () => void;
   onApprove: () => void;
   onDecline: () => void;
   onRetry: () => void;
   onCorrect: (action: "hide" | "unhide", text: string, type?: string) => Promise<void>;
 }) {
-  const { doc, result, status } = session;
-  const lines = useMemo(() => toLines(doc.text, result?.entities ?? []), [doc.text, result]);
+  const { doc, result, status, scan } = session;
+  // Until the final result arrives, the page shows what the stream has found so far.
+  const found = scan?.entities;
+  const entities = useMemo(() => result?.entities ?? liveEntities(found ?? [], doc.text), [result, found, doc.text]);
+  const lines = useMemo(() => toLines(doc.text, entities), [doc.text, entities]);
   const changes = useMemo(() => changeList(lines), [lines]);
+  const parts = useMemo(() => partsOf(session), [session.scan, session.result]);
+  const spans = useMemo(() => partLines(parts, lines.map((l) => l.start)), [parts, lines]);
+  const partOfLine = useMemo(() => lines.map((l) => partAt(parts, l.start)), [lines, parts]);
   const done = session.revealed || status === "approved" || status === "declined";
-  const passing = status === "review" && !session.revealed && !!result;
   const editable = status === "review" && session.revealed;
 
-  const [cursor, setCursor] = useState(-1);
+  const [cursors, setCursors] = useState<Record<number, number>>({});
   const [view, setView] = useState<"lines" | "pages">("lines");
+  const [routing, setRouting] = useState(false);
   const [focus, setFocus] = useState<number | null>(null);
   const [pop, setPop] = useState<Pop | null>(null);
   const [pick, setPick] = useState<Pick | null>(null);
@@ -46,43 +54,59 @@ export function DocumentPane({ session, modelOn, onRevealed, onApprove, onDeclin
   const body = useRef<HTMLDivElement>(null);
   const revealed = useRef(onRevealed);
   revealed.current = onRevealed;
+  const latest = useRef({ parts, spans });
+  latest.current = { parts, spans };
 
+  // A new run (first scan or Retry) starts every pass again.
   useEffect(() => {
-    setView("lines");
-    setFocus(null);
-    setPop(null);
-    setPick(null);
-    setNote(null);
-    setFixing(false);
-    body.current?.scrollTo({ top: 0 });
-  }, [session.id]);
+    if (status === "scanning") setCursors((c) => (Object.keys(c).length ? {} : c));
+  }, [status]);
 
-  // The line-by-line pass: one line per tick, values flash and turn into bars, then the review bar comes up.
+  // The pass, driven by real events: when a part comes back, its lines are swept one per tick, its values
+  // flash and turn into bars. Parts finish out of order, so several passes can run at once.
+  const sweeping = !done && parts.some((p) => p.status !== "pending" && (cursors[p.index] ?? -Infinity) <= (spans.get(p.index)?.[1] ?? -1));
+  const step = stepMs(lines.length);
   useEffect(() => {
-    if (!passing) return;
-    if (reducedMotion()) {
-      revealed.current();
-      return;
-    }
-    let i = -1;
-    setCursor(-1);
-    const timer = window.setInterval(() => {
-      i += 1;
-      setCursor(i);
-      lineEls.current[i]?.scrollIntoView({ block: "nearest", behavior: "smooth" });
-      if (i >= lines.length) {
-        window.clearInterval(timer);
-        window.setTimeout(() => revealed.current(), 250);
-      }
-    }, stepMs(lines.length));
+    if (!sweeping) return;
+    const calm = reducedMotion();
+    const tick = () => setCursors((c) => advancePasses(c, latest.current.parts, latest.current.spans, calm));
+    tick();
+    if (calm) return;
+    const timer = window.setInterval(tick, step);
     return () => window.clearInterval(timer);
-  }, [passing, session.id, lines.length]);
+  }, [sweeping, step]);
 
-  const at = done ? lines.length : cursor;
-  const hiddenSoFar = done ? changes.length : lines.slice(0, Math.max(0, at + 1)).reduce((n, l) => n + l.changes, 0);
-  const progress = status === "scanning" ? 0 : done ? 1 : Math.max(0, at + 1) / Math.max(1, lines.length);
+  // Follow the pass that started last.
+  useEffect(() => {
+    if (done) return;
+    const { parts, spans } = latest.current;
+    const moving = parts
+      .filter((p) => p.order !== null && cursors[p.index] !== undefined && cursors[p.index] <= (spans.get(p.index)?.[1] ?? -1))
+      .sort((a, b) => (b.order ?? 0) - (a.order ?? 0))[0];
+    if (moving) lineEls.current[cursors[moving.index]]?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [cursors, done]);
+
+  // The review bar comes up once the backend is done and the last pass has ended.
+  const settled = status === "review" && !session.revealed && passesDone(cursors, parts, spans);
+  useEffect(() => {
+    if (!settled) return;
+    const t = window.setTimeout(() => revealed.current(), reducedMotion() ? 0 : 250);
+    return () => window.clearTimeout(t);
+  }, [settled]);
+
+  const total = parts.length;
+  const finished = parts.filter((p) => p.status !== "pending").length;
+  const unchecked = parts.filter((p) => p.status === "error");
+  const modelOff = (scan?.model ?? result?.model) === "off";
+  const hidden = done ? changes.length : hiddenSoFar(entities, parts);
+  const progress = total ? finished / total : 0;
   const distinct = new Set(result?.entities.map((e) => e.placeholder)).size;
-  const failedChunks = modelOn ? (result?.chunks.filter((c) => c.error).length ?? 0) : 0;
+  const why = unchecked.map((p) => p.error).filter(Boolean).join("; ");
+  const statusNote = modelOff
+    ? "Numbers only for now. The AI model did not run, so check names and addresses yourself."
+    : unchecked.length
+      ? `${plural(unchecked.length, "part")} not checked by the AI. Check those lines yourself, or retry.`
+      : "Check the changes. Missed one? Use Fix a miss.";
 
   function goTo(next: number) {
     if (!changes.length) return;
@@ -126,24 +150,46 @@ export function DocumentPane({ session, modelOn, onRevealed, onApprove, onDeclin
         <h2 className="min-w-0 max-w-full truncate font-pixel text-[22px] leading-tight font-bold" title={doc.filename}>
           {doc.filename}
         </h2>
-        <Chip>{status === "scanning" ? "Reading" : `${hiddenSoFar} changes`}</Chip>
-        {failedChunks > 0 && <Chip tone="red">{failedChunks} part{failedChunks > 1 ? "s" : ""} rules only</Chip>}
+        <Chip>{status === "failed" ? "Not finished" : status === "scanning" && !finished ? "Reading" : plural(hidden, "change")}</Chip>
+        {modelOff && status !== "failed" && <Chip>Numbers only</Chip>}
+        {unchecked.length > 0 && status !== "failed" && (
+          <span title={why || undefined}>
+            <Chip tone="red">{plural(unchecked.length, "part")} not checked by the AI</Chip>
+          </span>
+        )}
         <span className="ml-auto flex items-center gap-3">
           {doc.kind === "pdf" && done && (
             <Tabs label="View" value={view} options={[["lines", "Lines"], ["pages", "Pages"]]} onChange={setView} />
           )}
-          {!done && (
-            <span className="relative block h-3 w-[142px] text-stone/40 segments" role="progressbar" aria-label="Redaction progress" aria-valuenow={Math.round(progress * 100)}>
+          {!done && status !== "failed" && (
+            <span className="relative block h-3 w-[142px] text-stone/40 segments" role="progressbar" aria-label="Parts read" aria-valuenow={Math.round(progress * 100)}>
               <span
-                className={`absolute inset-y-0 left-0 block text-signal segments ${status === "scanning" ? "indeterminate w-full" : ""}`}
-                style={status === "scanning" ? undefined : { width: `${progress * 100}%`, transition: "width .3s ease-out" }}
+                className={`absolute inset-y-0 left-0 block text-signal segments ${!total ? "indeterminate w-full" : ""}`}
+                style={!total ? undefined : { width: `${progress * 100}%`, transition: "width .3s ease-out" }}
               />
             </span>
+          )}
+          {total > 0 && (
+            <button type="button" className="px-tab tabular-nums" aria-expanded={routing} aria-controls="routing" onClick={() => setRouting((r) => !r)}>
+              {done || finished === total ? plural(total, "part") : `${finished}/${total} parts`}
+            </button>
           )}
         </span>
       </header>
 
+      {routing && (
+        <div id="routing" className="max-h-[42vh] overflow-y-auto border-b-4 border-ink bg-paper px-5 py-4">
+          <Routing text={doc.text} parts={parts} model={scan?.model ?? result?.model ?? null} live={scan?.live ?? true} />
+        </div>
+      )}
+
       <div ref={body} onMouseUp={onMouseUp} className={`relative min-h-0 flex-1 overflow-y-auto px-3 pt-6 pb-44 sm:px-6 ${fixing ? "cursor-text" : ""}`}>
+        {modelOff && status !== "failed" && view === "lines" && (
+          <p className="mx-auto mb-4 flex max-w-[860px] items-center gap-2 bg-paper px-3 py-2 text-[14px] px-frame-thin">
+            <span className="inline-block h-2.5 w-2.5 shrink-0 bg-stone" aria-hidden />
+            Numbers only for now. The AI model did not run, so names and addresses were not looked for.
+          </p>
+        )}
         {status === "failed" ? (
           <div className="mx-auto max-w-[760px] bg-paper p-5 px-frame px-frame-red">
             <p className="font-semibold text-signal-deep">The redaction did not finish.</p>
@@ -168,52 +214,84 @@ export function DocumentPane({ session, modelOn, onRevealed, onApprove, onDeclin
           <article className="paper-sheet mx-auto max-w-[860px] bg-paper py-6 px-frame" aria-label="Document text">
             {lines.map((line) => {
               const text = lineText(line);
-              if (!text.trim()) return <div key={line.index} className="h-3" />;
-              const current = passing && line.index === cursor;
-              const passed = done || line.index <= cursor;
-              const cls = [
-                "doc-line grid grid-cols-[48px_12px_1fr] items-center",
-                status === "scanning" ? "is-reading" : "",
-                current ? "is-current" : "",
-                passed ? "is-passed" : "",
-              ].join(" ");
-              return (
-                <div key={line.index} ref={(el) => { lineEls.current[line.index] = el; }} className={cls} style={{ ["--i" as string]: line.index }}>
-                  <span className="pr-3 text-right font-label text-[10px] text-quiet tabular-nums">{String(line.index + 1).padStart(2, "0")}</span>
-                  <i className={`gutter-mark block h-[22px] w-1 ${line.changes ? "bg-signal" : ""}`} />
-                  <span className={`min-h-[30px] py-1 pr-6 leading-[22px] whitespace-pre-wrap ${isHeading(text.trim()) ? "font-serif text-[13px] font-semibold tracking-[0.06em]" : "font-serif text-[15px]"}`}>
-                    {line.segments.map((s, i) =>
-                      s.kind === "text" ? (
-                        <Fragment key={i}>{s.text}</Fragment>
-                      ) : (
-                        <button
-                          key={i}
-                          type="button"
-                          data-entity={s.entity}
-                          data-p={s.placeholder.replace(/[[\]]/g, "")}
-                          style={{ ["--tag" as string]: `${s.placeholder.length * 7 + 2}px` }}
-                          tabIndex={editable ? 0 : -1}
-                          aria-label={passed ? `${s.placeholder}, hidden` : undefined}
-                          onClick={(e) => {
-                            if (!editable) return;
-                            const r = e.currentTarget.getBoundingClientRect();
-                            setPick(null);
-                            setPop({ entity: s.entity, x: r.left, y: r.bottom + 10 });
-                          }}
-                          className={[
-                            "val",
-                            passed ? "is-hidden" : "",
-                            current ? "is-flash" : "",
-                            editable ? "is-live" : "",
-                            focus !== null && changes[focus]?.entity === s.entity ? "is-focus" : "",
-                          ].join(" ")}
-                        >
-                          {s.text}
-                        </button>
-                      ),
+              const part = partOfLine[line.index];
+              const span = part ? spans.get(part.index) : undefined;
+              const first = !!part && span?.[0] === line.index;
+              const failed = part?.status === "error";
+              const noteRow = failed && first && (
+                <div className="grid grid-cols-[48px_12px_1fr] items-center" title={part.error ?? undefined}>
+                  <span />
+                  <i className="unchecked-mark block h-full min-h-[30px] w-1" />
+                  <span className="flex flex-wrap items-center gap-2 py-1.5 pr-6">
+                    <Chip tone="red">Not checked by the AI</Chip>
+                    <span className="text-[13px] text-quiet">
+                      {span[0] === span[1] ? `Line ${span[0] + 1}` : `Lines ${span[0] + 1} to ${span[1] + 1}`}. Only the number rules ran here.
+                    </span>
+                    {status === "review" && (
+                      <Button size="sm" variant="ghost" icon="right" onClick={onRetry}>
+                        Retry
+                      </Button>
                     )}
                   </span>
                 </div>
+              );
+              if (!text.trim()) return <Fragment key={line.index}>{noteRow}<div className="h-3" /></Fragment>;
+              const at = part ? cursors[part.index] : undefined;
+              const reading = status === "scanning" && (!part || part.status === "pending");
+              const current = !done && at === line.index;
+              const passed = done || (at !== undefined && line.index <= at);
+              const cls = [
+                "doc-line grid grid-cols-[48px_12px_1fr] items-center",
+                reading ? "is-reading" : "",
+                current ? "is-current" : "",
+                passed ? "is-passed" : "",
+                failed ? "is-unchecked" : "",
+              ].join(" ");
+              return (
+                <Fragment key={line.index}>
+                  {noteRow}
+                  <div
+                    ref={(el) => { lineEls.current[line.index] = el; }}
+                    className={cls}
+                    style={{ ["--i" as string]: line.index - (span?.[0] ?? 0) }}
+                    title={failed ? `Not checked by the AI${part.error ? `: ${part.error}` : ""}` : undefined}
+                  >
+                    <span className="pr-3 text-right font-label text-[10px] text-quiet tabular-nums">{String(line.index + 1).padStart(2, "0")}</span>
+                    <i className={`gutter-mark block h-[22px] w-1 ${line.changes ? "bg-signal" : ""}`} />
+                    <span className={`min-h-[30px] py-1 pr-6 leading-[22px] whitespace-pre-wrap ${isHeading(text.trim()) ? "font-serif text-[13px] font-semibold tracking-[0.06em]" : "font-serif text-[15px]"}`}>
+                      {line.segments.map((s, i) =>
+                        s.kind === "text" ? (
+                          <Fragment key={i}>{s.text}</Fragment>
+                        ) : (
+                          <button
+                            key={i}
+                            type="button"
+                            data-entity={s.entity}
+                            data-p={s.placeholder.replace(/[[\]]/g, "")}
+                            style={{ ["--tag" as string]: `${s.placeholder.length * 7 + 2}px` }}
+                            tabIndex={editable ? 0 : -1}
+                            aria-label={passed ? `${s.placeholder}, hidden` : undefined}
+                            onClick={(e) => {
+                              if (!editable) return;
+                              const r = e.currentTarget.getBoundingClientRect();
+                              setPick(null);
+                              setPop({ entity: s.entity, x: r.left, y: r.bottom + 10 });
+                            }}
+                            className={[
+                              "val",
+                              passed ? "is-hidden" : "",
+                              current ? "is-flash" : "",
+                              editable ? "is-live" : "",
+                              focus !== null && changes[focus]?.entity === s.entity ? "is-focus" : "",
+                            ].join(" ")}
+                          >
+                            {s.text}
+                          </button>
+                        ),
+                      )}
+                    </span>
+                  </div>
+                </Fragment>
               );
             })}
           </article>
@@ -252,11 +330,11 @@ export function DocumentPane({ session, modelOn, onRevealed, onApprove, onDeclin
       {status === "review" && (
         <div className={`review-bar absolute right-4 bottom-4 left-4 z-20 flex flex-col gap-3 bg-ink px-4 py-3 text-bone px-frame ${session.revealed ? "is-up" : ""}`}>
           <p className={`min-w-0 truncate text-[14px] ${fixing ? "font-semibold text-signal-soft" : "text-bone/85"}`} aria-live="polite">
-            {fixing ? "Select the missed text on the page, then press Hide." : (note ?? "Check the changes. Missed one? Use Fix a miss.")}
+            {fixing ? "Select the missed text on the page, then press Hide." : (note ?? statusNote)}
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <span className="mr-auto font-label text-[12px] whitespace-nowrap tabular-nums">
-              {changes.length} changes · {distinct} values
+              {plural(changes.length, "change")} · {plural(distinct, "value")}
             </span>
             <Button size="sm" icon="up" onClick={() => goTo((focus ?? 0) - 1)}>Prev</Button>
             <Button size="sm" icon="down" onClick={() => goTo(focus === null ? 0 : focus + 1)}>Next</Button>
@@ -280,7 +358,7 @@ export function DocumentPane({ session, modelOn, onRevealed, onApprove, onDeclin
       {status === "declined" && (
         <div className="absolute right-4 bottom-4 left-4 z-20 flex items-center gap-2 bg-paper px-4 py-3 px-frame">
           <Icon name="close" />
-          Declined. Nothing from this document was sent.
+          Declined. Nothing from this document was sent to the AI provider.
         </div>
       )}
     </section>
